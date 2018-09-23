@@ -8,6 +8,9 @@ h1 {
 	font-style: italic;
 	text-align: center;
 	font-size: 4.5em;
+	background: -webkit-linear-gradient(white, red);
+  	-webkit-background-clip: text;
+  	-webkit-text-fill-color: transparent;
 }
 
 h2 {
@@ -17,20 +20,35 @@ h2 {
 }
 
 form {
-	padding-left: 40%;
+
+	padding-left: 35%;
+	display: inline-block;
+	width: 60%;
 	font-size: 2em;
 }
-input {
-	size: 20%;
-}
 
-p {
-	padding-left: 40%;
+
+.signin {
+	padding-left: 45%;
 	font-size: 1.5em;
-
+}
+.noaccount {
+	padding-left: 35%;
+	font-size: 1.5em;
+	font-weight: strong;
+}
+.about {
+	position: absolute;
+    bottom: 0;
+	text-align: left;
+	font-size: 1.5em;
+	font-weight: strong;
 }
 
 table {
+	text-align: center;
 	border-style: solid;
 	border-width: 2px;
+	width: 50%;
+	padding-bottom: 5px;
 }
