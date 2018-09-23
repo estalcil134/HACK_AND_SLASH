@@ -24,13 +24,16 @@ form {
 	padding-left: 35%;
 	display: inline-block;
 	width: 60%;
-	font-size: 2em;
+	font-size: 1.8em;
 }
 
+input {
+	
+}
 
 .signin {
-	padding-left: 45%;
-	font-size: 1.5em;
+	padding-left: 35%;
+	font-size: 1.65em;
 }
 .noaccount {
 	padding-left: 35%;
@@ -49,6 +52,7 @@ table {
 	text-align: center;
 	border-style: solid;
 	border-width: 2px;
+	border-radius: 10px;
 	width: 50%;
 	padding-bottom: 5px;
 }
