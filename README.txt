@@ -1,0 +1,1 @@
+In the HACK&/ folder structure we utilize snake case directory and file names to keep the organization and naming consistent.
