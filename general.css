@@ -1,0 +1,29 @@
+/*General Things*/
+.left
+{
+  float:left;
+}
+
+.right
+{
+  float:right;
+}
+
+.clear_left
+{
+  clear:left;
+}
+
+.clear_right
+{
+  clear:right;
+}
+
+footer
+{
+  text-align:center;
+  width:100%;
+  /*Stick footer to the bottom of the page*/
+  bottom:0;
+  position:absolute;
+}
