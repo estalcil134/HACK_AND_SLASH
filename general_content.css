@@ -21,6 +21,7 @@
 
 body
 {
+  /*So it takes up the whole page*/
   padding:0;
   margin:0;
 }
@@ -29,7 +30,7 @@ body
 header
 {
   /*border-bottom:1px solid black;*/
-  overflow:hidden;
+  overflow:hidden; /*So it takes up space and is visible*/
   background-color:darkorange;
   /*height:70px;*/
 }
@@ -47,6 +48,7 @@ a:hover
 
 #home
 {
+  /*HACK&/*/
   font-size:30pt;
   padding: 13px 0 13px 13px;
 }
@@ -71,7 +73,7 @@ ul
   margin:0;
   height:37px;
   background-color:darkred;
-  overflow:hidden;
+  /*overflow:hidden;*/
 }
 
 .nav
@@ -96,3 +98,12 @@ li.nav
   background-color:#670909;
   height:37px;
 }
+
+/* Four Buttons in the Middle */
+section
+{
+  margin:0;
+  margin:auto;
+}
+
+
