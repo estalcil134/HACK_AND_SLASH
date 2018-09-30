@@ -193,7 +193,7 @@ footer
 div#body
 {
   width:100%;
-  margin:5% auto 0 auto;
+  margin:5% auto 0 auto;  /*to center everything*/
 }
 
 div#container
@@ -219,6 +219,8 @@ div div div:hover
   cursor:pointer;
 }
 
+
+/*Content in each of the three rectangles*/
 h4
 {
   text-align:center;
@@ -230,6 +232,7 @@ div div img
   width:auto;
 }
 
+/*Reset Password Button*/
 p a
 {
   display:block;
