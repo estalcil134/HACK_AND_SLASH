@@ -193,7 +193,7 @@ footer
 div#body
 {
   width:100%;
-  margin:5% auto 0 auto;  /*to center everything*/
+  margin:5% auto 0 auto;
 }
 
 div#container
@@ -219,8 +219,6 @@ div div div:hover
   cursor:pointer;
 }
 
-
-/*Content in each of the three rectangles*/
 h4
 {
   text-align:center;
@@ -232,7 +230,6 @@ div div img
   width:auto;
 }
 
-/*Reset Password Button*/
 p a
 {
   display:block;
@@ -254,4 +251,45 @@ footer
   /*Stick footer to the bottom of the page*/
   bottom:0;
   position:absolute;
+}
+
+/*underneath is stuff for table*/
+table {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1.5%;
+  border: solid;
+  border-spacing: 0em;
+  width: 30%;
+}
+tr, td {
+  border: 1px solid;
+  text-align: left;
+  border-collapse: collapse;
+  padding: 12px;
+}
+tr:nth-child(even) {
+  background-color: #E8E8E8;
+}
+
+.rank {
+  text-align: center;
+  font-weight: bold;
+}
+
+.first {
+  background-color: #FFDF00;
+}
+.second {
+  background-color: silver;
+}
+.third {
+  background-color: #cd7f32;
+}
+th {
+  padding: 8px;
+  text-align: center;
+  font-size: 1.5em;
+  border: 0px solid;
+  border-bottom: 1px;
 }

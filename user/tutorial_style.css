@@ -1,0 +1,119 @@
+/*General Things*/
+.left
+{
+  float:left;
+}
+
+.right
+{
+  float:right;
+}
+
+.clear_left
+{
+  clear:left;
+}
+
+.clear_right
+{
+  clear:right;
+}
+
+body
+{
+  /*So it takes up the whole page*/
+  padding:0;
+  margin:0;
+}
+
+/*Header Things*/
+header
+{
+  /*border-bottom:1px solid black;*/
+  overflow:hidden; /*So it takes up space and is visible*/
+  background-color:darkorange;
+  /*height:70px;*/
+}
+
+a
+{
+  color:black;
+  text-decoration:none;
+}
+
+a:hover
+{
+  background-color:skyblue;
+}
+
+#home
+{
+  /*HACK&/*/
+  font-size:30pt;
+  padding: 13px 0 13px 13px;
+}
+
+#user_info
+{
+  padding:13px 20px 13px 0;
+}
+
+#profile_pic
+{
+  //object-fit:contain;
+  width:50px;
+  height:50px;
+  padding-right:7px;
+}
+
+/*Navigation Things*/
+ul
+{
+  list-style:none;
+  margin:0;
+  height:37px;
+  background-color:darkred;
+  /*overflow:hidden;*/
+}
+
+.nav
+{
+  margin:0;
+  color:lightgrey;
+}
+
+a.nav
+{
+  padding:9px 6px 9px 6px;
+  font-size:13pt;
+}
+
+a.nav:hover
+{
+  background-color:grey;
+}
+
+li.nav
+{
+  background-color:#670909;
+  height:37px;
+}
+
+/* Four Buttons in the Middle */
+section
+{
+  margin:0;
+  margin:auto;
+}
+
+/* additional for tutorials */
+
+p {
+  padding-left: 20%;
+}
+embed {
+  padding-left: 20%;
+}
+iframe {
+  padding-left: 20%;
+}

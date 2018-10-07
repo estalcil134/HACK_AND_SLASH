@@ -1,0 +1,159 @@
+/*GET RID OF THIS STUFF WHEN WE GENERALIZE!!!*/
+body
+{
+  /*So it takes up the whole page*/
+  padding:0;
+  margin:0;
+}
+
+/*Header Things*/
+header
+{
+  /*border-bottom:1px solid black;*/
+  overflow:hidden; /*So it takes up space and is visible*/
+  background-color:darkorange;
+  /*height:70px;*/
+}
+
+a
+{
+  color:black;
+  text-decoration:none;
+}
+
+a:hover
+{
+  background-color:skyblue;
+}
+
+#home
+{
+  /*HACK&/*/
+  font-size:30pt;
+  padding: 13px 0 13px 13px;
+}
+
+#user_info
+{
+  padding:13px 20px 13px 0;
+}
+
+#profile_pic
+{
+  //object-fit:contain;
+  width:50px;
+  height:50px;
+  padding-right:7px;
+}
+
+/*Navigation Things*/
+ul
+{
+  list-style:none;
+  margin:0;
+  height:37px;
+  background-color:darkred;
+  /*overflow:hidden;*/
+}
+
+.nav
+{
+  margin:0;
+  color:lightgrey;
+}
+
+a.nav
+{
+  padding:9px 6px 9px 6px;
+  font-size:13pt;
+}
+
+a.nav:hover
+{
+  background-color:grey;
+}
+
+li.nav
+{
+  background-color:#670909;
+  height:37px;
+}
+
+
+/*ACTUAL USEFUL CODE FOR THIS PAGE*/
+div#body
+{
+  margin:2% auto 0 auto;
+}
+
+div#container
+{
+  /*Center the challenges on the page*/
+  height:100%;
+  width:75%;
+  margin:auto;
+}
+
+.challenge
+{
+  width:75%;
+  overflow:hidden;  /*Ensures div tag surrounds img*/
+  margin: 0 auto 1% auto;
+  /*For the animation thing*/
+  position:relative;
+}
+
+p, img
+{
+  float:left;
+}
+
+p.left
+{
+  padding:2%;
+  margin-left:10%;
+}
+
+/*Image hover effect*/
+img
+{
+  width:50%;
+  height:auto;
+  /*animation?*/
+  transition:opacity 0.5s;
+}
+
+.challenge:hover
+{
+  /*Container for the image and the text to appear*/
+  cursor:url('./Webp.net-resizeimage.cur'), default;
+}
+
+.topic
+{
+  /*Styling stuff*/
+  color:lightgrey;
+  background-color:darkred;
+  max-width:58px;
+  min-width:57px;
+  padding:0 2%;
+  /*Overlay thing*/
+  opacity:0;
+  position:absolute;
+  top:50%;
+  left:40%;
+  text-align:center;
+  transition:opacity 0.5s;
+}
+
+img.fade:hover
+{
+  /*Background image fade*/
+  opacity:0.3;
+  /*cursor:url('./Webp.net-resizeimage.cur'), default;*/
+}
+
+div.challenge:hover .topic
+{
+  opacity:1;
+}

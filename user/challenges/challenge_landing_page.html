@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="author" content="Arron">
+	<meta name="description" content="List of All Challenges">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Challenges</title>
+	<link rel="stylesheet" href="../../resources/challenge_home/challenge_landing_page.css" type="text/css">
+	<link rel="stylesheet" href="../../resources/general.css" type="text/css">
+</head>
+
+<body>
+	<header>
+		<strong><a id="home" class="left" href="#">HACK&/</a></strong>
+		<div id="user_info" class="right">
+			<img id="profile_pic" class="left" alt="user profile picture" src="https://dfep0xlbws1ys.cloudfront.net/thumbs95/56/9556118b41565a14b169263d0ed42a63.jpg?response-cache-control=max-age=2628000">
+			<p class="right">INSERT USERNAME</p>
+		</div>
+	</header>
+
+  <nav>
+  	<ul>
+	  	<li class="nav left"><a class="left nav" href="#">Tutorials</a></li>
+	  	<li class="nav left"><a class="left nav" href="#">Challenges</a></li>
+	  	<li class="nav left"><a class="left nav" href="#">Scoreboard</a></li>
+	  	<li class="nav right"><a class="right nav" href="#">Logout</a></li>
+	  </ul>
+  </nav>
+
+  <div id="body">
+    <div id="container">
+    	<div class="challenge">
+    		<p class="left clear_left">Challenge 1:</p>
+    		<!-- Change src depending on completed or not completed challenge -->
+    		<img class="left fade" alt="Challenge 1" src="../../resources/challenge_home/new_johnny.gif" onclick="location.href='https://www.youtube.com/watch?v=Bt5rCgHN1Gc'"/>
+        <div class="topic">TOPIC 1</div>
+        <audio>
+          <source src="heres-johnny_1.mp3" type="audio/mpeg">
+        </audio>
+    	</div>
+    	<div class="challenge">
+    		<p class="left clear_left">Challenge 2:</p>
+    		<img class="left fade" alt="Challenge 2" src="../../resources/challenge_home/Webp.net-resizeimage.jpg" onclick="location.href='https://www.youtube.com/watch?v=Bt5rCgHN1Gc'"/>
+        <div class="topic">TOPIC 2</div>
+    	</div>
+    	<div class="challenge">
+    		<p class="left clear_left">Challenge 3:</p>
+        <img class="left fade" alt="Challenge 3" src="../../resources/challenge_home/Webp.net-resizeimage.jpg" onclick="location.href='https://www.youtube.com/watch?v=Bt5rCgHN1Gc'"/>
+        <div class="topic">TOPIC 3</div>
+    	</div>
+    	<div class="challenge">
+    		<p class="left clear_left">Challenge 4:</p>
+    		<img class="left fade" alt="Challenge 4" src="../../resources/challenge_home/Webp.net-resizeimage.jpg" onclick="location.href='https://www.youtube.com/watch?v=Bt5rCgHN1Gc'"/>
+        <div class="topic">TOPIC 4</div>
+    	</div>
+    </div>
+  </div>
+
+  <footer>
+  	Place Holder for actual footer
+  </footer>
+</body>
+<script>
+  window.onload = function() {
+    console.log("hi");
+    var audio = document.getElementsByTagName("audio")[0];
+    var johnny = document.getElementsByTagName("img")[1];
+    johnny.addEventListener("mouseover", function(){
+      audio.play();
+      audio.setAttribute("loop", "true");
+    });
+    johnny.addEventListener("mouseout", function(){
+      audio.setAttribute("loop", "false");
+      audio.pause();
+      audio.currentTime=0;
+    });
+  };
+</script>
+</html>
