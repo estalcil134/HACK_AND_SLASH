@@ -6,26 +6,41 @@
 	<meta name="description" content="List of All Challenges">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Challenges</title>
+
+  <script type="text/javascript" src="../resources/general/footer.js"></script>
+  <link href="../../resources/general/general_content.css" rel="stylesheet" type="text/css"/>
+
+  <!--
 	<link rel="stylesheet" href="../../resources/challenge_home/challenge_landing_page.css" type="text/css">
 	<link rel="stylesheet" href="../../resources/general.css" type="text/css">
+  -->
 </head>
 
-<body>
-	<header>
-		<strong><a id="home" class="left" href="#">HACK&/</a></strong>
-		<div id="user_info" class="right">
-			<img id="profile_pic" class="left" alt="user profile picture" src="https://dfep0xlbws1ys.cloudfront.net/thumbs95/56/9556118b41565a14b169263d0ed42a63.jpg?response-cache-control=max-age=2628000">
-			<p class="right">INSERT USERNAME</p>
-		</div>
-	</header>
+<!--this is the html for the logo and user username-->
+<body onload="disappearButton()">
+  <header>
+    <!--Logo and link to go back to the home-->
+    <a id="home" class="left bold" href="#"><img id = "logo" src="../../resources/general/LOGO.png" alt="HACK AND SLASH LOGO"></a>
+    <!--the profile picture of the person, and their username-->
+    <div id="user_info" class="right">
+      <div id="profile_pic_user" alt="user profile picture">
+        </div>
+     <p id = "username" class="right">INSERT USERNAME</p>
+    </div>
+   </header>
 
+  <!--this is the html that creates the user nav bar-->
   <nav>
-  	<ul>
-	  	<li class="nav left"><a class="left nav" href="#">Tutorials</a></li>
-	  	<li class="nav left"><a class="left nav" href="#">Challenges</a></li>
-	  	<li class="nav left"><a class="left nav" href="#">Scoreboard</a></li>
-	  	<li class="nav right"><a class="right nav" href="#">Logout</a></li>
-	  </ul>
+  <ul>
+      <!--Tutorials-->
+      <li class="nav left"><a class="left nav" href="#">Tutorials</a></li>
+      <!--Challenges-->
+      <li class="nav left"><a class="left nav" href="#">Challenges</a></li>
+      <!--Scoreboard-->
+      <li class="nav left"><a class="left nav" href="#">Scoreboard</a></li>
+      <!--Logout-->
+      <li class="nav right" id = "nav_right"><a class="right nav" href="#">Logout</a></li>
+    </ul>
   </nav>
 
   <div id="body">
@@ -57,9 +72,13 @@
     </div>
   </div>
 
-  <footer>
-  	Place Holder for actual footer
-  </footer>
+<!--the html for the footer of the webpage-->
+    <!--Go to about webpage-->
+    <footer>
+      <a id = "about" href="">About Page</a>
+    </footer>
+    <!--Button to scroll back to the top-->
+    <button onclick="topFunction()" id="topBtn" class = "right" title="Go to top">Back to Top</button>
 </body>
 <script>
   window.onload = function() {

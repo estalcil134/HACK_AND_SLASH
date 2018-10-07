@@ -45,4 +45,5 @@ th {
   font-size: 1.5em;
   border: 0px solid;
   border-bottom: 1px;
+  background-image: radial-gradient(white, black 99%);
 }
