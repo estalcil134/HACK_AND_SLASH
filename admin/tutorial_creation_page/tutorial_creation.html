@@ -1,0 +1,40 @@
+<!DOCTYPE>
+<html>
+  <head>
+    <title>Hack&/</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>    
+    <link href="../../resources/tutorial_creation_page/tutorial_creation.css" rel="stylesheet" type="text/css"/>
+    <link href="../../resources/general/general_content.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="../../resources/tutorial_creation_page/tutorial_creation.js"></script>
+    <script type="text/javascript" src="../../resources/general/footer.js"></script>
+  </head>
+  <body onload="disappearButton()">
+    <header>
+		  <a id="home" class="left" href="#"><img id = "logo" src="../../resources/general/LOGO.png" alt="HACK AND SLASH LOGO"></a>
+		  <div id="user_info" class="right">
+		    <img id="profile_pic" alt="user profile picture" src="../../resources/general/user.jpg">
+			 <p id = "username" class="right">INSERT USERNAME</p>
+		  </div>
+	   </header>
+    <nav>
+      <ul id = "naver">
+	  	  <li class="nav left"><a class="left nav" href="#">Tutorial Creation</a></li>
+        <li class="nav left"><a class="left nav" href="#">Tutorial Deletion</a></li>
+	  	  <li class="nav left"><a class="left nav" href="#">Challenge Creation</a></li>
+        <li class="nav left"><a class="left nav" href="#">Challenge Deletion</a></li>
+	  	  <li class="nav right" id = "nav_right"><a class="right nav" href="#">Logout</a></li>
+	    </ul>
+    </nav>
+    <h1></h1>
+    <form id="addForm" name="addForm" action="#" method="post" onsubmit="return validate(this);">
+      <label class="field" for="tutorial">Tutorial Name:</label>
+      <input type="text" size="60" value="" name="tutorial" id="tutorial"/>
+      <input type="submit" value="save" id="save" name="save"/>
+<!--      https://www.sceditor.com/-->
+    </form>
+    <footer>
+      <a id = "about" href="">About Page</a>
+	  </footer>
+    <button onclick="topFunction()" id="topBtn" class = "right" title="Go to top">Back to Top</button>
+  </body>
+</html>

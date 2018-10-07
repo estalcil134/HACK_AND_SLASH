@@ -67,11 +67,10 @@ content*/
   color: lightgrey;
   height: 19px;
 }
-/*the link of the nav bar has a font size and padding for each*/
+/*the link of the nav bar padding for each*/
 a.nav
 {
   padding: 9px 6px 9px 6px;
-  font-size: 13pt;
 }
 /*when hovered over, the nav bar links change color to show the 
 cursor is over the link*/
