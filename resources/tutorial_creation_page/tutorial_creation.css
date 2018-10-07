@@ -1,10 +1,100 @@
-@charset "UTF-8";
-
-.padding {
-  padding-bottom: 50px;
+html
+{
+  color: #e21f1f;
 }
 
-#addform
+form 
 {
-  margin-bottom: 1000px;
+  background-color:rgba(255, 255, 255, 0.7);
+  margin-left: 10%;
+  margin-right: 10%;
+}
+#title_name
+{
+  padding-top: 20px;
+}
+#title
+{
+  font-size: 1.2em;
+  font-weight: bold;
+  display: inline;
+  background-image: linear-gradient(black,#3E3939,black);
+  padding-right: 5px;
+  padding-left: 5px;
+  border-width: 30px;
+  border-radius: 10%;
+  margin-top: 10px;
+}
+#addForm
+{
+  margin-top: 50px;
+  text-align: center;
+}
+#tutorial
+{
+  height: 20px;
+  border-radius: 0%;
+}
+
+#buttonz
+{
+  display: block;
+  margin-top: 100px;
+}
+#tutorial_creator
+{
+  height: 600px;
+  margin-bottom: 100px;
+}
+#save
+{
+  color: lightgrey;
+  border-top: 2px solid #971100;
+  border-right: 2px solid #FA2E14;
+  border-bottom: 2px solid #FA2E14;
+  border-left: 2px solid #971100;
+  background-color: red;
+}
+#save:active 
+{
+  border-top: 2px solid #FA2E14;
+  border-right: 2px solid #971100;
+  border-bottom: 2px solid #971100;
+  border-left: 2px solid #FA2E14;
+  background-color: darkred;
+  color: white;
+}
+.button_choice
+{
+  display: inline-block;
+  border-radius: 50px 50px 0px 0px;
+  width: 200px;
+  height: 40px;
+  font-size: 1.4em;
+}
+button 
+{
+  color: lightgrey;
+  border-top: 2px solid #971100;
+  border-right: 2px solid #FA2E14;
+  border-bottom: 2px solid #FA2E14;
+  border-left: 2px solid #971100;
+  background-image: linear-gradient(#550606,#8B0B0B,#C90F0F,#8B0B0B,#550606);
+}
+button:hover 
+{
+  border-top: 2px solid #FA2E14;
+  border-right: 2px solid #971100;
+  border-bottom: 2px solid #971100;
+  border-left: 2px solid #FA2E14;
+  background-image: linear-gradient(#BB0303,#650404,#2E0303,#650404,#BB0303);
+  color: white;
+}
+#tutorial_button
+{
+  
+}
+#question_button
+{
+  
 }

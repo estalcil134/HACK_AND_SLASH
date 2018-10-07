@@ -8,7 +8,7 @@
     <script type="text/javascript" src="../../resources/tutorial_creation_page/tutorial_creation.js"></script>
     <script type="text/javascript" src="../../resources/general/footer.js"></script>
   </head>
-  <body onload="disappearButton()">
+  <body onload="disappearButton(); getFocusText();">
     <header>
 		  <a id="home" class="left" href="#"><img id = "logo" src="../../resources/general/LOGO.png" alt="HACK AND SLASH LOGO"></a>
 		  <div id="user_info" class="right">
@@ -26,13 +26,24 @@
 	  	  <li class="nav right" id = "nav_right"><a class="right nav" href="#">Logout</a></li>
 	    </ul>
     </nav>
-    <h1></h1>
+    
+    <!--      https://www.sceditor.com/-->
     <form id="addForm" name="addForm" action="#" method="post" onsubmit="return validate(this);">
-      <label class="field" for="tutorial">Tutorial Name:</label>
-      <input type="text" size="60" value="" name="tutorial" id="tutorial"/>
-      <input type="submit" value="save" id="save" name="save"/>
-<!--      https://www.sceditor.com/-->
+      <div id = "title_name">
+        <p id = "title">Tutorial Name:</p>
+        <input type="text" size="60" value="" name="tutorial" id="tutorial"/>
+        <input type="submit" value="save" id="save" name="save"/>
+      </div>
+      <div id="buttonz">
+        <button class = "button_choice" id = "tutorial_button">Tutorial</button>
+        <button class = "button_choice" id = "question_button">Question</button>
+      </div>
+      <div id = "tutorial_creator">
+        
+      </div>
     </form>
+    
+    
     <footer>
       <a id = "about" href="">About Page</a>
 	  </footer>

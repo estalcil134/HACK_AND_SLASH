@@ -85,6 +85,12 @@ a.nav:hover
   background-image: linear-gradient(#BB0303,#650404,#2E0303,#650404,#BB0303);
   color: white;
 }
+/*when the navbar link is pressed it turns red*/
+a.nav:active
+{
+  background-image: linear-gradient(#BB0303,#BB0303);
+  color: white;
+}
 /*the nav list elements are coreectly colored like buttons*/
 li.nav
 {
@@ -182,7 +188,7 @@ and sizing*/
   color: white;
   line-height: 220%; 
   text-align: center;
-  margin-left: 40px;
+  margin-left: 20px;
   font-size: 1.5em;
   font-weight: bold;
   text-decoration: underline;
