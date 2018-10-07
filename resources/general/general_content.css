@@ -1,0 +1,182 @@
+/*<script type="text/css" src="../resources/general/general_content.css"></script>*/
+
+/*This is the General css used for many of the web pages*/
+
+/*this css floats the element left*/
+.left
+{
+  float: left;
+}
+/*this css floats the element right*/
+.right
+{
+  float: right;
+}
+/*this css clears the elments left of it*/
+.clear_left
+{
+  clear: left;
+}
+/*this css clears the elements right of it*/
+.clear_right
+{
+  clear: right;
+}
+/*the html page has the appropiate background, sized to the screen
+and fixed so that when scrolling occurs the picture stays with the 
+screen*/
+html 
+{
+  background-image: url("tree.jpg"); 
+  background-size: 100% 100%;
+  background-attachment: fixed;
+}
+/*So the body takes up the whole page*/
+body
+{
+  padding: 0;
+  margin: 0;
+}
+/*the nav bar has bolded text*/
+nav 
+{
+  font-weight: bold;
+}
+/*the header has a max height, has the color of red for text, and 
+is correctly positioned*/
+header
+{
+  overflow: hidden; /*So it takes up space and is visible*/
+  background-position: center;
+  min-height: 100px;
+  max-height: 15%;
+  color: red;
+}
+/*nav bar list a certain height also makes it seperate from page
+content*/
+#naver
+{
+  list-style: none;
+  margin: 0;
+  height: 37px;
+}
+/*nav bar height is set for buttons, as well as tect color*/
+.nav
+{
+  margin: 0;
+  color: lightgrey;
+  height: 19px;
+}
+/*the link of the nav bar has a font size and padding for each*/
+a.nav
+{
+  padding: 9px 6px 9px 6px;
+  font-size: 13pt;
+}
+/*when hovered over, the nav bar links change color to show the 
+cursor is over the link*/
+a.nav:hover
+{
+  background-image: linear-gradient(#BB0303,#650404,#2E0303,#650404,#BB0303);
+  color: white;
+}
+/*the nav list elements are coreectly colored like buttons*/
+li.nav
+{
+  background-color: #670909;
+  margin-right: 2px;
+  border-width: 2px;
+  border-bottom-color: black;
+  background-image: linear-gradient(#550606,#8B0B0B,#C90F0F,#8B0B0B,#550606);
+  height:37px;
+}
+/*footer is always in the bottom wherever a user scrolls and 
+formatted to look good*/
+footer
+{
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  min-height: 50px;
+  max-height: 15%;
+}
+/*logo is resized to correctly be fit into the header*/
+#logo
+{
+  height: 100%;
+}
+/*the logout button is margined to the right side of the page*/
+#nav_right
+{
+  margin-right: 40px;
+}
+/*the user info is given a max and min height*/
+#user_info
+{
+  min-height: 100px;
+  max-height: 15%;
+}
+/*the username is spaced correctly, and it is colored so that the red 
+stands out from the background*/
+#username 
+{
+  line-height: 220%; 
+  text-align: center;
+  margin-right: 15px;
+  font-size: 1.5em;
+  font-weight: bold;
+  background-color: black;
+  border-radius: 5px;
+  border: white;
+  border-width: white;
+  background-image: linear-gradient(black,#3E3939,black);
+}
+/*the profile pic is sized and made to pop from the website*/
+#profile_pic
+{
+  width: 50px;
+  height: 70px;
+  vertical-align: middle;
+  border-top: 2px solid #971100;
+  border-right: 2px solid #FA2E14;
+  border-bottom: 2px solid #FA2E14;
+  border-left: 2px solid #971100;
+  border-radius: 50%;
+  margin-top: 13px;
+  margin-right: 15px;
+}
+/*the footer about link is given a color, spacing, styling 
+and sizing*/
+#about
+{
+  color: white;
+  line-height: 220%; 
+  text-align: center;
+  margin-left: 40px;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-decoration: underline;
+}
+/*
+the button that allows a user to back to the top of the page is given a color a sizing, a spacing, and a background color */
+#topBtn
+{
+  line-height: 30px; 
+  text-align: center;
+  margin-right: 40px;
+  margin-top: 8px;
+  font-size: 1.2em;
+  position: fixed;
+  right: 20px;
+  bottom: 8;
+  border-radius: 20%;
+  border-color: #550606;
+  background-image: linear-gradient(#550606,#8B0B0B,#C90F0F,#8B0B0B,#550606);
+  color: white;
+}
+/*the button to go to the top of the page when hovered over changes color*/
+#topBtn:hover {
+    border-color: #BB0303;
+    background-image: linear-gradient(#BB0303,#650404,#2E0303,#650404,#BB0303);
+}

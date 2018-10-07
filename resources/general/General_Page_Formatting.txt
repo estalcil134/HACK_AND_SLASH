@@ -1,0 +1,44 @@
+How to format each of the webpages:
+
+1.) First add in the scripts to the head:
+	Javascript: 	<script type="text/javascript" src="../resources/general/footer.js"></script>
+	CSS: <script type="text/css" src="../resources/general/general_content.css"></script>
+
+2.) Add in the logo:
+if it's an Admin page:
+{
+	add in the logo_admin.html
+	BE SURE TO CHANGE THE LINKS FOR:
+		THE LOGO TO GO TO THE HOME
+}
+else if it's USER page:
+{
+	add in the logo_user.html
+		BE SURE TO CHANGE THE LINKS FOR:
+			THE LOGO TO GO TO THE HOME
+}
+
+3.) Add in the NAV Bar:
+if it's an Admin page:
+{
+	add in the navbar_admin.html
+	BE SURE TO CHANGE THE LINKS FOR:
+		EACH OF THE NAV LINKS
+		THE LOGOUT
+}
+else if it's USER page:
+{
+	add in the navbar_user.html
+		BE SURE TO CHANGE THE LINKS FOR:
+			EACH OF THE NAV LINKS
+			THE LOGOUT
+}
+else if login, about, or misc.
+{
+	either use no navbars or recreate your own
+}
+
+4.) Add in the Footer:
+add in the footer.html
+BE SURE TO CHANGE THE LINKS FOR:
+	THE ABOUT PAGE
