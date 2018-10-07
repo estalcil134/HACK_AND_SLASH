@@ -24,16 +24,20 @@ tr:nth-child(odd) {
 .rank {
   text-align: center;
   font-weight: bold;
+  font-size: 1.11em;
 }
 
 .first {
-  background-color: #FFDF00;
+  background-image: linear-gradient(gold, yellow, gold);
+  font-weight: bold;
 }
 .second {
-  background-color: silver;
+  background-image: linear-gradient(gray, silver, gray);
+  font-weight: bold;
 }
 .third {
-  background-color: #cd7f32;
+  background-image: linear-gradient(brown, #cd7f32, brown);
+  font-weight: bold;
 }
 th {
   padding: 8px;
