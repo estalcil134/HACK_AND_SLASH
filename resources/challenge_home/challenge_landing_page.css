@@ -83,15 +83,24 @@ li.nav
 /*ACTUAL USEFUL CODE FOR THIS PAGE*/
 div#body
 {
-  display:block;
-  margin:0 auto;
-  margin-top:2%;
+  margin:2% auto 0 auto;
 }
 
-div div
+div#container
 {
-  overflow:hidden;
-  margin-bottom:1%;
+  /*Center the challenges on the page*/
+  height:100%;
+  width:75%;
+  margin:auto;
+}
+
+.challenge
+{
+  width:75%;
+  overflow:hidden;  /*Ensures div tag surrounds img*/
+  margin: 0 auto 1% auto;
+  /*For the animation thing*/
+  position:relative;
 }
 
 p, img
@@ -99,18 +108,52 @@ p, img
   float:left;
 }
 
-p
+p.left
 {
-  padding:2% 0;
+  padding:2%;
+  margin-left:10%;
 }
 
+/*Image hover effect*/
 img
 {
   width:50%;
   height:auto;
+  /*animation?*/
+  transition:opacity 0.5s;
 }
 
-img:hover
+.challenge:hover
 {
+  /*Container for the image and the text to appear*/
   cursor:url('./Webp.net-resizeimage.cur'), default;
+}
+
+.topic
+{
+  /*Styling stuff*/
+  color:lightgrey;
+  background-color:darkred;
+  max-width:58px;
+  min-width:57px;
+  padding:0 2%;
+  /*Overlay thing*/
+  opacity:0;
+  position:absolute;
+  top:50%;
+  left:40%;
+  text-align:center;
+  transition:opacity 0.5s;
+}
+
+img.fade:hover
+{
+  /*Background image fade*/
+  opacity:0.3;
+  /*cursor:url('./Webp.net-resizeimage.cur'), default;*/
+}
+
+div.challenge:hover .topic
+{
+  opacity:1;
 }

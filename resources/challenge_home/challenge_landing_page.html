@@ -29,45 +29,52 @@
   </nav>
 
   <div id="body">
-  	<div>
-  		<p class="left clear_left">Challenge 1:</p>
-  		<!-- Change src depending on completed or not completed challenge -->
-  		<img class="left" alt="Challenge 1" src="./Webp.net-resizeimage.jpg" onclick="location.href='https://www.youtube.com/watch?v=Bt5rCgHN1Gc'"/>
-  	</div>
-  	<div>
-  		<p class="left clear_left">Challenge 2:</p>
-  		<img class="left" alt="Challenge 2" src="./Webp.net-resizeimage.jpg" onclick="location.href='https://www.youtube.com/watch?v=Bt5rCgHN1Gc'"/>
-  	</div>
-  	<div>
-  		<p class="left clear_left">Challenge 3:</p>
-  		<img class="left" alt="Challenge 3" src="./Webp.net-resizeimage.jpg" onclick="location.href='https://www.youtube.com/watch?v=Bt5rCgHN1Gc'"/>
-  	</div>
-  	<div>
-  		<p class="left clear_left">Challenge 4:</p>
-  		<img class="left" alt="Challenge 4" src="./Webp.net-resizeimage.jpg" onclick="location.href='https://www.youtube.com/watch?v=Bt5rCgHN1Gc'"/>
-  	</div>
+    <div id="container">
+    	<div class="challenge">
+    		<p class="left clear_left">Challenge 1:</p>
+    		<!-- Change src depending on completed or not completed challenge -->
+    		<img class="left fade" alt="Challenge 1" src="./new_johnny.gif" onclick="location.href='https://www.youtube.com/watch?v=Bt5rCgHN1Gc'"/>
+        <div class="topic">TOPIC 1</div>
+        <audio>
+          <source src="heres-johnny_1.mp3" type="audio/mpeg">
+        </audio>
+    	</div>
+    	<div class="challenge">
+    		<p class="left clear_left">Challenge 2:</p>
+    		<img class="left fade" alt="Challenge 2" src="./Webp.net-resizeimage.jpg" onclick="location.href='https://www.youtube.com/watch?v=Bt5rCgHN1Gc'"/>
+        <div class="topic">TOPIC 2</div>
+    	</div>
+    	<div class="challenge">
+    		<p class="left clear_left">Challenge 3:</p>
+        <img class="left fade" alt="Challenge 3" src="./Webp.net-resizeimage.jpg" onclick="location.href='https://www.youtube.com/watch?v=Bt5rCgHN1Gc'"/>
+        <div class="topic">TOPIC 3</div>
+    	</div>
+    	<div class="challenge">
+    		<p class="left clear_left">Challenge 4:</p>
+    		<img class="left fade" alt="Challenge 4" src="./Webp.net-resizeimage.jpg" onclick="location.href='https://www.youtube.com/watch?v=Bt5rCgHN1Gc'"/>
+        <div class="topic">TOPIC 4</div>
+    	</div>
+    </div>
   </div>
-  <!-- <table>
-  	<tr>
-  		<td class="name">Challenge 1:</td>
-  		<td id="flag">Click Here</td>
-  	</tr>
-  	<tr>
-  		<td class="name">Challenge 2:</td>
-  		<td></td>
-  	</tr>
-  	<tr>
-  		<td class="name">Challenge 3:</td>
-  		<td></td>
-  	</tr>
-  	<tr>
-  		<td class="name">Challenge 4:</td>
-  		<td></td>
-  	</tr>
-  </table> -->
 
   <footer>
   	Place Holder for actual footer
   </footer>
 </body>
+<script>
+  window.onload = function() {
+    console.log("hi");
+    var audio = document.getElementsByTagName("audio")[0];
+    var johnny = document.getElementsByTagName("img")[1];
+    johnny.addEventListener("mouseover", function(){
+      audio.play();
+      audio.setAttribute("loop", "true");
+    });
+    johnny.addEventListener("mouseout", function(){
+      audio.setAttribute("loop", "false");
+      audio.pause();
+      audio.currentTime=0;
+    });
+  };
+</script>
 </html>
