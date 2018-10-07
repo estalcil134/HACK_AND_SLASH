@@ -53,6 +53,11 @@ header
   max-height: 110px;
   color: red;
 }
+/*ul does not have any list object styles next to them*/
+ul
+{
+  list-style-type: none;
+}
 /*nav bar list a certain height also makes it seperate from page
 content*/
 #naver
