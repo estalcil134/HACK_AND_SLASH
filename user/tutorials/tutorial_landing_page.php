@@ -23,9 +23,10 @@ require '../../resources/general/navbar_user.html';
     </thead>
     <tbody>
       <?php
+        //Connect
         require '../../connect.php';
-        $connected->exec("SELECT * FROM `tutorials`");
-
+        $connected->exec("SELECT * FROM `users` WHERE userid");
+        //TO BE FINISHED ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
         $start = "<tr>";
         $end = "</tr>";
