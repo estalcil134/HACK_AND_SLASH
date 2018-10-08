@@ -5,9 +5,37 @@
   <meta name="author" content="Arron">
   <title>Tutorials</title>
   <link rel="stylesheet" type="text/css" href="../../resources/general/general_content.css">
+  <link rel="stylesheet" type="text/css" href="../../resources/tutorial_home/tutorial_home.css">
+  <script type="text/javascript" src="../../resources/general/footer.js"></script>
 </head>
 <?php
 require'../../resources/general/logo_user.html';
 require '../../resources/general/navbar_user.html';
-require '../../resources/general/footer.html';
 ?>
+
+<div id="body">
+  <table>
+    <thead>
+      <tr>
+        <th>Untouched Tutorials</th>
+        <th>Completed Tutorials</th>
+      </tr>
+    </thead>
+    <tbody>
+      <?php
+        require '../../connect.php';
+        $connected->exec("SELECT * FROM `tutorials`");
+
+
+        $start = "<tr>";
+        $end = "</tr>";
+        $cell_start = "<td>";
+        $cell_end = "</td>";
+
+        $connected=null;
+  	  ?>
+    </tbody>
+  </table>
+</div>
+
+<?php require '../../resources/general/footer.html'; ?>

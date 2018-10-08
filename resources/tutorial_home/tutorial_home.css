@@ -1,0 +1,24 @@
+div#body
+{
+  width:100%;
+  margin-top:2%;
+}
+table
+{
+  background-color:lightgrey;
+  border:1px solid darkred;
+  border-collapse:collapse;
+  margin:auto;
+}
+th
+{
+  border:1px solid darkred;
+}
+td
+{
+  border-right:1px solid darkred;
+}
+tr
+{
+  text-align:center;
+}

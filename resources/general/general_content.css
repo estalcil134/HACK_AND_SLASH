@@ -42,6 +42,7 @@ body
 nav 
 {
   font-weight: bold;
+  overflow:hidden;    /*Added so the nav bar actually expands with the contents in the navbar - Arron*/
 }
 /*the header has a max height, has the color of red for text, and 
 is correctly positioned*/
