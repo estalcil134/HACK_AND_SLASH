@@ -204,7 +204,7 @@ the button that allows a user to back to the top of the page is given a color a 
   font-size: 1.2em;
   position: fixed;
   right: 20px;
-  bottom: 8;
+  bottom: 8px;
   border-radius: 20%;
   border-color: #550606;
   background-image: linear-gradient(#550606,#8B0B0B,#C90F0F,#8B0B0B,#550606);
