@@ -7,6 +7,7 @@
   <link rel="stylesheet" type="text/css" href="../../resources/general/general_content.css">
   <link rel="stylesheet" type="text/css" href="../../resources/tutorial_home/tutorial_home.css">
   <script type="text/javascript" src="../../resources/general/footer.js"></script>
+  <script type="text/javascript" src="resources/general/cookies_enabled.js"></script>
 </head>
 <?php
 require'../../resources/general/logo_user.html';
@@ -24,7 +25,7 @@ require '../../resources/general/navbar_user.html';
     <tbody>
       <?php
         //Connect
-        require '../../connect.php';
+        require '../../resources/general/connect.php';
         $connected->exec("SELECT * FROM `users` WHERE userid");
         //TO BE FINISHED ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

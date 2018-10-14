@@ -1,16 +1,17 @@
 <!DOCTYPE html>
-<link rel="stylesheet" href="./resources/index/index.css">
 <html>
 <head>
 	<meta charset = "UTF-8">
 	<meta name = "description" content = "Log In Page">
 	<title>HACK&/ Log In</title>
+	<link rel="stylesheet" href="./resources/index/index.css">
+	<script type="text/javascript" src="resources/general/cookies_enabled.js"></script>
 </head>
 
 <body>
 	<h1>Welcome to HACK&/</h1>
 	<p class="signin">Please Sign In</p>
-	<form action="login">
+	<form action="resources/general/login.php" method="post">
   		<table>
 			<tr><td>Username: </td><td><input type="text" name="username"></td></tr>
 			<tr><td>Password: </td><td><input type="text" name="password"></td></tr>
@@ -23,5 +24,21 @@
 	<p class="about"><a href = "about/about.html">About</a></p>
 
 </body>
+<script type="text/javascript">
+	window.onload = function()
+	{
+		var add = document.createElement("span");
+	  if (window.location.search == "?.")
+	  { //If we know there was an incorrect something
+	  	add.innerHTML = "Incorrect username or password!";
+	    document.getElementsByTagName("form")[0].appendChild(add);
+	  }
+	  if (window.location.search == "?-")
+	  { //If we know this account doesn't exist
+	    add.innerHTML = "This account doesn't exist!";
+	    document.getElementsByTagName("form")[0].appendChild(add);
+	  }
+  }
+</script>
 
 </html>
