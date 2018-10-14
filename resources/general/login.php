@@ -64,22 +64,24 @@ require "connect.php";
 echo $hi[0] . " " . $hi[1];*/
 $code = exists_and_correct($user_name, $pass, $connected);
 $connect = NULL; // Close connection
+
 if ($code[0] === 0)
-{
+{ // If user exists, do this:
   $loc = "$code[1]";
   // Create user cookie info here storing username and tutstring and challstring
   setcookie("username", $user_name, time() + (86400*30), "/","",FALSE,TRUE); // 30 day cookie
   $loc = 'http://' . $_SERVER['SERVER_NAME'] . '/' . $loc . '/' . $loc . '_home_page.html';
 }
 else if ($code[0] === 1)
-{
+{ // If user's password is incorrect, do this:
   $loc = "http://" . $_SERVER['SERVER_NAME'] . "/index.html?" . ".";
 }
 else if  ($code[0] === 2)
-{
+{ // If account doesn't exist, do this:
   $loc = "http://" . $_SERVER['SERVER_NAME'] . "/index.html?" . "-";
 }
 
+// Redirect based on what $loc was set equal to based on all three possible login results
 echo "<html><script>window.location = '$loc' </script></html>";
 ?>
 <html>

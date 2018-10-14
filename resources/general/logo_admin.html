@@ -6,6 +6,9 @@
     <!--the profile picture of the person, and their username-->
     <div id="user_info" class="right">
       <img id="profile_pic" alt="user profile picture" src="admin.jpg">
-     <p id = "username" class="right">INSERT USERNAME</p>
+     <?php
+        $out = "<p id = 'username' class='right'>" . $_COOKIE['username'] . "</p>";
+        echo  $out;
+      ?>
     </div>
    </header>

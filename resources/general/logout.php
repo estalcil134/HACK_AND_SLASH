@@ -3,6 +3,7 @@
 if (isset($_COOKIE['username'])){
   unset($_COOKIE['username']);
   setcookie("username", "", -1, "/");
-  echo "works";
 }
+
+header('Location:' . 'http://' . $_SERVER['SERVER_NAME'] . '/index.html');
 ?>
