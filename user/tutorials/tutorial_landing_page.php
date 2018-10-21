@@ -1,3 +1,6 @@
+<?php
+require "../../resources/general/start.php";
+?>
 <!DOCTYPE html>
 <html lang="en-US">
 <head>

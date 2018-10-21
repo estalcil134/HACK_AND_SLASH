@@ -1,9 +1,10 @@
 <?php
-// To Logout, remove the cookie assuming they are already logged in
-if (isset($_COOKIE['username'])){
-  unset($_COOKIE['username']);
-  setcookie("username", "", -1, "/");
+session_start();
+// To Logout, destroy the session if they are logged in
+if (isset($_SESSION['username']))
+{
+  session_destroy();
+  setcookie("PHPSESSID", "", -1, "/");
 }
-
-header('Location:' . 'http://' . $_SERVER['SERVER_NAME'] . '/index.html');
+header('Location:' . 'http://' . $_SERVER['SERVER_NAME'] . '/index.php');
 ?>

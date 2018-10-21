@@ -2,7 +2,12 @@
 <nav>
   <ul>
     <!--Tutorials-->
-    <li class="nav left"><a class="left nav" href="#">Tutorials</a></li>
+    <?php
+      $li = new DOMDocument();
+      $li->loadHTML('<li class="nav left"><a class="left nav">Tutorials</a></li>');
+      $li->getElementsByTagName('a')[0]->setAttribute("href", 'http://' . $_SERVER['SERVER_NAME'] . '/' . $_SESSION['user-type'] . '/tutorials/tutorial_landing_page.php');
+      echo $li->saveHTML();
+    ?>
     <!--Challenges-->
     <li class="nav left"><a class="left nav" href="#">Challenges</a></li>
     <!--Scoreboard-->
