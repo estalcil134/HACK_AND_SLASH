@@ -1,0 +1,9 @@
+#title {
+	width: 375px;
+}
+
+legend {
+	border: solid;
+	border-color: gray;
+	border-width: 1.5px;
+}
