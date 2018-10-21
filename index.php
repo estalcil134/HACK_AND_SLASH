@@ -1,4 +1,5 @@
 <?php
+$loc = "";
 session_start();
 if (isset($_SESSION['user-type']) && isset($_SESSION['username']))
 {
@@ -72,7 +73,6 @@ if (isset($_POST["username"]))
   echo $hi[0] . " " . $hi[1];*/
   $code = exists_and_correct($user_name, $pass, $connected);
   $connect = NULL; // Close connection
-
   if ($code[0] === 0)
   { // If user exists, do this:
     $loc = "$code[1]";
@@ -80,18 +80,18 @@ if (isset($_POST["username"]))
     //setcookie("username", $user_name, time() + (86400*30), "/","",FALSE,TRUE); // 30 day cookie
     $_SESSION['user-type'] = $loc;
     $_SESSION['username'] = $user_name;
-    $loc = 'http://' . $_SERVER['SERVER_NAME'] . '/' . $loc . '/' . $loc . '_home_page.php';
+    // Redirect
+    header("Location: http://" . $_SERVER['SERVER_NAME'] . '/' . $loc . '/' . $loc . '_home_page.php');
   }
   else if ($code[0] === 1)
   { // If user's password is incorrect, do this:
-    $loc = "http://" . $_SERVER['SERVER_NAME'] . "/index.php?" . ".";
+    $loc="Incorrect Username or Password";
   }
   else if  ($code[0] === 2)
   { // If account doesn't exist, do this:
-    $loc = "http://" . $_SERVER['SERVER_NAME'] . "/index.php?" . "-";
+    $loc = "Account Does Not Exist";
   }
   // Redirect based on what $loc was set equal to based on all three possible login results
-  header('Location:' . $loc);
 }
 ?>
 
@@ -108,12 +108,18 @@ if (isset($_POST["username"]))
 <body>
 	<h1>Welcome to HACK&/</h1>
 	<p class="signin">Please Sign In</p>
-	<form action="./" method="post" onsubmit="">
+	<form action="./" method="post" onsubmit="validate(this);">
   		<table>
-			<tr><td><label>Username: </label></td><td><input type="text" name="username"></td></tr>
-			<tr><td><label>Password: </label></td><td><input type="password" name="password"></td></tr>
+			<tr><td><label for="username">Username: </label></td><td><input id="username" type="text" name="username" maxlength="20" required></td></tr>
+			<tr><td><label for="password">Password: </label></td><td><input id="password" type="password" name="password" required></td></tr>
 		</table>
   		<input type="submit" value="Submit">
+      <?php
+        if($loc !== "")
+        {
+          echo $loc;
+        }
+      ?>
 	</form>
 
 	<p class="noaccount"><a href = "registration.php">No Account? No Problem!</a></p>
@@ -121,27 +127,4 @@ if (isset($_POST["username"]))
 	<p class="about"><a href = "about/about.html">About</a></p>
 
 </body>
-<script type="text/javascript">
-	// JS to output message in login page when user fails to login
-	window.onload = function()
-	{
-		var add = document.createElement("span");
-	  if (window.location.search == "?.")
-	  { //If we know there was an incorrect something
-	  	add.innerHTML = "Incorrect username or password!";
-	    document.getElementsByTagName("form")[0].appendChild(add);
-	  }
-	  if (window.location.search == "?-")
-	  { //If we know this account doesn't exist
-	    add.innerHTML = "This account doesn't exist!";
-	    document.getElementsByTagName("form")[0].appendChild(add);
-	  }
-  }
-
-  validate(this)
-  {
-    
-  }
-</script>
-
 </html>

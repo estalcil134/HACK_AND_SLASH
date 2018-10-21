@@ -22,33 +22,14 @@ if (isset($_POST['username']))
 </head>
 <body>
   <h1>Welcome to HACK&/</h1>
-  <p class="signin">Please Sign In</p>
+  <p class="signin">Please Create an Account</p>
   <form action="./" method="post" onsubmit="">
-  	<input type="text" name="Username">
-  	<input type="text" name="Password">
-  	<input type="text" name="password">
+  	<input type="text" name="Username" required>
+  	<input type="text" name="Password" required>
+  	<input type="text" name="password" required>
   	<input type="submit" value="Submit">
   </form>
   <p class="noaccount"><a href = "index.php">Already have an account? Login here!</a></p>
   <p class="about"><a href = "about/about.html">About</a></p>
 </body>
-<script type="text/javascript">
-	// JS to output message in login page when user fails to login
-	window.onload = function()
-	{
-		var add = document.createElement("span");
-	  if (window.location.search == "?.")
-	  { //If we know there was an incorrect something
-	  	add.innerHTML = "Incorrect username or password!";
-	    document.getElementsByTagName("form")[0].appendChild(add);
-	  }
-	  if (window.location.search == "?-")
-	  { //If we know this account doesn't exist
-	    add.innerHTML = "This account doesn't exist!";
-	    document.getElementsByTagName("form")[0].appendChild(add);
-	  }
-  }
-</script>
-
-
 </html>
