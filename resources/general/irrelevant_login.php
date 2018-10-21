@@ -82,7 +82,8 @@ else if  ($code[0] === 2)
 }
 
 // Redirect based on what $loc was set equal to based on all three possible login results
-echo "<html><script>window.location = '$loc' </script></html>";
+header('Location:' . $loc);
+//echo "<html><script>window.location = '$loc' </script></html>";
 ?>
 <html>
 </html>
