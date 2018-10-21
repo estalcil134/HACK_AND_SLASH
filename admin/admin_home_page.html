@@ -6,34 +6,55 @@
 	<meta name="author" content="Wilson">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>HACK&/ Admin Home Page</title>
+
+	<script type="text/javascript" src="../resources/general/footer.js"></script>
+	<link href="../resources/general/general_content.css" rel="stylesheet" type="text/css"/>
+
+	<!--
 	<link rel="stylesheet" type="text/css" href="../resources/admin_home/general_content.css">
 	<link rel="stylesheet" type="text/css" href="../resources/general.css">
+	-->
 </head>
 
-<body>
-	<header>
-		<strong><a id="home" class="left" href="#">HACK&/</a></strong>
-		<div id="user_info" class="right">
-			<img id="profile_pic" class="left" alt="user profile picture" src="https://dfep0xlbws1ys.cloudfront.net/thumbs95/56/9556118b41565a14b169263d0ed42a63.jpg?response-cache-control=max-age=2628000">
-			<p class="right">INSERT USERNAME</p>
-		</div>
-	</header>
+<!--this is the html for the logo and admin username-->
+<body onload="disappearButton()">
+  <header>
+    <!--Logo and link to go back to the home-->
+    <a id="home" class="left bold" href="#"><img id = "logo" src="../resources/general/LOGO.png" alt="HACK AND SLASH LOGO"></a>
+    <!--the profile picture of the person, and their username-->
+    <div id="user_info" class="right">
+      <img id="profile_pic" alt="user profile picture" src="admin.jpg">
+     <p id = "username" class="right">INSERT USERNAME</p>
+    </div>
+   </header>
 
+
+	<!--this is the html that creates the admin nav bar-->
 	<nav>
-		<ul>
-	  		<li class="nav left"><a class="left nav" href="#">Create Tutorial</a></li>
-	  		<li class="nav left"><a class="left nav" href="#">Delete Tutorial</a></li>
-	  		<li class="nav left"><a class="left nav" href="#">Create Challenge</a></li>
-	  		<li class="nav left"><a class="left nav" href="#">Delete Challenge</a></li>
-	  		<li class="nav right"><a class="right nav" href="#">Logout</a></li>
-	  		<li class="nav right"><a class="right nav" href="#">Meta Tutorial</a></li>
-	  	</ul>
+	  <ul>
+	    <!--Tutorial Creation-->
+	    <li class="nav left"><a class="left nav" href="#">Tutorial Creation</a></li>
+	    <!--Tutorial Deletion-->
+	    <li class="nav left"><a class="left nav" href="#">Tutorial Deletion</a></li>
+	    <!--Challenge Creation-->
+	    <li class="nav left"><a class="left nav" href="#">Challenge Creation</a></li>
+	    <!--Challenge Deletion-->
+	    <li class="nav left"><a class="left nav" href="#">Challenge Deletion</a></li>
+	    <!--Logout button-->
+	    <li class="nav right" id = "nav_right"><a class="right nav" href="#">Logout</a></li>
+	    <li class="nav right"><a class="right nav" href="#">Meta Tutorial</a></li>
+	  </ul>
 	</nav>
-	Admin Home Page
+
+	<p>Admin Home Page</p>
  
 
-	<footer>
-          Contact Info To be Inputted
+	<!--the html for the footer of the webpage-->
+    <!--Go to about webpage-->
+    <footer>
+      <a id = "about" href="">About Page</a>
 	</footer>
-</body>
+    <!--Button to scroll back to the top-->
+    <button onclick="topFunction()" id="topBtn" class = "right" title="Go to top">Back to Top</button>
+  </body>
 </html>

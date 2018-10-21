@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tutorial Deletion</title>
+    <style>
+        body {
+            background-color: black;
+        }
+        #content {
+            background-color: #ffffff;
+            opacity: 0.8;
+            color: black;
+            max-width: 600px;
+            margin: auto;
+            padding: 10px;
+        }
+        #title {
+            color: red;
+            text-align: center;
+        }
+        h2, h3 {
+            color: red;
+            padding-left: 10px;
+            float: left;
+        }
+
+        .delete-button {
+            background-color: red;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            float: right;
+            margin-top: 3%;
+            margin-right: 5px;
+        }
+
+        .tutorial {
+            display: inline-block;
+            overflow: hidden;
+            width: 100%;
+            white-space: nowrap;
+            margin:0 auto;
+        }
+
+        .tutorial:hover {
+            border: 1px solid black;
+            box-shadow: 5px 10px 8px #888888;
+        }
+    </style>
+</head>
+<body>
+    <div id="content">
+        <h1 id="title">Tutorial Deletion</h1>
+        <div id="delete-section">
+            <div class="tutorial">
+                <h2>Tutorial 1</h2>
+                <button class="delete-button">Delete</button>
+
+            </div>
+            <div class="tutorial">
+                <h2>Tutorial 2</h2>
+                <button class="delete-button">Delete</button>
+            </div>
+            <div class="tutorial">
+                <h2>Tutorial 3</h2>
+                <button class="delete-button">Delete</button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script type="text/javascript">
+        let deleteButtons = document.querySelectorAll('.delete-button');
+
+        for (let i = 0; i < deleteButtons.length; i++) {
+            deleteButtons[i].addEventListener('click', function(event) {
+                event.preventDefault();
+
+                let choice = confirm("Are you sure to delete this tutorial?");
+
+                if (choice) {
+                    window.location.href = this.getAttribute('href');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
