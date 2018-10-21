@@ -7,7 +7,7 @@ function saveAsTxt(){
 	tut_html += "</title>\n</head>\n<body>\n<h1>" + tut_title;
 	tut_html += "</h1>\n<p>" + tut_content;
 	tut_html += "</p>\n</body></html>";
-	
+
 	var blob = new Blob([tut_html], {type: "text/html"});
     var textToSaveAsURL = window.URL.createObjectURL(blob);
 
@@ -21,8 +21,7 @@ function saveAsTxt(){
 
     downloadLink.click();
 }
-function destroyClickedElement(event)
-{
+function destroyClickedElement(event){
     document.body.removeChild(event.target);
 }
 
