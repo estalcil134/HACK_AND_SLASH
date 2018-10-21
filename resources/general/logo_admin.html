@@ -7,7 +7,7 @@
     <div id="user_info" class="right">
       <img id="profile_pic" alt="user profile picture" src="admin.jpg">
      <?php
-        $out = "<p id = 'username' class='right'>" . $_COOKIE['username'] . "</p>";
+        $out = "<p id = 'username' class='right'>" . $_SESSION['username'] . "</p>";
         echo  $out;
       ?>
     </div>
