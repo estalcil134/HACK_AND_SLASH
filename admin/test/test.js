@@ -1,5 +1,5 @@
 
-function saveAsTxt(){
+function saveAsHTML(){
 	var tut_title = document.getElementById("title").value;
 	var tut_content = document.getElementById("content").value;
 	var tut_html = "<!DOCTYPE html>\n<html>\n<head>\n<title>";
