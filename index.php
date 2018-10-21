@@ -108,15 +108,15 @@ if (isset($_POST["username"]))
 <body>
 	<h1>Welcome to HACK&/</h1>
 	<p class="signin">Please Sign In</p>
-	<form action="./" method="post">
+	<form action="./" method="post" onsubmit="">
   		<table>
 			<tr><td><label>Username: </label></td><td><input type="text" name="username"></td></tr>
 			<tr><td><label>Password: </label></td><td><input type="password" name="password"></td></tr>
 		</table>
-  		<input type="submit" value="Log In">
+  		<input type="submit" value="Submit">
 	</form>
 
-	<p class="noaccount"><a href = "account_creation/account_creation.html">No Account? No Problem!</a></p>
+	<p class="noaccount"><a href = "registration.php">No Account? No Problem!</a></p>
 
 	<p class="about"><a href = "about/about.html">About</a></p>
 
@@ -136,6 +136,11 @@ if (isset($_POST["username"]))
 	    add.innerHTML = "This account doesn't exist!";
 	    document.getElementsByTagName("form")[0].appendChild(add);
 	  }
+  }
+
+  validate(this)
+  {
+    
   }
 </script>
 
