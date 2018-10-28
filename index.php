@@ -1,12 +1,24 @@
 <?php
-$loc = "";
+$loc = $user_err = $pass_err ='';
 session_start();
 if (isset($_SESSION['user-type']) && isset($_SESSION['username']))
 {
   header("Location: http://" . $_SERVER['SERVER_NAME'] . "/" . $_SESSION['user-type'] . "/" . $_SESSION['user-type'] . "_home_page.php");
 }
-if (isset($_POST["username"]))
-{ // If there was a username entered, do login procedure
+else if (isset($_POST['username']) && (strlen($_POST['username']) > 20))
+{
+  $user_err = 'Error Maximum Username size is 20!';  
+}
+else if (isset($_POST['username']) && isset($_POST['password']))
+{ // If there was a valid username entered, do login procedure
+  function clean_input($data)
+  {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+  }
+
   function exists_and_correct($user, $pass, $pdo_obj)
   {
     // Checks both users and admins table in mysql db to see if 
@@ -63,8 +75,8 @@ if (isset($_POST["username"]))
 
 
   // Grab username and password
-  $user_name = $_POST['username'];
-  $pass = $_POST['password'];
+  $user_name = clean_input($_POST['username']);
+  $pass = clean_input($_POST['password']);
 
   // Check if user is in database
   require "connect.php";
@@ -72,7 +84,7 @@ if (isset($_POST["username"]))
   /*$hi = exists_and_correct($user_name, $pass, $connected);
   echo $hi[0] . " " . $hi[1];*/
   $code = exists_and_correct($user_name, $pass, $connected);
-  $connect = NULL; // Close connection
+  $connected = NULL; // Close connection
   if ($code[0] === 0)
   { // If user exists, do this:
     $loc = "$code[1]";
@@ -85,13 +97,12 @@ if (isset($_POST["username"]))
   }
   else if ($code[0] === 1)
   { // If user's password is incorrect, do this:
-    $loc="Incorrect Username or Password";
+    $pass_err="Incorrect Password";
   }
   else if  ($code[0] === 2)
   { // If account doesn't exist, do this:
-    $loc = "Account Does Not Exist";
+    $user_err = "Incorrect Username";
   }
-  // Redirect based on what $loc was set equal to based on all three possible login results
 }
 ?>
 
@@ -108,21 +119,17 @@ if (isset($_POST["username"]))
 <body>
 	<h1>Welcome to HACK&/</h1>
 	<p class="signin">Please Sign In</p>
-	<form action="./" method="post" onsubmit="validate(this);">
+	<form action="./" method="post" accept-charset="UTF-8" name="Login">
   		<table>
-			<tr><td><label for="username">Username: </label></td><td><input id="username" type="text" name="username" maxlength="20" required></td></tr>
+			<tr><td><label for="username">Username: </label></td><td><input id="username" type="text" name="username" maxlength="20" autofocus required></td></tr>
+      <tr><td class="info"><?php echo $user_err;?></td></tr>
 			<tr><td><label for="password">Password: </label></td><td><input id="password" type="password" name="password" required></td></tr>
+      <tr><td class="info"><?php echo $pass_err;?></td></tr>
 		</table>
   		<input type="submit" value="Submit">
-      <?php
-        if($loc !== "")
-        {
-          echo $loc;
-        }
-      ?>
 	</form>
 
-	<p class="noaccount"><a href = "registration.php">No Account? No Problem!</a></p>
+	<p class="noaccount"><a href = "./account_creation/registration.php">No Account? No Problem!</a></p>
 
 	<p class="about"><a href = "about/about.html">About</a></p>
 
