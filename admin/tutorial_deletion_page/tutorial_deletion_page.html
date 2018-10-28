@@ -5,10 +5,11 @@
     <title>Tutorial Deletion</title>
     <link href="../../resources/tutorial_deletion_page/tutorial_deletion.css" rel="stylesheet" type="text/css"/>
     <link href="../../resources/general/general_content.css" rel="stylesheet" type="text/css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="../../resources/tutorial_deletion_page/tutorial_deletion.js"></script>
     <script type="text/javascript" src="../../resources/general/footer.js"></script>
 </head>
-<body onload="disappearButton(); getFocusText();">
+<body onload="disappearButton(); deleteTutorial();">
     <header>
         <a id="home" class="left" href="#"><img id = "logo" src="../../resources/general/LOGO.png" alt="HACK AND SLASH LOGO"></a>
         <div id="user_info" class="right">
@@ -32,16 +33,15 @@
         <div id="delete-section">
             <div class="tutorial">
                 <h2>Tutorial 1</h2>
-                <button class="delete-button">Delete</button>
-
+                <button class="delete-button" type="button">Delete</button>
             </div>
             <div class="tutorial">
                 <h2>Tutorial 2</h2>
-                <button class="delete-button">Delete</button>
+                <button class="delete-button" type="button">Delete</button>
             </div>
             <div class="tutorial">
                 <h2>Tutorial 3</h2>
-                <button class="delete-button">Delete</button>
+                <button class="delete-button" type="button">Delete</button>
             </div>
         </div>
     </div>
