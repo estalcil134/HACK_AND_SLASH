@@ -1,3 +1,5 @@
+//working on onfocus
+//working on onblur
 
 function saveAsHTML(){
 	var tut_title = document.getElementById("title").value;
