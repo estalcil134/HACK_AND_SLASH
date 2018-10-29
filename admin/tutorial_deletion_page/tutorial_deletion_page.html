@@ -1,61 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title>Tutorial Deletion</title>
-    <style>
-        body {
-            background-color: black;
-        }
-        #content {
-            background-color: #ffffff;
-            opacity: 0.8;
-            color: black;
-            max-width: 600px;
-            margin: auto;
-            padding: 10px;
-        }
-        #title {
-            color: red;
-            text-align: center;
-        }
-        h2, h3 {
-            color: red;
-            padding-left: 10px;
-            float: left;
-        }
-
-        .tutorial {
-            display: inline-block;
-            overflow: hidden;
-            width: 100%;
-            white-space: nowrap;
-            margin:0 auto;
-        }
-
-        .tutorial:hover {
-            border: 1px solid black;
-            box-shadow: 5px 10px 8px #888888;
-        }
-
-        .delete-button {
-            background-color: red;
-            border: none;
-            color: white;
-            padding: 10px 20px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 14px;
-            float: right;
-            margin-top: 3%;
-            margin-right: 5px;
-            cursor: pointer;
-        }
-
-    </style>
+    <link href="../../resources/tutorial_deletion_page/tutorial_deletion.css" rel="stylesheet" type="text/css"/>
+    <link href="../../resources/general/general_content.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="../../resources/tutorial_deletion_page/tutorial_deletion.js"></script>
+    <script type="text/javascript" src="../../resources/general/footer.js"></script>
 </head>
-<body>
+<body onload="disappearButton(); getFocusText();">
+    <header>
+        <a id="home" class="left" href="#"><img id = "logo" src="../../resources/general/LOGO.png" alt="HACK AND SLASH LOGO"></a>
+        <div id="user_info" class="right">
+            <div id="profile_pic_user" alt="user profile picture">
+            </div>
+            <p id = "username" class="right">INSERT USERNAME</p>
+        </div>
+    </header>
+
+    <nav>
+        <ul id = "naver">
+            <li class="nav left"><a class="left nav" href="#">Tutorial Creation</a></li>
+            <li class="nav left"><a class="left nav" href="#">Tutorial Deletion</a></li>
+            <li class="nav left"><a class="left nav" href="#">Challenge Creation</a></li>
+            <li class="nav left"><a class="left nav" href="#">Challenge Deletion</a></li>
+            <li class="nav right" id = "nav_right"><a class="right nav" href="#">Logout</a></li>
+        </ul>
+    </nav>
     <div id="content">
         <h1 id="title">Tutorial Deletion</h1>
         <div id="delete-section">
@@ -77,22 +48,9 @@
 
 
 
-    <script type="text/javascript">
-        //getting all the delete buttons on page to delete from page
-        let deleteButtons = document.querySelectorAll('.delete-button');
-
-        for (let i = 0; i < deleteButtons.length; i++) {
-            deleteButtons[i].addEventListener('click', function(event) {
-                event.preventDefault();
-
-                let choice = confirm("Are you sure to delete this tutorial?");
-
-                if (choice) { //will delete tutorial div if confirm is "yes"
-                    //Probably need a cookie function/tool to permanently delete a tutorial from page
-                    deleteButtons[i].closest('.tutorial').remove();
-                }
-            });
-        }
-    </script>
+    <footer>
+        <a id = "about" href="">About Page</a>
+    </footer>
+    <button onclick="topFunction()" id="topBtn" class = "right" title="Go to top">Back to Top</button>
 </body>
 </html>

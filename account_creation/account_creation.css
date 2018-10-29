@@ -1,0 +1,52 @@
+#signin
+{
+  font-size:3em;
+  text-align:center;
+  padding-left:0;
+}
+
+form
+{
+  /* Wrap around the input tags */
+  overflow:hidden;
+  display:block;
+  /* Center */
+  padding:0;
+  margin:0 auto;
+}
+
+fieldset
+{
+  text-align:center;
+}
+
+label, input, span
+{
+  /* Positioning */
+  float:left;
+  clear:left;
+  text-align:left;
+  /* Set max width and heights */
+  /*min-width:25%;
+  max-width:30%;
+  min-height:6%;
+  max-height:7%;*/
+  /* PSEUDO Center TO BE FIXED!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+  margin-left:37%;
+}
+
+
+#submit
+{
+  margin-top:2%;
+  text-align:center;
+  min-width:10%;
+  max-width:20%;
+}
+
+.noaccount
+{
+  clear:left;
+  padding-left:0;
+  text-align:center;
+}
