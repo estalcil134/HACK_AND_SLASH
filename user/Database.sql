@@ -14,22 +14,25 @@ CREATE TABLE users (
   */
   tut_bitstring text NOT NULL,
   chall_bitstring text NOT NULL,
-  PRIMARY KEY(userid, username, email)
+  /*PRIMARY KEY(userid, username, email)*/
+  PRIMARY KEY (userid)
 ) ENGINE = INNODB;
 
 /* Create the admin table which is the same as the user table, except different user_id for the foreign key used in the tutorial and challenge table*/
 CREATE TABLE admins AS SELECT * FROM `users`;
+ALTER TABLE admins ADD PRIMARY KEY (userid);
 
 CREATE TABLE tutorials (
-  /*num int(20) NOT NULL UNIQUE AUTO_INCREMENT,*/
+  num int(20) NOT NULL UNIQUE AUTO_INCREMENT,
   creater_id int(20) NOT NULL,
   file_path text NOT NULL,
-  PRIMARY KEY (creater_id),
-  /*Figure the foreign key thing out*/
-  FOREIGN KEY (creater_id) REFERENCES admins (userid)
-);
+  PRIMARY KEY (num),
+  FOREIGN KEY (creater_id) REFERENCES admins (userid) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE = INNODB;
 
 CREATE TABLE challenges AS SELECT * FROM `tutorials`;
+ALTER TABLE challenges ADD PRIMARY KEY (num);
+ALTER TABLE challenges ADD FOREIGN KEY (creater_id) REFERENCES admins (userid) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /* TEST STUFF */
 /* Guinea Pigs */
@@ -42,8 +45,8 @@ VALUES ("nick", "chann2@rpi.edu", "asldkjfa;klsjdf", "0", "0");
 
 /*When there is a new challenge, alter the table to include one more 0 for each*/
 
-INSERT INTO `tutorials` (creater_id, file_path) VALUES (1, "some file");
-INSERT INTO `challenges` (creater_id, file_path) VALUES (1, "some file");
+INSERT INTO `tutorials` (creater_id, file_path) VALUES (0, "some file");
+INSERT INTO `challenges` (creater_id, file_path) VALUES (0, "some file");
 
 /*
 Add a user

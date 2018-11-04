@@ -56,3 +56,10 @@ table {
 	width: 50%;
 	padding-bottom: 5px;
 }
+
+.info
+{
+  float:right;
+  
+  color:red;
+}

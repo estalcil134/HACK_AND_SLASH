@@ -1,5 +1,10 @@
 <?php
 require "../resources/general/start.php";
+if ($_SESSION["user-type"] != "user")
+{
+  // CONSIDER USING THIS FOR AUTHENTICATION echo $_SERVER['PHP_AUTH_USER'] . $_SERVER['PHP_AUTH_USER'] . $_SERVER['PHP_AUTH_TYPE'];
+  //header("Location: http://" . $_SERVER["SERVER_NAME"] . )
+}
 ?>
 <!DOCTYPE html>
 <html>

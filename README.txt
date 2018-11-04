@@ -8,7 +8,7 @@ Way to Start the files:
 <!DOCTYPE html>
 <html>
 <head>
-  stuff
+  stuff -- MAKE SURE TO FIX THE FILE PATHS FOR THE REQUIRED CSS PAGES FOR THE LOGO AND SCRIPTS FOR THE 
 </head>
 
 <?php 
