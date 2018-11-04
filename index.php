@@ -32,7 +32,7 @@ else if (isset($_POST['username']) && isset($_POST['password']))
 
     //Look through users first
     $request = $pdo_obj->prepare("SELECT username, hashed_password FROM `users` WHERE username = :username");
-    if (($request->execute(array(':username' => $user)) === true) && $request->rowCount())
+    if (($request->execute(array(':username' => $user)) === True) && $request->rowCount())
     {
       /*echo "user pass check";*/
       $user = $request->fetch();
@@ -50,7 +50,7 @@ else if (isset($_POST['username']) && isset($_POST['password']))
     }
     //Look through admins
     $request = $pdo_obj->prepare("SELECT username, hashed_password FROM `admins` WHERE username = :username");
-    if (($request->execute(array(":username"=>$user)) === true) && $request->rowCount())
+    if (($request->execute(array(":username"=>$user)) === True) && $request->rowCount())
     {
       $admin = $request->fetch();
       /*echo 'admin pass check';*/
@@ -101,7 +101,7 @@ else if (isset($_POST['username']) && isset($_POST['password']))
   }
   else if  ($code[0] === 2)
   { // If account doesn't exist, do this:
-    $user_err = "Incorrect Username";
+    $user_err = "Username does not exist!";
   }
 }
 ?>

@@ -9,7 +9,7 @@ try {
   /*Try connecting*/
   $connected = new PDO("mysql:host=$servername; dbname=$dbname", $username, $password);
   $connected->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);  /*Throw error*/
-  //echo "Connected successfully";
+  /*echo "Connected successfully";*/
 }
 catch (PDOException $e)
 {

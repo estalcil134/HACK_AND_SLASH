@@ -27,15 +27,15 @@ if ($_SESSION["user-type"] != "user")
 
   <div id="body">
     <div id="container">
-      <div class="left option" onclick="location.href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'">
+      <div class="left option" onclick="location.href='./tutorials/tutorial_landing_page.php'">
         <h4>TUTORIALS</h4>
         <img alt="Tutorials Page Image" src="https://s3.amazonaws.com/coderbytestaticimages/homepage_icons/_right1_edit.jpg"/>
       </div>
-      <div class="left option" onclick="location.href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'">
+      <div class="left option" onclick="location.href='./challenges/challenge_landing_page.html'">
         <h4>CHALLENGES</h4>
         <img alt="Challenges Page Image" src="https://dmcommunity.files.wordpress.com/2014/09/challenge.jpg?w=112&h=150">
       </div>
-      <div class="left option" onclick="location.href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'">
+      <div class="left option" onclick="location.href='./scoreboard/scoreboard.html'">
         <h4>SCOREBOARD</h4>
         <img alt="Scoreboard Page Image" src="http://i2.wp.com/www.maplestory2training.com/wp-content/uploads/maplestory-2-mano.png?resize=550%2C300">
       </div>

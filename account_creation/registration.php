@@ -9,7 +9,7 @@ else if (isset($_POST['Email']) || isset($_POST['Username']) || isset($_POST['pa
 {
   if (!isset($_POST['Email']) || !isset($_POST['Username']) || !isset($_POST['pass1']) || !isset($_POST['pass2']))
   { // If they actually avoided the required fields
-    if (!isset($_POST['Email']))
+    if (!isset($_POST['Email']) || !filter_var($_POST['Email'], FILTER_VALIDATE_EMAIL))
     {
       $email_err = "Please enter an email.";
     }
@@ -42,30 +42,32 @@ else if (isset($_POST['Email']) || isset($_POST['Username']) || isset($_POST['pa
     require "../resources/general/connect.php";
     // Check if email exists
     $request = $connected->prepare("SELECT email FROM `users` WHERE email = :email");
-    $exist1 = ($request->execute(array(':email' => $email)) === true) && $request->rowCount();
+    $exist1 = (($request->execute(array(':email' => $email)) === True) && $request->rowCount());
     $request = $connected->prepare("SELECT email FROM `admins` WHERE email = :email");
-    $exist = $exist1 || (($request->execute(array(':email' => $email)) === true) && $request->rowCount());
-    if ($exist1);
+    $exist1 = ($exist1 || (($request->execute(array(':email' => $email)) === True) && $request->rowCount()));
+    if ($exist1)
     {
       $email_err = "This email is already in use!";
     }
-
     // Check if username exists
     $request = $connected->prepare("SELECT username FROM `users` WHERE username = :username");
-    $exist2 = ($request->execute(array(':username' => $user)) === true) && $request->rowCount();
+    $exist2 = ($request->execute(array(':username' => $user)) === True) && $request->rowCount();
     $request = $connected->prepare("SELECT username FROM `admins` WHERE username = :username");
-    $exist2 = $exist2 || (($request->execute(array(':username' => $user)) === true) && $request->rowCount());
+    $exist2 = $exist2 || (($request->execute(array(':username' => $user)) === True) && $request->rowCount());
     if ($exist2)
     {
       $user_err = "This username is already in use!";
     }
-    
-    else if (!$exist1 && !$exist2)
-    {
+    if (!$exist1 && !$exist2)
+    { // Account successfully created
       $request = $connected->prepare("INSERT INTO `users` (username, email, hashed_password, tut_bitstring, chall_bitstring) VALUES (:u, :e, :p, '0', '0')");
       $request->execute(array(':u' => $user, ':e' => $email, ':p' => $pass[0]));
       header("Location: http://" . $_SERVER['SERVER_NAME'] . "/index.php");
-    }
+    }/*
+    else
+    { // Error Occurred, so do this.
+      header("Location: http://" . $_SERVER['SERVER_NAME'] . $_SERVER["PHP_SELF"] . "?err1 = $email_err & err2 = $user_err & err3 = $pass_err");
+    }*/
     $connected=NULL;
   }
 }
