@@ -166,7 +166,7 @@ this id is made for admin profiles*/
 }
 /*the profile pic is sized and made to pop from the website 
 this id is made for user profiles*/
-#profile_pic_user
+#profile_pic_user, #profile_pic_admin
 {
   width: 50px;
   height: 70px;
@@ -178,9 +178,16 @@ this id is made for user profiles*/
   border-radius: 50%;
   margin-top: 13px;
   margin-right: 15px;
-  background-image: url("user.jpg"); 
   background-size: 100% 100%;
   display: inline-block;
+}
+#profile_pic_user
+{
+  background-image: url("user.jpg"); 
+}
+#profile_pic_admin
+{
+  background-image: url("admin.jpg");
 }
 /*the footer about link is given a color, spacing, styling 
 and sizing*/

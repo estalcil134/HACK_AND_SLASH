@@ -129,7 +129,7 @@ else if (isset($_POST['username']) && isset($_POST['password']))
   		<input type="submit" value="Submit">
 	</form>
 
-	<p class="noaccount"><a href = "./account_creation/registration.php">No Account? No Problem!</a></p>
+	<p class="noaccount"><a href = "account_creation/registration.php">No Account? No Problem!</a></p>
 
 	<p class="about"><a href = "about/about.html">About</a></p>
 

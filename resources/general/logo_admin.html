@@ -5,7 +5,8 @@
     <a id="home" class="left bold" href="#"><img id = "logo" src="/resources/general/LOGO.png" alt="HACK AND SLASH LOGO"></a>
     <!--the profile picture of the person, and their username-->
     <div id="user_info" class="right">
-      <img id="profile_pic" alt="user profile picture" src="admin.jpg">
+      <div id="profile_pic_admin" alt="user profile picture">
+      </div>
      <?php
         $out = "<p id = 'username' class='right'>" . $_SESSION['username'] . "</p>";
         echo  $out;

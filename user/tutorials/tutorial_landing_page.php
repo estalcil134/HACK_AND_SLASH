@@ -9,11 +9,13 @@ require "../../resources/general/start.php";
   <title>Tutorials</title>
   <link rel="stylesheet" type="text/css" href="../../resources/general/general_content.css">
   <link rel="stylesheet" type="text/css" href="../../resources/tutorial_home/tutorial_home.css">
-  <script type="text/javascript" src="../../resources/general/footer.js"></script>
-  <script type="text/javascript" src="resources/general/cookies_enabled.js"></script>
 </head>
 <?php
-require'../../resources/general/logo_user.html';
+require'../../resources/general/logo_' . $_SESSION['user-type'] . '.html';
+if ($_SESSION['user-type'] === "admin")
+{
+  require '../../resources/general/navbar_admin.html';
+}
 require '../../resources/general/navbar_user.html';
 ?>
 
@@ -42,5 +44,6 @@ require '../../resources/general/navbar_user.html';
     </tbody>
   </table>
 </div>
-
+<script type="text/javascript" src="../../resources/general/footer.js"></script>
+<script type="text/javascript" src="resources/general/cookies_enabled.js"></script>
 <?php require '../../resources/general/footer.html'; ?>

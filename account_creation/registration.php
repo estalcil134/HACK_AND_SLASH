@@ -1,6 +1,13 @@
 <?php
 session_start();
 $email_err = $user_err = $pass_err = '';
+function clean_input($data)
+{
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
 if (isset($_SESSION['user-type']) && isset($_SESSION['username']))
 {
   header("Location: http://" . $_SERVER['SERVER_NAME'] . "/" . $_SESSION['user-type'] . "/" . $_SESSION['user-type'] . "_home_page.php");
@@ -9,7 +16,7 @@ else if (isset($_POST['Email']) || isset($_POST['Username']) || isset($_POST['pa
 {
   if (!isset($_POST['Email']) || !isset($_POST['Username']) || !isset($_POST['pass1']) || !isset($_POST['pass2']))
   { // If they actually avoided the required fields
-    if (!isset($_POST['Email']) || !filter_var($_POST['Email'], FILTER_VALIDATE_EMAIL))
+    if (!isset($_POST['Email']))
     {
       $email_err = "Please enter an email.";
     }
@@ -24,13 +31,6 @@ else if (isset($_POST['Email']) || isset($_POST['Username']) || isset($_POST['pa
   }
   else
   {
-    function clean_input($data)
-    {
-      $data = trim($data);
-      $data = stripslashes($data);
-      $data = htmlspecialchars($data);
-      return $data;
-    }
     $exist1 = $exist2 = False;
     $email = clean_input($_POST['Email']);
     $user = clean_input($_POST['Username']);
@@ -45,7 +45,11 @@ else if (isset($_POST['Email']) || isset($_POST['Username']) || isset($_POST['pa
     $exist1 = (($request->execute(array(':email' => $email)) === True) && $request->rowCount());
     $request = $connected->prepare("SELECT email FROM `admins` WHERE email = :email");
     $exist1 = ($exist1 || (($request->execute(array(':email' => $email)) === True) && $request->rowCount()));
-    if ($exist1)
+    if (!filter_var(clean_input($_POST['Email']), FILTER_VALIDATE_EMAIL))
+    {
+      $email_err = "Please enter an email!";
+    }
+    else if ($exist1)
     {
       $email_err = "This email is already in use!";
     }
@@ -71,8 +75,6 @@ else if (isset($_POST['Email']) || isset($_POST['Username']) || isset($_POST['pa
     $connected=NULL;
   }
 }
-
-
 ?>
 <!DOCTYPE html>
 <html>
