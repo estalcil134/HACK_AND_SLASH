@@ -30,8 +30,8 @@ else if (isset($_POST['username']) && isset($_POST['password']))
     // Returns 2 if it the user doesn't exist
     $result = [2, 'user'];  // Default is doesn't exist and is user
 
-    //Look through users first
-    $request = $pdo_obj->prepare("SELECT username, hashed_password FROM `users` WHERE username = :username");
+    //Look through users and admins
+    $request = $pdo_obj->prepare("SELECT username, hashed_password, userid FROM `users` WHERE username = :username");
     if (($request->execute(array(':username' => $user)) === True) && $request->rowCount())
     {
       /*echo "user pass check";*/
@@ -40,20 +40,24 @@ else if (isset($_POST['username']) && isset($_POST['password']))
   	  if ($pass === $user['hashed_password'])
       { // Password matches
   	    $result[0] = 0;
-  	    return $result;
+        // User exists so check if it is admin
+        $request = $pdo_obj->prepare("SELECT userid FROM `admins` WHERE userid = :userid");
+        $request->execute(array(":userid" => $user['userid']));
+        if ($request->fetch()[0] == $user[2])
+        {
+          $result[1] = 'admin';
+        }
   	  }
   	  else
   	  { // Password doesn't match
   	    $result[0] = 1;
-  	    return $result;
       }
     }
-    //Look through admins
-    $request = $pdo_obj->prepare("SELECT username, hashed_password FROM `admins` WHERE username = :username");
+    /*//Look through admins
+    $request = $pdo_obj->prepare("SELECT userid FROM `admins` WHERE username = :username");
     if (($request->execute(array(":username"=>$user)) === True) && $request->rowCount())
     {
       $admin = $request->fetch();
-      /*echo 'admin pass check';*/
       if ($pass === $admin['hashed_password'])
   	  { // Password matches
   	    $result[0] = 0;
@@ -66,10 +70,9 @@ else if (isset($_POST['username']) && isset($_POST['password']))
   	    $result[1] = "admin";
   	    return $result;
       }
-/*    echo "return correct";*/
-    }
+    }*/
     
-  // If no users matched it and no admins matche it, so no account exists and just return default $result
+  // If no users matched it and no admins matche it, so no account exists and it will return default $result
   return $result;
   }
 

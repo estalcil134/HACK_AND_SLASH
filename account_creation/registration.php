@@ -43,8 +43,8 @@ else if (isset($_POST['Email']) || isset($_POST['Username']) || isset($_POST['pa
     // Check if email exists
     $request = $connected->prepare("SELECT email FROM `users` WHERE email = :email");
     $exist1 = (($request->execute(array(':email' => $email)) === True) && $request->rowCount());
-    $request = $connected->prepare("SELECT email FROM `admins` WHERE email = :email");
-    $exist1 = ($exist1 || (($request->execute(array(':email' => $email)) === True) && $request->rowCount()));
+    /*$request = $connected->prepare("SELECT email FROM `admins` WHERE email = :email");
+    $exist1 = ($exist1 || (($request->execute(array(':email' => $email)) === True) && $request->rowCount()));*/
     if (!filter_var(clean_input($_POST['Email']), FILTER_VALIDATE_EMAIL))
     {
       $email_err = "Please enter an email!";
@@ -56,8 +56,8 @@ else if (isset($_POST['Email']) || isset($_POST['Username']) || isset($_POST['pa
     // Check if username exists
     $request = $connected->prepare("SELECT username FROM `users` WHERE username = :username");
     $exist2 = ($request->execute(array(':username' => $user)) === True) && $request->rowCount();
-    $request = $connected->prepare("SELECT username FROM `admins` WHERE username = :username");
-    $exist2 = $exist2 || (($request->execute(array(':username' => $user)) === True) && $request->rowCount());
+    /*$request = $connected->prepare("SELECT username FROM `admins` WHERE username = :username");
+    $exist2 = $exist2 || (($request->execute(array(':username' => $user)) === True) && $request->rowCount());*/
     if ($exist2)
     {
       $user_err = "This username is already in use!";
@@ -98,9 +98,9 @@ else if (isset($_POST['Email']) || isset($_POST['Username']) || isset($_POST['pa
       <input id="username" type="text" name="Username" maxlength="20" required>
       <span class="info"><?php echo $user_err;?></span>
       <label for="password1">Enter a Password:</label>
-      <input id="password1" type="text" name="pass1" required>
+      <input id="password1" type="password" name="pass1" required>
       <label for="password2">Renter a Password:</label>
-      <input id="password2" type="text" name="pass2" required onblur="pass_check();">
+      <input id="password2" type="password" name="pass2" required onblur="pass_check();">
       <span class="info"><?php echo $pass_err;?></span>
     </fieldset>
     <input type="submit" value="Create Account">
