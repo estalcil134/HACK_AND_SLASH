@@ -10,7 +10,7 @@ table {
 }
 tr, td {
   border: 1px solid;
-  text-align: center;
+  text-align: left;
   border-collapse: collapse;
   padding: 10px;
 }

@@ -1,9 +1,4 @@
-<?php require '../resources/general/start.php';
-if ($_SESSION["user-type"] != "admin")
-{
-  header("Location: http://" . $_SERVER["SERVER_NAME"]);
-}
-?>
+<?php require '../resources/general/start.php'; ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,7 +14,10 @@ if ($_SESSION["user-type"] != "admin")
 
 <?php
 require'../resources/general/logo_' . $_SESSION['user-type'] . '.html';
-require '../resources/general/navbar_admin.html';
+if ($_SESSION['user-type'] === "admin")
+{
+  require '../resources/general/navbar_admin.html';
+}
 require '../resources/general/navbar_user.html';
 ?>
 	<p>Admin Home Page</p>
