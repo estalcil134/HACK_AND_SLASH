@@ -16,7 +16,12 @@
       echo $li->saveHTML();
     ?>
     <!--Scoreboard-->
-    <li class="nav left"><a class="left nav" href="#">Scoreboard</a></li>
+    <?php
+      $li = new DOMDocument();
+      $li->loadHTML('<li class="nav left"><a class="left nav" href="#">Scoreboard</a></li>');
+      $li->getElementsByTagName('a')[0]->setAttribute("href", 'http://' . $_SERVER['SERVER_NAME'] . '/user/scoreboard/scoreboard.php');
+      echo $li->saveHTML();
+    ?>
     <!--Logout-->
     <?php
       if ($_SESSION['user-type'] !== "admin")

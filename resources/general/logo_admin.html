@@ -2,7 +2,9 @@
 <body onload="disappearButton()">
   <header>
     <!--Logo and link to go back to the home-->
-    <a id="home" class="left bold" href="#"><img id = "logo" src="/resources/general/LOGO.png" alt="HACK AND SLASH LOGO"></a>
+    <a id="home" class="left bold" href=<?php echo "\"http://" . $_SERVER['SERVER_NAME'] . '/' . $_SESSION['user-type'] . '/' . $_SESSION['user-type'] . "_home_page.php\""?>>
+      <img id = "logo" src="/resources/general/LOGO.png" alt="HACK AND SLASH LOGO">
+    </a>
     <!--the profile picture of the person, and their username-->
     <div id="user_info" class="right">
       <div id="profile_pic_admin" alt="user profile picture">

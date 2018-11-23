@@ -45,7 +45,9 @@ ALTER TABLE challenges ADD FOREIGN KEY (creater_id) REFERENCES admins (userid) O
 /* Guinea Pigs */
 INSERT INTO `users` (username, email, hashed_password, tut_bitstring, chall_bitstring)
 VALUES ("pyke", "pikef@rpi.edu", "123456789", "0", "0"), ("wong", "wongw3@rpi.edu", "123456789", "0", "0"),
-       ("nick", "chann2@rpi.edu", "asldkjfa;klsjdf", "0", "0");
+       ("nick", "chann2@rpi.edu", "ae4a5bccbc3e80b197e9111700b70d19914de2e679b16f6eb1ad5c408cfd0a281", "0", "0");
+/*pyke and wong are 123456789*/
+/*NICK: sldkjfa;klsjdf*/
 
 /* Test values for the admin set thing */
 INSERT INTO `admins` (userid) VALUES (3);

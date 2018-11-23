@@ -1,4 +1,4 @@
-/*ACTUAL USEFUL CODE FOR THIS PAGE*/
+/* Center all the Challenges */
 div#body
 {
   margin:5% auto 0 auto;
@@ -11,13 +11,14 @@ div#container
   width:75%;
   margin:auto;
 }
+/* End of Centering Challenges section */
 
 .challenge
 {
   width:75%;
   overflow:hidden;  /*Ensures div tag surrounds img*/
   margin: 0 auto 1% auto;
-  /*For the animation thing*/
+  /*For the animation/transition*/
   position:relative;
 }
 
