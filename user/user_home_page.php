@@ -2,8 +2,7 @@
 require "../resources/general/start.php";
 if ($_SESSION["user-type"] != "user")
 {
-  // CONSIDER USING THIS FOR AUTHENTICATION echo $_SERVER['PHP_AUTH_USER'] . $_SERVER['PHP_AUTH_USER'] . $_SERVER['PHP_AUTH_TYPE'];
-  //header("Location: http://" . $_SERVER["SERVER_NAME"] . )
+  header("Location: http://" . $_SERVER["SERVER_NAME"]);
 }
 ?>
 <!DOCTYPE html>
@@ -35,7 +34,7 @@ if ($_SESSION["user-type"] != "user")
         <h4>CHALLENGES</h4>
         <img alt="Challenges Page Image" src="https://dmcommunity.files.wordpress.com/2014/09/challenge.jpg?w=112&h=150">
       </div>
-      <div class="left option" onclick="location.href='./scoreboard/scoreboard.html'">
+      <div class="left option" onclick="location.href='./scoreboard/scoreboard.php'">
         <h4>SCOREBOARD</h4>
         <img alt="Scoreboard Page Image" src="http://i2.wp.com/www.maplestory2training.com/wp-content/uploads/maplestory-2-mano.png?resize=550%2C300">
       </div>

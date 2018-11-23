@@ -8,6 +8,7 @@ function clean_input($data)
   $data = htmlspecialchars($data);
   return $data;
 }
+// Redirect if already logged in to a session
 if (isset($_SESSION['user-type']) && isset($_SESSION['username']))
 {
   header("Location: http://" . $_SERVER['SERVER_NAME'] . "/" . $_SESSION['user-type'] . "/" . $_SESSION['user-type'] . "_home_page.php");
@@ -30,7 +31,8 @@ else if (isset($_POST['Email']) || isset($_POST['Username']) || isset($_POST['pa
     }
   }
   else
-  {
+  { // Assuming the inputted data is valid:
+    // exist1 is true if the email is already taken; exist2 is true if the username is already taken
     $exist1 = $exist2 = False;
     $email = clean_input($_POST['Email']);
     $user = clean_input($_POST['Username']);
@@ -43,11 +45,9 @@ else if (isset($_POST['Email']) || isset($_POST['Username']) || isset($_POST['pa
     // Check if email exists
     $request = $connected->prepare("SELECT email FROM `users` WHERE email = :email");
     $exist1 = (($request->execute(array(':email' => $email)) === True) && $request->rowCount());
-    /*$request = $connected->prepare("SELECT email FROM `admins` WHERE email = :email");
-    $exist1 = ($exist1 || (($request->execute(array(':email' => $email)) === True) && $request->rowCount()));*/
     if (!filter_var(clean_input($_POST['Email']), FILTER_VALIDATE_EMAIL))
     {
-      $email_err = "Please enter an email!";
+      $email_err = "Please enter a valid email!";
     }
     else if ($exist1)
     {
@@ -56,22 +56,19 @@ else if (isset($_POST['Email']) || isset($_POST['Username']) || isset($_POST['pa
     // Check if username exists
     $request = $connected->prepare("SELECT username FROM `users` WHERE username = :username");
     $exist2 = ($request->execute(array(':username' => $user)) === True) && $request->rowCount();
-    /*$request = $connected->prepare("SELECT username FROM `admins` WHERE username = :username");
-    $exist2 = $exist2 || (($request->execute(array(':username' => $user)) === True) && $request->rowCount());*/
     if ($exist2)
     {
       $user_err = "This username is already in use!";
     }
     if (!$exist1 && !$exist2)
-    { // Account successfully created
-      $request = $connected->prepare("INSERT INTO `users` (username, email, hashed_password, tut_bitstring, chall_bitstring) VALUES (:u, :e, :p, '0', '0')");
-      $request->execute(array(':u' => $user, ':e' => $email, ':p' => $pass[0]));
+    { // Account credentials are valid so create it
+      $request = $connected->prepare("SELECT MAX(userid) FROM `users`");
+      $request->execute();
+      $salt = $request->fetch()[0] + 1;
+      $request = $connected->prepare("INSERT INTO `users` (userid, username, email, hashed_password, tut_bitstring, chall_bitstring) VALUES (:id, :u, :e, :p, '0', '0')");
+      $request->execute(array('id'=>$salt, ':u' => $user, ':e' => $email, ':p' => hash("sha256", $pass[0] . $salt)));
       header("Location: http://" . $_SERVER['SERVER_NAME'] . "/index.php");
-    }/*
-    else
-    { // Error Occurred, so do this.
-      header("Location: http://" . $_SERVER['SERVER_NAME'] . $_SERVER["PHP_SELF"] . "?err1 = $email_err & err2 = $user_err & err3 = $pass_err");
-    }*/
+    }
     $connected=NULL;
   }
 }
