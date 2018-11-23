@@ -1,4 +1,4 @@
-/* Center all the Challenges */
+ Center all the Challenges */
 div#body
 {
   margin:5% auto 0 auto;
@@ -61,19 +61,22 @@ p.name, .done
   text-shadow:0px 0px 3px red;
 }
 
-.pop
-{
-  display:none;
-  position:fixed;
-  top:0;
-  bottom:0;
-  right:0;
-  left:0;
-  margin:auto;
-  max-width:300px;
-  background-color:silver;
-  min-height:300px;
-  max-height:301px;
+@media screen and (-webkit-min-device-pixel-ratio:0){
+  /*For Chrome*/
+  .pop
+  {
+    display:none;
+    position:fixed;
+    top:0;
+    bottom:0;
+    right:0;
+    left:0;
+    margin:auto;
+    max-width:300px;
+    background-color:silver;
+    min-height:300px;
+    max-height:301px;
+  }
 }
 
 #chall_info
@@ -119,6 +122,25 @@ label
   margin-top:10px;
 }
 
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none){
+  /*For IE*/
+  .pop
+  {
+    display:none;
+    position:fixed;
+    top:0;
+    bottom:0;
+    right:0;
+    left:0;
+    margin-left:42.20%;
+    margin-top:15%;
+    max-width:300px;
+    background-color:silver;
+    min-height:300px;
+    max-height:301px;
+  }
+}
+
 /*Image hover effect*/
 /*img
 {
@@ -162,4 +184,3 @@ div.challenge:hover .topic
 {
   opacity:1;
 }
-*/
