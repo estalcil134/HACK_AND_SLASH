@@ -10,70 +10,156 @@ div#container
   height:100%;
   width:75%;
   margin:auto;
+  overflow:hidden;
+  text-align:center; /*Center span*/
+}
+
+span
+{
+  background-color:white;
 }
 /* End of Centering Challenges section */
 
-.challenge
+/*.challenge
 {
   width:75%;
-  overflow:hidden;  /*Ensures div tag surrounds img*/
-  margin: 0 auto 1% auto;
+*//*  overflow:hidden;*/  /*Ensures div tag surrounds img*/
+  /*margin: 0 auto 1% auto;*/
   /*For the animation/transition*/
-  position:relative;
+  /*position:relative;
 }
 
-p, img
+img
 {
   float:left;
 }
-
-p.left
+*/
+button
 {
+  /* To conform to the images */
+  width:280px;
+  height:50px;
+  /* To center and make it one button per row*/
+  margin:0 auto 10px auto;
+  display:block;
+}
+
+p.done
+{
+  background-color:green;
+  width:200px;
+}
+
+p.name, .done
+{
+  text-align:center;
+  margin:auto;
   padding:2%;
-  margin-left:10%;
+  width:100px;
+  font-weight:bold;
+  color:yellow;
+  text-shadow:0px 0px 3px red;
+}
+
+.pop
+{
+  display:none;
+  position:fixed;
+  top:0;
+  bottom:0;
+  right:0;
+  left:0;
+  margin:auto;
+  max-width:300px;
+  background-color:silver;
+  min-height:300px;
+  max-height:301px;
+}
+
+#chall_info
+{
+  text-align:center;
+}
+
+form
+{
+  max-width:250px;
+  text-align:center;
+  margin:auto;
+}
+
+span
+{
+  color:red;
+}
+
+label
+{
+  padding-left:10px;
+}
+
+#cover
+{
+  display:none;
   background-color:white;
+  opacity:0.4;
+  position:fixed;
+  top:0;
+  bottom:0;
+  right:0;
+  left:0;
+  width:100%;
+  height:100%;
+}
+
+#close
+{
+  height:25px;
+  width:75px;
+  margin-top:10px;
 }
 
 /*Image hover effect*/
-img
+/*img
 {
   width:50%;
   height:auto;
-  /*animation?*/
+  animation?
   transition:opacity 0.5s;
-}
+}*/
 
-.challenge:hover
+.curr:hover
 {
   /*Container for the image and the text to appear*/
   cursor:url('./Webp.net-resizeimage.cur'), default;
 }
 
-.topic
+/*.topic
 {
-  /*Styling stuff*/
-  color:lightgrey;
+*/  /*Styling stuff*/
+/*  color:lightgrey;
   background-color:darkred;
   max-width:58px;
   min-width:57px;
   padding:0 2%;
-  /*Overlay thing*/
-  opacity:0;
+*/  /*Overlay thing*/
+/*  opacity:0;
   position:absolute;
   top:50%;
   left:40%;
   text-align:center;
   transition:opacity 0.5s;
-}
+}*/
 
-img.fade:hover
+/*img.fade:hover
 {
-  /*Background image fade*/
-  opacity:0.3;
+*/  /*Background image fade*/
+/*  opacity:0.3;*/
   /*cursor:url('./Webp.net-resizeimage.cur'), default;*/
-}
+/*}
 
 div.challenge:hover .topic
 {
   opacity:1;
 }
+*/

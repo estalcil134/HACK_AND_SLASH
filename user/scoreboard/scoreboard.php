@@ -1,5 +1,5 @@
 <?php
-require "../../resources/general/start.php"
+require "../../resources/general/start.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,7 +26,7 @@ require "../../resources/general/start.php"
 
   // Connection to grab scoreboard data
   require "../../resources/general/connect.php";
-  $request = $connected->prepare("SELECT username FROM `users` ORDER BY score, username LIMIT 10");
+  $request = $connected->prepare("SELECT username FROM `users` ORDER BY score DESC, username ASC LIMIT 10");
   $request->execute();
   // Output the scoreboard table here
   echo "<table><thead><th colspan=2>Rankings</th></thead><tbody>";

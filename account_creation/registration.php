@@ -60,7 +60,7 @@ else if (isset($_POST['Email']) || isset($_POST['Username']) || isset($_POST['pa
     {
       $user_err = "This username is already in use!";
     }
-    if (!$exist1 && !$exist2)
+    if (!$exist1 && !$exist2 && ($email_err == '') && ($user_err == '') && ($pass_err == ''))
     { // Account credentials are valid so create it
       $request = $connected->prepare("SELECT MAX(userid) FROM `users`");
       $request->execute();
