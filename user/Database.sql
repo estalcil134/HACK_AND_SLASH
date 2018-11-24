@@ -33,13 +33,14 @@ CREATE TABLE tutorials (
   num int(20) NOT NULL UNIQUE AUTO_INCREMENT,
   creater_id int(20) NOT NULL,
   name varchar(20) NOT NULL,
-  file_path text NOT NULL,
+  file_path varchar(255) UNIQUE NOT NULL,
   PRIMARY KEY (num),
   FOREIGN KEY (creater_id) REFERENCES admins (userid) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE = INNODB;
 
 CREATE TABLE challenges AS SELECT * FROM `tutorials`;
 ALTER TABLE challenges MODIFY COLUMN num int(20) NOT NULL UNIQUE AUTO_INCREMENT;
+ALTER TABLE challenges MODIFY COLUMN file_path varchar(255) NOT NULL UNIQUE;
 ALTER TABLE challenges ADD FOREIGN KEY (creater_id) REFERENCES admins (userid) ON DELETE CASCADE ON UPDATE CASCADE;
 ALTER TABLE challenges ADD COLUMN flags varchar(255) NOT NULL, ADD COLUMN points int(3) NOT NULL DEFAULT 100;
 
