@@ -20,15 +20,15 @@ h2 {
 }
 
 form {
-
-	padding-left: 35%;
+	border:1px solid black;
+	padding:5px;
 	display: inline-block;
-	width: 60%;
+	width: 650px;
 	font-size: 1.8em;
 }
 
-input {
-	
+fieldset {
+  border-style:none;
 }
 
 .signin {
@@ -48,11 +48,32 @@ input {
 	font-weight: strong;
 }
 
-table {
+/*table {
 	text-align: center;
 	border-style: solid;
 	border-width: 2px;
 	border-radius: 10px;
 	width: 50%;
 	padding-bottom: 5px;
+}*/
+
+.info
+{
+  float:right;
+  
+  color:red;
+}
+
+#submit
+{
+  float:right;
+  margin-right:50px;
+  margin-bottom:10px;
+}
+
+#container
+{
+  min-width:650px;
+  max-width:651px;
+  margin:auto;
 }

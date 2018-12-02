@@ -1,1 +1,23 @@
 In the HACK&/ folder structure we utilize snake case directory and file names to keep the organization and naming consistent.
+
+Way to Start the files:
+<?php
+  required "FILEPATHTO /resources/general/start.php";
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+  stuff -- MAKE SURE TO FIX THE FILE PATHS FOR THE REQUIRED CSS PAGES FOR THE LOGO AND SCRIPTS FOR THE 
+</head>
+
+<?php 
+  require "FILEPATHTO /resources/general/logo_user.html";               <<<<< Contains the <body> start tag
+  require "FILEPATHTO /resources/general/navbar_user.html";
+?>
+
+Stuff for your body stuff
+
+<?php
+  require "../resources/general/footer.html";                           <<<<< Contains the </body> </html> close tags
+?>

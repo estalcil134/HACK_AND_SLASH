@@ -10,6 +10,11 @@
     <!--Challenge Deletion-->
     <li class="nav left"><a class="left nav" href="#">Challenge Deletion</a></li>
     <!--Logout button-->
-    <li class="nav right" id = "nav_right"><a class="right nav" href="#">Logout</a></li>
+    <?php
+      $li = new DOMDocument();
+      $li->loadHTML('<li class="nav right" id = "nav_right"><a class="right nav">Logout</a></li>');
+      $li->getElementsByTagName('a')[0]->setAttribute("href", 'http://' . $_SERVER['SERVER_NAME'] . '/resources/general/logout.php');
+      echo $li->saveHTML();
+    ?>
   </ul>
 </nav>

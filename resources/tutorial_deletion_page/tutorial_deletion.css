@@ -1,0 +1,48 @@
+/*body {*/
+    /*background-color: black;*/
+/*}*/
+#content {
+    background-color: #ffffff;
+    opacity: 0.8;
+    color: black;
+    max-width: 600px;
+    margin: 10px auto;
+    padding: 10px;
+}
+#title {
+    color: red;
+    text-align: center;
+}
+h2, h3 {
+    color: red;
+    padding-left: 10px;
+    float: left;
+}
+
+.tutorial {
+    display: inline-block;
+    overflow: hidden;
+    width: 100%;
+    white-space: nowrap;
+    margin:0 auto;
+}
+
+.tutorial:hover {
+    border: 1px solid black;
+    box-shadow: 5px 10px 8px #888888;
+}
+
+.delete-button {
+    background-color: red;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    float: right;
+    margin-top: 3%;
+    margin-right: 5px;
+    cursor: pointer;
+}

@@ -1,0 +1,131 @@
+<?php
+require "../../resources/general/start.php";
+function clean_input($data)
+{
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+$err = False;
+if (isset($_POST['flag']) && isset($_POST['chall_num']) && isset($_POST['chall_path']))
+{ // If they submitted a flag do this:
+  require '../../resources/general/connect.php';
+  // Grab the flag and points
+  $request = $connected->prepare("SELECT flags, points FROM `challenges` WHERE file_path = :file");
+  $request->execute(array(":file"=>clean_input($_POST['chall_path'])));
+  $flag_point = $request->fetch();
+  if ($flag_point[0] === clean_input($_POST['flag']))
+  { // If the flag is correct, update their bitstring and their points
+    $request = $connected->prepare("SELECT chall_bitstring, score FROM `users` WHERE username = :user");
+    $request->execute(array(":user"=>$_SESSION['username']));
+    $result = $request->fetch();
+    print_r($result);
+    echo "<br/>" . $result[0][clean_input($_POST['chall_num'])] . "<br/>";
+    print_r($flag_point);
+    if ($result[0][clean_input($_POST['chall_num'])] == '0')
+    { // To prevent users from reenabling past challenges and resubmitting
+      $result[0][clean_input($_POST['chall_num'])] = '1';
+      $request = $connected->prepare("UPDATE `users` SET chall_bitstring = :new, score = :score WHERE username = :user");
+      $request->execute(array(":new"=>$result[0], ":score"=>$result[1]+$flag_point[1], ":user"=>$_SESSION['username']));
+    }
+  }
+  else
+  { // Otherwise, their flag is incorrect
+    $err = True;
+  }
+}
+?>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="author" content="Arron">
+	<meta name="description" content="List of All Challenges">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Challenges</title>
+  <link rel="stylesheet" type="text/css" href="../../resources/general/general_content.css">
+  <link rel="stylesheet" type="text/css" href="../../resources/tutorial_home/tutorial_home.css">
+  <link rel="stylesheet" href="../../resources/challenge_home/challenge_landing_page.css" type="text/css">
+
+  <script type="text/javascript" src="../../resources/general/footer.js"></script>
+  <script type="text/javascript" src="../../resources/general/cookies_enabled.js"></script>
+  <script type="text/javascript" src="../../resources/challenge_home/pop_up.js"></script>
+</head>
+
+<?php
+require'../../resources/general/logo_' . $_SESSION['user-type'] . '.html';
+if ($_SESSION['user-type'] === "admin")
+{
+  require '../../resources/general/navbar_admin.html';
+}
+require '../../resources/general/navbar_user.html';
+?>
+<div id="body">
+  <div id="cover"><!-- Used to shadow out the background --></div>
+  <div class="pop">
+    <!-- This is the popup form -->
+    <div id="chall_info">
+      <!-- Put Challenge Information here -->
+    </div>
+    <form action="./challenge_landing_page.php" method="post" accept-charset="UTF-8">
+      <label class="left" for="flag">Flag:</label><br/>
+      <input id="flag" name="flag" type="text" required>
+      <input id="chall_num" type="hidden" name="chall_num">
+      <input id="chall_path" type="hidden" name="chall_path">
+      <input type="submit" value="submit">
+    </form>
+    <button type="button" id="close" onclick="close_pop();">Close</button>
+  </div>
+  <div id="container">
+    <span><?php if ($err) {echo "INCORRECT FLAG!";} ?></span>
+    <?php
+      require "../../resources/general/connect.php";
+      // Check if the chall_bitstring is up to date aka long enough
+      $request = $connected->query("SELECT COUNT(num) FROM `challenges`");
+      $max_bit_str_size = $request->fetch()[0];
+      $request = $connected->prepare("SELECT chall_bitstring FROM `users` WHERE username = :user");
+      $request->execute(array(":user"=>$_SESSION['username']));
+      $chall_bitstring = $request->fetch()[0];
+      $size = strlen($chall_bitstring);
+      for ($i=$size; $i < $max_bit_str_size; $i++)
+      {
+        $chall_bitstring .= '0';
+      }
+      if ($size < $max_bit_str_size)
+      { // Update the challenge bit string for the user since it was too short
+        $request = $connected->prepare("UPDATE `users` SET chall_bitstring = \"$chall_bitstring\" WHERE username = :user");
+        $request->execute(array(":user"=>$_SESSION['username']));
+      }
+
+      // Grab the challenges
+      $request = $connected->prepare("SELECT `admins`.img, `challenges`.* FROM `admins`, `challenges` WHERE `admins`.userid = `challenges`.creater_id");
+      $request->execute();
+      // Display the challenges
+      $loop = $request->rowCount();
+      for ($i=0; $i < $loop; $i++)
+      {
+        $challenge = $request->fetch();
+        $button = new DOMDocument();
+        if ($chall_bitstring[$i] == '1')
+        { // If challenge is already done
+          $content = "<button type=\"button\" style=\"background-image:url(" . $challenge['img'] . ");background-repeat:no-repeat\" class=\"challenge\" disabled>
+                        <p class=\"done\">Complete!</p>
+                      </button>";
+        }        
+        else
+        { // If challnege is incomplete
+          $content = "<button type=\"button\" style=\"background-image:url(" . $challenge['img'] . ");background-repeat:no-repeat\" onclick = \"open_pop($i);\" class=\"challenge curr\" value=\"" . $challenge['file_path'] . " \">
+                        <p class=\"name\">" . $challenge['name'] . "</p>
+                      </button>";
+        }
+        $button->loadHTML($content);
+        echo $button->saveHTML();
+      }
+      $connected = NULL;
+    ?>
+  </div>
+</div>
+<?php
+  require "../../resources/general/footer.html"
+?>
