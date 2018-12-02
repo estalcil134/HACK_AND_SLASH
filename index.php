@@ -93,6 +93,7 @@ else if (isset($_POST['username']) && isset($_POST['password']))
 	<meta name = "description" content = "Log In Page">
 	<title>HACK&/ Log In</title>
 	<link rel="stylesheet" href="./resources/index/index.css">
+  <link rel="stylesheet" href="./resources/index/hide_about.css">
 	<script type="text/javascript" src="resources/general/cookies_enabled.js"></script>
 </head>
 

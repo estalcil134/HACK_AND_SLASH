@@ -1,0 +1,5 @@
+@media only screen and (max-width: 805px){
+	.about{
+		display: none;
+	}
+}
