@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hack&/</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>    
+    <link href="../../resources/tutorial_creation_page/tutorial_creation.css" rel="stylesheet" type="text/css"/>
+    <link href="../../resources/general/general_content.css" rel="stylesheet" type="text/css"/>
+  </head>
+  <body onload="disappearButton();">
+    <header>
+      <a id="home" class="left" href="#"><img id = "logo" src="../../resources/general/LOGO.png" alt="HACK AND SLASH LOGO"></a>
+      <div id="user_info" class="right">
+        <div id="profile_pic_user">
+        </div>
+       <p id = "username" class="right">INSERT USERNAME</p>
+      </div>
+     </header>
+    <nav>
+      <ul id = "naver">
+        <li class="nav left"><a class="left nav" href="#">Tutorial Creation</a></li>
+        <li class="nav left"><a class="left nav" href="#">Tutorial Deletion</a></li>
+        <li class="nav left"><a class="left nav" href="#">Challenge Creation</a></li>
+        <li class="nav left"><a class="left nav" href="#">Challenge Deletion</a></li>
+        <li class="nav right" id = "nav_right"><a class="right nav" href="#">Logout</a></li>
+      </ul>
+    </nav>
+    
+    <!--      https://www.sceditor.com/-->
+<!--    onsubmit="return validate(this);"-->
+    <form id="addForm" name="addForm">
+      <div id = "title_name">
+        <p class = "title">Tutorial Name:</p>
+        <input type="text" size="50" value="" name="tutorial" id="tutorial" onkeydown = "enter();"/>
+        <input type="submit" value="SUBMIT" id="save" name="submit" />
+      </div>
+      <div id="buttonz">
+        <button class = "button_choice" id = "tutorial_button" type = "button" onclick = "tutorial_create();">Tutorial</button>
+        <button class = "button_choice" id = "question_button" type = "button" onclick = "question();">Question</button>
+      </div>
+      <ul id = "tutorial_creator">
+        <li id = "button_style">
+          <button type="button" id="bold" onclick="bolden();">Bold</button>
+          <button type="button" id="italic">Italicize</button>
+          <button type="button" id="underline">Underline</button>
+          <button type="button" id="color">Color</button>
+        </li>
+        <li id = "tutorial_upload">
+          <p class = "title">Place Word Document of the Tutorial Here</p>
+          <iframe id = "tutorial_page" srcdoc='<!doctype html>
+            <html class>
+              <head>
+                <link href="../../resources/tutorial_creation_page/form.css" rel="stylesheet" type="text/css"/>
+                <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+              </head>
+              <body contenteditable="true" id = "edit_tutorial">   
+                <br contenteditable="false">
+              </body>
+            </html>' width = "500px;" height = "600px" onclick="focuser();" style = "background-color: white;">
+          </iframe> 
+
+          <div class = "outer" id = "outer_div" onclick="cursor_in();">
+            <div contentEditable="true" id="content"></div>
+          </div>
+        </li> 
+<!--
+        <li id = "question">
+          <div>
+          </div>
+          <div>
+            <p class = "title eq_width">Question:</p>
+            <input type="text" size="60" value="" name="tutorial" id="question_input" onkeydown = "enter();" onkeyup = "show_question();"/>
+            <output id = "question_input1"></output>
+          </div>
+          <div>
+            <input type="radio" name="answer" value="short_answer">Short Answer
+            <input type="radio" name="answer" value="multi_choice">Multiple Choice
+          </div>
+          <div>
+            <p class = "title eq_width">Answer:</p>
+            <input type="text" size="60" value="" name="tutorial" id="answer_input_short" onkeydown = "enter();" onkeyup = "show_question();"/>
+            <output id = "answer_input_short1"></output>
+          </div>
+          <div>
+            <p class = "title eq_width">Answer:</p>
+            <input type="text" size="60" value="" name="tutorial" id="answer_input_multi" onkeydown = "enter();" onkeyup = "show_question();"/>
+            <output id = "answer_input_multi1"></output>
+          </div>
+        </li>
+-->
+      </ul>
+      <p id = "padding_extra"></p>
+    </form>
+    
+    
+    <footer>
+      <a id = "about" href="#">About Page</a>
+    </footer>
+    <button onclick="topFunction();" id="topBtn" class = "right" title="Go to top" type = "button">Back to Top</button>
+    <script type="text/javascript" src=""></script>
+    <script type="text/javascript" src="./tutorial_creation_ex.js"></script>
+    <script type="text/javascript" src="../../resources/general/footer.js"></script>
+<!--    <script type="text/javascript" src="../../resources/jquery/jquery-1.4.3.min.js"></script>-->
+    </body>
+</html>

@@ -1,14 +1,34 @@
+<!--
+<?php 
+  foreach ($_POST as $key => $value) {
+        echo "<tr>";
+        echo "<td>";
+        echo $key;
+        echo "</td>";
+        echo "<td>";
+        echo $value;
+        echo "</td>";
+        echo "</tr>";
+    }
+?>
+-->
+
 <!DOCTYPE html>
 <html>
   <head>
     <title>Hack&/</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>    
+<!--
     <link href="../../resources/tutorial_creation_page/tutorial_creation.css" rel="stylesheet" type="text/css"/>
     <link href="../../resources/general/general_content.css" rel="stylesheet" type="text/css"/>
+-->
+    <link href="tutorial_creation.css" rel="stylesheet" type="text/css"/>
+    <link href="general_content.css" rel="stylesheet" type="text/css"/>
   </head>
   <body onload="disappearButton();">
     <header>
-		  <a id="home" class="left" href="#"><img id = "logo" src="../../resources/general/LOGO.png" alt="HACK AND SLASH LOGO"></a>
+<!--		  <a id="home" class="left" href="#"><img id = "logo" src="../../resources/general/LOGO.png" alt="HACK AND SLASH LOGO"></a>-->
+      <a id="home" class="left" href="#"><img id = "logo" src="LOGO.png" alt="HACK AND SLASH LOGO"></a>
 		  <div id="user_info" class="right">
 		    <div id="profile_pic_user">
         </div>
@@ -25,7 +45,7 @@
 	    </ul>
     </nav>
 <!--    onsubmit="return validate(this);"-->
-    <form id="addForm" name="addForm">
+    <form id="addForm" action="" target = "hidden-iframe" method="POST" enctype="multipart/form-data" name="addForm">
       <div id = "title_name">
         <p class = "title">Tutorial Name:</p>
         <input type="text" autocomplete="off" size="50" value="" name="tutorial" class = "inputs" id="tutorial" onkeydown = "enter();"/>
@@ -35,6 +55,7 @@
         <button class = "button_choice" id = "tutorial_button" type = "button" onclick = "tutorial_create();">Tutorial</button>
         <button class = "button_choice" id = "question_button" type = "button" onclick = "question();">Question</button>
       </div>
+      <div id = "spacer">
       <ul id = "tutorial_creator">
         <li id = "button_style">
         </li>
@@ -43,21 +64,42 @@
           <br>
           <br>
           <br>
-          
-          <input type="file" name="myFile">
-<!--  
-          <iframe id = "tutorial_page" srcdoc='<!doctype html>
-            <html class>
-              <head>
-                <link href="../../resources/tutorial_creation_page/form.css" rel="stylesheet" type="text/css"/>
-                <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-              </head>
-              <body contenteditable="true" id = "edit_tutorial">   
-                <br contenteditable="false">
-              </body>
-            </html>' width = "500px;" height = "600px" onclick="focuser();" style = "background-color: white;">
-          </iframe> 
--->
+          <iframe name="hidden-iframe" style="display: none;">
+            <?php
+            if(!file_exists("uploaded_docs/username"))
+              {
+                mkdir("uploaded_docs/username", 0700);
+              }
+              if(isset($_POST['submit'])) {
+                $file = $_FILES['file'];
+
+                $fileName = $_FILES['file']['name'];
+                $fileTmpName = $_FILES['file']['tmp_name'];
+                $fileSize = $_FILES['file']['size'];
+                $fileError = $_FILES['file']['error'];
+                $fileType = $_FILES['file']['type'];
+                $fileExt = explode('.',$fileName);
+                $fileActualExt = strtolower(end($fileExt));
+                $allowed = array('html','htm');
+                if(in_array($fileActualExt,$allowed)) {
+                  if($fileError === 0) {
+                    if($fileSize < 10000000) {
+                      $fileNameNew = uniqid('',true).".".$fileActualExt;
+                      $fileDestination = 'uploaded_docs/username/'.$fileNameNew;
+                      move_uploaded_file($fileTmpName,$fileDestination);
+                    }
+                    $error_type = "1";
+                  }
+                  $error_type = "2";
+                }
+                $error_type = "3";
+            }
+            ?>
+            </iframe>
+        
+          <input type="file" name="file" id = "file" >
+          <button type = "submit" name = "submit" onclick="file_there();">UPLOAD</button> 
+          <br>
         </li> 
         
         
@@ -116,13 +158,33 @@
           </div>
         </li>
       </ul>
+      </div>
       <p id = "padding_extra"></p>
+      <br>
+      <br>
+      <?php
+      // Read directory, spit out links
+      if ($handle = opendir('uploaded_docs/username/')) {
+          $count = 0;
+          while (false !== ($entry = readdir($handle))) {
+              if ($entry != "." && $entry != "..") {
+                  echo '<div id="div'.$count.'" class = "display_frame" ondrop="drop(event)" ondragover="allowDrop(event)"><iframe src = "uploaded_docs/username/'.$entry.'" id="drag'.$count.'" width="100%" height="100%" draggable="true" ondragstart="drag(event)"></iframe></div><br>';
+                $count++;
+              }
+          }
+          closedir($handle);
+      }
+      ?>
     </form> 
     <footer>
       <a id = "about" href="#">About Page</a>
 	  </footer>
+<!--
     <script type="text/javascript" src = "../../resources/jquery/jquery-1.4.3.min.js"></script>
     <script type="text/javascript" src="../../resources/tutorial_creation_page/tutorial_creation.js"></script>
+-->
+    <script type="text/javascript" src = "jquery-1.4.3.min.js"></script>
+    <script type="text/javascript" src="tutorial_creation.js"></script>
 
     </body>
 </html>

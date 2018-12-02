@@ -1,0 +1,11 @@
+.bold {
+  font-weight: bold;
+  display: inline-block;
+}
+.italicize {
+  font-style: italic;
+  display: inline-block;
+}
+.normal {
+  display: inline-block;
+}

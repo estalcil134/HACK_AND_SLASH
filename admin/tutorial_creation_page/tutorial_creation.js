@@ -14,6 +14,9 @@
 //  }
 //  return truth;
 //}
+function css_iframe() {
+  $('iframe').contents().find("head").append($("<style type='text/css'> body {width = 500px; word-wrap: break-word;}  </style>"));
+}
 var question_out = "";
 var short_answer = "";
 var answer1 = "";
@@ -33,7 +36,9 @@ window.onload = function() {
   el1.style.display = "block";
   tutorial_create();
   short();
+  css_iframe();
 }
+
 function getFocusText() {
   document.getElementById("tutorial").focus();
 }
@@ -203,4 +208,28 @@ function num_multi()
     four.style.display = "block";
     five.style.display = "block";
   }
+}
+function file_there() {
+  
+  $("form").submit(function(e){
+    if($("#file").val() == ''){
+         // your validation error action
+        valid = false;
+        e.preventDefault();
+     }
+  });
+}
+
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
 }

@@ -1,8 +1,10 @@
 How to format each of the webpages:
 
 1.) First add in the scripts to the head:
-	Javascript: 	<script type="text/javascript" src="../resources/general/footer.js"></script>
 	CSS: <link href="../../resources/general/general_content.css" rel="stylesheet" type="text/css"/>
+
+and put in the body at the bottom before the body closing:
+	JavaScript: <script type="text/javascript" src="../../resources/general/footer.js"></script>
 
 2.) Add in the logo:
 if it's an Admin page:
