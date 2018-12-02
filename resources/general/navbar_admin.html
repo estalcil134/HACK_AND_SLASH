@@ -2,13 +2,28 @@
 <nav>
   <ul>
     <!--Tutorial Creation-->
-    <li class="nav left"><a class="left nav" href="#">Tutorial Creation</a></li>
+    <?php
+      $li = new DOMDocument();
+      $li->loadHTML('<li class="nav left"><a class="left nav" href="#">Tutorial Creation</a></li>');
+      $li->getElementsByTagName('a')[0]->setAttribute("href", 'http://' . $_SERVER['SERVER_NAME'] . '/admin/tutorial_creation_page/index.php');
+      echo $li->saveHTML();
+    ?>
     <!--Tutorial Deletion-->
     <li class="nav left"><a class="left nav" href="#">Tutorial Deletion</a></li>
     <!--Challenge Creation-->
-    <li class="nav left"><a class="left nav" href="#">Challenge Creation</a></li>
+    <?php
+      $li = new DOMDocument();
+      $li->loadHTML('<li class="nav left"><a class="left nav" href="#">Challenge Creation</a></li>');
+      $li->getElementsByTagName('a')[0]->setAttribute("href", 'http://' . $_SERVER['SERVER_NAME'] . '/admin/challenge_creation_page/challenge_creation.php');
+      echo $li->saveHTML();
+    ?>
     <!--Challenge Deletion-->
-    <li class="nav left"><a class="left nav" href="#">Challenge Deletion</a></li>
+    <?php
+      $li = new DOMDocument();
+      $li->loadHTML('<li class="nav left"><a class="left nav" href="#">Challenge Deletion</a></li>');
+      $li->getElementsByTagName('a')[0]->setAttribute("href", 'http://' . $_SERVER['SERVER_NAME'] . '/admin/challenge_deletion_page/challenge_deletion_page.php');
+      echo $li->saveHTML();
+    ?>
     <!--Logout button-->
     <?php
       $li = new DOMDocument();

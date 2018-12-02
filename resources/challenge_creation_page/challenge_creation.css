@@ -23,6 +23,7 @@ form
   border-width: 30px;
   border-radius: 5%;
   margin-top: 10px;
+  margin-right:10px;
 }
 #addForm
 {
@@ -34,7 +35,7 @@ input[type = "text"]{
   height: 20px;
   border-radius: 0%;
 }
-#question_input
+#desc
 {
   height: 20px;
   border-radius: 0%;
@@ -183,4 +184,14 @@ output
   height: 70px;
   padding: 10px;
   border: 10px solid black;
+}
+
+h3#display, .center
+{
+  text-align:center;
+}
+
+#mini_contain
+{
+  border:1px solid black;
 }

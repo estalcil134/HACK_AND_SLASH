@@ -11,8 +11,8 @@ $err = False;
 if (isset($_POST['flag']) && isset($_POST['chall_num']) && isset($_POST['chall_path']))
 { // If they submitted a flag do this:
   require '../../resources/general/connect.php';
-  // Grab the flag and points
-  $request = $connected->prepare("SELECT flags, points FROM `challenges` WHERE file_path = :file");
+  // Grab the flag
+  $request = $connected->prepare("SELECT flags FROM `challenges` WHERE file_path = :file");
   $request->execute(array(":file"=>clean_input($_POST['chall_path'])));
   $flag_point = $request->fetch();
   if ($flag_point[0] === clean_input($_POST['flag']))
@@ -20,14 +20,14 @@ if (isset($_POST['flag']) && isset($_POST['chall_num']) && isset($_POST['chall_p
     $request = $connected->prepare("SELECT chall_bitstring, score FROM `users` WHERE username = :user");
     $request->execute(array(":user"=>$_SESSION['username']));
     $result = $request->fetch();
-    print_r($result);
+    //print_r($result);
     echo "<br/>" . $result[0][clean_input($_POST['chall_num'])] . "<br/>";
-    print_r($flag_point);
+    //print_r($flag_point);
     if ($result[0][clean_input($_POST['chall_num'])] == '0')
     { // To prevent users from reenabling past challenges and resubmitting
       $result[0][clean_input($_POST['chall_num'])] = '1';
       $request = $connected->prepare("UPDATE `users` SET chall_bitstring = :new, score = :score WHERE username = :user");
-      $request->execute(array(":new"=>$result[0], ":score"=>$result[1]+$flag_point[1], ":user"=>$_SESSION['username']));
+      $request->execute(array(":new"=>$result[0], ":score"=>$result[1]+100, ":user"=>$_SESSION['username']));
     }
   }
   else

@@ -52,14 +52,16 @@ require "../../resources/general/start.php";
     echo (string)($i+1) . "</td><td>" . $request->fetch()[0] . "</td></tr>";
   }
   // Grab your ranking
-  $request = $connected->prepare("SELECT username FROM `users` ORDER BY score, username");
+  $request = $connected->prepare("SELECT username, score FROM `users` ORDER BY score DESC, username ASC");
   $request->execute();
   $rank = 1;
-  while ($request->fetch()[0] != $_SESSION['username'])
+  $data = $request->fetch();
+  while ($data[0] != $_SESSION['username'])
   {
     $rank++;
+    $data = $request->fetch();
   }
-  echo "<tr><td>Your Rank</td><td>$rank</td></tr></tbody></table>";
+  echo "<tr><td>Your Rank</td><td>$rank</td></tr><tr><td>Your Score</td><td>" . "$data[1]" . "</td></tr></tbody></table>";
   $connected = NULL;
 ?>
 <?php require "../../resources/general/footer.html"; ?>

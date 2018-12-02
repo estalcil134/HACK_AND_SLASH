@@ -36,7 +36,7 @@ if ($_SESSION["user-type"] != "user")
       </div>
       <div class="left option" onclick="location.href='./scoreboard/scoreboard.php'">
         <h4>SCOREBOARD</h4>
-        <img alt="Scoreboard Page Image" src="http://i2.wp.com/www.maplestory2training.com/wp-content/uploads/maplestory-2-mano.png?resize=550%2C300">
+        <img alt="Scoreboard Page Image" src="https://poetsandquants.com/wp-content/uploads/2015/07/rankings-ribbons.jpg">
       </div>
     </div>
   </div>

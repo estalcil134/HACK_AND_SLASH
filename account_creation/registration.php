@@ -41,6 +41,10 @@ else if (isset($_POST['Email']) || isset($_POST['Username']) || isset($_POST['pa
     {
       $pass_err = "Passwords do not match!";
     }
+    else if (strlen($pass[0]) < 12)
+    {
+      $pass_err = "Password must be at least 12 characters long!";
+    }
     require "../resources/general/connect.php";
     // Check if email exists
     $request = $connected->prepare("SELECT email FROM `users` WHERE email = :email");
@@ -62,11 +66,9 @@ else if (isset($_POST['Email']) || isset($_POST['Username']) || isset($_POST['pa
     }
     if (!$exist1 && !$exist2 && ($email_err == '') && ($user_err == '') && ($pass_err == ''))
     { // Account credentials are valid so create it
-      $request = $connected->prepare("SELECT MAX(userid) FROM `users`");
-      $request->execute();
-      $salt = $request->fetch()[0] + 1;
-      $request = $connected->prepare("INSERT INTO `users` (userid, username, email, hashed_password, tut_bitstring, chall_bitstring) VALUES (:id, :u, :e, :p, '0', '0')");
-      $request->execute(array('id'=>$salt, ':u' => $user, ':e' => $email, ':p' => hash("sha256", $pass[0] . $salt)));
+      $salt = $salt = hash('sha256', uniqid(mt_rand(), true));
+      $request = $connected->prepare("INSERT INTO `users` (username, email, hashed_password, salt, tut_bitstring, chall_bitstring) VALUES (:u, :e, :p, :s, '0', '0')");
+      $request->execute(array(':u' => $user, ':e' => $email, ':p' => hash("sha256", $pass[0] . $salt), ':s'=>$salt));
       header("Location: http://" . $_SERVER['SERVER_NAME'] . "/index.php");
     }
     $connected=NULL;
@@ -95,9 +97,9 @@ else if (isset($_POST['Email']) || isset($_POST['Username']) || isset($_POST['pa
       <input id="username" type="text" name="Username" maxlength="20" required>
       <span class="info"><?php echo $user_err;?></span>
       <label for="password1">Enter a Password:</label>
-      <input id="password1" type="password" name="pass1" required>
+      <input id="password1" type="password" name="pass1" minlength="12" required>
       <label for="password2">Renter a Password:</label>
-      <input id="password2" type="password" name="pass2" required onblur="pass_check();">
+      <input id="password2" type="password" name="pass2"  minlength="12" required onblur="pass_check();">
       <span class="info"><?php echo $pass_err;?></span>
     </fieldset>
     <input type="submit" value="Create Account">
