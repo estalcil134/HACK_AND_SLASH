@@ -14,14 +14,6 @@ else if (isset($_POST['username']) && (strlen($_POST['username']) > 20))
 }
 else if (isset($_POST['username']) && isset($_POST['password']))
 { // If there was a valid username entered, do login procedure
-  function clean_input($data)
-  {
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
-  }
-
   function exists_and_correct($user, $pass, $pdo_obj)
   {
     // Checks both users and admins table in mysql db to see if 
