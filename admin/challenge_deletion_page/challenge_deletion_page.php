@@ -32,11 +32,11 @@ require '../../resources/general/navbar_user.html';
         <?php
           //Connect
           require '../../resources/general/connect.php';
-          $result = $connected->prepare("SELECT name FROM challenges WHERE creater_id = (SELECT userid FROM users WHERE username = :u)");
+          $result = $connected->prepare("SELECT name, num FROM challenges WHERE creater_id = (SELECT userid FROM users WHERE username = :u)");
           $result->execute(array(':u'=>$_SESSION['username']));
           foreach ($result->fetchAll() as $challenge)
           {
-            echo "<span class=\"left clear_left\">" . $challenge[0] . "<input class=\"right\" type=\"submit\" name=\"" . $challenge[0] . "\" value=\"DELETE\"></span><br/>";
+            echo "<span class=\"left clear_left\">" . $challenge[0] . "<input class=\"right\" type=\"submit\" name=\"" . $challenge[1] ."\" value=\"DELETE\"></span><br/>";
           }
           $connected=null;
         ?>

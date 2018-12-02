@@ -1,12 +1,5 @@
 <?php
 require "../../resources/general/start.php";
-function clean_input($data)
-{
-  $data = trim($data);
-  $data = stripslashes($data);
-  $data = htmlspecialchars($data);
-  return $data;
-}
 $err = False;
 if (isset($_POST['flag']) && isset($_POST['chall_num']) && isset($_POST['chall_path']))
 { // If they submitted a flag do this:
@@ -37,7 +30,8 @@ if (isset($_POST['flag']) && isset($_POST['chall_num']) && isset($_POST['chall_p
 }
 ?>
 <!DOCTYPE html>
-<html>
+<!-- To block developer tools through right click -->
+<html oncontextmenu="return false">
 <head>
 	<meta charset="UTF-8">
 	<meta name="author" content="Arron">
@@ -47,10 +41,7 @@ if (isset($_POST['flag']) && isset($_POST['chall_num']) && isset($_POST['chall_p
   <link rel="stylesheet" type="text/css" href="../../resources/general/general_content.css">
   <link rel="stylesheet" type="text/css" href="../../resources/tutorial_home/tutorial_home.css">
   <link rel="stylesheet" href="../../resources/challenge_home/challenge_landing_page.css" type="text/css">
-
   <script type="text/javascript" src="../../resources/general/footer.js"></script>
-  <script type="text/javascript" src="../../resources/general/cookies_enabled.js"></script>
-  <script type="text/javascript" src="../../resources/challenge_home/pop_up.js"></script>
 </head>
 
 <?php
@@ -126,6 +117,9 @@ require '../../resources/general/navbar_user.html';
     ?>
   </div>
 </div>
+<script type="text/javascript" src="../../resources/jquery/jquery-1.4.3.min.js"></script>
+<script type="text/javascript" src="../../resources/challenge_home/pop_up.js" aync></script>
+<script type="text/javascript" src="../../resources/general/cookies_enabled.js"></script>
 <?php
   require "../../resources/general/footer.html"
 ?>

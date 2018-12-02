@@ -1,3 +1,17 @@
+// How to prevent people from modifying our ajax call to steal data
+// Courtesy of https://www.quora.com/How-do-I-block-inspect-element-on-my-website
+$(document).keydown(function(e){
+  // Block the use of f12
+  if(e.which === 123){
+     return false;
+  }
+  // Block right click and ctrl key shortcuts for developer tools
+  var body = document.getElementsByTagName("body")[0];
+  body.setAttribute('oncontextmenu', 'return false')
+  body.setAttribute('onkeydown','return false')
+  body.setAttribute('onmousedown','return false')
+});
+
 function open_pop(loc)
 {
   // Find out which challenge it is
