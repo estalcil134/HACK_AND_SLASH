@@ -102,7 +102,7 @@ else if (isset($_POST['username']) && isset($_POST['password']))
       <fieldset>
   		  <label for="password">Password: </label><input id="password" type="password" name="password" minlength="12" required><br/>
       </fieldset>
-  		<input id="submit" type="submit" value="Submit">
+  		<input id="submit" type="submit" value="Login">
   	</form>
   </div>
 
