@@ -1,4 +1,4 @@
-<!--
+
 <?php 
   foreach ($_POST as $key => $value) {
         echo "<tr>";
@@ -11,7 +11,6 @@
         echo "</tr>";
     }
 ?>
--->
 
 <!DOCTYPE html>
 <html>
@@ -26,6 +25,14 @@
     <link href="general_content.css" rel="stylesheet" type="text/css"/>
   </head>
   <body onload="disappearButton();">
+    <div id="overlay" onclick = "off();">
+      <div id = "preview_look_good">
+        <p id = "para_preview">Preview</p>
+        <iframe src = "" id = "preview"width = "100%" height = "100%">
+
+        </iframe>
+      </div>
+    </div>
     <header>
 <!--		  <a id="home" class="left" href="#"><img id = "logo" src="../../resources/general/LOGO.png" alt="HACK AND SLASH LOGO"></a>-->
       <a id="home" class="left" href="#"><img id = "logo" src="LOGO.png" alt="HACK AND SLASH LOGO"></a>
@@ -45,12 +52,11 @@
 	    </ul>
     </nav>
 <!--    onsubmit="return validate(this);"-->
-    <form id="addForm" action="" target = "hidden-iframe" method="POST" enctype="multipart/form-data" name="addForm">
-      <div id = "title_name">
-        <p class = "title">Tutorial Name:</p>
-        <input type="text" autocomplete="off" size="50" value="" name="tutorial" class = "inputs" id="tutorial" onkeydown = "enter();"/>
-        <input type="submit" value="SUBMIT" id="save" name="submit" />
-      </div>
+    
+    
+    <div id="addForm">
+      
+      <br>
       <div id="buttonz">
         <button class = "button_choice" id = "tutorial_button" type = "button" onclick = "tutorial_create();">Tutorial</button>
         <button class = "button_choice" id = "question_button" type = "button" onclick = "question();">Question</button>
@@ -60,53 +66,24 @@
         <li id = "button_style">
         </li>
         <li id = "tutorial_upload">
-          <p class = "title">Upload a Microsoft Word Document or Microsoft Powerpoint</p>
-          <br>
-          <br>
-          <br>
-          <iframe name="hidden-iframe" style="display: none;">
-            <?php
-            if(!file_exists("uploaded_docs/username"))
-              {
-                mkdir("uploaded_docs/username", 0700);
-              }
-              if(isset($_POST['submit'])) {
-                $file = $_FILES['file'];
+          <form id="form_tutor" action="upload.php" method="POST" enctype="multipart/form-data" name="addForm">
+            <br>
+            <p class = "title space_top">Upload a HTML Document</p>
+            <br>
+            <br>
+            <p class = "info">If you don't know how to write html, it's fine! Just go to your Microsoft Word Document, and click "Save As", then "Browse". From there you will see a window pop up. In this window click on the "Save as Type" bar and choose either "Web Page, Filtered (*.htm;*.html)" or "Web Page (*.htm;*.html)". THen find your file destination you wish to save this new html at and you're done. Now you can upload html to our tutorial creator!</p>
 
-                $fileName = $_FILES['file']['name'];
-                $fileTmpName = $_FILES['file']['tmp_name'];
-                $fileSize = $_FILES['file']['size'];
-                $fileError = $_FILES['file']['error'];
-                $fileType = $_FILES['file']['type'];
-                $fileExt = explode('.',$fileName);
-                $fileActualExt = strtolower(end($fileExt));
-                $allowed = array('html','htm');
-                if(in_array($fileActualExt,$allowed)) {
-                  if($fileError === 0) {
-                    if($fileSize < 10000000) {
-                      $fileNameNew = uniqid('',true).".".$fileActualExt;
-                      $fileDestination = 'uploaded_docs/username/'.$fileNameNew;
-                      move_uploaded_file($fileTmpName,$fileDestination);
-                    }
-                    $error_type = "1";
-                  }
-                  $error_type = "2";
-                }
-                $error_type = "3";
-            }
-            ?>
-            </iframe>
-        
-          <input type="file" name="file" id = "file" >
-          <button type = "submit" name = "submit" onclick="file_there();">UPLOAD</button> 
-          <br>
+
+            <input type="file" name="file" id = "file">
+            <button type = "submit" class = "answer click" name = "submit" onclick="file_there();">UPLOAD</button> 
+            <br>
+          </form>
         </li> 
         
-        
-        
         <li id = "question">
-          <div>
-          </div>
+          
+          
+          <form id="form_ques" action="upload_ques.php" method="POST" enctype="multipart/form-data" name="addForm">
           <div class = "space_top set_left">
             <p class = "title eq_width">Question:</p>
             <input type="text" autocomplete="off" value="" name="tutorial" class = "inputs" id="question_input" onkeydown = "enter();" onkeyup = "show_question();"/>
@@ -118,8 +95,8 @@
           </div>
           
           <div id = "short" class = "space_top set_left">
-            <p class = "title eq_width">Short Answer:</p>
-            <input type="text" autocomplete="off" value="" name="tutorial" class = "inputs" id="answer_input_short" onkeydown = "enter();" onkeyup = "show_question();"/>
+            <p class = "title eq_width">Answer:</p>
+            <input type="text" autocomplete="off" value="" name="short_answer" class = "inputs" id="answer_input_short" onkeydown = "enter();" onkeyup = "show_question();"/>
           </div>
             
           <div id = "multi" class = "space_top">
@@ -130,52 +107,75 @@
               <option value="four">4</option>
               <option value="five">5</option>
             </select>
-            <div id = "first" class = "space_top">
-              <p class = "title eq_width">A:</p>
-              <input type="text" autocomplete="off" value="" name="tutorial" class = "multi_input inputs" id="one" onkeydown = "enter();" onkeyup = "show_question();"/>
+            <div id = "ans_text">
+              <p class = "title eq_width" id = "answer_text">SET Answer</p>
+            </div>
+            <div id = "first">
+              <input type="radio" name="mult_inp" value="A_1" onclick = "set_answer();">
+              <p class = "title eq_width" onclick="selectRadio();">A:</p>
+              <input type="text" autocomplete="off" value="" name="answer1" class = "multi_input inputs" id="one" onkeydown = "enter();" onkeyup = "show_question();"/>
             </div>
             <div id = "second">
-              <p class = "title eq_width">B:</p>
-              <input type="text" autocomplete="off" value="" name="tutorial" class = "multi_input inputs" id="two" onkeydown = "enter();" onkeyup = "show_question();"/>
+              <input type="radio" name="mult_inp" value="B_1" onclick = "set_answer();">
+              <p class = "title eq_width" onclick="selectRadio();">B:</p>
+              <input type="text" autocomplete="off" value="" name="answer2" class = "multi_input inputs" id="two" onkeydown = "enter();" onkeyup = "show_question();"/>
             </div>
             <div id = "third">
-              <p class = "title eq_width">C:</p>
-              <input type="text" autocomplete="off" value="" name="tutorial" class = "multi_input inputs" id="three" onkeydown = "enter();" onkeyup = "show_question();"/>
+              <input type="radio" name="mult_inp" value="C_1" onclick = "set_answer();">
+              <p class = "title eq_width" onclick="selectRadio();">C:</p>
+              <input type="text" autocomplete="off" value="" name="answer3" class = "multi_input inputs" id="three" onkeydown = "enter();" onkeyup = "show_question();"/>
             </div>
             <div id = "fourth">
-              <p class = "title eq_width">D:</p>
-              <input type="text" autocomplete="off" value="" name="tutorial" class = "multi_input inputs" id="four" onkeydown = "enter();" onkeyup = "show_question();"/>
+              <input type="radio" name="mult_inp" value="D_1" onclick = "set_answer();">
+              <p class = "title eq_width" onclick="selectRadio();">D:</p>
+              <input type="text" autocomplete="off" value="" name="answer4" class = "multi_input inputs" id="four" onkeydown = "enter();" onkeyup = "show_question();"/>
             </div>
             <div id = "fifth">
-              <p class = "title eq_width">E:</p>
-              <input type="text" autocomplete="off" value="" name="tutorial" class = "multi_input inputs" id="five" onkeydown = "enter();" onkeyup = "show_question();"/>
+              <input type="radio" name="mult_inp" value="E_1" onclick = "set_answer();">
+              <p class = "title eq_width" onclick="selectRadio();">E:</p>
+              <input type="text" autocomplete="off" value="" name="answer5" class = "multi_input inputs" id="five" onkeydown = "enter();" onkeyup = "show_question();"/>
             </div>
           </div>
           <div id = "out_div">
             <div id = "put_div">
-              <output id = "outputter"></output>
+              <div id = "outputter"></div>
             </div>
           </div>
+          <input type ="hidden" name = "question_type" value = "">
+          <input type ="hidden" name = "actual_answer_multi" value = "">
+          <input type ="hidden" name = "actual_answer_short" value = "">
+          <input type ="hidden" name = "num_multi" value = "">
+          <div id = "create_ques">
+            <button class = "answer click" id = "ques_submit" type = "submit">CREATE QUESTION PAGE</button>
+          </div>
+          </form>
         </li>
       </ul>
       </div>
-      <p id = "padding_extra"></p>
-      <br>
-      <br>
+      <div id = "tutor_out">
       <?php
       // Read directory, spit out links
       if ($handle = opendir('uploaded_docs/username/')) {
           $count = 0;
           while (false !== ($entry = readdir($handle))) {
               if ($entry != "." && $entry != "..") {
-                  echo '<div id="div'.$count.'" class = "display_frame" ondrop="drop(event)" ondragover="allowDrop(event)"><iframe src = "uploaded_docs/username/'.$entry.'" id="drag'.$count.'" width="100%" height="100%" draggable="true" ondragstart="drag(event)"></iframe></div><br>';
+                  echo '<div class = "parental" id="'.$count.'"><p class = "number">'.($count+1).'</p><div id="div'.$count.'" class = "display_frame" ondrop="drop(event);" draggable="false" ondragover="allowDrop(event);"><div id = "inside_div'.$count.'" class = "in_div" draggable="true" ondragstart="find_parent(event); drag(event);" onclick = "on(event);"><iframe src = "uploaded_docs/username/'.$entry.'" id="drag'.$count.'" width="80%" height="80%" class = "small_frame" contenteditable = "false"></iframe></div></div></div>';
                 $count++;
               }
           }
           closedir($handle);
       }
       ?>
-    </form> 
+      </div>
+      <div id = "title_name">
+        <p  id = "final_words">Click "Submit" when you are done making the Tutorial"</p>
+<!--
+        <p class = "title">Tutorial Name:</p>
+        <input type="text" autocomplete="off" size="50" value="" name="tutorial" class = "inputs" id="tutorial" onkeydown = "enter();"/>
+-->
+          <input type="submit" value="SUBMIT" class = "answer" id="save" name="submit" />
+        </div>
+    </div> 
     <footer>
       <a id = "about" href="#">About Page</a>
 	  </footer>
@@ -185,6 +185,5 @@
 -->
     <script type="text/javascript" src = "jquery-1.4.3.min.js"></script>
     <script type="text/javascript" src="tutorial_creation.js"></script>
-
     </body>
 </html>
