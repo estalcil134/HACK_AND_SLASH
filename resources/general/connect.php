@@ -1,6 +1,7 @@
 <?php
 function clean_input($data)
-{
+{ // Clean input function by getting rid of special html characters and other
+  // special characters that we should ignore
   $data = trim($data);
   $data = stripslashes($data);
   $data = htmlspecialchars($data);
@@ -10,14 +11,13 @@ function clean_input($data)
 //Login Credentials
 $servername = "hack.and.slash";
 $username = "root";
-$password = "";
+$password = "bablehblehbleh";
 $dbname = "hack_and_slash";
 
 try {
   /*Try connecting*/
   $connected = new PDO("mysql:host=$servername; dbname=$dbname", $username, $password);
   $connected->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);  /*Throw error*/
-  /*echo "Connected successfully";*/
 }
 catch (PDOException $e)
 {
