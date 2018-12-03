@@ -1,11 +1,30 @@
 <?php
   session_start();
   // Then create the text file that will be outputted in the challenge landing page.
-  $fileNameNew = uniqid('',true).".".$_POST['tutorial'];
-  echo($fileNameNew);
-  $fileString = $fileNameNew."";
-  $challenge = fopen('uploaded_docs/'.$_SESSION['username'].'/'.$fileString}.'html', "w");
-  $output_big = "";
+  $fileString = $_POST['tutorial'].".";
+  $challenge = fopen('uploaded_docs/'.$_SESSION['username'].'/'.$fileString.'html', "w");
+  $output_big = '<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Tutorial</title>
+	<link href="/resources/general/general_content.css" rel="stylesheet" type="text/css">
+	<link href="/resources/empty_div.css" rel="stylesheet" type="text/css">
+	<link href="/resources/general/general_content.css" rel="stylesheet" type="text/css">
+  <link href="/resources/general/answer.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<header>
+    	<img id = "logo" src="/resources/general/LOGO.png" alt="HACK AND SLASH LOGO">
+    </header>
+    <nav>
+		<ul id = "naver">
+			<li class="nav right" id = "nav_right"><a class="right nav" href="index.php">Exit Tutorial</a></li>
+		</ul>
+	</nav>
+	<div id="code"><div>';
+
   $fileDestination = file_exists("uploaded_docs/username/{$fileString}html");
   if($_POST['question_type'] == "short")
   {
@@ -14,7 +33,7 @@
   else
   {
     $output_big = $output_big."QUESTION: ".$_POST['tutorial'].'<br><div class = "tab" id = "A"><input type="radio" name="mult" value="A" onclick = "show_ans1();"><span onclick = "selectRadio1();">A: '.$_POST['answer1']."</span></div>".'<div class = "tab" id = "B"><input type="radio" name="mult" value="B" onclick = "show_ans1();"><span onclick = "selectRadio1();">B: '.$_POST['answer2']."</span></div>";
-    $num = $_POST['num_multi'];
+    $num = $_POST['num_multiple'];
     if($num == 1)
     {
       $output_big = $output_big.'<div class = "tab" id = "C"><input type="radio" name="mult" value="C" onclick = "show_ans1();"><span onclick = "selectRadio1();">C: '.$_POST['answer3']."</span></div>";
@@ -29,13 +48,17 @@
     }
     $output_big = $output_big.'<br><br><div id = "showanswer1">ANSWER: '.$_POST['actual_answer_multi'].'</div>';
   }
+  $output_big = $output_big.'</div></div><footer><a id = "about" href="<?php echo \'http://\' . $_SERVER[\'SERVER_NAME\'] . \'/about/about.html\'?>">About Page</a></footer><script src="/resources/general/cookies_enabled.js"></script><script src="/resources/jquery/jquery-1.4.3.min.js"></script></script><script src="/resources/general/answer.js"></script></body></html>';
   fwrite($challenge, $output_big);
   if ($fileDestination)
   {
     echo"works";
   }
   fclose($challenge);
-  //header("Location:index.php");
+  foreach ($_POST as $key => $value) {
+    unset($_POST[$key]);
+  }
+  header("Location:index.php");
 
 
 ?>

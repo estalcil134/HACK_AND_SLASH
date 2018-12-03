@@ -84,6 +84,17 @@ select {
   background-image: linear-gradient(#550606,#8B0B0B,#C90F0F,#8B0B0B,#550606);
   border-radius: 5px;
 }
+.delete {
+  /*css for answer*/
+  display: inline-block;
+  width: 60px;
+  padding: 0;
+  height: 30px;
+  color: lightgrey;
+  border-width: 0px;
+  background-image: linear-gradient(#550606,#8B0B0B,#C90F0F,#8B0B0B,#550606);
+  border-radius: 5px;
+}
 .click:active {
   /*css for active click objects*/
   background-image: linear-gradient(#BB0303,#650404,#2E0303,#650404,#BB0303);
@@ -124,6 +135,7 @@ select {
 
 .in_div {
   /*css for within a div*/
+  flex: 1;
   padding:5%;
   width:95%;
   height:95%;
@@ -144,12 +156,14 @@ select {
 
 .display_frame {
   /*css for display_frame*/
-  width: 50%;
-  height: 150px;
+  width: 60%;
+  min-height: 50px;
+  display: inline-flex;
+  flex-direction: column;
+  word-wrap: break-word;
   padding: 10px;
   border: 10px solid black;
   margin: 10px;
-  display: inline-block;
   background-color: white;
 }
 .info {
@@ -173,8 +187,11 @@ select {
 .parental {
   /*css for parental objects*/
   display: inline-block;
-  width:30%;
-  
+  width:30%; 
+}
+
+.small_frame {
+  display: none;
 }
 
 #addForm

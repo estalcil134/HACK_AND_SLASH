@@ -157,6 +157,7 @@ function enter()
   var q_event = event.keyCode;
   if (q_event == 13)
   {
+    event.preventDefault();
     el2.blur();
     var index = $('.inputs').index(el2);
     if(index == 1)
@@ -275,27 +276,52 @@ function drop(ev) {
     {
       var transfer = ev.target.children[0];
     }
+    else if(ev.target.className == "file_show" || ev.target.className == "click delete")
+    {
+      var transfer = ev.target.parentElement;
+    }
     else
     {
       var transfer = ev.target;
+    }
+    data1 = document.getElementById(data);
+    if(data1.className == "file_show" || data1.className == "click delete")
+    {
+      var data1 = data1.parentElement;
     }
     if(ev.target.parentElement.className == "parental")
     {
       var reciever = ev.target;
     }
+    else if(ev.target.className != "in_div")
+    {
+      var reciever = ev.target.parentElement.parentElement;
+    }
     else
     {
       var reciever = ev.target.parentElement;
     }
-    //alert("the target content: " + transfer.id + "\nthe reciever: " + reciever.id + "\nthe prev_div: " + prev_div.id + "\nthe data: " + data);
+    //alert("the target content: " + transfer.id + "\nthe reciever: " + reciever.id + "\nthe prev_div: " + prev_div.id + "\nthe data: " + data1.id);
     prev_div.appendChild(transfer);
-    reciever.appendChild(document.getElementById(data));
+    reciever.appendChild(data1);
 }
 
 function on(ev) {
-    var contentz = $(ev.target.childNodes[1]).contents().find("html").html();
-    document.getElementById("overlay").style.display = "block";
-    document.getElementById("preview").srcdoc = contentz;
+    if(ev.target.className != "click delete")
+    {
+      if(ev.target.className != "file_show")
+      {
+        var contentz = $(ev.target.childNodes[2]).contents().find("html").html();
+        document.getElementById("overlay").style.display = "block";
+        document.getElementById("preview").srcdoc = contentz;
+      }
+      else
+      {
+        var contentz = $(ev.target.parentElement.childNodes[2]).contents().find("html").html();
+        document.getElementById("overlay").style.display = "block";
+        document.getElementById("preview").srcdoc = contentz;
+      }
+    }
 }
 
 function off() {
@@ -317,12 +343,19 @@ function show_ans() {
 function show_ans1() {
   //alert(event.target.parentElement.id);
   //alert(mulitple_answer);
+  var $el = $("#showanswer1").css( "display" );
   if(event.target.parentElement.id == mulitple_answer)
   {
-    var $el = $("#showanswer1").css( "display" );
     if($el == "none")
     {
       $("#showanswer1").css({display: "block"});
+    }
+  }
+  else
+  {
+    if($el == "block")
+    {
+      $("#showanswer1").css({display: "none"});
     }
   }
 }

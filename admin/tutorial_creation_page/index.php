@@ -1,6 +1,5 @@
 
 <?php 
-echo substr($_SERVER['QUERY_STRING'],1);
 require "../../resources/general/start.php";
 if ($_SESSION["user-type"] != "admin")
 { // If it is an user, redirect to the login page to determine what to do
@@ -28,11 +27,13 @@ if ($_SESSION["user-type"] != "admin")
     <div id="overlay" onclick = "off();">
       <div id = "preview_look_good">
         <p id = "para_preview">Preview</p>
-        <iframe src = "" id = "preview"width = "100%" height = "100%">
+        <iframe src = "" id = "preview" width = "100%" height = "100%">
 
         </iframe>
       </div>
     </div>
+    <br>
+  <br>
     <div id="addForm">
       
       <br>
@@ -52,7 +53,32 @@ if ($_SESSION["user-type"] != "admin")
             <br>
             <p class = "info">If you don't know how to write html, it's fine! Just go to your Microsoft Word Document, and click "Save As", then "Browse". From there you will see a window pop up. In this window click on the "Save as Type" bar and choose either "Web Page, Filtered (*.htm;*.html)" or "Web Page (*.htm;*.html)". THen find your file destination you wish to save this new html at and you're done. Now you can upload html to our tutorial creator!</p>
 
-
+            <?php
+              if($_SERVER['QUERY_STRING'])
+              {
+                echo('<p class = "info">');
+              }
+              if($_SERVER['QUERY_STRING'] == '=1')
+              {
+                echo('File Uploaded Successfully!');
+              }
+              else if($_SERVER['QUERY_STRING'] == '=2')
+              {
+                echo('File Size Too Large.');
+              }
+              else if($_SERVER['QUERY_STRING'] == '=3')
+              {
+                echo('There was an error when uploading your file.');
+              }
+              else if($_SERVER['QUERY_STRING'] == '=4')
+              {
+                echo('You cannot upload this file type.');
+              }
+              if($_SERVER['QUERY_STRING'])
+              { 
+                echo('</p>');
+              }
+            ?>
             <input type="file" name="file" id = "file">
             <button type = "submit" class = "answer click" name = "submit" onclick="file_there();">UPLOAD</button> 
             <br>
@@ -123,7 +149,7 @@ if ($_SESSION["user-type"] != "admin")
           <input type ="hidden" name = "question_type" value = "">
           <input type ="hidden" name = "actual_answer_multi" value = "">
           <input type ="hidden" name = "actual_answer_short" value = "">
-          <input type ="hidden" name = "num_multi" value = "">
+          <input type ="hidden" name = "num_multiple" value = "">
           <div id = "create_ques">
             <button class = "answer click" id = "ques_submit" type = "submit">CREATE QUESTION PAGE</button>
           </div>
@@ -140,7 +166,7 @@ if ($_SESSION["user-type"] != "admin")
             $count = 0;
             while (false !== ($entry = readdir($handle))) {
                 if ($entry != "." && $entry != "..") {
-                    echo '<div class = "parental" id="'.$count.'"><p class = "number">'.($count+1).'</p><div id="div'.$count.'" class = "display_frame" ondrop="drop(event);" draggable="false" ondragover="allowDrop(event);"><div id = "inside_div'.$count.'" class = "in_div" draggable="true" ondragstart="find_parent(event); drag(event);" onclick = "on(event);"><button id = "'.$entry.'" onclick = "setFile();" type = "submit">DELETE</button><iframe src = "uploaded_docs/'.$_SESSION['username'].'/'.$entry.'" id="drag'.$count.'" width="80%" height="80%" class = "small_frame" contenteditable = "false"></iframe></div></div></div>';
+                    echo '<div class = "parental" id="'.$count.'"><p class = "number">'.($count+1).'</p><div id="div'.$count.'" class = "display_frame" ondrop="drop(event);" draggable="false" ondragover="allowDrop(event);"><div id = "inside_div'.$count.'" class = "in_div" draggable="true" ondragstart="find_parent(event); drag(event);" onclick = "on(event);"><button class = "click delete" id = "'.$entry.'" onclick = "setFile();" type = "submit">DELETE</button><div id = "'.$entry.'" class = "file_show">(Click to Preview) '.$entry.'</div><iframe src = "uploaded_docs/'.$_SESSION['username'].'/'.$entry.'" id="drag'.$count.'" class = "small_frame" contenteditable = "false"></iframe></div></div></div>';
                   $count++;
                 }
             }

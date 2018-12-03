@@ -20,14 +20,25 @@ $error_type='';
         if($fileError === 0) {
           if($fileSize < 10000000) {
             $fileNameNew = uniqid('',true).".".$fileActualExt;
-            $fileDestination = 'uploaded_docs/'.$_SESSION['username'].'/'.$fileNameNew;
-            move_uploaded_file($fileTmpName,$fileDestination);
+            $fileDestination = 'uploaded_docs/'.$_SESSION['username'].'/'.$fileName;
+            if(move_uploaded_file($fileTmpName,$fileDestination)) {
+              $error_type = "1";
+            }
           }
-          $error_type = "1";
+          else
+          {
+            $error_type = "2";
+          }
         }
-        $error_type = "2";
+        else
+        {
+          $error_type = "3";
+        }
       }
-      $error_type = "3";
+      else
+      {
+        $error_type = "4";
+      }
   }
   foreach ($_POST as $key => $value) {
     unset($_POST[$key]);
