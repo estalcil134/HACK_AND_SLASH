@@ -1,0 +1,1 @@
+A page for admins to delete already existing challeneges. 

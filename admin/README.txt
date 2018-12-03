@@ -1,0 +1,1 @@
+This is the folder containing most of the admin resources. Here, an admin can create tutorials, delete tutorials they've made, create challenges, and delete challenges they've made. 

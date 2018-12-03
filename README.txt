@@ -1,5 +1,8 @@
 In the HACK&/ folder structure we utilize snake case directory and file names to keep the organization and naming consistent.
 
+The log in page is the index.php and is the first page a user will land on when visiting this website. 
+Visiting another page on this website requires the user to log in with his/her account. Navigating to any other page without logging in will redirect him/her back to the log in page. 
+
 Way to Start the files:
 <?php
   required "FILEPATHTO /resources/general/start.php";

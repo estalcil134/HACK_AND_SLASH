@@ -1,0 +1,1 @@
+This is the challenge landing page. The landing page will display all of the challeneges in the database for the user. 

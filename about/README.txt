@@ -1,0 +1,1 @@
+The about page which contains information about the team of four who created this project. 
