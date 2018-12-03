@@ -23,11 +23,20 @@ if ($_POST)
     unlink($challenge_file_location);
     unlink($file_path);
   }
-  else if (isset($_POST['type']) && ($_POST['type'] == 'tutorials'))
+  else if (isset($_POST['type']) && ($_POST['type'] == 'tutorial'))
   {
-    $request = $connected->prepare
+    // Grab where the tutorial name
+    $request = $connected->prepare("SELECT file_path FROM tutorials WHERE num = :num");
+    $request->execute(array(':num'=>clean_input(array_keys($_POST)[0])));
+
+    // Remove the entry from the tutorials table
+    /*$request = $connected->prepare("DELETE FROM tutorials WHERE num = :num");
+    $request->execute(array(':num'=>clean_input(array_keys($_POST)[0])));*/
+
+    // Delete the files
+    //unlink();
   }
 }
-header("Location: {$_SERVER['HTTP_REFERER']}");
+//header("Location: {$_SERVER['HTTP_REFERER']}");
 exit();
 ?>

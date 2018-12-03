@@ -48,7 +48,7 @@ require '../../resources/general/navbar_user.html';
           $connected=null;
         ?>
       </div>
-      <input type="hidden" name="type" value="challenge">
+      <input type="hidden" name="type" value="tutorial">
     </fieldset>
   </form>
 </div>

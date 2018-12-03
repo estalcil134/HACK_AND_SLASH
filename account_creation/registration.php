@@ -1,7 +1,7 @@
 <?php
 session_start();
 $email_err = $user_err = $pass_err = '';
-function clean_input($data)
+function clean_input_org($data)
 {
   $data = trim($data);
   $data = stripslashes($data);
@@ -34,9 +34,9 @@ else if (isset($_POST['Email']) || isset($_POST['Username']) || isset($_POST['pa
   { // Assuming the inputted data is valid:
     // exist1 is true if the email is already taken; exist2 is true if the username is already taken
     $exist1 = $exist2 = False;
-    $email = clean_input($_POST['Email']);
-    $user = clean_input($_POST['Username']);
-    $pass = [clean_input($_POST['pass1']), clean_input($_POST['pass2'])];
+    $email = clean_input_org($_POST['Email']);
+    $user = clean_input_org($_POST['Username']);
+    $pass = [clean_input_org($_POST['pass1']), clean_input_org($_POST['pass2'])];
     if ($pass[0] !== $pass[1])
     {
       $pass_err = "Passwords do not match!";
@@ -49,7 +49,7 @@ else if (isset($_POST['Email']) || isset($_POST['Username']) || isset($_POST['pa
     // Check if email exists
     $request = $connected->prepare("SELECT email FROM `users` WHERE email = :email");
     $exist1 = (($request->execute(array(':email' => $email)) === True) && $request->rowCount());
-    if (!filter_var(clean_input($_POST['Email']), FILTER_VALIDATE_EMAIL))
+    if (!filter_var(clean_input_org($_POST['Email']), FILTER_VALIDATE_EMAIL))
     {
       $email_err = "Please enter a valid email!";
     }
