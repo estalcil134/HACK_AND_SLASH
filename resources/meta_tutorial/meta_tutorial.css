@@ -1,0 +1,18 @@
+body {
+    background-color: black;
+}
+#content {
+    background-color: #ffffff;
+    opacity: 0.8;
+    color: black;
+    max-width: 600px;
+    margin: auto;
+    padding: 10px;
+}
+#title {
+    color: red;
+    text-align: center;
+}
+h2, h3 {
+    color: red;
+}
