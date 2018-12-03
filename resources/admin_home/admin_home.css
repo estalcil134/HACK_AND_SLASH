@@ -1,20 +1,68 @@
 h1{
 	color: white;
+	text-align: center;
+	font-size: 3em;
+	font-weight: bold;
+	text-decoration: underline;
 }
 
-.container{
+.w_container{
 	width: 60%;
 	background-color: white;
+	margin-left: 20%;
+	margin-right: 20%;
+	height: 400px;
 }
-.left{
-	width: 49%;
-	height: 80%;
+.w_left{
+	border: solid black 2px;
+	width: 49.561%;
+	height: 100%;
 	float: left;
-	background-color: red;
+	
 }
-.right{
-	width: 49%;
-	height: 80%;
+.w_right{
+	border: solid black 2px;
+	width: 49.561%;
+	height: 100%;
 	float: right;
-	background-color: blue;
+	
+}
+/*
+.w_bottom{
+	clear: both;
+	height: 23.5%;
+	width: 99.9%;
+	border: solid black 2px;
+	
+}
+*/
+.w_left p, .w_right p{
+	font-size: 2em;
+	line-height: 350%;
+	height: 25%;
+	width: 100%;
+	text-align: center;
+	font-weight: bold;
+	border: solid black 1px;
+	margin: 0;
+	background-image: radial-gradient(white, red 75%, darkred);
+}
+/*
+.w_bottom p{
+	line-height: 300%;
+	font-size: 2em;
+	height: 100%;
+	text-align: center;
+	font-weight: bold;
+	border: solid black 1px;
+	margin: 0;
+	background-image: radial-gradient(white, red 75%, darkred);
+}
+*/
+a:link, a:visited{
+	color: black;
+}
+p:hover{
+	color: white;
+	background-image: radial-gradient(darkred, red 25%, white);
 }
