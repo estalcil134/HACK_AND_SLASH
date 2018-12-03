@@ -293,7 +293,7 @@ function drop(ev) {
 }
 
 function on(ev) {
-    var contentz = $(ev.target.childNodes[0]).contents().find("html").html();
+    var contentz = $(ev.target.childNodes[1]).contents().find("html").html();
     document.getElementById("overlay").style.display = "block";
     document.getElementById("preview").srcdoc = contentz;
 }
@@ -356,4 +356,8 @@ function selectRadio() {
 function selectRadio1() {
   $('input:radio[name=mult][value=' + event.target.innerHTML.substr(0,1) + ']').click();
   
+}
+
+function setFile() {
+  $('input:hidden[name=filename]').val(event.target.id);
 }

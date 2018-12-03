@@ -1,5 +1,6 @@
 
 <?php 
+echo substr($_SERVER['QUERY_STRING'],1);
 require "../../resources/general/start.php";
 if ($_SESSION["user-type"] != "admin")
 { // If it is an user, redirect to the login page to determine what to do
@@ -131,19 +132,22 @@ if ($_SESSION["user-type"] != "admin")
       </ul>
       </div>
       <div id = "tutor_out">
-      <?php
-      // Read directory, spit out links
-      if ($handle = opendir('uploaded_docs/username/')) {
-          $count = 0;
-          while (false !== ($entry = readdir($handle))) {
-              if ($entry != "." && $entry != "..") {
-                  echo '<div class = "parental" id="'.$count.'"><p class = "number">'.($count+1).'</p><div id="div'.$count.'" class = "display_frame" ondrop="drop(event);" draggable="false" ondragover="allowDrop(event);"><div id = "inside_div'.$count.'" class = "in_div" draggable="true" ondragstart="find_parent(event); drag(event);" onclick = "on(event);"><iframe src = "uploaded_docs/username/'.$entry.'" id="drag'.$count.'" width="80%" height="80%" class = "small_frame" contenteditable = "false"></iframe></div></div></div>';
-                $count++;
-              }
-          }
-          closedir($handle);
-      }
-      ?>
+      <form action="delete.php" method="POST" enctype="multipart/form-data" name="addForm">
+        <input type ="hidden" name = "filename" value = "">
+        <?php
+        // Read directory, spit out links
+        if ($handle = opendir('uploaded_docs/'.$_SESSION['username'].'/')) {
+            $count = 0;
+            while (false !== ($entry = readdir($handle))) {
+                if ($entry != "." && $entry != "..") {
+                    echo '<div class = "parental" id="'.$count.'"><p class = "number">'.($count+1).'</p><div id="div'.$count.'" class = "display_frame" ondrop="drop(event);" draggable="false" ondragover="allowDrop(event);"><div id = "inside_div'.$count.'" class = "in_div" draggable="true" ondragstart="find_parent(event); drag(event);" onclick = "on(event);"><button id = "'.$entry.'" onclick = "setFile();" type = "submit">DELETE</button><iframe src = "uploaded_docs/'.$_SESSION['username'].'/'.$entry.'" id="drag'.$count.'" width="80%" height="80%" class = "small_frame" contenteditable = "false"></iframe></div></div></div>';
+                  $count++;
+                }
+            }
+            closedir($handle);
+        }
+        ?>
+      </form>
       </div>
       <div id = "title_name">
         <p  id = "final_words">Click "Submit" when you are done making the Tutorial"</p>
