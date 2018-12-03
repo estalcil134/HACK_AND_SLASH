@@ -27,6 +27,7 @@ var answer5 = "";
 //this function allows for the user to load the page and have the cursor immediately in the first text box
 var i = 0;
 var classes = [];
+
 window.onload = function() {
   getFocusText();
   var el = document.getElementById("multi");
@@ -41,7 +42,7 @@ function getFocusText() {
 }
 
 function show_question()
-{
+{ // Function to show the demo
   var que = event.target;
   var outputting = document.getElementById("outputter");
   var q_event = event.keyCode;
@@ -62,7 +63,7 @@ function show_question()
 }
 
 function enter()
-{
+{ // On this call, focus on the next input tag
   var el2 = event.target;
   var q_event = event.keyCode;
   if (q_event == 13)

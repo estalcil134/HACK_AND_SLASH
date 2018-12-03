@@ -1,15 +1,10 @@
 <?php
-$loc = '';
+$loc = $err = '';
 session_start();
 // Redirect if the user's session exists and they typed the link to the login page
 if (isset($_SESSION['user-type']) && isset($_SESSION['username']))
 {
   header("Location: http://" . $_SERVER['SERVER_NAME'] . "/" . $_SESSION['user-type'] . "/" . $_SESSION['user-type'] . "_home_page.php");
-  exit();
-}
-else if (isset($_POST['username']) && (strlen($_POST['username']) > 20))
-{
-  header("Location: http://" . $_SERVER['SERVER_NAME'] . '/?=Error Maximum Username size is 20!');
   exit();
 }
 else if (isset($_POST['username']) && isset($_POST['password']))
@@ -27,8 +22,9 @@ else if (isset($_POST['username']) && isset($_POST['password']))
     // Checks both users and admins table in mysql db to see if 
     // 1) There is a user with that username
     // 2) If the password matches
+    // 3) If that user is an admin
     // Returns an array of [#, user/admin] depending on what happens and whether they are a user or admin
-    // Returns 0 if it works out
+    // Returns 0 if it successfully authenticates
     // Returns 1 if it is the wrong password
     // Returns 2 if it the user doesn't exist
     $result = [2, 'user'];  // Default is doesn't exist and is user
@@ -37,9 +33,8 @@ else if (isset($_POST['username']) && isset($_POST['password']))
     $request = $pdo_obj->prepare("SELECT username, hashed_password, salt, userid FROM `users` WHERE username = :username");
     if (($request->execute(array(':username' => $user)) === True) && $request->rowCount())
     {
-      /*echo "user pass check";*/
       $user = $request->fetch();
-      // Check password that is hashed with sha256 and salted with the userid
+      // Check password that is hashed with sha256 and salted with the stored salt
   	  if (hash("sha256", $pass . $user['salt']) === $user['hashed_password'])
       { // Password matches
   	    $result[0] = 0;
@@ -47,12 +42,12 @@ else if (isset($_POST['username']) && isset($_POST['password']))
         $request = $pdo_obj->prepare("SELECT userid FROM `admins` WHERE userid = :userid");
         $request->execute(array(":userid" => $user['userid']));
         if ($request->fetch()[0] == $user['userid'])
-        {
+        { // If they are admin, set the array[1] to admin
           $result[1] = 'admin';
         }
   	  }
   	  else
-  	  { // Password doesn't match
+  	  { // Password doesn't match, throw a 1
   	    $result[0] = 1;
       }
     }
@@ -71,17 +66,16 @@ else if (isset($_POST['username']) && isset($_POST['password']))
   if ($code[0] === 0)
   { // If user exists, do this:
     $loc = "$code[1]";
-    // Create user session info here storing username and tutstring and challstring
+    // Create user session info here storing username and user type
     $_SESSION['user-type'] = $loc;
     $_SESSION['username'] = $user_name;
-    // Redirect
+    // Redirect to homepage based on user type
     header("Location: http://" . $_SERVER['SERVER_NAME'] . '/' . $loc . '/' . $loc . '_home_page.php');
     exit();
   }
   else
-  {
-    header("Location: http://" . $_SERVER['SERVER_NAME'] . '/?=Username or Password Incorrect');
-    exit();
+  { // If error occurred, set error message
+    $err = "Username or Password Incorrect";
   }
 }
 ?>
@@ -101,7 +95,7 @@ else if (isset($_POST['username']) && isset($_POST['password']))
 	<p class="signin">Please Sign In</p>
   <div id="container">
   	<form action="./" method="post" accept-charset="UTF-8" name="Login">
-      <span class="info"><?php if (isset($_SERVER['QUERY_STRING'])) echo str_replace('%20',' ',substr($_SERVER['QUERY_STRING'],1));?></span><br/>
+      <span class="info"><?php if ($err){ echo $err; $err = '';}?></span><br/>
       <fieldset>
         <label for="username">Username: </label><input id="username" type="text" name="username" maxlength="20" autofocus required><br/>
       </fieldset>
@@ -118,3 +112,4 @@ else if (isset($_POST['username']) && isset($_POST['password']))
 
 </body>
 </html>
+<?php unset($_POST); ?>

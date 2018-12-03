@@ -1,7 +1,7 @@
 <?php
 require "../resources/general/start.php";
 if ($_SESSION["user-type"] != "user")
-{
+{ // If it is an admin, redirect to the login page to determine what to do
   header("Location: http://" . $_SERVER["SERVER_NAME"]);
 }
 ?>

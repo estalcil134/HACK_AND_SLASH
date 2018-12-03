@@ -1,7 +1,7 @@
 <?php
 require "../../resources/general/start.php";
 if ($_SESSION['user-type'] !== "admin")
-{ // Redirect if user and not admin
+{ // Redirect if user is not admin
   header("Location: http://" . $_SERVER['SERVER_NAME']);
   exit();
 }
@@ -11,17 +11,15 @@ if ($_SESSION['user-type'] !== "admin")
 <head>
   <meta charset = "UTF-8">
   <meta name="author" content="Arron">
-  <title>Tutorials</title>
+  <title>Hack&/ Challenge Deletion</title>
   <link rel="stylesheet" type="text/css" href="../../resources/general/general_content.css">
   <link rel="stylesheet" type="text/css" href="../../resources/general/deletion_page.css">
 </head>
 <?php
-require'../../resources/general/logo_' . $_SESSION['user-type'] . '.html';
-if ($_SESSION['user-type'] === "admin")
-{
+ // Navigation bars
+  require'../../resources/general/logo_' . $_SESSION['user-type'] . '.html';
   require '../../resources/general/navbar_admin.html';
-}
-require '../../resources/general/navbar_user.html';
+  require '../../resources/general/navbar_user.html';
 ?>
 
 <div id="body">

@@ -2,17 +2,18 @@
 session_start();
 // If the folder for all the files doesn't exist, make it
 if (!file_exists("../../uploaded_docs") && !mkdir("../../uploaded_docs", 0700))
-{
+{ // Print this if error occurred
   echo "Error occurred when making server upload folder";
 }
 // If admin's folder doesn't exist, make the folder.
 if(!file_exists("../../uploaded_docs/" . $_SESSION['username']) && !mkdir("../../uploaded_docs/" . $_SESSION['username'], 0700))
-{
+{ // Print this if error occurred
   echo "Error occurred when making admin directory";
 }
 if(isset($_POST['submit']) && isset($_POST['challenge']) && isset($_POST['flag']) && isset($_POST['description'])) {
-  $fileDestination = "";
-  $file_path = "../../user/challenges/{$_POST['challenge']}.txt";
+  // If all the required fields are set execute all of this:
+  $fileDestination = ""; // Challenge file location that user will download
+  $file_path = "../../user/challenges/{$_POST['challenge']}.txt";  // file path for the .txt used for ajax
   // Check if the challenge already exists by challenge name. If it does, then we don't submit it
   require "connect.php";
   $result = $connected->query("SELECT file_path FROM `challenges` WHERE creater_id = (SELECT userid FROM `users` WHERE username = '" . $_SESSION['username'] . "') AND file_path = '$file_path'");
@@ -20,7 +21,7 @@ if(isset($_POST['submit']) && isset($_POST['challenge']) && isset($_POST['flag']
   {
     // Upload the file first
     if (is_uploaded_file($_FILES['myFile']['tmp_name']))
-    {
+    { // If there was a file uploaded, then execute this block
       $file = $_FILES['myFile'];
       $fileName = $file['name'];
       $fileTmpName = $file['tmp_name'];
@@ -47,8 +48,7 @@ if(isset($_POST['submit']) && isset($_POST['challenge']) && isset($_POST['flag']
     $challenge = fopen("../../user/challenges/{$_POST['challenge']}.txt", "w");
     fwrite($challenge, "<h2>{$_POST['challenge']}</h2><p>{$_POST['description']}</p>");
     if ($fileDestination != '')
-    {
-      //echo "works";
+    { // If a file was submitted, add an anchor tag to that file we are writting into
       fwrite($challenge, "<a id=\"challenge_file\" href=\"$fileDestination\">File</a>");
     }
     fclose($challenge);
@@ -58,6 +58,7 @@ if(isset($_POST['submit']) && isset($_POST['challenge']) && isset($_POST['flag']
   }
   $connected = NULL;
 }
+// Redirect back to the challenge creation page
 header("Location: {$_SERVER['HTTP_REFERER']}");
 exit();
 ?>

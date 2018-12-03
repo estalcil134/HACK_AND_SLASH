@@ -3,7 +3,7 @@ if ($_POST)
 {
   require "connect.php";
   if (isset($_POST['type']) && ($_POST['type'] == 'challenge'))
-  {
+  { // If we want to delete a challenge do this:
     // Grab where the file always loaded in from ajax is first
     $request = $connected->prepare("SELECT name FROM challenges WHERE num = :num");
     $request->execute(array(':num'=>clean_input(array_keys($_POST)[0])));
@@ -12,7 +12,7 @@ if ($_POST)
     $request = $connected->prepare("DELETE FROM challenges WHERE num = :num");
     $request->execute(array(':num'=>array_keys($_POST)[0]));
 
-    // Grab the file path mentioned in the text file
+    // Grab the file path mentioned in the text file called $file_path
     $file = fopen($file_path, 'r');
     $challenge_file_location = fgets($file);
     $challenge_file_location = substr($challenge_file_location, strpos($challenge_file_location, '<a id="challenge_file" href="')+29);
@@ -24,7 +24,7 @@ if ($_POST)
     unlink($file_path);
   }
   else if (isset($_POST['type']) && ($_POST['type'] == 'tutorial'))
-  {
+  { // If we are deleting a tutorial, do this:
     // Grab where the tutorial name
     $request = $connected->prepare("SELECT file_path FROM tutorials WHERE num = :num");
     $request->execute(array(':num'=>clean_input(array_keys($_POST)[0])));

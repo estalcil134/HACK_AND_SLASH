@@ -38,6 +38,7 @@ function open_pop(loc)
   document.getElementById("cover").style.display="block";
   document.getElementsByClassName("pop")[0].style.display="block";
   document.getElementById("container").children[0].innerHTML="";
+  // Enable keydown and mouse input
   var body = document.getElementsByTagName("body")[0];
   body.setAttribute('onkeydown','return true');
   body.setAttribute('onmousedown','return true');
@@ -47,6 +48,7 @@ function close_pop()
 { // Close the popup block
   document.getElementById("cover").style.display="none";
   document.getElementsByClassName("pop")[0].style.display="none";
+  // Disable keydown and mouse input
   var body = document.getElementsByTagName("body")[0];
   body.setAttribute('onkeydown','return true');
   body.setAttribute('onmousedown','return true');
