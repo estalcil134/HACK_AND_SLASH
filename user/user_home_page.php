@@ -12,7 +12,7 @@ if ($_SESSION["user-type"] != "user")
 	<meta name="descripton" content="User Home Page">
 	<meta name="author" content="Arron">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>HACK&/</title>
+	<title>HACK&amp;/</title>
 	<link rel="stylesheet" type="text/css" href="../resources/general/general_content.css">
   <link rel="stylesheet" type="text/css" href="../resources/user_home/general_content.css">
   <script type="text/javascript" src="../resources/general/footer.js"></script>

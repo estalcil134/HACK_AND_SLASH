@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Hack&/ Challenge Creation</title>
+    <title>Hack&amp;/ Challenge Creation</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link href="../../resources/challenge_creation_page/challenge_creation.css" rel="stylesheet" type="text/css"/>
     <link href="../../resources/general/general_content.css" rel="stylesheet" type="text/css"/>

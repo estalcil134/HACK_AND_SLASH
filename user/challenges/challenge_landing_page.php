@@ -36,7 +36,7 @@ if (isset($_POST['flag']) && isset($_POST['chall_num']) && isset($_POST['chall_p
 	<meta name="author" content="Arron">
 	<meta name="description" content="List of All Challenges">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Hack&/ Challenges</title>
+	<title>Hack&amp;/ Challenges</title>
   <link rel="stylesheet" type="text/css" href="../../resources/general/general_content.css">
   <link rel="stylesheet" type="text/css" href="../../resources/tutorial_home/tutorial_home.css">
   <link rel="stylesheet" href="../../resources/challenge_home/challenge_landing_page.css" type="text/css">
