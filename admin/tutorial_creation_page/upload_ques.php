@@ -1,7 +1,7 @@
 <?php
   session_start();
   // Then create the text file that will be outputted in the challenge landing page.
-  $fileString = $_POST['tutorial'].".";
+  $fileString = preg_replace ("?"," ",$_POST['tutorial'].".");
   $challenge = fopen('uploaded_docs/'.$_SESSION['username'].'/'.$fileString.'html', "w");
   $output_big = '<!DOCTYPE HTML>
 <html lang="en">
