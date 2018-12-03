@@ -1,8 +1,9 @@
 <?php
+$error_type='';
   session_start();
-  if(!file_exists("uploaded_docs/username"))
+  if(!file_exists("uploaded_docs".$_SESSION['username']))
     {
-      mkdir("uploaded_docs/username", 0700);
+      mkdir("uploaded_docs/".$_SESSION['username'], 0700);
     }
     if(isset($_POST['submit'])) {
       $file = $_FILES['file'];
@@ -31,5 +32,12 @@
   foreach ($_POST as $key => $value) {
     unset($_POST[$key]);
   }
-  header("Location:index.php")
+if ($error_type)
+{
+  header("Location: index.php?=$error_type");
+}
+else
+{
+  header("Location: index.php");
+}
 ?>
