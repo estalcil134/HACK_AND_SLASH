@@ -1,0 +1,1 @@
+This is the folder for most of the user resources. These include browsing available tutorials, available challenges, and the site scoreboard which compares users to other users. 

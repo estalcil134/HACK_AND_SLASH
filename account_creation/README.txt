@@ -1,0 +1,1 @@
+This page is for people who do not have accounts and want to create one for use with the website. 
