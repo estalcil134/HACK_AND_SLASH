@@ -24,7 +24,8 @@ h2 {
 }
 
 form {
-	color: white;
+	background-color: white;
+	border-radius: 5px;
 	border:1px solid black;
 	padding:5px;
 	display: inline-block;
@@ -36,12 +37,14 @@ fieldset {
   border-style:none;
 }
 
+
 .signin {
-	padding-left: 35%;
+	color: red;
+	padding-left: 28.6%;
 	font-size: 1.65em;
 }
 .noaccount {
-	padding-left: 30%;
+	padding-left: 28.6%;
 	font-size: 1.5em;
 	font-weight: strong;
 	color: white;
@@ -91,4 +94,10 @@ fieldset {
 	.about{
 		display: none;
 	}
+}
+a:link{
+	color: red;
+}
+a:visited{
+	color: white;
 }

@@ -10,7 +10,7 @@ function clean_input($data)
 //Login Credentials
 $servername = "hack.and.slash";
 $username = "root";
-$password = "bablehblehbleh";
+$password = "";
 $dbname = "hack_and_slash";
 
 try {
