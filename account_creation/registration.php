@@ -100,7 +100,7 @@ else if (isset($_POST['Email']) || isset($_POST['Username']) || isset($_POST['pa
         <label for="username">Create a Username: </label>
         <span class="info"><?php echo $user_err;?></span>
         <label for="password1">Enter a Password: </label>
-        <label for="password2">Renter a Password: </label>
+        <label for="password2">Re-enter Password: </label>
         <span class="info"><?php echo $pass_err;?></span>
       </div>
       <div class="right">

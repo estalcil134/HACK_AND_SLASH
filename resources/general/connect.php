@@ -9,7 +9,7 @@ function clean_input($data)
 }
 
 //Login Credentials
-$servername = "hack.and.slash";
+$servername = "lab9.websys";
 $username = "root";
 $password = "bablehblehbleh";
 $dbname = "hack_and_slash";

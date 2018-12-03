@@ -31,6 +31,7 @@ html
   color: #e21f1f;
 }
 input[type = "text"]{
+  /*some css for the text input*/
   height: 20px;
   border-radius: 0%;
 }
@@ -57,6 +58,7 @@ select {
 
 .button_choice
 {
+  /*css for button choice*/
   display: inline-block;
   border-radius: 50px 50px 0px 0px;
   width: 15%;
@@ -71,6 +73,7 @@ select {
   background-image: linear-gradient(#550606,#8B0B0B,#C90F0F,#8B0B0B,#550606);
 }
 .answer {
+  /*css for answer*/
   display: inline-block;
   width: 15%;
   padding: 0;
@@ -82,11 +85,13 @@ select {
   border-radius: 5px;
 }
 .click:active {
+  /*css for active click objects*/
   background-image: linear-gradient(#BB0303,#650404,#2E0303,#650404,#BB0303);
   color: white;
 }
 .button_choice:hover 
 {
+  /*css for hovering over any button_choice elements*/
   border-top: 2px solid #FA2E14;
   border-right: 2px solid #971100;
   border-bottom: 2px solid #971100;
@@ -95,24 +100,30 @@ select {
   color: white;
 }
 .bold{
+    /*generic class to make stuff bold*/
     font-weight: bold;
 }
 
 .italic{
+    /*generic class to make stuff italic*/
     font-style: italic;
 }
 .underline{
+    /*generic class to make stuff underlined*/
     text-decoration: underline;
 }
 .color{
+    /*makes stuff red*/
     color: red;
 }
 .tab {
+  /*generic tabbing*/
   margin-left: 20px;
   display: block;
 }
 
 .in_div {
+  /*css for within a div*/
   padding:5%;
   width:95%;
   height:95%;
@@ -121,15 +132,18 @@ select {
   margin: 0;
 }
 .space_top {
+  /*some space for the top*/
   margin-top: 20px;
 }
 
 .set_left {
+  /*throw stuff to the left*/
   margin-left: 20%;
   text-align: left;
 }
 
 .display_frame {
+  /*css for display_frame*/
   width: 50%;
   height: 150px;
   padding: 10px;
@@ -139,6 +153,7 @@ select {
   background-color: white;
 }
 .info {
+  /*css for info objects*/
   background-color: black;
   font-weight: bold;
   padding: 10px;
@@ -147,13 +162,16 @@ select {
   display: block;
 }
 .number {
+  /*css for number objects*/
   display: inline-block;
   background-color: black;
   font-weight: bold;
   font-size: 1.2em;
   padding: 3px;
 }
+
 .parental {
+  /*css for parental objects*/
   display: inline-block;
   width:30%;
   
@@ -161,6 +179,7 @@ select {
 
 #addForm
 {
+  /*css for addForm*/
   background-color:rgba(255, 255, 255, 0.7);;
   margin-top: 50px;
   text-align: center;
@@ -170,32 +189,38 @@ select {
 }
 #tutorial
 {
+  /*height for tutorial*/
   height: 20px;
 }
 
 #question_input
 {
+  /*css for question input*/
   height: 20px;
   border-radius: 0%;
   min-width: 160px;
   width: 50%;
 }
 #answer_input_short {
+  /*css for short answers*/
   min-width: 120px;
   width: 52%;
 }
 .multi_input {
+  /*css for multiple inputs*/
   min-width: 160px;
   width: 44%;
 }
 
 #buttonz
 {
+  /*css for buttonz*/
   display: block;
   margin-top: 50px;
 }
 #save
 {
+  /*css for saving the tutorial*/
   width:200px;
   height: 100%;
   display: inline-block;
@@ -210,6 +235,7 @@ select {
 }
 #save:active
 {
+  /*css for when save is active*/
   padding-left: 10px;
   padding-right: 10px;
   border-top: 2px solid #FA2E14;
@@ -222,6 +248,7 @@ select {
 
 #tutorial_creator
 {
+  /*css for tutorial creation*/
   min-height: 260px;
   border: thick double black;
   margin-bottom: 30px;
@@ -231,10 +258,12 @@ select {
   margin-top: 0px;
 }
 #spacer {
+  /*css for a generic spacer*/
   margin-bottom: 70px;
 }
 #tutorial_page
 {
+  /*css for the tutorial page*/
   min-width: 80%;
   min-height: 10px;;
   max-width: 95%;
@@ -242,15 +271,18 @@ select {
 }
 #padding_extra
 {
+  /*extra padding*/
   margin-bottom: 100px;
   height: 5px;
 }
 #bbutton
 {
+  /*css for bbutton*/
   border-style: outset;
 }
 #edit_tutorial_text
 {
+  /*css for when editing the tutorial*/
   min-width: 80%;
   min-height: 50%;
   max-width: 95%;
@@ -261,6 +293,7 @@ select {
 }
 #outer_div
 {
+  /*css for outer div*/
   background-color: white;
   min-height: 500px;
   width: 90%;
@@ -268,17 +301,19 @@ select {
   margin-left: auto;
   margin-right: auto;
 }
+/*
 put_div{
   
 }
+*/
 #content
 {
+  /*justify content*/
   text-align: justify;
 }
 
-
-
 #outputter {
+  /*css for output*/
   word-wrap: break-word;
   color: black;
   text-align: left;
@@ -289,6 +324,7 @@ put_div{
 }
 
 #out_div {
+  /*css for outer div*/
   margin-top: 20px;
   background-color:rgba(255, 255, 255, 0.8);
   display: block;
@@ -301,18 +337,21 @@ put_div{
 }
 
 #put_div {
+  /*css for put_div*/
   margin-left: 5%;
   margin-right: 5%;
   margin-top: 5px;
 }
 
 #preview_look_good {
+  /*css for the preview*/
   background-color: rgba(255,255,255,1); /* Black background with opacity */
   margin-left: 10%;
   margin-right: 10%;
   height: 100%;
 }
 #para_preview {
+  /*css for para_preview*/
   width: 100%;
   height: 10%;
   margin: 0;
@@ -324,11 +363,13 @@ put_div{
 }
 
 #file {
+  /*change font for file*/
   font-weight: bolder;
   font-size: 1.1em
 }
 
 #final_words {
+  /*css for final words*/
   background-color: none;
   font-weight: bold;
   color: black;
@@ -343,6 +384,7 @@ put_div{
 }
 
 #tutor_out {
+  /*css for tutor_out*/
   min-height: 200px;
   border: thick double black;
   margin-bottom: 30px;
@@ -353,23 +395,27 @@ put_div{
 }
 
 #showanswer {
+  /*css for showing the answer*/
   display: none;
   width: 100%;
   min-height: 20px;
 }
 
 #showanswer1 {
+  /*css for showing the first answer*/
   display: none;
   width: 100%;
   min-height: 20px;
 }
 
 #create_ques {
+  /*padding when creating questions*/
   padding-top: 5px;
   padding-bottom: 20px;
 }
 
 #ques_submit {
+  /*css for submitting questions*/
   display: block;
   margin-left: auto; 
   margin-right: 5%;
@@ -378,6 +424,7 @@ put_div{
   border-radius: 5px;
 }
 #answer_text {
+  /*css for the answer text*/
   margin-bottom:  0;
   display: block;
   margin-left: 13%;
@@ -387,6 +434,7 @@ put_div{
 
 #title_name
 {
+  /*css for title_name*/
   background-color:rgba(128, 128, 128, 0.7);
   padding-top: 20px;
   padding-bottom: 20px;
