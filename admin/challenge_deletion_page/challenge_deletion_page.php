@@ -28,24 +28,26 @@ if ($_SESSION['user-type'] !== "admin")
       <legend>Challenges Made:</legend>
       <div id="deletion">
         <?php
-          //Connect
+          // Connect to database
           require '../../resources/general/connect.php';
+          // Grab all the challenges
           $result = $connected->prepare("SELECT name, num FROM challenges WHERE creater_id = (SELECT userid FROM users WHERE username = :u)");
           $result->execute(array(':u'=>$_SESSION['username']));
           if (!$result->rowCount())
-          {
+          { // Output this if there are no challenges in the database
             echo "<span>NO CHALLENGES LEFT</span>";
           }
           else
-          {
+          { // Output all the challenges with a button next to it to delete that challenge
             foreach ($result->fetchAll() as $challenge)
             {
               echo "<span class=\"left clear_left\">" . $challenge[0] . "<input class=\"right\" type=\"submit\" name=\"" . $challenge[1] ."\" value=\"DELETE\"></span><br/>";
             }
           }
-          $connected=null;
+          $connected=null;  // Terminate connection
         ?>
       </div>
+      <!-- Used to indicate whether we are deleting a challenge or a tutorial -->
       <input type="hidden" name="type" value="challenge">
     </fieldset>
   </form>
