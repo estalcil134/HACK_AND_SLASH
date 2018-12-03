@@ -8,21 +8,20 @@ h1{
 
 .w_container{
 	width: 60%;
-	background-color: white;
 	margin-left: 20%;
 	margin-right: 20%;
 	height: 400px;
 }
 .w_left{
-	border: solid black 2px;
-	width: 49.561%;
+	border: solid black 1px;
+	width: 49.56%;
 	height: 100%;
 	float: left;
 	
 }
 .w_right{
-	border: solid black 2px;
-	width: 49.561%;
+	border: solid black 1px;
+	width: 49.56%;
 	height: 100%;
 	float: right;
 	
@@ -37,8 +36,8 @@ h1{
 }
 */
 .w_left p, .w_right p{
-	font-size: 2em;
-	line-height: 350%;
+	font-size: 1.5em;
+	line-height: 450%;
 	height: 25%;
 	width: 100%;
 	text-align: center;
