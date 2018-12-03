@@ -11,7 +11,7 @@ if ($_SESSION['user-type'] !== "admin")
 <head>
   <meta charset = "UTF-8">
   <meta name="author" content="Arron">
-  <title>Tutorials</title>
+  <title>Tutorials Deletion Page</title>
   <link rel="stylesheet" type="text/css" href="../../resources/general/general_content.css">
   <link rel="stylesheet" type="text/css" href="../../resources/general/deletion_page.css">
 </head>
@@ -25,24 +25,24 @@ require '../../resources/general/navbar_user.html';
 ?>
 
 <div id="body">
-  <form action="../../resources/general/delete.php" method="POST" onsubmit="return confirm('Are you sure you want to delete that challenge?');">
+  <form action="../../resources/general/delete.php" method="POST" onsubmit="return confirm('Are you sure you want to delete that tutorial?');">
     <fieldset>
-      <legend>Challenges Made:</legend>
+      <legend>Tutorials Made:</legend>
       <div id="deletion">
         <?php
           //Connect
           require '../../resources/general/connect.php';
-          $result = $connected->prepare("SELECT name, num FROM challenges WHERE creater_id = (SELECT userid FROM users WHERE username = :u)");
+          $result = $connected->prepare("SELECT name, num FROM tutorials WHERE creater_id = (SELECT userid FROM users WHERE username = :u)");
           $result->execute(array(':u'=>$_SESSION['username']));
           if (!$result->rowCount())
           {
-            echo "<span>NO CHALLENGES LEFT</span>";
+            echo "<span>NO TUTORIALS LEFT</span>";
           }
           else
           {
-            foreach ($result->fetchAll() as $challenge)
+            foreach ($result->fetchAll() as $tutorial)
             {
-              echo "<span class=\"left clear_left\">" . $challenge[0] . "<input class=\"right\" type=\"submit\" name=\"" . $challenge[1] ."\" value=\"DELETE\"></span><br/>";
+              echo "<span class=\"left clear_left\">" . $tutorial[0] . "<input class=\"right\" type=\"submit\" name=\"" . $tutorial[1] ."\" value=\"DELETE\"></span><br/>";
             }
           }
           $connected=null;

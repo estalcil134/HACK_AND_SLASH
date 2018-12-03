@@ -25,6 +25,7 @@
 <div id="body">
 <!--    onsubmit="return validate(this);"-->
     <form id="addForm" method="POST" action="../../resources/general/upload.php" enctype="multipart/form-data">
+      <h1>Create a Challenge</h1>
       <div id = "title_name">
         <p class = "title">Challenge Name:</p>
         <input type="text" name="challenge" autocomplete="off" size="50" value="" class = "inputs" id="tutorial" onkeydown = "enter();" onkeyup = "show_question();" required>        

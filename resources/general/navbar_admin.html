@@ -9,7 +9,12 @@
       echo $li->saveHTML();
     ?>
     <!--Tutorial Deletion-->
-    <li class="nav left"><a class="left nav" href="#">Tutorial Deletion</a></li>
+    <?php
+      $li = new DOMDocument();
+      $li->loadHTML('<li class="nav left"><a class="left nav" href="#">Tutorial Deletion</a></li>');
+      $li->getElementsByTagName('a')[0]->setAttribute("href", 'http://' . $_SERVER['SERVER_NAME'] . '/admin/tutorial_deletion_page/tutorial_deletion_page.php');
+      echo $li->saveHTML();
+    ?>
     <!--Challenge Creation-->
     <?php
       $li = new DOMDocument();
