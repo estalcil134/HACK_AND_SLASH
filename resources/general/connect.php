@@ -1,8 +1,8 @@
 <?php
 //Login Credentials
-$servername = "hack.and.slash";
-$username = "root";
-$password = "";
+$servername = "hackandslash";
+$username = "nebby";
+$password = "pewpew";
 $dbname = "hack_and_slash";
 
 try {

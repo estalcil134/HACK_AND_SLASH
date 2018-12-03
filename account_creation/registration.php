@@ -90,19 +90,23 @@ else if (isset($_POST['Email']) || isset($_POST['Username']) || isset($_POST['pa
   <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>" method="post" accept-charset="UTF-8" name="create_account">
     <fieldset>
       <legend>Please Create an Account</legend>
-      <label for="username">Enter an Email:</label>
-      <input id="email" type="text" name="Email" autofocus required>
-      <span class="info"><?php echo $email_err;?></span>
-      <label for="username">Create a Username:</label>
-      <input id="username" type="text" name="Username" maxlength="20" required>
-      <span class="info"><?php echo $user_err;?></span>
-      <label for="password1">Enter a Password:</label>
-      <input id="password1" type="password" name="pass1" minlength="12" required>
-      <label for="password2">Renter a Password:</label>
-      <input id="password2" type="password" name="pass2"  minlength="12" required onblur="pass_check();">
-      <span class="info"><?php echo $pass_err;?></span>
+      <div class="left">
+        <label for="username">Enter an Email: </label>
+        <span class="info"><?php echo $email_err;?></span>
+        <label for="username">Create a Username: </label>
+        <span class="info"><?php echo $user_err;?></span>
+        <label for="password1">Enter a Password: </label>
+        <label for="password2">Renter a Password: </label>
+        <span class="info"><?php echo $pass_err;?></span>
+      </div>
+      <div class="right">
+        <input id="email" type="text" name="Email" autofocus required>
+        <input id="username" type="text" name="Username" maxlength="20" required>
+        <input id="password1" type="password" name="pass1" minlength="12" required>
+        <input id="password2" type="password" name="pass2"  minlength="12" required onblur="pass_check();">
+      </div>
+      <input type="submit" value="Create Account" id="submit">
     </fieldset>
-    <input type="submit" value="Create Account">
   </form>
   <p class="noaccount"><a href = "../index.php">Already have an account? Login here!</a></p>
   <p class="about"><a href = "../about/about.html">About</a></p>

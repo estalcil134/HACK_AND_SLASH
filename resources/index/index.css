@@ -36,9 +36,7 @@ form {
 fieldset {
   border-style:none;
 }
-label, input{
-	float: left;
-}
+
 
 .signin {
 	color: red;
