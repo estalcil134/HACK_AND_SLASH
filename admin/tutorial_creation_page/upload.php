@@ -1,4 +1,5 @@
 <?php
+  session_start();
   if(!file_exists("uploaded_docs/username"))
     {
       mkdir("uploaded_docs/username", 0700);
@@ -18,7 +19,7 @@
         if($fileError === 0) {
           if($fileSize < 10000000) {
             $fileNameNew = uniqid('',true).".".$fileActualExt;
-            $fileDestination = 'uploaded_docs/username/'.$fileNameNew;
+            $fileDestination = 'uploaded_docs/'.$_SESSION['username'].'/'.$fileNameNew;
             move_uploaded_file($fileTmpName,$fileDestination);
           }
           $error_type = "1";
