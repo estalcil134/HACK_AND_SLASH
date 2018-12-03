@@ -47,6 +47,9 @@
             <p class = "title">Flag</p>
             <input type="text" name="flag" autocomplete="off" value=""  class = "multi_input inputs" id="flag" onkeydown = "enter();" onkeyup = "show_question();" required>
           </div>
+          <br/>
+          <br/>
+          <h3>Preview:</h3>
           <div id = "out_div">
             <div id = "put_div">
               <output id = "outputter"></output>

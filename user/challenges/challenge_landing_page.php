@@ -30,7 +30,6 @@ if (isset($_POST['flag']) && isset($_POST['chall_num']) && isset($_POST['chall_p
 }
 ?>
 <!DOCTYPE html>
-<!-- To block developer tools through right click -->
 <html oncontextmenu="return false">
 <head>
 	<meta charset="UTF-8">
@@ -94,6 +93,14 @@ require '../../resources/general/navbar_user.html';
       $request->execute();
       // Display the challenges
       $loop = $request->rowCount();
+      if ($loop == 0)
+      {
+        echo "<h1>Challenges Coming Soon!</h1>";
+      }
+      else
+      {
+        echo "<h1>Challenges:</h1>";
+      }
       for ($i=0; $i < $loop; $i++)
       {
         $challenge = $request->fetch();

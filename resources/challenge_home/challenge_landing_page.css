@@ -1,4 +1,4 @@
- Center all the Challenges */
+/* Center all the Challenges */
 div#body
 {
   margin:5% auto 0 auto;
@@ -7,11 +7,13 @@ div#body
 div#container
 {
   /*Center the challenges on the page*/
-  height:100%;
-  width:75%;
+  min-height:200px;
+  min-width:500px;
+  max-width:501px;
   margin:auto;
   overflow:hidden;
   text-align:center; /*Center span*/
+  background-color:white;
 }
 
 span

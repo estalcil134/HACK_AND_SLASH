@@ -1,15 +1,19 @@
 // How to prevent people from modifying our ajax call to steal data
 // Courtesy of https://www.quora.com/How-do-I-block-inspect-element-on-my-website
+$(document).ready(function()
+{
+  // Block right click and ctrl key shortcuts for developer tools
+  var body = document.getElementsByTagName("body")[0];
+  body.setAttribute('oncontextmenu', 'return false');
+  body.setAttribute('onkeydown','return false');
+  body.setAttribute('onmousedown','return false');
+});
+
 $(document).keydown(function(e){
   // Block the use of f12
   if(e.which === 123){
      return false;
   }
-  // Block right click and ctrl key shortcuts for developer tools
-  var body = document.getElementsByTagName("body")[0];
-  body.setAttribute('oncontextmenu', 'return false')
-  body.setAttribute('onkeydown','return false')
-  body.setAttribute('onmousedown','return false')
 });
 
 function open_pop(loc)
@@ -34,10 +38,16 @@ function open_pop(loc)
   document.getElementById("cover").style.display="block";
   document.getElementsByClassName("pop")[0].style.display="block";
   document.getElementById("container").children[0].innerHTML="";
+  var body = document.getElementsByTagName("body")[0];
+  body.setAttribute('onkeydown','return true');
+  body.setAttribute('onmousedown','return true');
 }
 
 function close_pop()
 { // Close the popup block
   document.getElementById("cover").style.display="none";
   document.getElementsByClassName("pop")[0].style.display="none";
+  var body = document.getElementsByTagName("body")[0];
+  body.setAttribute('onkeydown','return true');
+  body.setAttribute('onmousedown','return true');
 }
