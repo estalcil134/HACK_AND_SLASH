@@ -1,21 +1,16 @@
 
 <?php 
-  foreach ($_POST as $key => $value) {
-        echo "<tr>";
-        echo "<td>";
-        echo $key;
-        echo "</td>";
-        echo "<td>";
-        echo $value;
-        echo "</td>";
-        echo "</tr>";
-    }
+require "../../resources/general/start.php";
+if ($_SESSION["user-type"] != "admin")
+{ // If it is an user, redirect to the login page to determine what to do
+  header("Location: http://" . $_SERVER["SERVER_NAME"]);
+}
 ?>
 
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Hack&/</title>
+    <title>Hack&amp;/</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>    
 <!--
     <link href="../../resources/tutorial_creation_page/tutorial_creation.css" rel="stylesheet" type="text/css"/>
@@ -24,7 +19,11 @@
     <link href="tutorial_creation.css" rel="stylesheet" type="text/css"/>
     <link href="general_content.css" rel="stylesheet" type="text/css"/>
   </head>
-  <body onload="disappearButton();">
+<?php 
+  require "../../resources/general/logo_user.html";
+  require "../../resources/general/navbar_admin.html";
+  require "../../resources/general/navbar_user.html";
+?>
     <div id="overlay" onclick = "off();">
       <div id = "preview_look_good">
         <p id = "para_preview">Preview</p>
@@ -33,27 +32,6 @@
         </iframe>
       </div>
     </div>
-    <header>
-<!--		  <a id="home" class="left" href="#"><img id = "logo" src="../../resources/general/LOGO.png" alt="HACK AND SLASH LOGO"></a>-->
-      <a id="home" class="left" href="#"><img id = "logo" src="LOGO.png" alt="HACK AND SLASH LOGO"></a>
-		  <div id="user_info" class="right">
-		    <div id="profile_pic_user">
-        </div>
-			 <p id = "username" class="right">INSERT USERNAME</p>
-		  </div>
-	   </header>
-    <nav>
-      <ul id = "naver">
-	  	  <li class="nav left"><a class="left nav" href="#">Tutorial Creation</a></li>
-        <li class="nav left"><a class="left nav" href="#">Tutorial Deletion</a></li>
-	  	  <li class="nav left"><a class="left nav" href="#">Challenge Creation</a></li>
-        <li class="nav left"><a class="left nav" href="#">Challenge Deletion</a></li>
-	  	  <li class="nav right" id = "nav_right"><a class="right nav" href="#">Logout</a></li>
-	    </ul>
-    </nav>
-<!--    onsubmit="return validate(this);"-->
-    
-    
     <div id="addForm">
       
       <br>
@@ -176,14 +154,10 @@
           <input type="submit" value="SUBMIT" class = "answer" id="save" name="submit" />
         </div>
     </div> 
-    <footer>
-      <a id = "about" href="#">About Page</a>
-	  </footer>
 <!--
     <script type="text/javascript" src = "../../resources/jquery/jquery-1.4.3.min.js"></script>
     <script type="text/javascript" src="../../resources/tutorial_creation_page/tutorial_creation.js"></script>
 -->
     <script type="text/javascript" src = "jquery-1.4.3.min.js"></script>
     <script type="text/javascript" src="tutorial_creation.js"></script>
-    </body>
-</html>
+    <?php require "../../resources/general/footer.html"; ?>

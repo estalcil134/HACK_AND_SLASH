@@ -1,9 +1,10 @@
 <?php
+  session_start();
   // Then create the text file that will be outputted in the challenge landing page.
   $fileNameNew = uniqid('',true).".".$_POST['tutorial'];
   echo($fileNameNew);
   $fileString = $fileNameNew."";
-  $challenge = fopen("uploaded_docs/username/{$fileString}html", "w");
+  $challenge = fopen('uploaded_docs/'.$_SESSION['username'].'/'.$fileString}.'html', "w");
   $output_big = "";
   $fileDestination = file_exists("uploaded_docs/username/{$fileString}html");
   if($_POST['question_type'] == "short")
