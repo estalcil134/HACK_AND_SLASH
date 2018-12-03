@@ -304,6 +304,9 @@ function drop(ev) {
     //alert("the target content: " + transfer.id + "\nthe reciever: " + reciever.id + "\nthe prev_div: " + prev_div.id + "\nthe data: " + data1.id);
     prev_div.appendChild(transfer);
     reciever.appendChild(data1);
+    alert(prev_div.id.substr(3,prev_div.id.length));
+    alert(reciever.id.substr(3,reciever.id.length));
+    $('input:hidden[name=]').val(num);
 }
 
 function on(ev) {
@@ -311,13 +314,13 @@ function on(ev) {
     {
       if(ev.target.className != "file_show")
       {
-        var contentz = $(ev.target.childNodes[2]).contents().find("html").html();
+        var contentz = $(ev.target.childNodes[3]).contents().find("html").html();
         document.getElementById("overlay").style.display = "block";
         document.getElementById("preview").srcdoc = contentz;
       }
       else
       {
-        var contentz = $(ev.target.parentElement.childNodes[2]).contents().find("html").html();
+        var contentz = $(ev.target.parentElement.childNodes[3]).contents().find("html").html();
         document.getElementById("overlay").style.display = "block";
         document.getElementById("preview").srcdoc = contentz;
       }
@@ -384,6 +387,7 @@ function selectRadio() {
   $("#showanswer1").css({display: "none"})
   show_question();
   $('input:hidden[name=actual_answer_multi]').val(mulitple_answer);
+  //alert($('input:hidden[name=actual_answer_multi]').val());
 }
 
 function selectRadio1() {

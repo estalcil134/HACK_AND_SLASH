@@ -166,7 +166,7 @@ if ($_SESSION["user-type"] != "admin")
             $count = 0;
             while (false !== ($entry = readdir($handle))) {
                 if ($entry != "." && $entry != "..") {
-                    echo '<div class = "parental" id="'.$count.'"><p class = "number">'.($count+1).'</p><div id="div'.$count.'" class = "display_frame" ondrop="drop(event);" draggable="false" ondragover="allowDrop(event);"><div id = "inside_div'.$count.'" class = "in_div" draggable="true" ondragstart="find_parent(event); drag(event);" onclick = "on(event);"><button class = "click delete" id = "'.$entry.'" onclick = "setFile();" type = "submit">DELETE</button><div id = "'.$entry.'" class = "file_show">(Click to Preview) '.$entry.'</div><iframe src = "uploaded_docs/'.$_SESSION['username'].'/'.$entry.'" id="drag'.$count.'" class = "small_frame" contenteditable = "false"></iframe></div></div></div>';
+                    echo '<div class = "parental" id="'.$count.'"><p class = "number">'.($count+1).'</p><div id="div'.$count.'" class = "display_frame" ondrop="drop(event);" draggable="false" ondragover="allowDrop(event);"><div id = "inside_div'.$count.'" class = "in_div" draggable="true" ondragstart="find_parent(event); drag(event);" onclick = "on(event);"><button class = "click delete" id = "'.$entry.'" onclick = "setFile();" type = "submit">DELETE</button><input type ="hidden" name = "'.$entry.'" value = "'.$count.'"><div id = "'.$entry.'" class = "file_show">(Click to Preview) '.$entry.'</div><iframe src = "uploaded_docs/'.$_SESSION['username'].'/'.$entry.'" id="drag'.$count.'" class = "small_frame" contenteditable = "false"></iframe></div></div></div>';
                   $count++;
                 }
             }

@@ -1,6 +1,3 @@
-var short_answer = "NOTHING INPUT";
-var mulitple_answer = "NOTHING INPUT";
-
 function selectRadio1() {
   $('input:radio[name=mult][value=' + event.target.innerHTML.substr(0,1) + ']').click();
   
@@ -34,8 +31,9 @@ function show_ans() {
 }
 
 function show_ans1() {
+  var answ = document.getElementById("answer").innerHTML;
   var $el = $("#showanswer1").css( "display" );
-  if(event.target.parentElement.id == mulitple_answer)
+  if(event.target.parentElement.id == answ)
   {
     if($el == "none")
     {
