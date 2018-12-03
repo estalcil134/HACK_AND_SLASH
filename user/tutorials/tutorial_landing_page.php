@@ -6,7 +6,7 @@ require "../../resources/general/start.php";
 <head>
   <meta charset = "UTF-8">
   <meta name="author" content="Arron">
-  <title>Hack&/ Tutorials</title>
+  <title>Hack&amp;/ Tutorials</title>
   <link rel="stylesheet" type="text/css" href="../../resources/general/general_content.css">
   <link rel="stylesheet" type="text/css" href="../../resources/tutorial_home/tutorial_home.css">
 </head>

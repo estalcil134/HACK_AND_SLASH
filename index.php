@@ -85,7 +85,7 @@ else if (isset($_POST['username']) && isset($_POST['password']))
 <head>
 	<meta charset = "UTF-8">
 	<meta name = "description" content = "Log In Page">
-	<title>HACK&/ Log In</title>
+	<title>HACK&amp;/ Log In</title>
 	<link rel="stylesheet" href="./resources/index/index.css">
 	<script type="text/javascript" src="resources/general/cookies_enabled.js"></script>
 </head>

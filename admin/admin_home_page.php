@@ -11,7 +11,7 @@ if ($_SESSION["user-type"] != "admin")
 	<meta name="descripton" content="Admin Home Page">
 	<meta name="author" content="Wilson">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>HACK&/ Admin Home Page</title>
+	<title>HACK&amp;/ Admin Home Page</title>
 	<link rel="stylesheet" type="text/css" href="../resources/general/general_content.css">
 	<link rel="stylesheet" type="text/css" href="../resources/admin_home/admin_home.css">
 	<script type="text/javascript" src="../resources/general/footer.js"></script>

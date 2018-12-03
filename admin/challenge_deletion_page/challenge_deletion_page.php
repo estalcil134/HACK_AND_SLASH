@@ -11,7 +11,7 @@ if ($_SESSION['user-type'] !== "admin")
 <head>
   <meta charset = "UTF-8">
   <meta name="author" content="Arron">
-  <title>Hack&/ Challenge Deletion</title>
+  <title>Hack&amp;/ Challenge Deletion</title>
   <link rel="stylesheet" type="text/css" href="../../resources/general/general_content.css">
   <link rel="stylesheet" type="text/css" href="../../resources/general/deletion_page.css">
 </head>

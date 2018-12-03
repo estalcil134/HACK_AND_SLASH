@@ -84,7 +84,7 @@ else if (isset($_POST['Email']) || isset($_POST['Username']) || isset($_POST['pa
 <head>
   <meta charset="UTF-8">
   <meta name="author" content="Arron">
-  <title>HACK&/ Registration</title>
+  <title>HACK&amp;/ Registration</title>
   <link rel="stylesheet" href="../resources/index/index.css">
   <link rel="stylesheet" href="./account_creation.css">
   <script type="text/javascript" src="../resources/general/cookies_enabled.js" async></script>
