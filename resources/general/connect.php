@@ -1,4 +1,12 @@
 <?php
+function clean_input($data)
+{
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+
 //Login Credentials
 $servername = "hack.and.slash";
 $username = "root";

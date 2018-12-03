@@ -1,0 +1,1 @@
+A folder used by Wilson for testing out ways to allow an admin to submit various file types for tutorials or challenges. He has used a seperate folder as to first learn the concept of being able to post onto a database and not tamper with the existing files. His plan was to merge the tutorial creation and test files afterwards to create a working creation page. 

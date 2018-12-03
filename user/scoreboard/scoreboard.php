@@ -28,7 +28,7 @@ require "../../resources/general/start.php";
   require "../../resources/general/connect.php";
   $request = $connected->prepare("SELECT username FROM `users` ORDER BY score DESC, username ASC LIMIT 10");
   $request->execute();
-  // Output the scoreboard table here
+  // Output the scoreboard table, which is the top 10 scores followed by the user's rank and the user's score
   echo "<table><thead><th colspan=2>Rankings</th></thead><tbody>";
   $loop = $request->rowCount();
   for ($i=0; $i < $loop; $i++)
@@ -51,15 +51,17 @@ require "../../resources/general/start.php";
     }
     echo (string)($i+1) . "</td><td>" . $request->fetch()[0] . "</td></tr>";
   }
-  // Grab your ranking
-  $request = $connected->prepare("SELECT username FROM `users` ORDER BY score, username");
+  // Grab the user's ranking. Rank is based on highest score then lexicographic order for the username
+  $request = $connected->prepare("SELECT username, score FROM `users` ORDER BY score DESC, username ASC");
   $request->execute();
   $rank = 1;
-  while ($request->fetch()[0] != $_SESSION['username'])
-  {
+  $data = $request->fetch();
+  while ($data[0] != $_SESSION['username'])
+  { // Loop until the rank is correct
     $rank++;
+    $data = $request->fetch();
   }
-  echo "<tr><td>Your Rank</td><td>$rank</td></tr></tbody></table>";
-  $connected = NULL;
+  echo "<tr><td>Your Rank</td><td>$rank</td></tr><tr><td>Your Score</td><td>" . "$data[1]" . "</td></tr></tbody></table>";
+  $connected = NULL;  // Terminate database connection
 ?>
 <?php require "../../resources/general/footer.html"; ?>

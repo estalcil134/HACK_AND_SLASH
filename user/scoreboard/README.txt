@@ -1,0 +1,1 @@
+This is where users will go when they want to see their rank among other users for who is the best hacker on the site. 

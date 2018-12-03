@@ -1,0 +1,29 @@
+form
+{
+  /* Center the form */
+  background-color:white;
+  margin:auto;
+  min-width:700px;
+  max-width:701px;
+}
+legend
+{
+  /*Center the legend*/
+  text-align:center;
+  font-size:1.75em;
+}
+input
+{
+  color:red;
+}
+span.left
+{ /*Force a gap between the button and the challenge name*/
+  max-width:201px;
+  min-width:200px;
+}
+#deletion
+{ /*Center the spans*/
+  margin:auto;
+  min-width:200px;
+  max-width:201px;
+}

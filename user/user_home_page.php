@@ -1,7 +1,7 @@
 <?php
 require "../resources/general/start.php";
 if ($_SESSION["user-type"] != "user")
-{
+{ // If it is an admin, redirect to the login page to determine what to do
   header("Location: http://" . $_SERVER["SERVER_NAME"]);
 }
 ?>
@@ -36,7 +36,7 @@ if ($_SESSION["user-type"] != "user")
       </div>
       <div class="left option" onclick="location.href='./scoreboard/scoreboard.php'">
         <h4>SCOREBOARD</h4>
-        <img alt="Scoreboard Page Image" src="http://i2.wp.com/www.maplestory2training.com/wp-content/uploads/maplestory-2-mano.png?resize=550%2C300">
+        <img alt="Scoreboard Page Image" src="https://poetsandquants.com/wp-content/uploads/2015/07/rankings-ribbons.jpg">
       </div>
     </div>
   </div>

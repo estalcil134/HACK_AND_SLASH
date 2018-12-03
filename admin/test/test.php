@@ -7,6 +7,9 @@
 		$o1 = $_POST['title'];
     	$o2 = $_POST['content'];
   	}
+  	
+
+  	
 ?>
 
 

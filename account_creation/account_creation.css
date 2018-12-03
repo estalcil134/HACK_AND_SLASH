@@ -15,33 +15,47 @@ form
   margin:0 auto;
 }
 
+/*
 fieldset
 {
   text-align:center;
 }
 
+label, input, span{
+  float: left;
+}
+*/
+
 label, input, span
 {
   /* Positioning */
+  /*
   float:left;
   clear:left;
   text-align:left;
+  */
   /* Set max width and heights */
   /*min-width:25%;
   max-width:30%;
   min-height:6%;
   max-height:7%;*/
   /* PSEUDO Center TO BE FIXED!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+  /*
   margin-left:37%;
+  */
+}
+legend{
+  text-align: center;
 }
 
 
 #submit
 {
+  margin-left: 0;
   margin-top:2%;
-  text-align:center;
   min-width:10%;
   max-width:20%;
+  float: left;
 }
 
 .noaccount
@@ -49,4 +63,21 @@ label, input, span
   clear:left;
   padding-left:0;
   text-align:center;
+}
+
+div{
+  width: 50%;
+}
+.left{
+  float: left;
+}
+.right{
+  float: right;
+}
+input, label{
+  width: 99%;
+  float: left;
+}
+input{
+  margin: 4px;
 }

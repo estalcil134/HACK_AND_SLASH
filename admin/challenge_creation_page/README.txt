@@ -1,0 +1,1 @@
+This is where admins will go to when they want to create a challenge. 

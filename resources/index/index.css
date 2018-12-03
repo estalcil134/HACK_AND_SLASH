@@ -1,5 +1,9 @@
 body {
-	background-color: #ffffc0;
+	background-image: url("../general/tree.jpg"); 
+	background-size: 100% 100%;
+	background-attachment: fixed;
+	font-size: .9em;
+	font-family: Arial,Helvetica Neue,Helvetica,serif;
 }
 
 h1 {
@@ -20,6 +24,8 @@ h2 {
 }
 
 form {
+	background-color: white;
+	border-radius: 5px;
 	border:1px solid black;
 	padding:5px;
 	display: inline-block;
@@ -31,14 +37,17 @@ fieldset {
   border-style:none;
 }
 
+
 .signin {
-	padding-left: 35%;
+	color: red;
+	padding-left: 28.6%;
 	font-size: 1.65em;
 }
 .noaccount {
-	padding-left: 35%;
+	padding-left: 28.6%;
 	font-size: 1.5em;
 	font-weight: strong;
+	color: white;
 }
 .about {
 	position: absolute;
@@ -59,14 +68,13 @@ fieldset {
 
 .info
 {
-  float:right;
-  
   color:red;
 }
 
 #submit
 {
-  float:right;
+  float:left;
+  margin-left: 20px;
   margin-right:50px;
   margin-bottom:10px;
 }
@@ -76,4 +84,20 @@ fieldset {
   min-width:650px;
   max-width:651px;
   margin:auto;
+}
+
+#password{
+	margin-left: 5px;
+}
+
+@media only screen and (max-width: 805px){
+	.about{
+		display: none;
+	}
+}
+a:link{
+	color: red;
+}
+a:visited{
+	color: white;
 }

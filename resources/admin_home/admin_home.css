@@ -1,0 +1,20 @@
+h1{
+	color: white;
+}
+
+.container{
+	width: 60%;
+	background-color: white;
+}
+.left{
+	width: 49%;
+	height: 80%;
+	float: left;
+	background-color: red;
+}
+.right{
+	width: 49%;
+	height: 80%;
+	float: right;
+	background-color: blue;
+}
