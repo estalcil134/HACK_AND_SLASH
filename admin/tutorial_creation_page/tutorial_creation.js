@@ -213,7 +213,6 @@ function num_multi()
   four = document.getElementById("fourth");
   five = document.getElementById("fifth");
   $('input:hidden[name=num_multiple]').val(num);
-  alert($('input:hidden[name=num_multiple]').val());
   if(select_questions == 0)
   {
     three.style.display = "none";
@@ -267,7 +266,6 @@ function allowDrop(ev) {
 }
 
 function find_parent(ev) {
-  //alert(ev.target.parentElement.id);
   prev_div = ev.target.parentElement;
 }
 
@@ -308,19 +306,14 @@ function drop(ev) {
     {
       var reciever = ev.target.parentElement;
     }
-    //alert("the target content: " + transfer.id + "\nthe reciever: " + reciever.id + "\nthe prev_div: " + prev_div.id + "\nthe data: " + data1.id);
     var num1 = reciever.id.substr(3,reciever.id.length);
     var num2 = prev_div.id.substr(3,prev_div.id.length);
-    alert(prev_div.id.substr(3,prev_div.id.length));
-    alert(reciever.id.substr(3,reciever.id.length));
     var first_div = prev_div.childNodes[0].childNodes[1];
     var second_div = reciever.childNodes[0].childNodes[1];
     first_div.value = num1;
     second_div.value = num2;
     prev_div.appendChild(transfer);
     reciever.appendChild(data1);
-
-    //$('input:hidden[name='+  +']').val("6000");
 }
 
 function on(ev) {
@@ -343,7 +336,6 @@ function on(ev) {
 
 function on2()
 {
-  alert($("#overlay2").css( "display" ));
   $("#overlay2").css({display: "block"});
 }
 
@@ -370,8 +362,6 @@ function show_ans() {
 }
 
 function show_ans1() {
-  //alert(event.target.parentElement.id);
-  //alert(mulitple_answer);
   var $el = $("#showanswer1").css( "display" );
   if(event.target.parentElement.id == mulitple_answer)
   {
@@ -397,8 +387,6 @@ function enter1() {
   if (q_event == 13)
   {
     el2.blur();
-    alert(el2.value);
-    alert((el).substr(8,el.length));
     if(el2.value == (el).substr(8,el.length))
     {
       $("#showanswer").css({display: "block"});
@@ -409,11 +397,9 @@ function enter1() {
 function selectRadio() {
   $('input:radio[name=mult_inp][value=' + event.target.innerHTML.substr(0,1) + '_1]').click();
   mulitple_answer = event.target.innerHTML.substr(0,1);
-  alert(mulitple_answer);
   $("#showanswer1").css({display: "none"})
   show_question();
   $('input:hidden[name=actual_answer_multi]').val(mulitple_answer);
-  //alert($('input:hidden[name=actual_answer_multi]').val());
 }
 
 function selectRadio1() {
@@ -423,7 +409,6 @@ function selectRadio1() {
 function set_answer()
 {
   mulitple_answer = event.target.value.substr(0,1);
-  alert(mulitple_answer);
   show_question();
   $('input:hidden[name=actual_answer_multi]').val(mulitple_answer);
 }
