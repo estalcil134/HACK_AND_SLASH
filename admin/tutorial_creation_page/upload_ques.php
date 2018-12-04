@@ -1,6 +1,6 @@
 <?php
   session_start();
-  if(!file_exists("uploaded_docs".$_SESSION['username']))
+  if(!file_exists("uploaded_docs/".$_SESSION['username']))
   {
     mkdir("uploaded_docs/".$_SESSION['username'], 0700);
   }

@@ -1,9 +1,9 @@
 <?php
 require "../../resources/general/start.php";
+require '../../resources/general/connect.php';
 $err = False;
 if (isset($_POST['flag']) && isset($_POST['chall_num']) && isset($_POST['chall_path']))
 { // If they submitted a flag do this:
-  require '../../resources/general/connect.php';
   // Grab the flag for that challenge from the database
   $request = $connected->prepare("SELECT flags FROM `challenges` WHERE file_path = :file");
   $request->execute(array(":file"=>clean_input($_POST['chall_path'])));
@@ -71,7 +71,6 @@ require '../../resources/general/navbar_user.html';
   <div id="container">
     <span><?php if ($err) {echo "INCORRECT FLAG!"; $err=False;} ?></span>
     <?php
-      require "../../resources/general/connect.php";
       // Check if the chall_bitstring is up to date aka long enough
       $request = $connected->query("SELECT COUNT(num) FROM `challenges`"); // Get the total number of challenges first
       $max_bit_str_size = $request->fetch()[0];

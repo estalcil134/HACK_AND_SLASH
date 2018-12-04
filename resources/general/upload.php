@@ -49,7 +49,7 @@ if(isset($_POST['submit']) && isset($_POST['challenge']) && isset($_POST['flag']
     fwrite($challenge, "<h2>{$_POST['challenge']}</h2><p>{$_POST['description']}</p>");
     if ($fileDestination != '')
     { // If a file was submitted, add an anchor tag to that file we are writting into
-      fwrite($challenge, "<a id=\"challenge_file\" href=\"$fileDestination\">File</a>");
+      fwrite($challenge, "<a id=\"challenge_file\" href=\"$fileDestination\" target=\"_blank\">File</a>");
       //fwrite($challenge, "<a id=\"challenge_file\" href=\"$fileDestination\" download=\"{$_POST['challenge']}\">File</a>");
     }
     fclose($challenge);
