@@ -31,18 +31,6 @@ if ($_SESSION["user-type"] != "admin")
         </iframe>
       </div>
     </div>
-    <!--
-    <div id="overlay2" onclick = "off2();">
-      <form>
-      <div id = "preview_look_good2">
-        <div id="inner">
-          <label class="left" for="final_title" id = "title_para">Tutorial Title</label>
-          <input class="right" id = "final_title" type = "text" name = "final_tutorial_title" value = ""/>
-        </div>
-      </div>
-      </form>
-    </div>
-    -->
     <br>
   <br>
   <div id="body">
@@ -171,10 +159,21 @@ if ($_SESSION["user-type"] != "admin")
       </div>
       <div id = "tutor_out">
       <form action="delete.php" method="POST" enctype="multipart/form-data" name="addForm">
+        <div id="overlay2" onclick = "off2();">
+          <form>
+          <div id = "preview_look_good2">
+            <div id="inner">
+              <label class="left" for="final_title" id = "title_para">Tutorial Title</label>
+              <input class="right" id = "final_title" type = "text" name = "final_tutorial_title" value = ""/>
+            </div>
+          </div>
+          </form>
+        </div>
         <input type ="hidden" name = "filename" value = "">
         <?php
         // Read directory, spit out links
-        if(!file_exists("uploaded_docs".$_SESSION['username']))
+        echo(!file_exists("uploaded_docs/".$_SESSION['username']));
+        if(!file_exists("uploaded_docs/".$_SESSION['username']))
         {
           mkdir("uploaded_docs/".$_SESSION['username'], 0700);
         }
