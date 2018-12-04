@@ -14,7 +14,7 @@ div{
 	text-align: center;
 	font-size: 1.1em;
 	font-weight: bold;
-	padding-top: 10px;
+	padding-top: 13px;
 }
 span{
 	/*css of answers including hidden answer*/
@@ -57,9 +57,11 @@ div .m_choice{
 
 /*
 <div id="code">
-	<div>QUESTION: What is the color blue?<br>
+	<div>QUESTION: generic question<br>
+		<div class="m_choice">
 		<div class="tab" id="A"><input type="radio" name="mult" value="A" onclick="show_ans1();"><span onclick="selectRadio1();">A: Blue</span></div>
 		<div class="tab" id="B"><input type="radio" name="mult" value="B" onclick="show_ans1();"><span onclick="selectRadio1();">B: Red</span></div>
+		</div>
 		<br><br>
 		<div id="showanswer1">ANSWER: <span id="answer"></span></div>
 	</div>
