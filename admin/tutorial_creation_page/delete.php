@@ -8,17 +8,16 @@
   }
   else
   {
-    if(!file_exists("/user/tutorials/".$_POST['final_tutorial_title'], 0700))
+    if(!(file_exists($_SERVER['DOCUMENT_ROOT']."/user/tutorials/".$_POST['final_tutorial_title'])))
   {
-    mkdir("/user/tutorials/".$_POST['final_tutorial_title'], 0700);
+    mkdir($_SERVER['DOCUMENT_ROOT']."/user/tutorials/".$_POST['final_tutorial_title'], 0700);
   }
-  if ($handle = opendir("/user/tutorials/".$_POST['final_tutorial_title'].'/')) {
+  if ($handle = opendir("uploaded_docs/".$_SESSION['username'])) {
   $count = 0;
-  $num_file = count(scandir("/user/tutorials/".$_POST['final_tutorial_title'].'/')) - 2;
-  echo('$num_file');
+  $num_file = count(scandir("uploaded_docs/".$_SESSION['username'])) - 2;
   while (false !== ($entry = readdir($handle))) {
       if ($entry != "." && $entry != "..") {
-        $challenge = fopen("/user/tutorials/".$_POST['final_tutorial_title'].'/'.$count.'html', "w");
+        $challenge = fopen($_SERVER['DOCUMENT_ROOT']."/user/tutorials/".$_POST['final_tutorial_title'].'/'.$count.'.html', "w");
         $output_big = '<!DOCTYPE HTML>
         <html lang="en">
         <head>
@@ -54,10 +53,6 @@
           }
           $output_big = $output_big.'</div><footer><a id = "about" href="<?php echo \'http://\' . $_SERVER[\'SERVER_NAME\'] . \'/about/about.html\'?>">About Page</a></footer><script src="/resources/general/cookies_enabled.js"></script><script src="/resources/jquery/jquery-1.4.3.min.js"></script></script><script src="/resources/general/answer.js"></script></body></html>';
           fwrite($challenge, $output_big);
-          if ($fileDestination)
-          {
-            echo"works";
-          }
           fclose($challenge);
                 $count++;
               }
@@ -65,12 +60,24 @@
         closedir($handle);
   }
   $count = 0;
-  $fileDestination = "/user/tutorials/".$_POST['final_tutorial_title'].'/';
-     
-  foreach ($_POST as $key => $value) {
-      if($key != 'final_tutorial_title')
+  $fileDestination = $_SERVER['DOCUMENT_ROOT']."/user/tutorials/".$_POST['final_tutorial_title'].'/';
+     echo("<br>");
+  foreach($_POST as $key => $value) {
+      if($key != 'final_tutorial_title' && $key != 'filename')
       {
-        move_uploaded_file($key,$fileDestination.$value.'_page.html');
+        echo("key ".$key); 
+      echo("<br>");
+       echo("val ".$value); 
+        echo("<br>");
+        echo("<br>");
+        echo("<br>");
+        $newKey = substr_replace($key,".html",strlen($key)-5,5);
+        echo($newKey); 
+        echo("<br>");
+       $file = file_get_contents('uploaded_docs/'.$_SESSION['username'].'/'.$newKey); 
+        echo($file);
+        rename ('uploaded_docs/'.$_SESSION['username'].'/'.$newKey, $fileDestination.$value.'_page.html');
+        unlink('uploaded_docs/'.$_SESSION['username'].'/'.$newKey);
       }
   }
      
