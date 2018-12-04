@@ -130,6 +130,4 @@ require '../../resources/general/navbar_user.html';
 <script type="text/javascript" src="../../resources/jquery/jquery-1.4.3.min.js"></script>
 <script type="text/javascript" src="../../resources/challenge_home/pop_up.js" aync></script>
 <script type="text/javascript" src="../../resources/general/cookies_enabled.js"></script>
-<?php
-  require "../../resources/general/footer.html"
-?>
+<?php require "../../resources/general/footer.html"; ?>

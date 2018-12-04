@@ -6,14 +6,14 @@ if (!file_exists("../../admin/challenge_creation_page/uploaded_docs") && !mkdir(
   echo "Error occurred when making server upload folder";
 }
 // If admin's folder doesn't exist, make the folder.
-if(!file_exists("../../admin/challenge_creation_page/uploaded_docs/" . $_SESSION['username']) && !mkdir("../../admin/challenge_creation_page/uploaded_docs" . $_SESSION['username'], 0700))
+if(!file_exists("../../admin/challenge_creation_page/uploaded_docs/" . $_SESSION['username']) && !mkdir("../../admin/challenge_creation_page/uploaded_docs/" . $_SESSION['username'], 0700))
 { // Print this if error occurred
   echo "Error occurred when making admin directory";
 }
 if(isset($_POST['submit']) && isset($_POST['challenge']) && isset($_POST['flag']) && isset($_POST['description'])) {
   // If all the required fields are set execute all of this:
   $fileDestination = ""; // Challenge file location that user will download
-  $file_path = "../../user/challenges/{$_POST['challenge']}.txt";  // file path for the .txt used for ajax
+  $file_path = "../../user/challenges/challenges/{$_POST['challenge']}.txt";  // file path for the .txt used for ajax
   // Check if the challenge already exists by challenge name. If it does, then we don't submit it
   require "connect.php";
   $result = $connected->query("SELECT file_path FROM `challenges` WHERE creater_id = (SELECT userid FROM `users` WHERE username = '" . $_SESSION['username'] . "') AND file_path = '$file_path'");
@@ -35,7 +35,7 @@ if(isset($_POST['submit']) && isset($_POST['challenge']) && isset($_POST['flag']
         if($fileError === 0) {
           if($fileSize < 10000000) {
             $fileNameNew = uniqid('',true).".".$fileActualExt;
-            $fileDestination .= '../../admin/challenge_creation_page/uploaded_docs' . $_SESSION['username'] .'/'.$fileNameNew;
+            $fileDestination .= '../../admin/challenge_creation_page/uploaded_docs/' . $_SESSION['username'] .'/'.$fileNameNew;
             move_uploaded_file($fileTmpName,$fileDestination);
           }
           $error_type = "1";
@@ -45,11 +45,11 @@ if(isset($_POST['submit']) && isset($_POST['challenge']) && isset($_POST['flag']
       $error_type = "3";
     }
     // Then create the text file that will be outputted in the challenge landing page.
-    $challenge = fopen("../../user/challenges/{$_POST['challenge']}.txt", "w");
+    $challenge = fopen("$file_path", "w");
     fwrite($challenge, "<h2>{$_POST['challenge']}</h2><p>{$_POST['description']}</p>");
     if ($fileDestination != '')
     { // If a file was submitted, add an anchor tag to that file we are writting into
-      fwrite($challenge, "<a id=\"challenge_file\" href=\"$fileDestination\">File</a>");
+      fwrite($challenge, "<a id=\"challenge_file\" href=\"$fileDestination\" download=\"{$_POST['challenge']}\">File</a>");
     }
     fclose($challenge);
     // Add the challenge to the database
