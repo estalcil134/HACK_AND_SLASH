@@ -170,7 +170,6 @@ if ($_SESSION["user-type"] != "admin")
         <input type ="hidden" name = "filename" value = "">
         <?php
         // Read directory, spit out links
-        echo(!file_exists("uploaded_docs/".$_SESSION['username']));
         if(!file_exists("uploaded_docs/".$_SESSION['username']))
         {
           mkdir("uploaded_docs/".$_SESSION['username'], 0700);
