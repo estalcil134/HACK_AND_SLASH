@@ -26,12 +26,14 @@ fieldset{
 	height:75px;
 }
 .buttoff{
-	background-image: radial-gradient(white, red 75%, darkred);
+	background-image: radial-gradient(red, darkred 75%, black);
 	font-weight: bold;
 	color: white;
 }
 #return{
-	margin-left: 48%;
+	margin-left: 47.5%;
+	font-weight: bold;
+	background-image: linear-gradient(to right bottom, silver 70%, red);
 }
 #logo{
 	cursor: pointer;
