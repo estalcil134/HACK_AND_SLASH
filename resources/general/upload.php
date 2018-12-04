@@ -19,33 +19,43 @@ if(isset($_POST['submit']) && isset($_POST['challenge']) && isset($_POST['flag']
   $result = $connected->query("SELECT file_path FROM `challenges` WHERE creater_id = (SELECT userid FROM `users` WHERE username = '" . $_SESSION['username'] . "') AND file_path = '$file_path'");
   if (!$result->fetch()[0])
   {
-    // Upload the file first
-    if (is_uploaded_file($_FILES['myFile']['tmp_name']))
+    // Create the folder for that tutorial
+    $loc = "../../admin/challenge_creation_page/uploaded_docs/" . $_SESSION['username'] . "/{$_POST['challenge']}";
+    if (!file_exists($loc) && !mkdir($loc, 0700))
+    {
+      echo "Error occurred when making specific challenge directory";
+    }
+    // Upload the files first
+    if (count($_FILES['myFile']['tmp_name']))
     { // If there was a file uploaded, then execute this block
-      $file = $_FILES['myFile'];
-      $fileName = $file['name'];
-      $fileTmpName = $file['tmp_name'];
-      $fileSize = $file['size'];
-      $fileError = $file['error'];
-      $fileType = $file['type'];
-      $fileExt = explode('.',$fileName);
-      $fileActualExt = strtolower(end($fileExt));
-      $allowed = array('html','htm');
-      if(in_array($fileActualExt,$allowed)) {
-        if($fileError === 0) {
-          if($fileSize < 10000000) {
-            $fileNameNew = uniqid('',true).".".$fileActualExt;
-            $fileDestination .= '../../admin/challenge_creation_page/uploaded_docs/' . $_SESSION['username'] .'/'.$fileNameNew;
-            move_uploaded_file($fileTmpName,$fileDestination);
+      $
+      foreach($_FILES['myFile'] as $file)
+      {
+        [name] => index.html [type] => text/html [tmp_name] => C:\xampp\tmp\phpF547.tmp [error] => 0 [size] => 677 
+        $fileName[] = $file['name'];
+        $fileTmpName[] = $file['tmp_name'];
+        $fileSize[] = $file['size'];
+        $fileError[] = $file['error'];
+        $fileType[] = $file['type'];
+        $fileExt[] = explode('.',$fileName);
+        $fileActualExt[] = strtolower(end($fileExt));
+        $allowed[] = array('html','htm','txt','sql');
+        if(in_array($fileActualExt,$allowed)) {
+          if($fileError === 0) {
+            if($fileSize < 10000000) {
+              $fileNameNew = uniqid('',true).".".$fileActualExt;
+              $fileDestination = $loc .'/'.$fileNameNew;
+              move_uploaded_file($fileTmpName,$fileDestination);
+            }
+            $error_type = "1";
           }
-          $error_type = "1";
+          $error_type = "2";
         }
-        $error_type = "2";
+        $error_type = "3";
       }
-      $error_type = "3";
     }
     // Then create the text file that will be outputted in the challenge landing page.
-    $challenge = fopen("$file_path", "w");
+    /*$challenge = fopen("$file_path", "w");
     fwrite($challenge, "<h2>{$_POST['challenge']}</h2><p>{$_POST['description']}</p>");
     if ($fileDestination != '')
     { // If a file was submitted, add an anchor tag to that file we are writting into
@@ -55,7 +65,7 @@ if(isset($_POST['submit']) && isset($_POST['challenge']) && isset($_POST['flag']
     fclose($challenge);
     // Add the challenge to the database
     $request = $connected->prepare("INSERT INTO `challenges` (creater_id, name, file_path, flags) VALUES ((SELECT userid FROM `users` WHERE username = :u), :c_n, :f_p, :flag)");
-    $request->execute(array(':u'=>$_SESSION['username'], ':c_n'=>$_POST['challenge'], ':f_p'=>$file_path, ':flag'=>$_POST['flag']));
+    $request->execute(array(':u'=>$_SESSION['username'], ':c_n'=>$_POST['challenge'], ':f_p'=>$file_path, ':flag'=>$_POST['flag']));*/
   }
   else
   { // If the challenge already exists, redirect
@@ -65,6 +75,6 @@ if(isset($_POST['submit']) && isset($_POST['challenge']) && isset($_POST['flag']
   $connected = NULL;
 }
 // Redirect back to the challenge creation page if successful
-header("Location: http://{$_SERVER['SERVER_NAME']}/admin/challenge_creation_page/challenge_creation.php?=5");
+//header("Location: http://{$_SERVER['SERVER_NAME']}/admin/challenge_creation_page/challenge_creation.php?=5");
 exit();
 ?>
