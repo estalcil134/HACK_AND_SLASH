@@ -1,4 +1,4 @@
-<?php 
+<?php
 require "../../resources/general/start.php";
 if ($_SESSION["user-type"] != "admin")
 { // If it is an user, redirect to the login page to determine what to do
@@ -10,7 +10,7 @@ if ($_SESSION["user-type"] != "admin")
 <html>
   <head>
     <title>Hack&amp;/</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>    
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 <!--
     <link href="../../resources/tutorial_creation_page/tutorial_creation.css" rel="stylesheet" type="text/css"/>
     <link href="../../resources/general/general_content.css" rel="stylesheet" type="text/css"/>
@@ -18,7 +18,7 @@ if ($_SESSION["user-type"] != "admin")
     <link href="tutorial_creation.css" rel="stylesheet" type="text/css"/>
     <link href="../../resources/general/general_content.css" rel="stylesheet" type="text/css"/>
   </head>
-<?php 
+<?php
   require "../../resources/general/logo_user.html";
   require "../../resources/general/navbar_admin.html";
   require "../../resources/general/navbar_user.html";
@@ -35,7 +35,7 @@ if ($_SESSION["user-type"] != "admin")
   <br>
   <div id="body">
     <div id="addForm">
-      
+
       <br>
       <div id="buttonz">
         <button class = "button_choice" id = "tutorial_button" type = "button" onclick = "tutorial_create();">Tutorial</button>
@@ -51,7 +51,8 @@ if ($_SESSION["user-type"] != "admin")
             <p class = "title space_top">Upload a HTML Document</p>
             <br>
             <br>
-            <p class = "info">If you don't know how to write html, it's fine! Just go to your Microsoft Word Document, and click "Save As", then "Browse". From there you will see a window pop up. In this window click on the "Save as Type" bar and choose either "Web Page, Filtered (*.htm;*.html)" or "Web Page (*.htm;*.html)". THen find your file destination you wish to save this new html at and you're done. Now you can upload html to our tutorial creator!</p>
+            <p class = "info">If you don't know how to write html, it's fine! Just go to your Microsoft Word Document, and click "Save As", then "Browse". From there you will see a window pop up. In this window click on the "Save as Type" bar and choose either "Web Page, Filtered (*.htm;*.html)" or "Web Page (*.htm;*.html)". THen find your file destination you wish to save this new html at and you're done. Now you can upload html to our tutorial creator! If you already have an html
+            file then you're good to go!</p>
 
             <?php
               if($_SERVER['QUERY_STRING'])
@@ -75,35 +76,40 @@ if ($_SESSION["user-type"] != "admin")
                 echo('You cannot upload this file type.');
               }
               if($_SERVER['QUERY_STRING'])
-              { 
+              {
                 echo('</p>');
               }
             ?>
             <input type="file" name="file" id = "file">
-            <button type = "submit" class = "answer click" name = "submit" onclick="file_there();">UPLOAD</button> 
+            <button type = "submit" class = "answer click" name = "submit" onclick="file_there();">UPLOAD</button>
             <br>
           </form>
-        </li> 
-        
+        </li>
+
         <li id = "question">
-          
-          
+
+
           <form id="form_ques" action="upload_ques.php" method="POST" enctype="multipart/form-data" name="addForm">
+          <br>
+          <p class="info">
+            To upload a question please enter the question title, specify type of question and input answer before uploading.
+            There is a preview box down below for you to see how the question will appear!
+          </p>
           <div class = "space_top set_left">
             <p class = "title eq_width">Question:</p>
             <input type="text" autocomplete="off" value="" name="tutorial" class = "inputs" id="question_input" onkeydown = "enter();" onkeyup = "show_question();" required>
           </div>
-          
+
           <div class = "space_top">
             <button type="button" autocomplete="off" name="answer" value="Short Answer" class = "answer" id = "short_ans" onclick="short();">Short Answer</button>
               <button type="button" name="answer" value="Multiple Choice" class = "answer" id = "multi_ans" onclick="multi();">Multiple Choice</button>
           </div>
-          
+
           <div id = "short" class = "space_top set_left">
             <p class = "title eq_width">Answer:</p>
             <input type="text" autocomplete="off" value="" name="short_answer" class = "inputs" id="answer_input_short" onkeydown = "enter();" onkeyup = "show_question();" required>
           </div>
-            
+
           <div id = "multi" class = "space_top">
             <p class = "title">Number of Answers:</p>
             <select id = "quest_num" onchange="num_multi(); show_question();">
@@ -157,6 +163,9 @@ if ($_SESSION["user-type"] != "admin")
         </li>
       </ul>
       </div>
+      <p class="info">
+        Please ensure all the files/questions are in the correct and final order before submitting the tutorial!
+      </p>
       <div id = "tutor_out">
       <form action="delete.php" method="POST" enctype="multipart/form-data" name="addForm">
         <div id="overlay2" onclick = "off2();">
@@ -195,7 +204,7 @@ if ($_SESSION["user-type"] != "admin")
         <input type="text" autocomplete="off" size="50" value="" name="tutorial" class = "inputs" id="tutorial" onkeydown = "enter();"/>
 -->       <button class = "answer" id="save" onclick = "on2();">SUBMIT</button>
         </div>
-    </div> 
+    </div>
   </div>
 <!--
     <script type="text/javascript" src = "../../resources/jquery/jquery-1.4.3.min.js"></script>
