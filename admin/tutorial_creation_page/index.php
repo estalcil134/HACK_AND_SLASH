@@ -170,11 +170,12 @@ if ($_SESSION["user-type"] != "admin")
         <input type ="hidden" name = "filename" value = "">
         <?php
         // Read directory, spit out links
-        if(!file_exists("uploaded_docs/".$_SESSION['username']))
+        var $sess = $_SESSION['username'];
+        if(!is_dir("uploaded_docs/$sess"))
         {
-          mkdir("uploaded_docs/".$_SESSION['username'], 0700);
+          mkdir("uploaded_docs/$sess", 0700);
         }
-        if ($handle = opendir('uploaded_docs/'.$_SESSION['username'].'/')) {
+        if ($handle = opendir("uploaded_docs/$sess/")) {
             $count = 0;
             while (false !== ($entry = readdir($handle))) {
                 if ($entry != "." && $entry != "..") {
