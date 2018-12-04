@@ -343,11 +343,12 @@ function on(ev) {
 
 function on2()
 {
-  document.getElementById("overlay2").style.display = "block";
+  alert($("#overlay2").css( "display" ));
+  $("#overlay2").css({display: "block"});
 }
 
 function off() {
-    document.getElementById("overlay").style.display = "none";
+    $("#overlay2").css({display: "none"});
 }
 function off2() {
   if (event.target.nodeName =='DIV')
