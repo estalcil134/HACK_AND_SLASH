@@ -186,7 +186,7 @@ if ($_SESSION["user-type"] != "admin")
       </form>
       </div>
       <div id = "title_name">
-        <p  id = "final_words">Click "Submit" when you are done making the Tutorial"</p>
+        <p  id = "final_words">Click "Submit" when you are done making the Tutorial</p>
 <!--
         <p class = "title">Tutorial Name:</p>
         <input type="text" autocomplete="off" size="50" value="" name="tutorial" class = "inputs" id="tutorial" onkeydown = "enter();"/>
