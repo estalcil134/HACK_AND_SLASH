@@ -309,11 +309,18 @@ function drop(ev) {
       var reciever = ev.target.parentElement;
     }
     //alert("the target content: " + transfer.id + "\nthe reciever: " + reciever.id + "\nthe prev_div: " + prev_div.id + "\nthe data: " + data1.id);
-    prev_div.appendChild(transfer);
-    reciever.appendChild(data1);
+    var num1 = reciever.id.substr(3,reciever.id.length);
+    var num2 = prev_div.id.substr(3,prev_div.id.length);
     alert(prev_div.id.substr(3,prev_div.id.length));
     alert(reciever.id.substr(3,reciever.id.length));
-    $('input:hidden[name=]').val(num);
+    var first_div = prev_div.childNodes[0].childNodes[1];
+    var second_div = reciever.childNodes[0].childNodes[1];
+    first_div.value = num1;
+    second_div.value = num2;
+    prev_div.appendChild(transfer);
+    reciever.appendChild(data1);
+
+    //$('input:hidden[name='+  +']').val("6000");
 }
 
 function on(ev) {
