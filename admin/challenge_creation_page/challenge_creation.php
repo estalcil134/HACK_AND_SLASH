@@ -37,7 +37,7 @@
         <br/>
         <div id = "challenge_upload">
           <p class = "title">Upload your challenge files here: </p>
-          <input type="file" name="myFile">
+          <input type="file" name="myFile[]" multiple>
         </div> 
           
         <div id = "multi" class = "space_top">
