@@ -31,6 +31,6 @@ if (isset($_POST['fin']))
   $request->execute(array(':new'=>$tut_bitstring,':user'=>$_SESSION['username']));
 }
 $connected=NULL;
-header("Location: http://" . $_SERVER['SERVER_NAME'] . '/user/tutorial/tutorial_landing_page.php');
+header("Location: http://" . $_SERVER['SERVER_NAME'] . '/user/tutorials/tutorial_landing_page.php');
 exit();
 ?>
