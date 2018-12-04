@@ -1,12 +1,12 @@
 <?php
 session_start();
 // If the folder for all the files doesn't exist, make it
-if (!file_exists("../../uploaded_docs") && !mkdir("../../uploaded_docs", 0700))
+if (!file_exists("../../admin/challenge_creation_page/uploaded_docs") && !mkdir("../../admin/challenge_creation_page/uploaded_docs", 0700))
 { // Print this if error occurred
   echo "Error occurred when making server upload folder";
 }
 // If admin's folder doesn't exist, make the folder.
-if(!file_exists("../../uploaded_docs/" . $_SESSION['username']) && !mkdir("../../uploaded_docs/" . $_SESSION['username'], 0700))
+if(!file_exists("../../admin/challenge_creation_page/uploaded_docs/" . $_SESSION['username']) && !mkdir("../../admin/challenge_creation_page/uploaded_docs" . $_SESSION['username'], 0700))
 { // Print this if error occurred
   echo "Error occurred when making admin directory";
 }
@@ -35,7 +35,7 @@ if(isset($_POST['submit']) && isset($_POST['challenge']) && isset($_POST['flag']
         if($fileError === 0) {
           if($fileSize < 10000000) {
             $fileNameNew = uniqid('',true).".".$fileActualExt;
-            $fileDestination .= '../../uploaded_docs/' . $_SESSION['username'] .'/'.$fileNameNew;
+            $fileDestination .= '../../admin/challenge_creation_page/uploaded_docs' . $_SESSION['username'] .'/'.$fileNameNew;
             move_uploaded_file($fileTmpName,$fileDestination);
           }
           $error_type = "1";

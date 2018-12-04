@@ -1,4 +1,3 @@
-
 <?php 
 require "../../resources/general/start.php";
 if ($_SESSION["user-type"] != "admin")
@@ -17,7 +16,7 @@ if ($_SESSION["user-type"] != "admin")
     <link href="../../resources/general/general_content.css" rel="stylesheet" type="text/css"/>
 -->
     <link href="tutorial_creation.css" rel="stylesheet" type="text/css"/>
-    <link href="general_content.css" rel="stylesheet" type="text/css"/>
+    <link href="../../resources/general/general_content.css" rel="stylesheet" type="text/css"/>
   </head>
 <?php 
   require "../../resources/general/logo_user.html";
@@ -34,6 +33,7 @@ if ($_SESSION["user-type"] != "admin")
     </div>
     <br>
   <br>
+  <div id="body">
     <div id="addForm">
       
       <br>
@@ -91,7 +91,7 @@ if ($_SESSION["user-type"] != "admin")
           <form id="form_ques" action="upload_ques.php" method="POST" enctype="multipart/form-data" name="addForm">
           <div class = "space_top set_left">
             <p class = "title eq_width">Question:</p>
-            <input type="text" autocomplete="off" value="" name="tutorial" class = "inputs" id="question_input" onkeydown = "enter();" onkeyup = "show_question();"/>
+            <input type="text" autocomplete="off" value="" name="tutorial" class = "inputs" id="question_input" onkeydown = "enter();" onkeyup = "show_question();" required>
           </div>
           
           <div class = "space_top">
@@ -101,7 +101,7 @@ if ($_SESSION["user-type"] != "admin")
           
           <div id = "short" class = "space_top set_left">
             <p class = "title eq_width">Answer:</p>
-            <input type="text" autocomplete="off" value="" name="short_answer" class = "inputs" id="answer_input_short" onkeydown = "enter();" onkeyup = "show_question();"/>
+            <input type="text" autocomplete="off" value="" name="short_answer" class = "inputs" id="answer_input_short" onkeydown = "enter();" onkeyup = "show_question();" required>
           </div>
             
           <div id = "multi" class = "space_top">
@@ -184,6 +184,7 @@ if ($_SESSION["user-type"] != "admin")
           <input type="submit" value="SUBMIT" class = "answer" id="save" name="submit" />
         </div>
     </div> 
+  </div>
 <!--
     <script type="text/javascript" src = "../../resources/jquery/jquery-1.4.3.min.js"></script>
     <script type="text/javascript" src="../../resources/tutorial_creation_page/tutorial_creation.js"></script>
