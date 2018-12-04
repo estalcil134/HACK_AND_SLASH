@@ -27,7 +27,7 @@
   $fileDestination = file_exists("uploaded_docs/username/{$fileString}html");
   if($_POST['question_type'] == "short")
   {
-    $output_big = $output_big."QUESTION: ".$_POST['tutorial'].'<br><br><input type="text" autocomplete="off" value="" name="short_ans" class = "inputs" id="user_input" onkeydown = "enter1();"/><br><br><button type = "button" onclick = "show_ans();">SHOW ANSWER</button><br><br><div id = "showanswer">ANSWER: '.$_POST['short_answer'].'</div>';
+    $output_big = $output_big."QUESTION: ".$_POST['tutorial'].'<br><br><div class = "m_choice"><input type="text" autocomplete="off" value="" name="short_ans" class = "inputs" id="user_input" onkeydown = "enter1();"/><br><br><button type = "button" onclick = "show_ans();">SHOW ANSWER</button><br><br><div id = "showanswer">ANSWER: '.$_POST['short_answer'].'</div>';
   }
   else
   {
@@ -45,7 +45,7 @@
     {
       $output_big = $output_big.'<div class = "tab" id = "C"><input type="radio" name="mult" value="C" onclick = "show_ans1();"><span onclick = "selectRadio1();">C: '.$_POST['answer3']."</span></div>".'<div class = "tab" id = "D"><input type="radio" name="mult" value="D" onclick = "show_ans1();"><span onclick = "selectRadio1();">D: '.$_POST['answer4']."</span></div>".'<div class = "tab" id = "E"><input type="radio" name="mult" value="E" onclick = "show_ans1();"><span onclick = "selectRadio1();">E: '.$_POST['answer5']."</span></div>";
     }
-    $output_big = $output_big.'<br><br><div id = "showanswer1">ANSWER: <span id = "answer">'.$_POST['actual_answer_multi'].'</span></div>';
+    $output_big = $output_big.'</div><br><br><div id = "showanswer1">ANSWER: <span id = "answer">'.$_POST['actual_answer_multi'].'</span></div>';
     echo($_POST['actual_answer_multi']);
   }
   $output_big = $output_big.'</div></div><footer><a id = "about" href="<?php echo \'http://\' . $_SERVER[\'SERVER_NAME\'] . \'/about/about.html\'?>">About Page</a></footer><script src="/resources/general/cookies_enabled.js"></script><script src="/resources/jquery/jquery-1.4.3.min.js"></script></script><script src="/resources/general/answer.js"></script></body></html>';
