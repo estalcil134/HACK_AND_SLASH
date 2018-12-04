@@ -72,10 +72,8 @@
         echo("<br>");
         echo("<br>");
         $newKey = substr_replace($key,".html",strlen($key)-5,5);
-        echo($newKey); 
         echo("<br>");
        $file = file_get_contents('uploaded_docs/'.$_SESSION['username'].'/'.$newKey); 
-        echo($file);
         rename ('uploaded_docs/'.$_SESSION['username'].'/'.$newKey, $fileDestination.$value.'_page.html');
         unlink('uploaded_docs/'.$_SESSION['username'].'/'.$newKey);
       }
@@ -84,5 +82,7 @@
     foreach ($_POST as $key => $value) {
       unset($_POST[$key]);
     }
+    header("Location:index.php");
+    exit();
   }
 ?>
