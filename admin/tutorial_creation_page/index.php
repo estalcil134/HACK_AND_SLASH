@@ -31,7 +31,14 @@ if ($_SESSION["user-type"] != "admin")
         </iframe>
       </div>
     </div>
-    
+    <div id="overlay2" onclick = "off2();">
+      <form>
+      <div id = "preview_look_good2">
+          <label for="final_title" id = "title_para">Tutorial Title</label>
+          <input id = "final_title" type = "text" name = "final_tutorial_title" value = ""/>
+      </div>
+      </form>
+    </div>
     <br>
   <br>
   <div id="body">
