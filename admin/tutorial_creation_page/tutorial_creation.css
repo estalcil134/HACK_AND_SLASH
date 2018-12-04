@@ -511,8 +511,9 @@ select {
 #inner
 {
   /*Inner div for overlay2 used to center the label and input tag*/
-  margin:15% auto;
+  margin:auto;
+  margin-top:20px;
   min-width:150px;
-  max-width:72.5%;
+  max-width:650px;
   overflow:hidden;
 }
