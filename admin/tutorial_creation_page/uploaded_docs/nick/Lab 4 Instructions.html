@@ -1,0 +1,48 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta name="generator" content="HTML Tidy, see www.w3.org" />
+        <title></title>
+    </head>
+    <body>
+        <div style="margin:15px" class="column" id="content">
+            <div class="section">
+                <h1 class="title" id="page-title">Lab #4 - JSON and AJAX</h1>
+                <div typeof="sioc:Item foaf:Document" about="/content/lab-4-json-and-ajax" class="node node-labs node-full clearfix" id="node-22">
+                    <div class="content clearfix">
+                        <div class="field field-name-body field-type-text-with-summary field-label-hidden">
+                            <div class="field-items">
+                                <div class="field-item even" property="content:encoded">
+                                    <h2>Part 0 – Setup</h2>
+                                    <p>Create a new folder for Lab 4, and confirm that it is being served by Apache.</p>
+                                    <p>Ensure that you have a browser plugin capable of debugging JavaScript (you should be familiar with setting breakpoints and watch variables from your previous CS/IT courses). If you are stuck with this, Chrome developer tools or the Firebug add-on for Firefox are excellent tools to learn with.</p>
+                                    <p>For this lab, you will be using <a href="lab4.html">an existing HTML document</a>. Save the document as lab4.html in your lab4 folder.</p>
+                                    <h2>Part 1 (JSON):</h2>
+                                    <p>In most cases JSON is dynamically generated the same way as XML (or any other interchange format), though we will be generating it ourselves for this lab. Create a JSON document describing your songs from Lab 2, and save it as lab4.json. Your JSON should contain the following information about each song:</p>
+                                    <ul>
+                                        <li>Track name</li>
+                                        <li>Artist</li>
+                                        <li>Album</li>
+                                        <li>Album Cover Art URL</li>
+                                        <li>Date</li>
+                                        <li>Artist Site URL</li>
+                                        <li>Genres</li>
+                                    </ul>
+                                    <p>Pay attention to the data structures being used, just as you would pay attention to the semantic correctness and proper nesting of an XML document (for instance, consider making your value for Genres an array). <a href="http://jsonlint.com/">JSON Lint</a> is a great tool for ensuring that your JSON is valid.</p>
+                                    <p><strong>To receive credit for Part 1:</strong> Show the JSON representation of your favorite songs.</p>
+                                    <p><strong>Grading: </strong>You will be graded on the following: Validity:10, Readability:10, Completeness:10, Semantics:10)</p>
+                                    <h2>Part 2 (AJAX and jQuery):</h2>
+                                    <p>Copy the <a href="lab4.html">lab4.html</a> if you haven't already.</p>
+                                    <p>After clicking on the "No Album" image, your page must make an AJAX GET request for your JSON using jQuery, and populate the HTML according to each property. For example, the title must appear in #title, the artist's name must appear in #artist, etc. Have a look at jQuery's <a href="http://api.jquery.com/attr/">.attr() documentation</a> to see how you might do this for img#coverart and a#site. There are no restrictions on the jQuery methods you may use, though you will obviously have to modify the HTML to include jQuery first.</p>
+                                    <p><strong>To receive credit for Part 2:</strong> Show that clicking on your image loads the values from your JSON into the appropriate places of your document.</p>
+                                    <p><strong>Grading: </strong>You will be graded on the following: Validity:10, Readability:10, Completeness:20, Accuracy to Lab 2 output:20)</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+<!-- /.section, /#content -->
+    </body>
+</html>

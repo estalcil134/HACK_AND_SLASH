@@ -5,6 +5,9 @@ $error_type='';
     {
       mkdir("uploaded_docs/".$_SESSION['username'], 0700);
     }
+    $num_file = count(scandir("uploaded_docs/".$_SESSION['username'])) - 2;
+    if($num_file < 21)
+    {
     if(isset($_POST['submit'])) {
       $file = $_FILES['file'];
 
@@ -39,6 +42,7 @@ $error_type='';
       {
         $error_type = "4";
       }
+    }
     }
   foreach ($_POST as $key => $value) {
     unset($_POST[$key]);
