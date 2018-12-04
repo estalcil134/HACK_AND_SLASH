@@ -53,7 +53,7 @@
           }
           else
           {
-            $output_big = $output_big.'<button class="buttoff" type="button" onclick='. '"location.href=\'../tutorial_landing_page.php\'"' . '">END</button>';
+            $output_big = $output_big.'<form action="../../../admin/tutorial_creation_page/check.php" method="POST"><input name="fin" type="hidden" value="' . $_POST['final_tutorial_title'] . '"><button class="buttoff" type="submit">END</button></form>';
           }
           $output_big = $output_big.'</div><button id="return" type="button" onclick="location.href=\'../tutorial_landing_page.php\'">Return</button><footer><a id = "about" href="http://' . $_SERVER['SERVER_NAME'] . '/about/about.html">About Page</a></footer><script src="/resources/general/cookies_enabled.js"></script><script src="/resources/jquery/jquery-1.4.3.min.js"></script></script><script src="/resources/general/answer.js"></script></body></html>';
           fwrite($challenge, $output_big);
