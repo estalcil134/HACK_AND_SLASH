@@ -339,8 +339,12 @@ function on2()
   $("#overlay2").css({display: "block"});
 }
 
+function on() {
+    $("#overlay").css({display: "block"});
+}
+
 function off() {
-    $("#overlay2").css({display: "none"});
+    $("#overlay").css({display: "none"});
 }
 function off2() {
   if (event.target.nodeName =='DIV')
