@@ -6,7 +6,7 @@ if (!file_exists("../../admin/challenge_creation_page/uploaded_docs") && !mkdir(
   echo "Error occurred when making server upload folder";
 }
 // If admin's folder doesn't exist, make the folder.
-if(!file_exists("../../admin/challenge_creation_page/uploaded_docs/" . $_SESSION['username']) && !mkdir("../../admin/challenge_creation_page/uploaded_docs/" . $_SESSION['username'], 0700))
+if(!file_exists("../../admin/challenge_creation_page/uploaded_docs/" . $_SESSION['username']) && !mkdir("../../admin/challenge_creation_page/uploaded_docs" . $_SESSION['username'], 0700))
 { // Print this if error occurred
   echo "Error occurred when making admin directory";
 }
@@ -35,7 +35,7 @@ if(isset($_POST['submit']) && isset($_POST['challenge']) && isset($_POST['flag']
         if($fileError === 0) {
           if($fileSize < 10000000) {
             $fileNameNew = uniqid('',true).".".$fileActualExt;
-            $fileDestination .= '../../admin/challenge_creation_page/uploaded_docs/' . $_SESSION['username'] .'/'.$fileNameNew;
+            $fileDestination .= '../../admin/challenge_creation_page/uploaded_docs' . $_SESSION['username'] .'/'.$fileNameNew;
             move_uploaded_file($fileTmpName,$fileDestination);
           }
           $error_type = "1";
@@ -58,11 +58,12 @@ if(isset($_POST['submit']) && isset($_POST['challenge']) && isset($_POST['flag']
   }
   else
   { // If the challenge already exists, redirect
-    header("Location: ". substr("{$_SERVER['HTTP_REFERER']}", 0, strpos("{$_SERVER['HTTP_REFERER']}",'?=')) . "?=4");
+    header("Location: http://{$_SERVER['SERVER_NAME']}/admin/challenge_creation_page/challenge_creation.php?=4");
+    exit();
   }
   $connected = NULL;
 }
 // Redirect back to the challenge creation page if successful
-header("Location: " . substr("{$_SERVER['HTTP_REFERER']}", 0, strpos("{$_SERVER['HTTP_REFERER']}",'?=')) . "?=5");
+header("Location: http://{$_SERVER['SERVER_NAME']}/admin/challenge_creation_page/challenge_creation.php?=5");
 exit();
 ?>

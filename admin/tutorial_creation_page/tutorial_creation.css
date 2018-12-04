@@ -395,9 +395,12 @@ select {
   margin-right: 10%;
   margin-top: 10%;
   margin-bottom: 10%;
+  min-height:300px;
   height: 40%;
   text-align: center;
   white-space: nowrap;
+  /*To vertial align the inner div tag*/
+  overflow:hidden;
 }
 #para_preview {
   /*css for para_preview*/
@@ -413,11 +416,12 @@ select {
 #title_para {
 
   font-weight: bolder;
-  font-size: 4.0em;
+  font-size: 5em;
 }
 #final_title {
 
-  height: 50px;
+  height: 75px;
+  font-size:3em;
 }
 #file {
   /*change font for file*/
@@ -502,4 +506,13 @@ select {
   margin-right: 5%;
   text-align: right;
   display: table;
+}
+
+#inner
+{
+  /*Inner div for overlay2 used to center the label and input tag*/
+  margin:15% auto;
+  min-width:150px;
+  max-width:72.5%;
+  overflow:hidden;
 }

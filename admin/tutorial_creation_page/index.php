@@ -34,8 +34,10 @@ if ($_SESSION["user-type"] != "admin")
     <div id="overlay2" onclick = "off2();">
       <form>
       <div id = "preview_look_good2">
-          <label for="final_title" id = "title_para">Tutorial Title</label>
-          <input id = "final_title" type = "text" name = "final_tutorial_title" value = ""/>
+        <div id="inner">
+          <label class="left" for="final_title" id = "title_para">Tutorial Title</label>
+          <input class="right" id = "final_title" type = "text" name = "final_tutorial_title" value = ""/>
+        </div>
       </div>
       </form>
     </div>
