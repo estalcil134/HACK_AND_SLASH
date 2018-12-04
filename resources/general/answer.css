@@ -26,6 +26,11 @@ span{
 	/*css of hidden answer*/
 	font-style: italic;
 	font-weight: bold;
+	bottom: 0;
+}
+#showanswer1{
+	padding-top: 50px;
+	margin-right: 60px;
 }
 
 div .m_choice{
