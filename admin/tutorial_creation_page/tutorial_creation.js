@@ -177,6 +177,11 @@ function short()
   el3.style.backgroundImage = "linear-gradient(#8B0B0B,#C90F0F,#C90F0F,#C90F0F,#8B0B0B)";
   $('input:hidden[name=question_type]').val("short");
   show_question();
+  // Change here
+  //document.getElementsByName("short_answer").removeAttribute("required");
+  document.getElementsByName("mult_inp")[0].removeAttribute("required");
+  $("input[name^=answer]").attr("required", false);
+  $("input[name=short_answer]").attr("required", true);
 }
 
 function multi()
@@ -192,6 +197,11 @@ function multi()
   num_multi();
   $('input:hidden[name=question_type]').val("multi");
   show_question();
+  // Change here
+  document.getElementsByName("mult_inp")[0].setAttribute("required", "");
+  $("input[name=answer1]").attr("required", true);
+  $("input[name=answer2]").attr("required", true);
+  $("input[name=short_answer]").attr("required", false);
 }
 
 function num_multi()
@@ -209,21 +219,31 @@ function num_multi()
     three.style.display = "none";
     four.style.display = "none";
     five.style.display = "none";
+    $("input[name=answer3]").attr("required", false);
+    $("input[name=answer4]").attr("required", false);
+    $("input[name=answer5]").attr("required", false);
   }
   else if (select_questions == 1)
   {
     three.style.display = "block";
     four.style.display = "none";
     five.style.display = "none";
+    $("input[name=answer3]").attr("required", true);
+    $("input[name=answer4]").attr("required", false);
+    $("input[name=answer5]").attr("required", false);
   }
   else if (select_questions == 2)
   {
     three.style.display = "block";
     four.style.display = "block";
     five.style.display = "none";
+    $("input[name=answer3]").attr("required", true);
+    $("input[name=answer4]").attr("required", true);
+    $("input[name=answer5]").attr("required", false);
   }
   else if (select_questions == 3)
   {
+    $("input[name^=answer]").attr("required", false);
     three.style.display = "block";
     four.style.display = "block";
     five.style.display = "block";
