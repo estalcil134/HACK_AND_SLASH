@@ -1,19 +1,4 @@
-//function validate(formObj) {
-//  var truth = true; //variable is true if all catagories are filled, false otherwise
-//  var message = ""; //the alert message shown to the user
-//  if (formObj.tutorial.value == "") {
-//    if (message!="") {
-//      message = message + "\n";
-//    }
-//    message = message + "You must enter a Tutorial Name.";
-//    formObj.tutorial.focus();
-//    truth = false;
-//  }
-//  if (!truth) {
-//    alert(message);
-//  }
-//  return truth;
-//}
+
 function css_iframe() {
   $('iframe').contents().find("head").append($("<style type='text/css'> body {width = 500px; word-wrap: break-word;}  </style>"));
 }
@@ -217,6 +202,8 @@ function num_multi()
   three = document.getElementById("third");
   four = document.getElementById("fourth");
   five = document.getElementById("fifth");
+  $('input:hidden[name=num_multiple]').val(num);
+  alert($('input:hidden[name=num_multiple]').val());
   if(select_questions == 0)
   {
     three.style.display = "none";
