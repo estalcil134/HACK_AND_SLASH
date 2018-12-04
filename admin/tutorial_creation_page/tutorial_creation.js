@@ -339,10 +339,6 @@ function on2()
   $("#overlay2").css({display: "block"});
 }
 
-function on() {
-    $("#overlay").css({display: "block"});
-}
-
 function off() {
     $("#overlay").css({display: "none"});
 }
