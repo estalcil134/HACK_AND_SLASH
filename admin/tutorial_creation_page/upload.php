@@ -42,8 +42,8 @@ $error_type='';
   }
   // Insert into database
   require "../../resources/general/connect.php";
-  $stmt = $connected->prepare("INSERT INTO tutorials (creater_id, name, file_path) VALUES ((SELECT userid FROM users WHERE username = :u), :u1, :f_p");
-  $stmt->execute(array(':u'=>$_SESSION['username'], ':u1'=>$_SESSION['username'], ':f_p'=>$fileDestination));
+  $stmt = $connected->prepare("INSERT INTO tutorials (creater_id, name, file_path) VALUES ((SELECT userid FROM users WHERE username = :u), :n, :f_p");
+  $stmt->execute(array(':u'=>$_SESSION['username'], ':n'=>$_POST[''], ':f_p'=>$fileDestination));
   foreach ($_POST as $key => $value) {
     unset($_POST[$key]);
   }

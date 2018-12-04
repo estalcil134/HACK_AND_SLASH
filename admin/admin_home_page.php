@@ -28,28 +28,7 @@ require'../resources/general/logo_' . $_SESSION['user-type'] . '.html';
 		</ul>
 	</nav>
 	<h1>Admin Home Page</h1>
-	<table class="w_container">
-		<tbody>
-			<tr>
-				<td><a href="tutorial_creation_page/#"><p>Tutorial Creation</p></a></td>
-				<td><a href="challenge_creation_page/challenge_creation.php"><p>Challenge Creation</p></a></td>
-			</tr>
-			<tr>
-				<td><a href="tutorial_deletion_page/tutorial_deletion_page.php"><p>Tutorial Deletion</p></a></td>
-				<td><a href="challenge_deletion_page/challenge_deletion_page.php"><p>Challenge Deletion</p></a></td>
-			</tr>
-			<tr>
-				<td><a href="../user/tutorials/tutorial_landing_page.php"><p>Tutorials</p></a></td>
-				<td><a href="../user/challenges/challenge_landing_page.php"><p>Challenges</p></a></td>
-			</tr>
-			<tr>
-				<td><a href="meta_tutorial/meta_tutorial.html"><p>MetaTutorial</p></a></td>
-				<td><a href="../user/scoreboard/scoreboard.php"><p>Scoreboard</p></a></td>
-			</tr>
-		</tbody>
-	</table>
-	<!-- 
-		<div class="w_container">
+	<div class="w_container">
 		<div class="w_left">
 			<a href="tutorial_creation_page/#"><p>Tutorial Creation</p></a>
 			<a href="tutorial_deletion_page/tutorial_deletion_page.php"><p>Tutorial Deletion</p></a>
@@ -63,5 +42,5 @@ require'../resources/general/logo_' . $_SESSION['user-type'] . '.html';
 			<a href="../user/scoreboard/scoreboard.php"><p>Scoreboard</p></a>
 		</div>
 	</div>
-	 -->
+	
 <?php require '../resources/general/footer.html'; ?>
