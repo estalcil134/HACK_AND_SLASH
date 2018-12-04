@@ -171,9 +171,10 @@ if ($_SESSION["user-type"] != "admin")
         <?php
         // Read directory, spit out links
         $sess = $_SESSION['username'];
+        echo($sess);
         if(!is_dir("uploaded_docs/$sess"))
         {
-          mkdir("uploaded_docs/$sess", 0700);
+          mkdir("uploaded_docs/$sess", 0700,true);
         }
         if ($handle = opendir("uploaded_docs/$sess/")) {
             $count = 0;
