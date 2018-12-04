@@ -46,7 +46,7 @@
           {
             $output_big = $output_big.'<a href="../tutorial_landing_page.php">BACK</a>';
           }
-          $output_big = $output_big.'<iframe width = "100%" height = "100%" srcdoc = "'.$count.'_page.html"></iframe>';
+          $output_big = $output_big.'<iframe width = "100%" height = "100%" src = "'.$count.'_page.html"></iframe>';
           if($count != ($num_file-1))
           {
             $output_big = $output_big.'$output_big = $output_big.<a href="'.($count+1).'.html">NEXT</a>';
