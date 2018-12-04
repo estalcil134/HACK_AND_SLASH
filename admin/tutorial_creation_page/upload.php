@@ -1,7 +1,7 @@
 <?php
 $error_type='';
   session_start();
-  var $sess = $_SESSION['username'];
+  $sess = $_SESSION['username'];
   if(!is_dir("uploaded_docs/$sess"))
     {
       mkdir("uploaded_docs/$sess", 0700);
