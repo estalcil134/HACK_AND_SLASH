@@ -408,7 +408,7 @@ function enter1() {
 function selectRadio() {
   $('input:radio[name=mult_inp][value=' + event.target.innerHTML.substr(0,1) + '_1]').click();
   mulitple_answer = event.target.innerHTML.substr(0,1);
-//  alert(mulitple_answer);
+  alert(mulitple_answer);
   $("#showanswer1").css({display: "none"})
   show_question();
   $('input:hidden[name=actual_answer_multi]').val(mulitple_answer);
@@ -419,7 +419,13 @@ function selectRadio1() {
   $('input:radio[name=mult][value=' + event.target.innerHTML.substr(0,1) + ']').click();
   
 }
-
+function set_answer()
+{
+  mulitple_answer = event.target.value.substr(0,1);
+  alert(mulitple_answer);
+  show_question();
+  $('input:hidden[name=actual_answer_multi]').val(mulitple_answer);
+}
 function setFile() {
   $('input:hidden[name=filename]').val(event.target.id);
 }

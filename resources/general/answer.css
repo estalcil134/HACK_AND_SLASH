@@ -1,7 +1,69 @@
-#showanswer {
-  display: none;
+#showanswer, #showanswer1 {
+	/*css for hidden short answer and hidden mult choice answre*/
+	display: none;
+	font-weight: bold;
 }
 
 #showanswer1 {
-  display: none;
+	/*css for hidden mult choice answer*/
+	display: none;
 }
+
+div{
+	/*Editing this will edit the question, answers, and hidden answer*/
+	text-align: center;
+	font-size: 1.1em;
+	font-weight: bold;
+	padding-top: 10px;
+}
+span{
+	/*css of answers including hidden answer*/
+	font-weight: normal;
+
+}
+
+#answer, #showanswer, #showanswer1{
+	/*css of hidden answer*/
+	font-style: italic;
+	font-weight: bold;
+}
+
+div .m_choice{
+	margin-top: 5px;
+	text-align: center;
+	width: 50%;
+	padding-left: 250px;
+}
+.m_choice input, .m_choice span{
+	padding: 5px;
+	text-align: left;
+	float: left;
+	margin-bottom: 5px;
+}
+
+.m_choice input{
+	width: 5%;
+}
+.m_choice span{
+	line-height: 50%;
+	width: 90%;
+}
+
+
+/*
+<div id="code">
+	<div>QUESTION: What is the color blue?<br>
+		<div class="tab" id="A"><input type="radio" name="mult" value="A" onclick="show_ans1();"><span onclick="selectRadio1();">A: Blue</span></div>
+		<div class="tab" id="B"><input type="radio" name="mult" value="B" onclick="show_ans1();"><span onclick="selectRadio1();">B: Red</span></div>
+		<br><br>
+		<div id="showanswer1">ANSWER: <span id="answer"></span></div>
+	</div>
+</div>
+<footer>
+	<a id="about" href="&lt;?php echo 'http://' . $_SERVER['SERVER_NAME'] . '/about/about.html'?&gt;">About Page</a>
+</footer>
+<script src="/resources/general/cookies_enabled.js"></script>
+<script src="/resources/jquery/jquery-1.4.3.min.js"></script>
+<script src="/resources/general/answer.js"></script></body>"
+*/
+

@@ -31,6 +31,7 @@ if ($_SESSION["user-type"] != "admin")
         </iframe>
       </div>
     </div>
+    <!--
     <div id="overlay2" onclick = "off2();">
       <form>
       <div id = "preview_look_good2">
@@ -41,6 +42,7 @@ if ($_SESSION["user-type"] != "admin")
       </div>
       </form>
     </div>
+    -->
     <br>
   <br>
   <div id="body">

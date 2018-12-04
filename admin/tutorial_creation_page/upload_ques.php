@@ -27,11 +27,11 @@
   $fileDestination = file_exists("uploaded_docs/username/{$fileString}html");
   if($_POST['question_type'] == "short")
   {
-    $output_big = $output_big."QUESTION: ".$_POST['tutorial'].'<br><br><div class = "m_choice"><input type="text" autocomplete="off" value="" name="short_ans" class = "inputs" id="user_input" onkeydown = "enter1();"/><br><br><button type = "button" onclick = "show_ans();">SHOW ANSWER</button><br><br><div id = "showanswer">ANSWER: '.$_POST['short_answer'].'</div>';
+    $output_big = $output_big."QUESTION: ".$_POST['tutorial'].'<br><br><input type="text" autocomplete="off" value="" name="short_ans" class = "inputs" id="user_input" onkeydown = "enter1();"/><br><br><button type = "button" onclick = "show_ans();">SHOW ANSWER</button><br><br><div id = "showanswer">ANSWER: '.$_POST['short_answer'].'</div>';
   }
   else
   {
-    $output_big = $output_big."QUESTION: ".$_POST['tutorial'].'<br><div class = "tab" id = "A"><input type="radio" name="mult" value="A" onclick = "show_ans1();"><span onclick = "selectRadio1();">A: '.$_POST['answer1']."</span></div>".'<div class = "tab" id = "B"><input type="radio" name="mult" value="B" onclick = "show_ans1();"><span onclick = "selectRadio1();">B: '.$_POST['answer2']."</span></div>";
+    $output_big = $output_big."QUESTION: ".$_POST['tutorial'].'<br><div class = "m_choice"><div class = "tab" id = "A"><input type="radio" name="mult" value="A" onclick = "show_ans1();"><span onclick = "selectRadio1();">A: '.$_POST['answer1']."</span></div>".'<div class = "tab" id = "B"><input type="radio" name="mult" value="B" onclick = "show_ans1();"><span onclick = "selectRadio1();">B: '.$_POST['answer2']."</span></div>";
     $num = $_POST['num_multiple'];
     if($num == "3")
     {

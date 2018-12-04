@@ -48,3 +48,11 @@ function show_ans1() {
     }
   }
 }
+
+function set_answer()
+{
+  mulitple_answer = event.target.value.substr(0,1);
+  alert(mulitple_answer);
+  show_question();
+  $('input:hidden[name=actual_answer_multi]').val(mulitple_answer);
+}
