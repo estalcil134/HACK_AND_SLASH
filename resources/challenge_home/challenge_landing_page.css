@@ -93,7 +93,7 @@ form
   margin:auto;
 }
 
-span
+span, h1
 {
   color:red;
 }

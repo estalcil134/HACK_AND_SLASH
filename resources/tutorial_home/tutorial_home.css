@@ -9,7 +9,6 @@ table
   border:1px solid darkred;
   border-collapse:collapse;
   margin:auto;
-  min-width:200px;
 }
 th
 {
@@ -18,8 +17,25 @@ th
 td
 {
   border-right:1px solid darkred;
+  min-width:400px;
 }
 tr
 {
   text-align:center;
+}
+
+div#placer
+{
+  background-color:lightgrey;
+  min-width:500px;
+  max-width:501px;
+  margin:auto;
+  text-align:center;
+  min-height:200px;
+}
+h3
+{
+  padding-top:15px;
+  font-size:2.5em;
+  color:red;
 }

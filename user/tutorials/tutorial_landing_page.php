@@ -21,14 +21,6 @@ require '../../resources/general/navbar_user.html';
 ?>
 
 <div id="body">
-  <table>
-    <thead>
-      <tr>
-        <th>Untouched Tutorials</th>
-        <th>Completed Tutorials</th>
-      </tr>
-    </thead>
-    <tbody>
       <?php
         //Connect to the database
         require '../../resources/general/connect.php';
@@ -74,24 +66,31 @@ require '../../resources/general/navbar_user.html';
           }
         }
         // Out put the content of each array into the table
-        $num_rows = min(array(count($complete), count($incomplete)));
-        for ($i = 0; $i < $num_rows; $i++)
+        if ($num_tuts)
         {
-          echo "<tr><td><a href=\"$c_link[$i]\">$complete[$i]</a></td><td><a href=\"$i_link[$i]\">$incomplete[$i]</a></td></tr>";
+          echo "<table><thead><tr><th>Completed Tutorials</th><th>Untouched Tutorials</th></tr></thead><tbody>";
+          $num_rows = min(array(count($complete), count($incomplete)));
+          for ($i = 0; $i < $num_rows; $i++)
+          {
+            echo "<tr><td><a href=\"$c_link[$i]\">$complete[$i]</a></td><td><a href=\"$i_link[$i]\">$incomplete[$i]</a></td></tr>";
+          }
+          while (!empty($complete[$i]))
+          {
+            echo "<tr><td><a href=\"$c_link[$i]\">$complete[$i]</a></td><td></td></tr>";
+            $i++;
+          }
+          while (!empty($incomplete[$i]))
+          {
+            echo "<tr><td></td><td><a href=\"$i_link[$i]\">$incomplete[$i]</a></td></tr>";
+            $i++;
+          }
+          echo "</tbody></table>";
         }
-        while (!empty($complete[$i]))
-        {
-          echo "<tr><td><a href=\"$c_link[$i]\">$complete[$i]</a></td><td></td></tr>";
-          $i++;
-        }
-        while (!empty($incomplete[$i]))
-        {
-          echo "<tr><td></td><td><a href=\"$i_link[$i]\">$incomplete[$i]</a></td></tr>";
-          $i++;
+        else
+        { // No tutorials
+          echo "<div id=\"placer\"><h3>Tutorials Coming Soon</h3></div>";
         }
   	  ?>
-    </tbody>
-  </table>
 </div>
 <script type="text/javascript" src="../../resources/general/footer.js"></script>
 <script type="text/javascript" src="../../resources/general/cookies_enabled.js"></script>
