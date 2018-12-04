@@ -1,10 +1,9 @@
 <?php
 $error_type='';
   session_start();
-  var $sess = $_SESSION['username'];
-  if(!is_dir("uploaded_docs/$sess"))
+  if(!file_exists("uploaded_docs/".$_SESSION['username']))
     {
-      mkdir("uploaded_docs/$sess", 0700);
+      mkdir("uploaded_docs/".$_SESSION['username'], 0700);
     }
     $num_file = count(scandir("uploaded_docs/".$_SESSION['username'])) - 2;
     if($num_file < 21)
