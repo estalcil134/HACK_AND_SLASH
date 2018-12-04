@@ -15,12 +15,14 @@ if ($_POST)
     // Grab the file path mentioned in the text file called $file_path
     $file = fopen($file_path, 'r');
     $challenge_file_location = fgets($file);
-    $challenge_file_location = substr($challenge_file_location, strpos($challenge_file_location, '<a id="challenge_file" href="')+29);
-    $challenge_file_location = substr($challenge_file_location, 0, strpos($challenge_file_location, '">File'));
-    fclose($file);
-
+    if (strpos($challenge_file_location, '<a id="challenge_file" href="'))
+    {
+      $challenge_file_location = substr($challenge_file_location, strpos($challenge_file_location, '<a id="challenge_file" href="')+29);
+      $challenge_file_location = substr($challenge_file_location, 0, strpos($challenge_file_location, '">File'));
+      fclose($file);
+      unlink($challenge_file_location);
+    }
     // Delete the files
-    unlink($challenge_file_location);
     unlink($file_path);
   }
   else if (isset($_POST['type']) && ($_POST['type'] == 'tutorial'))
@@ -37,6 +39,6 @@ if ($_POST)
     //unlink();
   }
 }
-//header("Location: {$_SERVER['HTTP_REFERER']}");
+header("Location: {$_SERVER['HTTP_REFERER']}");
 exit();
 ?>

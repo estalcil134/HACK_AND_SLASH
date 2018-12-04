@@ -63,4 +63,18 @@
 <script type="text/javascript" src="../../resources/challenge_creation_page/challenge_creation.js"></script>
 <script type="text/javascript" src="../../resources/general/footer.js"></script>
 <script type="text/javascript" src="../../resources/general/cookies_enabled.js"></script>
-<?php require '../../resources/general/footer.html';?>
+<?php
+  require '../../resources/general/footer.html';
+  if (isset($_SERVER['QUERY_STRING']))
+  {
+    $msg = substr(($_SERVER['QUERY_STRING']),1);
+    if ($msg == '4')
+    {
+      echo "<script>alert('Challenge Already Exists!')</script>";
+    }
+    else if ($msg == '5')
+    {
+      echo "<script>alert('Challenge Successfully Created!')</script>";
+    }
+  }
+?>
