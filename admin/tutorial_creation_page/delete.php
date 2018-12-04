@@ -8,9 +8,13 @@
   }
   else
   {
-    if(!(file_exists($_SERVER['DOCUMENT_ROOT']."/user/tutorials/".$_POST['final_tutorial_title'])))
-  {
-    mkdir($_SERVER['DOCUMENT_ROOT']."/user/tutorials/".$_POST['final_tutorial_title'], 0700);
+    if(!file_exists($_SERVER['DOCUMENT_ROOT']."../../user/tutorials/".$_POST['final_tutorial_title']))
+  { echo "here";
+    mkdir($_SERVER['DOCUMENT_ROOT']."../../user/tutorials/".$_POST['final_tutorial_title'], 0700);
+    // Add entry in database
+    require "../../resources/general/connect.php";
+    $request = $connected->prepare("INSERT INTO tutorials (creater_id, name, file_path) VALUES ((SELECT userid FROM users WHERE username = '" . $_SESSION['username'] . "'), :t_n, :f_p)");
+    $request->execute(array(':t_n'=>$_POST['final_tutorial_title'], ':f_p'=>"../../user/tutorials/".$_POST['final_tutorial_title'] . "/0.html"));
   }
   if ($handle = opendir("uploaded_docs/".$_SESSION['username'])) {
   $count = 0;
@@ -82,7 +86,7 @@
     foreach ($_POST as $key => $value) {
       unset($_POST[$key]);
     }
-    header("Location:index.php");
+    //header("Location:index.php");
     exit();
   }
 ?>
