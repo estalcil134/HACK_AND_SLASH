@@ -27,7 +27,12 @@ fieldset{
 }
 .buttoff{
 	background-image: radial-gradient(white, red 75%, darkred);
+	font-weight: bold;
+	color: white;
 }
 #return{
-	text-align: center;
+	margin-left: 48%;
+}
+#logo{
+	cursor: pointer;
 }
