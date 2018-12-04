@@ -18,7 +18,7 @@ if ($_POST)
     if (strpos($challenge_file_location, '<a id="challenge_file" href="'))
     {
       $challenge_file_location = substr($challenge_file_location, strpos($challenge_file_location, '<a id="challenge_file" href="')+29);
-      $challenge_file_location = substr($challenge_file_location, 0, strpos($challenge_file_location, '" download'));
+      $challenge_file_location = substr($challenge_file_location, 0, strpos($challenge_file_location, '">File'));
       unlink($challenge_file_location);
     }
     fclose($file);
