@@ -15,7 +15,7 @@
     require "../../resources/general/connect.php";
     $request = $connected->prepare("INSERT INTO tutorials (creater_id, name, file_path) VALUES ((SELECT userid FROM users WHERE username = '" . $_SESSION['username'] . "'), :t_n, :f_p)");
     $request->execute(array(':t_n'=>$_POST['final_tutorial_title'], ':f_p'=>"../../user/tutorials/".$_POST['final_tutorial_title'] . "/0.html"));
-  }
+  
   if ($handle = opendir("uploaded_docs/".$_SESSION['username'])) {
   $count = 0;
   $num_file = count(scandir("uploaded_docs/".$_SESSION['username'])) - 2;
@@ -35,27 +35,27 @@
         </head>
         <body>
           <header>
-              <img id = "logo" src="/resources/general/LOGO.png" alt="HACK AND SLASH LOGO">
+              <img id = "logo" src="/resources/general/LOGO.png" alt="HACK AND SLASH LOGO" onclick="location.href=\'../../../index.php\'">
             </header>
           <div id="code">';
           if($count != 0)
           {
-            $output_big = $output_big.'<a href="'.($count-1).'.html">BACK</a>';
+            $output_big = $output_big.'<button class="buttoff" onclick="location.href=\''.($count-1).'.html\'">BACK</button>';
           }
           else
           {
-            $output_big = $output_big.'<a href="../tutorial_landing_page.php">BACK</a>';
+            $output_big = $output_big.'<button class="buttoff" onclick=\'' . 'location.href="../tutorial_landing_page.php"' . '\'>BACK</button>';
           }
           $output_big = $output_big.'<iframe width = "100%" height = "100%" src = "'.$count.'_page.html"></iframe>';
           if($count != ($num_file-1))
           {
-            $output_big = $output_big.'$output_big = $output_big.<a href="'.($count+1).'.html">NEXT</a>';
+            $output_big = $output_big.'<button class="buttoff" type="button" onclick="'. "location.href='".($count+1).".html'" . '">NEXT</button>';
           }
           else
           {
-            $output_big = $output_big.'<a href="../tutorial_landing_page.php">END</a>';
+            $output_big = $output_big.'<button class="buttoff" type="button" onclick='. '"location.href=\'../tutorial_landing_page.php\'"' . '">END</button>';
           }
-          $output_big = $output_big.'</div><footer><a id = "about" href="<?php echo \'http://\' . $_SERVER[\'SERVER_NAME\'] . \'/about/about.html\'?>">About Page</a></footer><script src="/resources/general/cookies_enabled.js"></script><script src="/resources/jquery/jquery-1.4.3.min.js"></script></script><script src="/resources/general/answer.js"></script></body></html>';
+          $output_big = $output_big.'</div><button id="return" type="button" onclick="location.href=\'../tutorial_landing_page.php\'">Return</button><footer><a id = "about" href="http://' . $_SERVER['SERVER_NAME'] . '/about/about.html">About Page</a></footer><script src="/resources/general/cookies_enabled.js"></script><script src="/resources/jquery/jquery-1.4.3.min.js"></script></script><script src="/resources/general/answer.js"></script></body></html>';
           fwrite($challenge, $output_big);
           fclose($challenge);
                 $count++;
@@ -82,7 +82,7 @@
         //unlink('uploaded_docs/'.$_SESSION['username'].'/'.$newKey);
       }
   }
-     
+    } 
     foreach ($_POST as $key => $value) {
       unset($_POST[$key]);
     }
