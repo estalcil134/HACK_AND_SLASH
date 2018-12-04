@@ -23,6 +23,7 @@ window.onload = function() {
   tutorial_create();
   short();
   css_iframe();
+  $("#overlay2").css("display","none");
 }
 
 //function getFocusText() {
@@ -343,6 +344,9 @@ function on(ev) {
 
 function off() {
     document.getElementById("overlay").style.display = "none";
+}
+function off2() {
+    document.getElementById("overlay2").style.display = "none";
 }
 
 function show_ans() {

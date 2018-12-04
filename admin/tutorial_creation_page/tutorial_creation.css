@@ -40,7 +40,7 @@
 @media screen and (-webkit-min-device-pixel-ratio:0){
   /*For Chrome*/
   #overlay2 {
-    display:block;
+    display:none;
     position:fixed;
     top:0;
     bottom:0;
