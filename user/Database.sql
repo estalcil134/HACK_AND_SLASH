@@ -54,6 +54,6 @@ INSERT INTO `admins` (userid, img) VALUES (3, "../../resources/challenge_home/ne
 
 /*When there is a new challenge, alter the table to include one more 0's for each when the visit the challenge page*/
 
-INSERT INTO `tutorials` (creater_id, name, file_path) VALUES (3, "first tut", "some file"), (3, "second tut", "other file");
+/*INSERT INTO `tutorials` (creater_id, name, file_path) VALUES (3, "first tut", "some file"), (3, "second tut", "other file");
 INSERT INTO `challenges` (creater_id, name, file_path, flags) VALUES (3, "first chall", "./challenge_2/text.txt", "123"),
-                                                                     (3, "second chall", "./challenge_1/text.txt", "321");
+                                                                     (3, "second chall", "./challenge_1/text.txt", "321");*/
