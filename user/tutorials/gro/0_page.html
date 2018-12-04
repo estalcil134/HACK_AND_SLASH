@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="author" content="Wilson">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name = "description" content = "Scoreboard">
+	<title>HACK&/ Scoreboard</title>
+
+	<script src="../../resources/general/footer.js"></script>
+	<link href="../../resources/general/general_content.css" rel="stylesheet" type="text/css">
+
+	
+	<link rel="stylesheet" type="text/css" href="../../resources/scoreboard/general_content.css">
+	
+	
+
+</head>
+
+<!--this is the html for the logo and user username-->
+<body onload="disappearButton()">
+    <header>
+      <!--Logo and link to go back to the home-->
+      <a id="home" class="left bold" href="#"><img id = "logo" src="../../resources/general/LOGO.png" alt="HACK AND SLASH LOGO"></a>
+      <!--the profile picture of the person, and their username-->
+      <div id="user_info" class="right">
+        <div id="profile_pic_user">
+        </div>
+        <p id = "username" class="right">INSERT USERNAME</p>
+      </div>
+    </header>
+  	<!--this is the html that creates the user nav bar-->
+	<nav>
+	  <ul>
+	    <!--Tutorials-->
+	    <li class="nav left"><a class="left nav" href="#">Tutorials</a></li>
+	    <!--Challenges-->
+	    <li class="nav left"><a class="left nav" href="../challenges/challenge_landing_page.html">Challenges</a></li>
+	    <!--Scoreboard-->
+	    <li class="nav left"><a class="left nav" href="#">Scoreboard</a></li>
+	    <!--Logout-->
+	    <li class="nav right" id = "nav_right"><a class="right nav" href="../../index.html">Logout</a></li>
+	  </ul>
+	</nav>
+
+  	<table>
+  		<tr>
+  			<th colspan=2>Rankings</th>
+  		</tr>
+  		<tr class="first">
+  			<td class="rank first">1</td>
+  			<!--first td is rank; don't change -->
+  			<td class="username">User 1</td>
+  			<!--second td is username, get by class=username -->
+  		</tr>
+  		<tr class="second">
+  			<td class="rank second">2</td>
+  			<td class="username">User 2</td>
+  		</tr>
+  		<tr class="third">
+  			<td class="rank third">3</td>
+  			<td class="username">User 3</td>
+  		</tr>
+  		<tr>
+  			<td class="rank">4</td>
+  			<td class="username">User 4</td>
+  		</tr>
+  		<tr>
+  			<td class="rank">5</td>
+  			<td class="username">User 5</td>
+  		</tr>
+  		<tr>
+  			<td class="rank">6</td>
+  			<td class="username">User 6</td>
+  		</tr>
+  		<tr>
+  			<td class="rank">7</td>
+  			<td class="username">User 7</td>
+  		</tr>
+  		<tr>
+  			<td class="rank">8</td>
+  			<td class="username">User 8</td>
+  		</tr>
+  		<tr>
+  			<td class="rank">9</td>
+  			<td class="username">User 9</td>
+  		</tr>
+  		<tr>
+  			<td class="rank">10</td>
+  			<td class="username">User10</td>
+  		</tr>
+  		<tr>
+  			<td class="rank">Your Rank</td>
+  			<td class="username">INSERT USERNAME</td>
+  		</tr>
+  	</table>
+	<!--the html for the footer of the webpage-->
+    <!--Go to about webpage-->
+    <footer>
+      <a id = "about" href="../../about/about.html">About Page</a>
+	  </footer>
+    <!--Button to scroll back to the top-->
+    <button onclick="topFunction()" id="topBtn" class = "right" title="Go to top">Back to Top</button>
+  </body>
+</html>
