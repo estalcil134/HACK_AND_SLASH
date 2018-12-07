@@ -93,9 +93,22 @@ if ($_POST)
     $request = $connected->prepare('SELECT file_path FROM tutorials WHERE num = :num');
     $request->execute(array(':num'=>$num));
     $t_file_path = $request->fetch()[0];
+    $t_file_path = substr($t_file_path, 0, strpos($t_file_path, "0.html"));
+    echo $t_file_path;
+    if (is_dir($t_file_path) && ($directory = opendir($t_file_path)))
+    { // Successfilly opened directory, so read each file in and delete them
+      readdir($directory);  // Ignore the . directory
+      readdir($directory);   // Ignore the .. directory
+      while (($file_name = readdir($directory)) !== False)
+      {
+        unlink($t_file_path . $file_name);
+      }
+      closedir($directory);
+      // Delete the directory
+      rmdir($t_file_path);
+    }
     $request = $connected->prepare('DELETE FROM tutorials WHERE num = :num');
     $request->execute(array(':num'=>$num));
-    unlink($t_file_path);
   }
 }
 // Redirect on successful deletion
