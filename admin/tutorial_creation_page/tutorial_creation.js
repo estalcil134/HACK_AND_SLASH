@@ -386,11 +386,11 @@ function enter1() {
   var q_event = event.keyCode;
   if (q_event == 13)
   {
-    el2.blur();
     if(el2.value == (el).substr(8,el.length))
     {
       $("#showanswer").css({display: "block"});
     }
+    el2.blur();
   }
 }
 

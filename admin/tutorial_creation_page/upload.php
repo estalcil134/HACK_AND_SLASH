@@ -2,7 +2,6 @@
 $error_type='';
   session_start();
   $sess = $_SESSION['username'];
-    echo($sess);
     if(!is_dir("uploaded_docs/$sess"))
     {
       mkdir("uploaded_docs/$sess", 0700,true);
@@ -12,7 +11,7 @@ $error_type='';
     {
     if(isset($_POST['submit'])) {
       $file = $_FILES['file'];
-
+      
       $fileName = $_FILES['file']['name'];
       $fileTmpName = $_FILES['file']['tmp_name'];
       $fileSize = $_FILES['file']['size'];
@@ -20,12 +19,13 @@ $error_type='';
       $fileType = $_FILES['file']['type'];
       $fileExt = explode('.',$fileName);
       $fileActualExt = strtolower(end($fileExt));
+      $fileString = str_replace (" ","_",$fileName);
       $allowed = array('html','htm');
       if(in_array($fileActualExt,$allowed)) {
         if($fileError === 0) {
           if($fileSize < 10000000) {
             $fileNameNew = uniqid('',true).".".$fileActualExt;
-            $fileDestination = 'uploaded_docs/'.$_SESSION['username'].'/'.$fileName;
+            $fileDestination = 'uploaded_docs/'.$_SESSION['username'].'/'.$fileString;
             if(move_uploaded_file($fileTmpName,$fileDestination)) {
               $error_type = "1";
             }

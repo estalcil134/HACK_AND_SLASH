@@ -1,5 +1,6 @@
 <?php
   session_start();
+  $sess = $_SESSION['username'];
   if(!is_dir("uploaded_docs/$sess"))
   {
     mkdir("uploaded_docs/$sess", 0700,true);
@@ -9,6 +10,8 @@
   {
     // Then create the text file that will be outputted in the challenge landing page.
     $fileString = str_replace ("?","_",$_POST['tutorial'].".");
+    $fileString = str_replace (" ","_",$fileString);
+
     $challenge = fopen('uploaded_docs/'.$_SESSION['username'].'/'.$fileString.'html', "w");
     $output_big = '<!DOCTYPE HTML>
   <html lang="en">
@@ -61,7 +64,7 @@
   foreach ($_POST as $key => $value) {
     unset($_POST[$key]);
   }
-  header("Location:index.php");
+  //header("Location:index.php");
 
 
 ?>
