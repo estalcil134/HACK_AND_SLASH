@@ -9,8 +9,14 @@
   if($num_file < 21)
   {
     // Then create the text file that will be outputted in the challenge landing page.
+    $fileString = str_replace ("\\","_",$fileString);
+    $fileString = str_replace ("/","_",$fileString);
+    $fileString = str_replace (":","_",$fileString);
+    $fileString = str_replace ('"',"_",$fileString);
+    $fileString = str_replace ("<","_",$fileString);
+    $fileString = str_replace (">","_",$fileString);
+    $fileString = str_replace ("|","_",$fileString);
     $fileString = str_replace ("?","_",$_POST['tutorial'].".");
-    $fileString = str_replace (" ","_",$fileString);
 
     $challenge = fopen('uploaded_docs/'.$_SESSION['username'].'/'.$fileString.'html', "w");
     $output_big = '<!DOCTYPE HTML>
