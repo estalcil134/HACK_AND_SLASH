@@ -30,7 +30,7 @@ require'../resources/general/logo_' . $_SESSION['user-type'] . '.html';
 	<h1>Admin Home Page</h1>
 	<div class="w_container">
 		<div class="w_left">
-			<a href="tutorial_creation_page/#"><p>Tutorial Creation</p></a>
+			<a href="tutorial_creation_page/tutor_create.php"><p>Tutorial Creation</p></a>
 			<a href="tutorial_deletion_page/tutorial_deletion_page.php"><p>Tutorial Deletion</p></a>
 			<a href="../user/tutorials/tutorial_landing_page.php"><p>Tutorials</p></a>
 			<a href="meta_tutorial/meta_tutorial.html"><p>MetaTutorial</p></a>
