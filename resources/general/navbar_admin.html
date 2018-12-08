@@ -5,7 +5,7 @@
     <?php
       $li = new DOMDocument();
       $li->loadHTML('<li class="nav left"><a class="left nav" href="#">Tutorial Creation</a></li>');
-      $li->getElementsByTagName('a')[0]->setAttribute("href", 'http://' . $_SERVER['SERVER_NAME'] . '/admin/tutorial_creation_page/index.php');
+      $li->getElementsByTagName('a')[0]->setAttribute("href", 'http://' . $_SERVER['SERVER_NAME'] . '/admin/tutorial_creation_page/tutor_create.php');
       echo $li->saveHTML();
     ?>
     <!--Tutorial Deletion-->
