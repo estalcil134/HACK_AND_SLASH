@@ -26,9 +26,11 @@ fieldset{
 	height:75px;
 }
 .buttoff{
+	/*
 	background-image: radial-gradient(red, darkred 75%, black);
 	font-weight: bold;
 	color: white;
+	*/
 }
 
 #return{

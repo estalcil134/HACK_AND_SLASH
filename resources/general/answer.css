@@ -63,22 +63,41 @@ div .m_choice{
 iframe {
   min-height: 400px;
 }
+.buttoff{
+	background-color: lightgray;
+	background-image: none;
+	color: black;
+	width: 70px;
+	height: 30px;
+	font-size: 1.13em;
+	border-radius: 3px;
+}
+
 .b_right{
 	margin-right: 94%;
 	margin-bottom: 2px;
 }
 .b_left{
-	margin-left: 94.5%;
+	margin-left: 92%;
 }
 @media screen and (max-width: 800px){
 	.b_left{
-		margin-left: 90%;
+		margin-left: 84%;
 	}
 }
 #return{
+	margin-top: 1px;
+	width: 90px;
+	height: 35px;
+	font-size: 1.3em;
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
+	background-image: linear-gradient(lightgray, lightgray);
+	border-radius: 3px;
+}
+#return:hover{
+	background-image: linear-gradient(to right bottom, lightgray 70%, red);
 }
 /*
 <div id="code">
