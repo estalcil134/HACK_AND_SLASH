@@ -9,7 +9,10 @@ Please use the most up to date browser when viewing our website. The website is 
 5) From the root directory, go to the "resources" folder and locate the "Database.sql" file.
    Import that sql file into your MySQL either through the GUI or command line.
    It will create the database and tables required for this project.
+6) From the root directory located "connect.php" in the "resources/general/" folder. Update the credentials in that file
+   to match your MySQL superuser credentials -- for the root user -- and to match your servername.
 6) Now go to your browser, enter your servername and enjoy the website!
+   e.g. servername = hack.and.slash/    enter http://hack.and.slash/    into the browser
 
 NOTE:
 Three users already exist
