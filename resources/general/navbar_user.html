@@ -18,9 +18,19 @@
     <!--Scoreboard-->
     <?php
       $li = new DOMDocument();
-      $li->loadHTML('<li class="nav left"><a class="left nav" href="#">Scoreboard</a></li>');
+      $li->loadHTML('<li class="nav left"><a class="left nav">Scoreboard</a></li>');
       $li->getElementsByTagName('a')[0]->setAttribute("href", 'http://' . $_SERVER['SERVER_NAME'] . '/user/scoreboard/scoreboard.php');
       echo $li->saveHTML();
+    ?>
+    <!-- Meta tutorial -->
+    <?php
+      if ($_SESSION['user-type'] === "admin")
+      {
+        $li = new DOMDocument();
+        $li->loadHTML('<li class="nav left"><a class="left nav">MetaTutorial</a></li>');
+        $li->getElementsByTagName('a')[0]->setAttribute("href",'http://' . $_SERVER['SERVER_NAME'] . '/admin/meta_tutorial/meta_tutorial.html');
+        echo $li->saveHTML();
+      }
     ?>
     <!--Logout-->
     <?php

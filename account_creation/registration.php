@@ -58,12 +58,19 @@ else if (isset($_POST['Email']) || isset($_POST['Username']) || isset($_POST['pa
     { // If the email already exists
       $email_err = "This email is already in use!";
     }
-    // Check if username exists
-    $request = $connected->prepare("SELECT username FROM `users` WHERE username = :username");
-    $exist2 = ($request->execute(array(':username' => $user)) === True) && $request->rowCount();
-    if ($exist2)
-    {
-      $user_err = "This username is already in use!";
+    
+    if (strlen($user) > 20)
+    { // Check if username is under 20 chars
+      $user_err = "Please enter a username that is less than or equal to 20 characters!";
+    }
+    else
+    { // Check if username exists
+      $request = $connected->prepare("SELECT username FROM `users` WHERE username = :username");
+      $exist2 = ($request->execute(array(':username' => $user)) === True) && $request->rowCount();
+      if ($exist2)
+      {
+        $user_err = "This username is already in use!";
+      }
     }
 
     if (!$exist1 && !$exist2 && ($email_err == '') && ($user_err == '') && ($pass_err == ''))
@@ -95,6 +102,32 @@ else if (isset($_POST['Email']) || isset($_POST['Username']) || isset($_POST['pa
     <fieldset>
       <legend>Please Create an Account</legend>
       <div class="left">
+        <label class="left" for="username">Enter an Email: </label>
+        <input class="right" id="email" type="text" name="Email" autofocus required>
+        <span class="info"><?php echo $email_err;?></span>
+      </div>
+      <div class="left clear_left">
+        <label class="left" for="username">Create a Username: </label>
+        <input class="right" id="username" type="text" name="Username" maxlength="20" required>
+        <span class="info"><?php echo $user_err;?></span>
+      </div>
+      <div class="left clear_left">
+        <label class="left" for="password1">Enter a Password: </label>
+        <input class="right" id="password1" type="password" name="pass1" minlength="12" required>
+        <label class="left" for="password2">Re-enter Password: </label>
+        <input class="right" id="password2" type="password" name="pass2"  minlength="12" required onblur="pass_check();">
+        <span class="info"><?php echo $pass_err;?></span>
+      </div>
+    
+      <input type="submit" value="Create Account" id="submit">
+    </fieldset>
+  </form>
+  <p class="noaccount"><a href = "../index.php">Already have an account? Login here!</a></p>
+  <p class="about"><a href = "../about/about.html">About</a></p>
+  <script type="text/javascript" src="../resources/account_creation/registration.js"></script>
+</body>
+</html>
+<!--   <div class="left">
         <label for="username">Enter an Email: </label>
         <span class="info"><?php echo $email_err;?></span>
         <label for="username">Create a Username: </label>
@@ -108,12 +141,4 @@ else if (isset($_POST['Email']) || isset($_POST['Username']) || isset($_POST['pa
         <input id="username" type="text" name="Username" maxlength="20" required>
         <input id="password1" type="password" name="pass1" minlength="12" required>
         <input id="password2" type="password" name="pass2"  minlength="12" required onblur="pass_check();">
-      </div>
-      <input type="submit" value="Create Account" id="submit">
-    </fieldset>
-  </form>
-  <p class="noaccount"><a href = "../index.php">Already have an account? Login here!</a></p>
-  <p class="about"><a href = "../about/about.html">About</a></p>
-  <script type="text/javascript" src="../resources/account_creation/registration.js"></script>
-</body>
-</html>
+      </div> -->
