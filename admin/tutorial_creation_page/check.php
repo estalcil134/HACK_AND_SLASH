@@ -7,7 +7,7 @@ if (isset($_POST['fin']))
   $request = $connected->prepare("SELECT tut_bitstring FROM users WHERE username = :user");
   $request->execute(array(':user'=>$_SESSION['username']));
   $tut_bitstring = $request->fetch()[0];
-  $all = $connected->prepare("SELECT * FROM tutorials");
+  $all = $connected->prepare("SELECT * FROM tutorials ORDER BY num ASC");
   $all->execute();
   // Extend the tut_bitstring
   $size = strlen($tut_bitstring);

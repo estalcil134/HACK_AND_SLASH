@@ -20,14 +20,14 @@ if(isset($_POST['submit']) && isset($_POST['challenge']) && isset($_POST['flag']
   if (!$result->fetch()[0])
   {
     // Upload the file first
-    if (is_uploaded_file($_FILES['myFile']['tmp_name']))
+    if (is_uploaded_file($_FILES['myFile']['tmp_name'][0]))
     { // If there was a file uploaded, then execute this block
       $file = $_FILES['myFile'];
-      $fileName = $file['name'];
-      $fileTmpName = $file['tmp_name'];
-      $fileSize = $file['size'];
-      $fileError = $file['error'];
-      $fileType = $file['type'];
+      $fileName = $file['name'][0];
+      $fileTmpName = $file['tmp_name'][0];
+      $fileSize = $file['size'][0];
+      $fileError = $file['error'][0];
+      $fileType = $file['type'][0];
       $fileExt = explode('.',$fileName);
       $fileActualExt = strtolower(end($fileExt));
       $allowed = array('html','htm','txt','sql');
