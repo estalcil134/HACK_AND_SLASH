@@ -10,6 +10,10 @@ if(!file_exists("../../admin/challenge_creation_page/uploaded_docs/" . $_SESSION
 { // Print this if error occurred
   echo "Error occurred when making admin directory";
 }
+if (!file_exists("../../user/challenges/challenges") && !mkdir("../../user/challenges/challenges", 0700))
+{
+  echo "Error occurred when making challenges folder";
+}
 if(isset($_POST['submit']) && isset($_POST['challenge']) && isset($_POST['flag']) && isset($_POST['description'])) {
   // If all the required fields are set execute all of this:
   $fileDestination = ""; // Challenge file location that user will download
