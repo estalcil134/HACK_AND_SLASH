@@ -1,3 +1,4 @@
+
 #showanswer, #showanswer1 {
 	/*css for hidden short answer and hidden mult choice answre*/
 	display: none;
@@ -53,8 +54,15 @@ div .m_choice{
 	line-height: 50%;
 	width: 90%;
 }
-
-
+#code {
+  height: 100%;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  min-height: 500px;
+}
+iframe {
+  min-height: 400px;
+}
 /*
 <div id="code">
 	<div>QUESTION: generic question<br>
