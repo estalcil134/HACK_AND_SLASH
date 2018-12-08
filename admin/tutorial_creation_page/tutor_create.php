@@ -71,6 +71,10 @@ if ($_SESSION["user-type"] != "admin")
               {
                 echo('You cannot upload this file type.');
               }
+              if($_SERVER['QUERY_STRING'] == '=1')
+              {
+                echo('File Uploaded Successfully!');
+              }
               if($_SERVER['QUERY_STRING'] && $_SERVER['QUERY_STRING'] != '=7')
               {
                 echo('</p>');

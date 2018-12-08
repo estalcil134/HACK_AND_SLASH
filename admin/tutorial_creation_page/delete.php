@@ -47,7 +47,7 @@
             </head>
             <body>
               <header>
-                  <img id = "logo" src="/resources/general/LOGO.png" alt="HACK AND SLASH LOGO" onclick="location.href=\'../../../tutor_create.php\'">
+                  <img id = "logo" src="/resources/general/LOGO.png" alt="HACK AND SLASH LOGO" onclick="location.href=\'../../../admin/tutorial_creation_page/tutor_create.php\'">
                 </header>
               <div id="code">';
               if($count != 0)
