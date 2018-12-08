@@ -52,20 +52,20 @@
               <div id="code">';
               if($count != 0)
               {
-                $output_big = $output_big.'<button class="buttoff" onclick="location.href=\''.($count-1).'.html\'">BACK</button>';
+                $output_big = $output_big.'<button class="buttoff b_right" onclick="location.href=\''.($count-1).'.html\'">BACK</button>';
               }
               else
               {
-                $output_big = $output_big.'<button class="buttoff" onclick=\'' . 'location.href="../tutorial_landing_page.php"' . '\'>BACK</button>';
+                $output_big = $output_big.'<button class="buttoff b_right" onclick=\'' . 'location.href="../tutorial_landing_page.php"' . '\'>BACK</button>';
               }
               $output_big = $output_big.'<iframe width = "100%" height = "100%" src = "'.$count.'_page.html"></iframe>';
               if($count != ($num_file-1))
               {
-                $output_big = $output_big.'<button class="buttoff" type="button" onclick="'. "location.href='".($count+1).".html'" . '">NEXT</button>';
+                $output_big = $output_big.'<button class="buttoff b_left" type="button" onclick="'. "location.href='".($count+1).".html'" . '">NEXT</button>';
               }
               else
               {
-                $output_big = $output_big.'<form action="../../../admin/tutorial_creation_page/check.php" method="POST"><input name="fin" type="hidden" value="' . $fileString . '"><button class="buttoff" type="submit">END</button></form>';
+                $output_big = $output_big.'<form action="../../../admin/tutorial_creation_page/check.php" method="POST"><input name="fin" type="hidden" value="' . $fileString . '"><button class="buttoff b_left" type="submit">END</button></form>';
               }
               $output_big = $output_big.'</div><button id="return" type="button" onclick="location.href=\'../tutorial_landing_page.php\'">Return</button><footer><a id = "about" href="http://' . $_SERVER['SERVER_NAME'] . '/about/about.html">About Page</a></footer><script src="/resources/general/cookies_enabled.js"></script><script src="/resources/jquery/jquery-1.4.3.min.js"></script></script><script src="/resources/general/answer.js"></script></body></html>';
               fwrite($challenge, $output_big);
