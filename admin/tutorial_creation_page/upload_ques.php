@@ -70,7 +70,7 @@
   foreach ($_POST as $key => $value) {
     unset($_POST[$key]);
   }
-  header("Location:index.php");
+  header("Location:tutor_create.php");
 
 
 ?>

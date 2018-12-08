@@ -49,12 +49,12 @@ $error_type='';
   foreach ($_POST as $key => $value) {
     unset($_POST[$key]);
   }
-if ($error_type)
+if($error_type)
 {
-  header("Location: index.php?=$error_type");
+  header("Location: tutor_create.php?=$error_type");
 }
 else
 {
-  header("Location: index.php");
+  header("Location: tutor_create.php");
 }
 ?>

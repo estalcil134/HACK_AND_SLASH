@@ -4,7 +4,7 @@
   if($_POST['final_tutorial_title'] == "")
   {
     unlink('uploaded_docs/'.$_SESSION['username'].'/'.$_POST['filename']);
-    header("Location:index.php");
+    header("Location:tutor_create.php");
   }
   else
   {
@@ -39,7 +39,7 @@
             </head>
             <body>
               <header>
-                  <img id = "logo" src="/resources/general/LOGO.png" alt="HACK AND SLASH LOGO" onclick="location.href=\'../../../index.php\'">
+                  <img id = "logo" src="/resources/general/LOGO.png" alt="HACK AND SLASH LOGO" onclick="location.href=\'../../../tutor_create.php\'">
                 </header>
               <div id="code">';
               if($count != 0)
@@ -97,11 +97,11 @@
     }
     if($error_type)
     {
-      header("Location: index.php?=$error_type");
+      header("Location: tutor_create.php?=$error_type");
     }
     else
     {
-      header("Location: index.php");
+      header("Location: tutor_create.php");
     }
     exit();
   }
