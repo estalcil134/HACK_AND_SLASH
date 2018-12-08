@@ -107,12 +107,12 @@ else if (isset($_POST['Email']) || isset($_POST['Username']) || isset($_POST['pa
         <span class="info"><?php echo $email_err;?></span>
       </div>
       <div class="left clear_left">
-        <label class="left" for="username">Create a Username: </label>
+        <label class="left" for="username">Create a Username: (under 20 characters)</label>
         <input class="right" id="username" type="text" name="Username" maxlength="20" required>
         <span class="info"><?php echo $user_err;?></span>
       </div>
       <div class="left clear_left">
-        <label class="left" for="password1">Enter a Password: </label>
+        <label class="left" for="password1">Enter a Password: (at least 12 characters)</label>
         <input class="right" id="password1" type="password" name="pass1" minlength="12" required>
         <label class="left" for="password2">Re-enter Password: </label>
         <input class="right" id="password2" type="password" name="pass2"  minlength="12" required onblur="pass_check();">

@@ -101,3 +101,10 @@ a:link{
 a:visited{
 	color: white;
 }
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none){
+  /*For internet explorer*/
+  h1
+  {
+    color:red;
+  }
+}

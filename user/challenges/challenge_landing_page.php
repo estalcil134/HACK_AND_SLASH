@@ -91,7 +91,7 @@ require '../../resources/general/navbar_user.html';
       }
 
       // Grab the challenges
-      $request = $connected->prepare("SELECT `admins`.img, `challenges`.* FROM `admins`, `challenges` WHERE `admins`.userid = `challenges`.creater_id");
+      $request = $connected->prepare("SELECT `admins`.img, `challenges`.* FROM `admins`, `challenges` WHERE `admins`.userid = `challenges`.creater_id ORDER BY num ASC");
       $request->execute();
       // Display the challenges
       $loop = $request->rowCount();

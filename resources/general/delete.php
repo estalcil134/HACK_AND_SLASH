@@ -7,7 +7,7 @@ if ($_POST)
   if (isset($_POST['type']) && ($_POST['type'] == 'challenge'))
   { // If we want to delete a challenge do this:
     // Find the row number of the challenge to be deleted
-    $numbers = $connected->query('SELECT num FROM challenges');
+    $numbers = $connected->query('SELECT num FROM challenges ORDER BY num ASC');
     foreach($numbers->fetchAll() as $c)
     {
       if ($c[0] == $num)
@@ -60,7 +60,7 @@ if ($_POST)
   else if(isset($_POST['type']) && ($_POST['type'] == 'tutorial'))
   { // If we are deletingn a tutorial, do this
     // Find the row number of the tutorial to be deleted
-    $numbers = $connected->query('SELECT num FROM tutorials');
+    $numbers = $connected->query('SELECT num FROM tutorials ORDER BY num ASC');
     foreach($numbers->fetchAll() as $c)
     {
       if ($c[0] == $num)

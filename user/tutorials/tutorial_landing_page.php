@@ -25,7 +25,7 @@ require '../../resources/general/navbar_user.html';
         //Connect to the database
         require '../../resources/general/connect.php';
         // Grab all the tutorials
-        $result = $connected->prepare("SELECT * FROM tutorials");
+        $result = $connected->prepare("SELECT * FROM tutorials ORDER BY num ASC");
         $result->execute();
         $result = $result->fetchAll();
         // The total number of tutorials
