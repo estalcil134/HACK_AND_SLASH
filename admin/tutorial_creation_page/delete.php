@@ -12,8 +12,16 @@
     {
       if(!is_dir("../../user/tutorials/".$_POST['final_tutorial_title']))
       { 
-        echo "here";
-        mkdir("../../user/tutorials/".$_POST['final_tutorial_title'], 0700, true);
+        $fileString = $_POST['final_tutorial_title'];
+        $fileString = str_replace ("\\","_",$_POST['final_tutorial_title']);
+        $fileString = str_replace ("/","_",$fileString);
+        $fileString = str_replace (":","_",$fileString);
+        $fileString = str_replace ('"',"_",$fileString);
+        $fileString = str_replace ("<","_",$fileString);
+        $fileString = str_replace (">","_",$fileString);
+        $fileString = str_replace ("|","_",$fileString);
+        $fileString = str_replace ("?","_",$fileString.".");
+        mkdir("../../user/tutorials/".$fileString, 0700, true);
         // Add entry in database
         require "../../resources/general/connect.php";
         $request = $connected->prepare("INSERT INTO tutorials (creater_id, name, file_path) VALUES ((SELECT userid FROM users WHERE username = '" . $_SESSION['username'] . "'), :t_n, :f_p)");
