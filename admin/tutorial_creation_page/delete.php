@@ -20,12 +20,12 @@
         $fileString = str_replace ("<","_",$fileString);
         $fileString = str_replace (">","_",$fileString);
         $fileString = str_replace ("|","_",$fileString);
-        $fileString = str_replace ("?","_",$fileString.".");
+        $fileString = str_replace ("?","_",$fileString);
         mkdir("../../user/tutorials/".$fileString, 0700, true);
         // Add entry in database
         require "../../resources/general/connect.php";
         $request = $connected->prepare("INSERT INTO tutorials (creater_id, name, file_path) VALUES ((SELECT userid FROM users WHERE username = '" . $_SESSION['username'] . "'), :t_n, :f_p)");
-        $request->execute(array(':t_n'=>$_POST['final_tutorial_title'], ':f_p'=>"../../user/tutorials/".$_POST['final_tutorial_title'] . "/0.html"));
+        $request->execute(array(':t_n'=>$fileString, ':f_p'=>"../../user/tutorials/".$fileString. "/0.html"));
         if ($handle = opendir("uploaded_docs/".$_SESSION['username'])) {
         $count = 0;
         $num_file = count(scandir("uploaded_docs/".$_SESSION['username'])) - 2;
@@ -33,7 +33,7 @@
         {        
           if ($entry != "." && $entry != "..") 
           {            
-            $challenge = fopen($_SERVER['DOCUMENT_ROOT']."/user/tutorials/".$_POST['final_tutorial_title'].'/'.$count.'.html', "w");
+            $challenge = fopen($_SERVER['DOCUMENT_ROOT']."/user/tutorials/".$fileString.'/'.$count.'.html', "w");
             $output_big = '<!DOCTYPE HTML>
             <html lang="en">
             <head>
@@ -76,7 +76,7 @@
           closedir($handle);
         }
         $count = 0;
-        $fileDestination = $_SERVER['DOCUMENT_ROOT']."/user/tutorials/".$_POST['final_tutorial_title'].'/';
+        $fileDestination = $_SERVER['DOCUMENT_ROOT']."/user/tutorials/".$fileString.'/';
           echo("<br>");
         foreach($_POST as $key => $value) {
             if($key != 'final_tutorial_title' && $key != 'filename')
