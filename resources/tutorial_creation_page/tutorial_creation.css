@@ -201,6 +201,16 @@ select {
   margin-right: 10%;
   display: block;
 }
+.alertz {
+  background-color: white;
+  color: black;
+  font-size: 2em;
+  font-weight: bold;
+  padding: 10px;
+  margin-left: 10%;
+  margin-right: 10%;
+  display: block;
+}
 .number {
   /*css for number objects*/
   display: inline-block;

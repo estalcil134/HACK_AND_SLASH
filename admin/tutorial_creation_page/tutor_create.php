@@ -53,7 +53,7 @@ if ($_SESSION["user-type"] != "admin")
             <?php
               if($_SERVER['QUERY_STRING'] && $_SERVER['QUERY_STRING'] != '=7')
               {
-                echo('<p class = "info">');
+                echo('<p class = "alertz">');
               }
               if($_SERVER['QUERY_STRING'] == '=1')
               {
@@ -200,7 +200,7 @@ if ($_SESSION["user-type"] != "admin")
       <?php
         if($_SERVER['QUERY_STRING'] == '=7')
         {
-            echo('<p class = "info">You must create a page for your tutorial before submitting</p>');
+            echo('<p class = "alertz">You must create a page for your tutorial before submitting!</p>');
         }
       ?>
       <div id = "title_name">
