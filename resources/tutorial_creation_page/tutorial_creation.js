@@ -136,7 +136,7 @@ function show_question(event)
 }
 
 
-function enter()
+function enter(event)
 {
   var el2 = event.target;
   var q_event = event.keyCode;
