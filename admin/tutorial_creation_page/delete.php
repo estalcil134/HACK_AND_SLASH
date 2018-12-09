@@ -10,17 +10,17 @@
   {
     if(count(scandir("uploaded_docs/".$_SESSION['username'])) - 2 != 0)
     {
+      $fileString = $_POST['final_tutorial_title'];
+      $fileString = str_replace ("\\","_",$_POST['final_tutorial_title']);
+      $fileString = str_replace ("/","_",$fileString);
+      $fileString = str_replace (":","_",$fileString);
+      $fileString = str_replace ('"',"_",$fileString);
+      $fileString = str_replace ("<","_",$fileString);
+      $fileString = str_replace (">","_",$fileString);
+      $fileString = str_replace ("|","_",$fileString);
+      $fileString = str_replace ("?","_",$fileString);
       if(!is_dir("../../user/tutorials/".$_POST['final_tutorial_title']))
       { 
-        $fileString = $_POST['final_tutorial_title'];
-        $fileString = str_replace ("\\","_",$_POST['final_tutorial_title']);
-        $fileString = str_replace ("/","_",$fileString);
-        $fileString = str_replace (":","_",$fileString);
-        $fileString = str_replace ('"',"_",$fileString);
-        $fileString = str_replace ("<","_",$fileString);
-        $fileString = str_replace (">","_",$fileString);
-        $fileString = str_replace ("|","_",$fileString);
-        $fileString = str_replace ("?","_",$fileString);
         mkdir("../../user/tutorials/".$fileString, 0700, true);
         // Add entry in database
         require "../../resources/general/connect.php";
