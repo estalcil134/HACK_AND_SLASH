@@ -47,7 +47,7 @@
             </head>
             <body>
               <header>
-                  <img id = "logo" src="/resources/general/LOGO.png" alt="HACK AND SLASH LOGO" onclick="location.href=\'../../../index.php\'">
+                  <img id = "logo" src="/resources/general/LOGO.png" alt="HACK AND SLASH LOGO" onclick="location.href=\'/index.php\'">
                 </header>
               <div id="code">';
               if($count != 0)
