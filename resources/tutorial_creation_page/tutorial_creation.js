@@ -44,10 +44,10 @@ function question()
   var el1 = document.getElementById("question");
   el.style.display = "none";
   el1.style.display = "block";
-  show_question();
+  show_question(event);
 }
 
-function show_question()
+function show_question(event)
 {
   var que = event.target;
   var outputting = document.getElementById("outputter");
@@ -109,7 +109,7 @@ function show_question()
   {
     if(el.style.display == "block")
     {
-      
+
       outputting.innerHTML = "QUESTION: " + question_out + '<br><br><input type="text" autocomplete="off" value="" name="short_ans" class = "inputs" id="user_input" onkeydown = "enter1();"/><br><br><button type = "button" onclick = "show_ans();">SHOW ANSWER</button><br><br><div id = "showanswer">ANSWER: ' + short_answer + '</div>';
       $('input:hidden[name=actual_answer_short]').val(short_answer);
     }
@@ -270,7 +270,7 @@ function find_parent(ev) {
 }
 
 function drag(ev) {
-    ev.dataTransfer.setData("text", ev.target.id); 
+    ev.dataTransfer.setData("text", ev.target.id);
 }
 
 function drop(ev) {
@@ -389,7 +389,7 @@ function show_ans1() {
 function enter1() {
   var el = document.getElementById("showanswer").innerHTML;
   var el2 = event.target;
-  
+
   var q_event = event.keyCode;
   if (q_event == 13)
   {
@@ -411,7 +411,7 @@ function selectRadio() {
 
 function selectRadio1() {
   $('input:radio[name=mult][value=' + event.target.innerHTML.substr(0,1) + ']').click();
-  
+
 }
 function set_answer()
 {

@@ -93,7 +93,7 @@ if ($_SESSION["user-type"] != "admin")
           </p>
           <div class = "space_top set_left">
             <p class = "title eq_width">Question:</p>
-            <input type="text" autocomplete="off" value="" name="tutorial" class = "inputs" id="question_input" onkeydown = "enter();" onkeyup = "show_question();" required>
+            <input type="text" autocomplete="off" value="" name="tutorial" class = "inputs" id="question_input" onkeydown = "enter();" onkeyup = "show_question(event);" required>
           </div>
 
           <div class = "space_top">
@@ -103,12 +103,12 @@ if ($_SESSION["user-type"] != "admin")
 
           <div id = "short" class = "space_top set_left">
             <p class = "title eq_width">Answer:</p>
-            <input type="text" autocomplete="off" value="" name="short_answer" class = "inputs" id="answer_input_short" onkeydown = "enter();" onkeyup = "show_question();" required>
+            <input type="text" autocomplete="off" value="" name="short_answer" class = "inputs" id="answer_input_short" onkeydown = "enter();" onkeyup = "show_question(event);" required>
           </div>
 
           <div id = "multi" class = "space_top">
             <p class = "title">Number of Answers:</p>
-            <select id = "quest_num" onchange="num_multi(); show_question();">
+            <select id = "quest_num" onchange="num_multi(); show_question(eventevent);">
               <option value="two">2</option>
               <option value="three">3</option>
               <option value="four">4</option>
@@ -120,27 +120,27 @@ if ($_SESSION["user-type"] != "admin")
             <div id = "first">
               <input type="radio" name="mult_inp" value="A_1" onclick = "set_answer();">
               <p class = "title eq_width" onclick="selectRadio();">A:</p>
-              <input type="text" autocomplete="off" value="" name="answer1" class = "multi_input inputs" id="one" onkeydown = "enter();" onkeyup = "show_question();"/>
+              <input type="text" autocomplete="off" value="" name="answer1" class = "multi_input inputs" id="one" onkeydown = "enter();" onkeyup = "show_question(event);"/>
             </div>
             <div id = "second">
               <input type="radio" name="mult_inp" value="B_1" onclick = "set_answer();">
               <p class = "title eq_width" onclick="selectRadio();">B:</p>
-              <input type="text" autocomplete="off" value="" name="answer2" class = "multi_input inputs" id="two" onkeydown = "enter();" onkeyup = "show_question();"/>
+              <input type="text" autocomplete="off" value="" name="answer2" class = "multi_input inputs" id="two" onkeydown = "enter();" onkeyup = "show_question(event);"/>
             </div>
             <div id = "third">
               <input type="radio" name="mult_inp" value="C_1" onclick = "set_answer();">
               <p class = "title eq_width" onclick="selectRadio();">C:</p>
-              <input type="text" autocomplete="off" value="" name="answer3" class = "multi_input inputs" id="three" onkeydown = "enter();" onkeyup = "show_question();"/>
+              <input type="text" autocomplete="off" value="" name="answer3" class = "multi_input inputs" id="three" onkeydown = "enter();" onkeyup = "show_question(event);"/>
             </div>
             <div id = "fourth">
               <input type="radio" name="mult_inp" value="D_1" onclick = "set_answer();">
               <p class = "title eq_width" onclick="selectRadio();">D:</p>
-              <input type="text" autocomplete="off" value="" name="answer4" class = "multi_input inputs" id="four" onkeydown = "enter();" onkeyup = "show_question();"/>
+              <input type="text" autocomplete="off" value="" name="answer4" class = "multi_input inputs" id="four" onkeydown = "enter();" onkeyup = "show_question(event);"/>
             </div>
             <div id = "fifth">
               <input type="radio" name="mult_inp" value="E_1" onclick = "set_answer();">
               <p class = "title eq_width" onclick="selectRadio();">E:</p>
-              <input type="text" autocomplete="off" value="" name="answer5" class = "multi_input inputs" id="five" onkeydown = "enter();" onkeyup = "show_question();"/>
+              <input type="text" autocomplete="off" value="" name="answer5" class = "multi_input inputs" id="five" onkeydown = "enter();" onkeyup = "show_question(event);"/>
             </div>
           </div>
           <div id = "out_div">
