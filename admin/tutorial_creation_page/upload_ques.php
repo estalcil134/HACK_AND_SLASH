@@ -11,6 +11,7 @@
     // Then create the text file that will be outputted in the challenge landing page.
     $fileString = str_replace ("\\","_",$_POST['tutorial']);
     $fileString = str_replace ("/","_",$fileString);
+    $fileString = str_replace (" ","_",$fileString);
     $fileString = str_replace (":","_",$fileString);
     $fileString = str_replace ('"',"_",$fileString);
     $fileString = str_replace ("<","_",$fileString);
