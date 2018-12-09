@@ -108,7 +108,7 @@ if ($_SESSION["user-type"] != "admin")
 
           <div id = "multi" class = "space_top">
             <p class = "title">Number of Answers:</p>
-            <select id = "quest_num" onchange="num_multi(); show_question(eventevent);">
+            <select id = "quest_num" onchange="num_multi(); show_question(event);">
               <option value="two">2</option>
               <option value="three">3</option>
               <option value="four">4</option>
