@@ -71,10 +71,6 @@ if ($_SESSION["user-type"] != "admin")
               {
                 echo('You cannot upload this file type.');
               }
-              if($_SERVER['QUERY_STRING'] == '=1')
-              {
-                echo('File Uploaded Successfully!');
-              }
               if($_SERVER['QUERY_STRING'] && $_SERVER['QUERY_STRING'] != '=7')
               {
                 echo('</p>');
@@ -172,7 +168,7 @@ if ($_SESSION["user-type"] != "admin")
           <div id = "preview_look_good2">
             <div id="inner">
               <label class="left" for="final_title" id = "title_para">Tutorial Title</label>
-              <input class="left clear_left" id = "final_title" type = "text" name = "final_tutorial_title" value = ""/>
+              <input class="left clear_left" id = "final_title" type = "text" name = "final_tutorial_title" value = "" minlength="1" required/>
             </div>
           </div>
         </div>

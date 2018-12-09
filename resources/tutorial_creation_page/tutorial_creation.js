@@ -329,7 +329,14 @@ function on(ev) {
       {
         var contentz = $(ev.target.parentElement.childNodes[3]).contents().find("html").html();
         document.getElementById("overlay").style.display = "block";
-        document.getElementById("preview").srcdoc = contentz;
+        if (false || !!document.documentMode)
+        { // If it is internet explorer, set the iframe's src
+          document.getElementById("preview").src = ev.target.parentElement.childNodes[3].src;
+        }
+        else
+        { // All other browsers, set the iframe's srcdoc
+          document.getElementById("preview").srcdoc = contentz;
+        }
       }
     }
 }
