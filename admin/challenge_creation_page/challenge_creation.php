@@ -25,24 +25,24 @@
     <h1>Create a Challenge</h1>
     <div id = "title_name">
       <p class = "title">Challenge Name:</p>
-      <input type="text" name="challenge" autocomplete="off" size="50" value="" class = "inputs" id="tutorial" onkeydown = "enter();" onkeyup = "show_question();" required>        
+      <input type="text" name="challenge" autocomplete="off" size="50" value="" class = "inputs" id="tutorial" onkeydown = "enter(event);" onkeyup = "show_question(event);" required>        
       <input type="submit" value="SUBMIT" id="save" name="submit" />
     </div>
     <div id = "spacer">
       <div id = "question">
         <div class = "space_top set_left">
           <p class = "title eq_width">Description:</p>
-          <input type="text" name="description" autocomplete="off" value="" class = "inputs" id="desc" onkeydown = "enter();" onkeyup = "show_question();" required>
+          <input type="text" name="description" autocomplete="off" value="" class = "inputs" id="desc" onkeydown = "enter(event);" onkeyup = "show_question(event);" required>
         </div>
         <br/>
         <div id = "challenge_upload">
           <p class = "title">Upload your challenge files here: </p>
-          <input id="file" type="file" name="myFile[]" onchange="show_question();">
+          <input id="file" type="file" name="myFile[]" onchange="show_question(event);">
         </div> 
           
         <div id = "multi" class = "space_top">
           <p class = "title">Flag</p>
-          <input type="text" name="flag" autocomplete="off" value=""  class = "multi_input inputs" id="flag" onkeydown = "enter();" onkeyup = "show_question();" required>
+          <input type="text" name="flag" autocomplete="off" value=""  class = "multi_input inputs" id="flag" onkeydown = "enter(event);" onkeyup = "show_question(event);" required>
         </div>
         <br/>
         <br/>

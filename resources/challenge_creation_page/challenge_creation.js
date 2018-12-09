@@ -42,7 +42,7 @@ function getFocusText() {
   document.getElementById("tutorial").focus();
 }
 
-function show_question()
+function show_question(event)
 { // Function to show the demo
   var que = event.target;
   var outputting = document.getElementById("outputter");
@@ -67,7 +67,7 @@ function show_question()
   }
 }
 
-function enter()
+function enter(event)
 { // On this call, focus on the next input tag
   var el2 = event.target;
   var q_event = event.keyCode;

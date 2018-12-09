@@ -14,6 +14,9 @@ Please use the most up to date browser when viewing our website. The website is 
 6) Now go to your browser, enter your servername and enjoy the website!
    e.g. servername = hack.and.slash/    enter http://hack.and.slash/    into the browser
 
+In order to create admin users, first make a normal user account. Then go to localhost/phpmyadmin and insert the admin's userid and the filepath to any
+image they want their challenges to be associated with.
+
 NOTE:
 Three users already exist
 Username |     Password
