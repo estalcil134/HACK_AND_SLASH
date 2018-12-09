@@ -11,7 +11,7 @@ require "../../resources/general/start.php";
   <link rel="stylesheet" type="text/css" href="../../resources/tutorial_home/tutorial_home.css">
 </head>
 <?php
-// Include av bars
+// Include nav bars
 require'../../resources/general/logo_' . $_SESSION['user-type'] . '.html';
 if ($_SESSION['user-type'] === "admin")
 {

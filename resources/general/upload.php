@@ -17,7 +17,18 @@ if (!file_exists("../../user/challenges/challenges") && !mkdir("../../user/chall
 if(isset($_POST['submit']) && isset($_POST['challenge']) && isset($_POST['flag']) && isset($_POST['description'])) {
   // If all the required fields are set execute all of this:
   $fileDestination = ""; // Challenge file location that user will download
-  $file_path = "../../user/challenges/challenges/{$_POST['challenge']}.txt";  // file path for the .txt used for ajax
+  // Scrub the challenge name aka file name
+  $fileString = $_POST['challenge'];
+  $fileString = str_replace ("\\","_",$_POST['challenge']);
+  $fileString = str_replace ("/","_",$fileString);
+  $fileString = str_replace (":","_",$fileString);
+  $fileString = str_replace ('"',"_",$fileString);
+  $fileString = str_replace ("<","_",$fileString);
+  $fileString = str_replace (">","_",$fileString);
+  $fileString = str_replace ("|","_",$fileString);
+  $fileString = str_replace ("?","_",$fileString);
+  $fileString = str_replace (" ","_",$fileString);
+  $file_path = "../../user/challenges/challenges/$fileString.txt";  // file path for the .txt used for ajax
   // Check if the challenge already exists by challenge name. If it does, then we don't submit it
   require "connect.php";
   $result = $connected->query("SELECT file_path FROM `challenges` WHERE creater_id = (SELECT userid FROM `users` WHERE username = '" . $_SESSION['username'] . "') AND file_path = '$file_path'");
