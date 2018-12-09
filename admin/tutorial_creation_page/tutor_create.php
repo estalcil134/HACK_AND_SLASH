@@ -168,7 +168,7 @@ if ($_SESSION["user-type"] != "admin")
           <div id = "preview_look_good2">
             <div id="inner">
               <label class="left" for="final_title" id = "title_para">Tutorial Title</label>
-              <input class="left clear_left" id = "final_title" type = "text" name = "final_tutorial_title" value = ""/>
+              <input class="left clear_left" id = "final_title" type = "text" name = "final_tutorial_title" value = "" minlength="1" required/>
             </div>
           </div>
         </div>
