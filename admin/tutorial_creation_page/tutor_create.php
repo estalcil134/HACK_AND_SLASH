@@ -9,7 +9,7 @@ if ($_SESSION["user-type"] != "admin")
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Hack&amp;/</title>
+    <title>Hack&amp;/ Tutorial Creation</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link href="/resources/tutorial_creation_page/tutorial_creation.css" rel="stylesheet" type="text/css"/>
     <link href="/resources/general/general_content.css" rel="stylesheet" type="text/css"/>
