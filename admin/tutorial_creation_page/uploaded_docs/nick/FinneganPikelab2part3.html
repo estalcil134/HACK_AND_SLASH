@@ -1,0 +1,148 @@
+<!--
+This website displays DJ Pike's Favorite 6 songs in increasing order
+And displays the song's name, the artists, the release date, the 
+Album Cover image, the Album link, and the Genre(s) of the song
+-->
+
+<!--This makes the page an HTML 5 website-->
+<!DOCTYPE html>
+<html>
+<!--head to determine the title and meta data of the webpage-->
+  <head>
+    <title>DJ Pike's Top 6 Playlist</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+     <link href="./FinneganPikelab2part3.css" rel="stylesheet" type="text/css"/>
+  </head>
+<!--  Body of the what is shown on the webpage-->
+  <body>
+    <!--Describe's the purpose of the website in a header-->
+    <h1>DJ Pike's Top 6 Playlist</h1>
+    <!--The least liked of the favorite 6 songs, sections divided from the rest-->
+    <section>
+      <!--Song name-->
+      <h2>Number 6: <span class = "song_name">Take Me Home, Country Roads</span></h2>
+      <!--Image of the Album cover, has alt for screen reader-->
+      <img src="JD.jpg" width="200" height="200" alt="Take Me Home, Country Roads &amp; Other Hits Album Cover" class = "image_cover">
+      <!--Could have multiple artists-->
+      <p>Artist(s):</p>
+      <ol >
+        <li>
+          <a href="http://johndenver.com/" class = "artist">John Denver</a>
+        </li>
+      </ol>
+      <p>Album: <span class = "reduce">(Released April 12, 1971)</span></p>
+      <!--Album Link-->
+      <p>Album Link:</p>
+      <a href="https://www.allmusic.com/album/take-me-home-country-roads-other-hits-mw0000320826" class = "album">Take Me Home, Country Roads &amp; Other Hits</a>
+      <!--Could have multiple Genres-->
+      <p>Genre(s):</p>
+      <ol class = "dashes">
+        <li class = "dashed">Country</li>
+      </ol>
+    </section>
+    <!--Second song division, 5th liked song-->
+    <section>
+      <h2>Number 5: <span class = "song_name">Piano Man</span></h2>
+      <img src="Billy_Joel_Piano_Man_single.jpg" width="200" height="200" alt="Piano Man's Album Cover" class = "image_cover">
+      <p>Artist(s):</p>
+      <ol>
+        <li>
+          <a href="https://www.billyjoel.com/" class = "artist">Billy Joel</a>
+        </li>
+      </ol>
+      <p>Album: <span class = "reduce">(Released November 2, 1973)</span></p>
+      <p>Album Link:</p>
+      <a href="https://www.allmusic.com/album/piano-man-mw0002012463" class = "album">Piano Man</a>
+      <p>Genre(s):</p>
+      <ol class = "dashes">
+        <li class = "dashed">Soft Rock</li>
+        <li class = "dashed">Folk Rock</li>
+      </ol>
+    </section>
+    <!--Third song division, 4th liked song-->
+    <section>
+      <h2>Number 4: <span class = "song_name">Ocean</span></h2>
+      <p>Artist(s):</p>
+      <img src="Martin_Garrix_Ocean.png" width="200" height="200" alt="Ocean's Album Cover" class = "image_cover">
+      <ol>
+        <li>
+          <a href="https://martingarrix.com/" class = "artist">Martin Garrix</a>      
+        </li>
+        <li>
+          <a href="https://www.khalidofficial.com/"  class = "artist">Khalid</a>
+        </li>
+      </ol>
+      <p>Album: <span class = "reduce">(Released June 15, 2018)</span></p>
+      <p>Album Link:</p>
+      <a href="https://www.allmusic.com/album/ocean-mw0003189201" class = "album">Ocean</a>
+      <p>Genre(s):</p>
+      <ol class = "dashes">
+        <li class = "dashed">Pop</li>
+      </ol>
+    </section>
+    <!--Fourth song division, 3rd like song-->
+    <section>
+      <h2>Number 3: <span class = "song_name">Let It Go</span></h2>
+      <img src="Let_it_Go_by_James_Bay.jpg" width="200" height="200" alt="Let It Go Album Cover" class = "image_cover">
+      <p>Artist(s):</p>
+      <ol>
+        <li>
+          <a href="http://www.jamesbay.com/"  class = "artist">James Bay</a>      
+        </li>
+      </ol>
+      <p>Album: <span class = "reduce">(Released September 15, 2014)</span></p>
+      <p>Album Link:</p>
+      <a href="https://www.allmusic.com/album/let-it-go-mw0002664389" class = "album">Let It Go</a>
+      <p>Genre(s):</p>
+      <ol class = "dashes">
+        <li class = "dashed">Indie Rock</li>
+        <li class = "dashed">Soft Rock</li>
+        <li class = "dashed">Blues Rock</li>
+        <li class = "dashed">Soul</li>
+      </ol>
+    </section>
+    <!--Fifth song division , 2nd liked song-->
+    <section>
+      <h2>Number 2: <span class = "song_name">I Miss You</span></h2>
+      <img src="Blink-182_-_I_Miss_You_cover.jpg" width="200" height="200" alt="I Miss You Album Cover" class = "image_cover">
+      <p>Artist(s):</p>
+      <ol>
+        <li>
+          <a href="https://www.himynameismark.com/pages/mark-hoppus"  class = "artist">Mark Hoppus</a>  
+        </li>
+        <li>
+          <a href="https://www.travisbarker.com/"  class = "artist">Travis Barker</a> 
+        </li>
+        <li>
+          <a href="https://skibaclothing.com/"  class = "artist">Matt Skiba</a> 
+        </li>
+      </ol>
+      <p>Album: <span class = "reduce">(Released February 2, 2004)</span></p>
+      <p>Album Link:</p>
+      <a href="https://www.allmusic.com/album/i-miss-you-mw0000465884" class = "album">I Miss You</a>
+      <p>Genre(s):</p>
+      <ol class = "dashes">
+        <li class = "dashed">Alternative Rock</li>
+      </ol>
+    </section>
+    <!--Sixth and most favorite song division-->
+    <section>
+      <h2>Number 1: <span class = "song_name" id = "fav">Perfect</span></h2>
+      <img src="Ed_Sheeran_Perfect_Single_cover.jpg" width="200" height="200" alt="Perfect Album Cover" class = "image_cover">
+      <p>Artist(s):</p>
+      <ol>
+        <li>
+          <a href="http://www.edsheeran.com/ukeutour2019?ref=https://www.google.com/"  class = "artist">Ed Sheeran</a>  
+        </li>
+      </ol>
+      <p>Album: <span class = "reduce">(Released September 26, 2017)</span></p>
+      <p>Album Link:</p>
+      <a href="https://www.allmusic.com/album/perfect-mw0003122243" class = "album">Perfect</a>
+      <p>Genre(s):</p>
+      <ol class = "dashes">
+        <li class = "dashed">Classical Crossover</li>
+      </ol>
+    </section>
+    <p id = "end">End of Playlist</p>
+  </body>
+</html>

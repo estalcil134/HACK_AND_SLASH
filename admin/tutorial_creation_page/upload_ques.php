@@ -32,9 +32,6 @@
     <link href="/resources/general/answer.css" rel="stylesheet" type="text/css">
   </head>
   <body>
-    <header>
-        <img id = "logo" src="/resources/general/LOGO.png" alt="HACK AND SLASH LOGO">
-      </header>
     <div id="code"><div>';
 
     $fileDestination = file_exists("uploaded_docs/username/{$fileString}html");
@@ -60,7 +57,7 @@
       }
       $output_big = $output_big.'</div><br><br><div id = "showanswer1">ANSWER: <span id = "answer">'.$_POST['actual_answer_multi'].'</span></div>';
     }
-    $output_big = $output_big.'</div></div><footer><a id = "about" href="<?php echo \'http://\' . $_SERVER[\'SERVER_NAME\'] . \'/about/about.html\'?>">About Page</a></footer><script src="/resources/general/cookies_enabled.js"></script><script src="/resources/jquery/jquery-1.4.3.min.js"></script></script><script src="/resources/general/answer.js"></script></body></html>';
+    $output_big = $output_big.'</div></div><script src="/resources/general/cookies_enabled.js"></script><script src="/resources/jquery/jquery-1.4.3.min.js"></script></script><script src="/resources/general/answer.js"></script></body></html>';
     fwrite($challenge, $output_big);
     if ($fileDestination)
     {

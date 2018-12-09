@@ -19,6 +19,7 @@
       $fileString = str_replace (">","_",$fileString);
       $fileString = str_replace ("|","_",$fileString);
       $fileString = str_replace ("?","_",$fileString);
+      $fileString = str_replace (" ","_",$fileString);
       if(!is_dir("../../user/tutorials/".$fileString))
       { 
         mkdir("../../user/tutorials/".$fileString, 0700, true);
