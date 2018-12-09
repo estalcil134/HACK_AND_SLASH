@@ -24,6 +24,7 @@ var answer2 = "";
 var answer3 = "";
 var answer4 = "";
 var answer5 = "";
+var filelink = "";
 //this function allows for the user to load the page and have the cursor immediately in the first text box
 var i = 0;
 var classes = [];
@@ -54,9 +55,13 @@ function show_question()
   {
     answer1 = que.value;
   }
+  else if (event.target.id == "file")
+  {
+    filelink = '<p class="center"><a id="fileobj">file</a></p>';
+  }
   if(q_event != 13)
   {
-    var output_big = "<div id=\"mini_contain\"><h3 id='display'>" + question_out + '</h3><p class = "center" name="description">' + answer1 + "</p>" + '<span class="tab" id="file"></span>' + '<p class="center">Enter flag here: <input type="text" disabled></p></div>';
+    var output_big = "<div id=\"mini_contain\"><h3 id='display'>" + question_out + '</h3><p class = "center" name="description">' + answer1 + "</p>" + filelink +'<span class="tab" id="file"></span>' + '<p class="center">Enter flag here: <input type="text" disabled></p></div>';
     
     outputting.innerHTML = output_big;
   }

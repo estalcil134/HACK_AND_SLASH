@@ -195,3 +195,14 @@ h3#display, .center
 {
   border:1px solid black;
 }
+
+#fileobj
+{
+  color:darkslateblue;
+  background-color:pink;
+  text-decoration:none;
+  border:1px solid black;
+  border-radius:4px;
+  padding:3px 10px;
+  text-align:center;
+}
