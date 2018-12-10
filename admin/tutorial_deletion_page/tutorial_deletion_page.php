@@ -29,7 +29,7 @@ require '../../resources/general/navbar_user.html';
         <?php
           //Connect
           require '../../resources/general/connect.php';
-          $result = $connected->prepare("SELECT name, num FROM tutorials WHERE creater_id = (SELECT userid FROM users WHERE username = :u)");
+          $result = $connected->prepare("SELECT name, num FROM tutorials WHERE creater_id = (SELECT userid FROM users WHERE username = :u) ORDER BY num ASC");
           $result->execute(array(':u'=>$_SESSION['username']));
           if (!$result->rowCount())
           {

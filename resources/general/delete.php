@@ -25,6 +25,14 @@ if ($_POST)
       if (strlen($data['chall_bitstring']) > $row)
       { // If it is recorded in the bitstring, shift every character over one
         $i = $row;
+        if ($data['chall_bitstring'][$i] == '1')
+        {
+          $new_score = ($data['score']-100 > 0 ? $data['score']-100:0);
+        }
+        else
+        {
+          $new_score = $data['score'];
+        }
         $len = strlen($data['chall_bitstring']);
         while ($i < $len-1)
         {
@@ -32,7 +40,7 @@ if ($_POST)
         }
         $data['chall_bitstring'][$i] = '0';
         // Update that person's bitstring
-        $update->execute(array(':new'=>$data['chall_bitstring'], ':score'=>($data['score']-100 > 0 ? $data['score']-100:0), ':user'=>$data['username']));
+        $update->execute(array(':new'=>$data['chall_bitstring'], ':score'=>$new_score, ':user'=>$data['username']));
       }
     }
 

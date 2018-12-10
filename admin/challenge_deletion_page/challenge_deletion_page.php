@@ -31,7 +31,7 @@ if ($_SESSION['user-type'] !== "admin")
           // Connect to database
           require '../../resources/general/connect.php';
           // Grab all the challenges
-          $result = $connected->prepare("SELECT name, num FROM challenges WHERE creater_id = (SELECT userid FROM users WHERE username = :u)");
+          $result = $connected->prepare("SELECT name, num FROM challenges WHERE creater_id = (SELECT userid FROM users WHERE username = :u) ORDER BY num ASC");
           $result->execute(array(':u'=>$_SESSION['username']));
           if (!$result->rowCount())
           { // Output this if there are no challenges in the database

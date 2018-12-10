@@ -11,8 +11,8 @@ if ($_SESSION["user-type"] != "admin")
   <head>
     <title>Hack&amp;/ Tutorial Creation</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link href="/resources/tutorial_creation_page/tutorial_creation.css" rel="stylesheet" type="text/css"/>
-    <link href="/resources/general/general_content.css" rel="stylesheet" type="text/css"/>
+    <link href="../../resources/tutorial_creation_page/tutorial_creation.css" rel="stylesheet" type="text/css"/>
+    <link href="../../resources/general/general_content.css" rel="stylesheet" type="text/css"/>
   </head>
 <?php
   require "../../resources/general/logo_user.html";
@@ -205,6 +205,6 @@ if ($_SESSION["user-type"] != "admin")
         </div>
     </div>
   </div>
-    <script type="text/javascript" src = "/resources/jquery/jquery-1.4.3.min.js"></script>
-    <script type="text/javascript" src="/resources/tutorial_creation_page/tutorial_creation.js"></script>
+    <script type="text/javascript" src = "../../resources/jquery/jquery-1.4.3.min.js"></script>
+    <script type="text/javascript" src="../../resources/tutorial_creation_page/tutorial_creation.js"></script>
     <?php require "../../resources/general/footer.html"; ?>
