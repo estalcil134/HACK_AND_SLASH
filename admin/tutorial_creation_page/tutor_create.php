@@ -118,28 +118,28 @@ if ($_SESSION["user-type"] != "admin")
               <p class = "title eq_width" id = "answer_text">SET Answer</p>
             </div>
             <div id = "first">
-              <input type="radio" name="mult_inp" value="A_1" onclick = "set_answer();">
-              <p class = "title eq_width" onclick="selectRadio();">A:</p>
+              <input type="radio" name="mult_inp" value="A_1" onclick = "set_answer(event);">
+              <p class = "title eq_width" onclick="selectRadio(event);">A:</p>
               <input type="text" autocomplete="off" value="" name="answer1" class = "multi_input inputs" id="one" onkeydown = "enter(event);" onkeyup = "show_question(event);"/>
             </div>
             <div id = "second">
-              <input type="radio" name="mult_inp" value="B_1" onclick = "set_answer();">
-              <p class = "title eq_width" onclick="selectRadio();">B:</p>
+              <input type="radio" name="mult_inp" value="B_1" onclick = "set_answer(event);">
+              <p class = "title eq_width" onclick="selectRadio(event);">B:</p>
               <input type="text" autocomplete="off" value="" name="answer2" class = "multi_input inputs" id="two" onkeydown = "enter(event);" onkeyup = "show_question(event);"/>
             </div>
             <div id = "third">
-              <input type="radio" name="mult_inp" value="C_1" onclick = "set_answer();">
-              <p class = "title eq_width" onclick="selectRadio();">C:</p>
+              <input type="radio" name="mult_inp" value="C_1" onclick = "set_answer(event);">
+              <p class = "title eq_width" onclick="selectRadio(event);">C:</p>
               <input type="text" autocomplete="off" value="" name="answer3" class = "multi_input inputs" id="three" onkeydown = "enter(event);" onkeyup = "show_question(event);"/>
             </div>
             <div id = "fourth">
-              <input type="radio" name="mult_inp" value="D_1" onclick = "set_answer();">
-              <p class = "title eq_width" onclick="selectRadio();">D:</p>
+              <input type="radio" name="mult_inp" value="D_1" onclick = "set_answer(event);">
+              <p class = "title eq_width" onclick="selectRadio(event);">D:</p>
               <input type="text" autocomplete="off" value="" name="answer4" class = "multi_input inputs" id="four" onkeydown = "enter(event);" onkeyup = "show_question(event);"/>
             </div>
             <div id = "fifth">
-              <input type="radio" name="mult_inp" value="E_1" onclick = "set_answer();">
-              <p class = "title eq_width" onclick="selectRadio();">E:</p>
+              <input type="radio" name="mult_inp" value="E_1" onclick = "set_answer(event);">
+              <p class = "title eq_width" onclick="selectRadio(event);">E:</p>
               <input type="text" autocomplete="off" value="" name="answer5" class = "multi_input inputs" id="five" onkeydown = "enter(event);" onkeyup = "show_question(event);"/>
             </div>
           </div>
@@ -164,7 +164,7 @@ if ($_SESSION["user-type"] != "admin")
       </p>
       <div id = "tutor_out">
       <form action="delete.php" method="POST" enctype="multipart/form-data" name="addForm">
-        <div id="overlay2" onclick = "off2();">
+        <div id="overlay2" onclick = "off2(event);">
           <div id = "preview_look_good2">
             <div id="inner">
               <label class="left" for="final_title" id = "title_para">Tutorial Title</label>
@@ -184,7 +184,7 @@ if ($_SESSION["user-type"] != "admin")
             $count = 0;
             while (false !== ($entry = readdir($handle))) {
                 if ($entry != "." && $entry != "..") {
-                    echo '<div class = "parental" id="'.$count.'"><p class = "number">'.($count+1).'</p><div id="div'.$count.'" class = "display_frame" ondrop="drop(event);" draggable="false" ondragover="allowDrop(event);"><div id = "inside_div'.$count.'" class = "in_div" draggable="true" ondragstart="find_parent(event); drag(event);" onclick = "on(event);"><button class = "click delete" id = "'.$entry.'" onclick = "setFile();" type = "submit">DELETE</button><input type ="hidden" name = "'.$entry.'" value = "'.$count.'"><div id = "'.$entry.'" class = "file_show">(Click to Preview) '.$entry.'</div><iframe src = "uploaded_docs/'.$_SESSION['username'].'/'.$entry.'" id="drag'.$count.'" class = "small_frame" contenteditable = "false"></iframe></div></div></div>';
+                    echo '<div class = "parental" id="'.$count.'"><p class = "number">'.($count+1).'</p><div id="div'.$count.'" class = "display_frame" ondrop="drop(event);" draggable="false" ondragover="allowDrop(event);"><div id = "inside_div'.$count.'" class = "in_div" draggable="true" ondragstart="find_parent(event); drag(event);" onclick = "on(event);"><button class = "click delete" id = "'.$entry.'" onclick = "setFile(event);" type = "submit">DELETE</button><input type ="hidden" name = "'.$entry.'" value = "'.$count.'"><div id = "'.$entry.'" class = "file_show">(Click to Preview) '.$entry.'</div><iframe src = "uploaded_docs/'.$_SESSION['username'].'/'.$entry.'" id="drag'.$count.'" class = "small_frame" contenteditable = "false"></iframe></div></div></div>';
                   $count++;
                 }
             }

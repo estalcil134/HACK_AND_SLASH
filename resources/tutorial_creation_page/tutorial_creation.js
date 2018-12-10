@@ -114,24 +114,24 @@ function show_question(e)
     if(el.style.display == "block")
     {
 
-      outputting.innerHTML = "QUESTION: " + question_out + '<br><br><input type="text" autocomplete="off" value="" name="short_ans" class = "inputs" id="user_input" onkeydown = "enter1();"/><br><br><button type = "button" onclick = "show_ans();">SHOW ANSWER</button><br><br><div id = "showanswer">ANSWER: ' + short_answer + '</div>';
+      outputting.innerHTML = "QUESTION: " + question_out + '<br><br><input type="text" autocomplete="off" value="" name="short_ans" class = "inputs" id="user_input" onkeydown = "enter1(event);"/><br><br><button type = "button" onclick = "show_ans();">SHOW ANSWER</button><br><br><div id = "showanswer">ANSWER: ' + short_answer + '</div>';
       $('input:hidden[name=actual_answer_short]').val(short_answer);
     }
     else
     {
-      var output_big = "QUESTION: " + question_out + '<br><div class = "tab" id = "A"><input type="radio" name="mult" value="A" onclick = "show_ans1();"><span onclick = "selectRadio1();">A: ' + answer1 + "</span></div>" + '<div class = "tab" id = "B"><input type="radio" name="mult" value="B" onclick = "show_ans1();"><span onclick = "selectRadio1();">B: ' + answer2 + "</span></div>";
+      var output_big = "QUESTION: " + question_out + '<br><div class = "tab" id = "A"><input type="radio" name="mult" value="A" onclick = "show_ans1(event);"><span onclick = "selectRadio1(event);">A: ' + answer1 + "</span></div>" + '<div class = "tab" id = "B"><input type="radio" name="mult" value="B" onclick = "show_ans1(event);"><span onclick = "selectRadio1(event);">B: ' + answer2 + "</span></div>";
       var num = document.getElementById("quest_num").selectedIndex;
       if(num == 1)
       {
-        output_big = output_big + '<div class = "tab" id = "C"><input type="radio" name="mult" value="C" onclick = "show_ans1();"><span onclick = "selectRadio1();">C: ' + answer3 + "</span></div>";
+        output_big = output_big + '<div class = "tab" id = "C"><input type="radio" name="mult" value="C" onclick = "show_ans1(event);"><span onclick = "selectRadio1(event);">C: ' + answer3 + "</span></div>";
       }
       if(num == 2)
       {
-        output_big = output_big + '<div class = "tab" id = "C"><input type="radio" name="mult" value="C" onclick = "show_ans1();"><span onclick = "selectRadio1();">C: ' + answer3 + "</span></div>" + '<div class = "tab" id = "D"><input type="radio" name="mult" value="D" onclick = "show_ans1();"><span onclick = "selectRadio1();">D: ' + answer4 + "</span></div>";
+        output_big = output_big + '<div class = "tab" id = "C"><input type="radio" name="mult" value="C" onclick = "show_ans1(event);"><span onclick = "selectRadio1(event);">C: ' + answer3 + "</span></div>" + '<div class = "tab" id = "D"><input type="radio" name="mult" value="D" onclick = "show_ans1(event);"><span onclick = "selectRadio1(event);">D: ' + answer4 + "</span></div>";
       }
       if(num == 3)
       {
-        output_big = output_big + '<div class = "tab" id = "C"><input type="radio" name="mult" value="C" onclick = "show_ans1();"><span onclick = "selectRadio1();">C: ' + answer3 + "</span></div>" + '<div class = "tab" id = "D"><input type="radio" name="mult" value="D" onclick = "show_ans1();"><span onclick = "selectRadio1();">D: ' + answer4 + "</span></div>" + '<div class = "tab" id = "E"><input type="radio" name="mult" value="E" onclick = "show_ans1();"><span onclick = "selectRadio1();">E: ' + answer5 + "</span></div>";
+        output_big = output_big + '<div class = "tab" id = "C"><input type="radio" name="mult" value="C" onclick = "show_ans1(event);"><span onclick = "selectRadio1(event);">C: ' + answer3 + "</span></div>" + '<div class = "tab" id = "D"><input type="radio" name="mult" value="D" onclick = "show_ans1(event);"><span onclick = "selectRadio1(event);">D: ' + answer4 + "</span></div>" + '<div class = "tab" id = "E"><input type="radio" name="mult" value="E" onclick = "show_ans1(event);"><span onclick = "selectRadio1(event);">E: ' + answer5 + "</span></div>";
       }
       output_big = output_big + '<br><br><div id = "showanswer1">ANSWER: ' + mulitple_answer + '</div>';
       outputting.innerHTML = output_big;
@@ -358,7 +358,11 @@ function on2()
 function off() {
     $("#overlay").css({display: "none"});
 }
-function off2() {
+function off2(e) {
+  if (!window.event)
+  { // If firefox, set event to the passed event
+    event = e;
+  }
   if (event.target.nodeName =='DIV')
   {
     document.getElementById("overlay2").style.display = "none";
@@ -378,7 +382,11 @@ function show_ans() {
   }
 }
 
-function show_ans1() {
+function show_ans1(e) {
+  if (!window.event)
+  { // If firefox, set event to the passed event
+    event = e;
+  }
   var $el = $("#showanswer1").css( "display" );
   if(event.target.parentElement.id == mulitple_answer)
   {
@@ -396,7 +404,11 @@ function show_ans1() {
   }
 }
 
-function enter1() {
+function enter1(e) {
+  if (!window.event)
+  { // If firefox, set event to the passed event
+    event = e;
+  }
   var el = document.getElementById("showanswer").innerHTML;
   var el2 = event.target;
 
@@ -411,7 +423,11 @@ function enter1() {
   }
 }
 
-function selectRadio() {
+function selectRadio(e) {
+  if (!window.event)
+  { // If firefox, set event to the passed event
+    event = e;
+  }
   $('input:radio[name=mult_inp][value=' + event.target.innerHTML.substr(0,1) + '_1]').click();
   mulitple_answer = event.target.innerHTML.substr(0,1);
   $("#showanswer1").css({display: "none"})
@@ -419,16 +435,28 @@ function selectRadio() {
   $('input:hidden[name=actual_answer_multi]').val(mulitple_answer);
 }
 
-function selectRadio1() {
+function selectRadio1(e) {
+  if (!window.event)
+  { // If firefox, set event to the passed event
+    event = e;
+  }
   $('input:radio[name=mult][value=' + event.target.innerHTML.substr(0,1) + ']').click();
 
 }
-function set_answer()
+function set_answer(e)
 {
+  if (!window.event)
+  { // If firefox, set event to the passed event
+    event = e;
+  }
   mulitple_answer = event.target.value.substr(0,1);
   show_question();
   $('input:hidden[name=actual_answer_multi]').val(mulitple_answer);
 }
-function setFile() {
+function setFile(e) {
+  if (!window.event)
+  { // If firefox, set event to the passed event
+    event = e;
+  }
   $('input:hidden[name=filename]').val(event.target.id);
 }
