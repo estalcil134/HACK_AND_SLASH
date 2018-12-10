@@ -352,6 +352,7 @@ function on(ev) {
 function on2()
 {
   $("#overlay2").css({display: "block"});
+  $("#final_title").attr("required", true);
 }
 
 function off() {
@@ -361,6 +362,7 @@ function off2() {
   if (event.target.nodeName =='DIV')
   {
     document.getElementById("overlay2").style.display = "none";
+    document.getElementById("final_title").removeAttribute("required");
   }
 }
 
