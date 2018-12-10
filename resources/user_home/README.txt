@@ -1,0 +1,1 @@
+Here is the CSS file for the user_home_page.php page.

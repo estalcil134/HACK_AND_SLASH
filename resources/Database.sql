@@ -41,7 +41,7 @@ ALTER TABLE challenges ADD PRIMARY KEY (name, file_path);
 ALTER TABLE challenges ADD FOREIGN KEY (creater_id) REFERENCES admins (userid) ON DELETE CASCADE ON UPDATE CASCADE;
 ALTER TABLE challenges ADD COLUMN flags varchar(255) NOT NULL;
 
-/* EXAMPLE DATA */
+/* EXAMPLE USERS */
 INSERT INTO `users` (username, email, hashed_password, salt, tut_bitstring, chall_bitstring)
 VALUES ("pyke", "pikef@rpi.edu", "a47d7a319fa679794692b8074c6dd19e2d31584f52efb9c7c3fb3e529ea70164", "dfd341292bf8ba1fded9600a7721f48b7a6ac3802754bb7ac12f2d02bfe39148", "0", "0"),
 ("wong", "wongw3@rpi.edu", "5a5a1067c4f486b7f045919436effd5aced1cd34ab4de332ff001558a8fa33e2", "949511c3554fdef385ec3b0e780c2d6b5ae0fb1fe063a0a88bf04faa765d9cf1", "0", "0"),
@@ -51,9 +51,3 @@ VALUES ("pyke", "pikef@rpi.edu", "a47d7a319fa679794692b8074c6dd19e2d31584f52efb9
 
 /* Test values for the admin */
 INSERT INTO `admins` (userid, img) VALUES (3, "../../resources/challenge_home/new_johnny.gif");
-
-/*When there is a new challenge, alter the table to include one more 0's for each when the visit the challenge page*/
-
-/*INSERT INTO `tutorials` (creater_id, name, file_path) VALUES (3, "first tut", "some file"), (3, "second tut", "other file");
-INSERT INTO `challenges` (creater_id, name, file_path, flags) VALUES (3, "first chall", "./challenge_2/text.txt", "123"),
-                                                                     (3, "second chall", "./challenge_1/text.txt", "321");*/

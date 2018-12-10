@@ -11,7 +11,7 @@ if(!file_exists("../../admin/challenge_creation_page/uploaded_docs/" . $_SESSION
   echo "Error occurred when making admin directory";
 }
 if (!file_exists("../../user/challenges/challenges") && !mkdir("../../user/challenges/challenges", 0700))
-{
+{ // This folder stores all the text files for the challenge display contents
   echo "Error occurred when making challenges folder";
 }
 if(isset($_POST['submit']) && isset($_POST['challenge']) && isset($_POST['flag']) && isset($_POST['description'])) {
@@ -33,10 +33,10 @@ if(isset($_POST['submit']) && isset($_POST['challenge']) && isset($_POST['flag']
   require "connect.php";
   $result = $connected->query("SELECT file_path FROM `challenges` WHERE creater_id = (SELECT userid FROM `users` WHERE username = '" . $_SESSION['username'] . "') AND file_path = '$file_path'");
   if (!$result->fetch()[0])
-  {
+  { // If it is a new challenge that doesn't exist, do this
     // Upload the file first
     if (is_uploaded_file($_FILES['myFile']['tmp_name'][0]))
-    { // If there was a file uploaded, then execute this block
+    { // If there was a file uploaded, then execute this block to store the file
       $file = $_FILES['myFile'];
       $fileName = $file['name'][0];
       $fileTmpName = $file['tmp_name'][0];
@@ -65,7 +65,6 @@ if(isset($_POST['submit']) && isset($_POST['challenge']) && isset($_POST['flag']
     if ($fileDestination != '')
     { // If a file was submitted, add an anchor tag to that file we are writting into
       fwrite($challenge, "<a id=\"challenge_file\" href=\"$fileDestination\" target=\"_blank\">File</a>");
-      //fwrite($challenge, "<a id=\"challenge_file\" href=\"$fileDestination\" download=\"{$_POST['challenge']}\">File</a>");
     }
     fclose($challenge);
     // Add the challenge to the database
@@ -73,7 +72,7 @@ if(isset($_POST['submit']) && isset($_POST['challenge']) && isset($_POST['flag']
     $request->execute(array(':u'=>$_SESSION['username'], ':c_n'=>$_POST['challenge'], ':f_p'=>$file_path, ':flag'=>$_POST['flag']));
   }
   else
-  { // If the challenge already exists, redirect
+  { // If the challenge already exists, redirect with query string code
     header("Location: http://{$_SERVER['SERVER_NAME']}/admin/challenge_creation_page/challenge_creation.php?=4");
     exit();
   }

@@ -2,6 +2,7 @@
 if ($_SESSION["user-type"] != "admin")
 {
   header("Location: http://" . $_SERVER["SERVER_NAME"]);
+  exit();
 }
 ?>
 <!DOCTYPE html>
@@ -14,7 +15,6 @@ if ($_SESSION["user-type"] != "admin")
 	<title>HACK&amp;/ Admin Homepage</title>
 	<link rel="stylesheet" type="text/css" href="../resources/general/general_content.css">
 	<link rel="stylesheet" type="text/css" href="../resources/admin_home/admin_home.css">
-	<script type="text/javascript" src="../resources/general/footer.js"></script>
 </head>
 
 <?php
@@ -43,4 +43,5 @@ require'../resources/general/logo_' . $_SESSION['user-type'] . '.html';
 		</div>
 	</div>
 	
+	<script type="text/javascript" src="../resources/general/footer.js"></script>
 <?php require '../resources/general/footer.html'; ?>

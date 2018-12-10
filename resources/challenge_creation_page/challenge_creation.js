@@ -1,19 +1,3 @@
-//function validate(formObj) {
-//  var truth = true; //variable is true if all catagories are filled, false otherwise
-//  var message = ""; //the alert message shown to the user
-//  if (formObj.tutorial.value == "") {
-//    if (message!="") {
-//      message = message + "\n";
-//    }
-//    message = message + "You must enter a Tutorial Name.";
-//    formObj.tutorial.focus();
-//    truth = false;
-//  }
-//  if (!truth) {
-//    alert(message);
-//  }
-//  return truth;
-//}
 function css_iframe() {
   $('iframe').contents().find("head").append($("<style type='text/css'> body {width = 500px; word-wrap: break-word;}  </style>"));
 }
@@ -43,7 +27,7 @@ function getFocusText() {
 }
 
 function show_question(event)
-{ // Function to show the demo
+{ // Function to show the preview
   var que = event.target;
   var outputting = document.getElementById("outputter");
   var q_event = event.keyCode;

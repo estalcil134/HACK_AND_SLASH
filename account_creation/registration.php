@@ -94,7 +94,6 @@ else if (isset($_POST['Email']) || isset($_POST['Username']) || isset($_POST['pa
   <title>HACK&amp;/ Registration</title>
   <link rel="stylesheet" href="../resources/index/index.css">
   <link rel="stylesheet" href="../resources/account_creation/account_creation.css">
-  <script type="text/javascript" src="../resources/general/cookies_enabled.js" async></script>
 </head>
 <body>
   <h1>Welcome to HACK&/</h1>
@@ -125,20 +124,6 @@ else if (isset($_POST['Email']) || isset($_POST['Username']) || isset($_POST['pa
   <p class="noaccount"><a href = "../index.php">Already have an account? Login here!</a></p>
   <p class="about"><a href = "../about/about.html">About</a></p>
   <script type="text/javascript" src="../resources/account_creation/registration.js"></script>
+  <script type="text/javascript" src="../resources/general/cookies_enabled.js" async></script>
 </body>
 </html>
-<!--   <div class="left">
-        <label for="username">Enter an Email: </label>
-        <span class="info"><?php echo $email_err;?></span>
-        <label for="username">Create a Username: </label>
-        <span class="info"><?php echo $user_err;?></span>
-        <label for="password1">Enter a Password: </label>
-        <label for="password2">Re-enter Password: </label>
-        <span class="info"><?php echo $pass_err;?></span>
-      </div>
-      <div class="right">
-        <input id="email" type="text" name="Email" autofocus required>
-        <input id="username" type="text" name="Username" maxlength="20" required>
-        <input id="password1" type="password" name="pass1" minlength="12" required>
-        <input id="password2" type="password" name="pass2"  minlength="12" required onblur="pass_check();">
-      </div> -->

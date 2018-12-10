@@ -1,1 +1,1 @@
-This is the challenge landing page. The landing page will display all of the challeneges in the database for the user. 
+This folder contains the challenge_landing_page.css file and the pop_up.js file used by the challenge_landing_page.php file.

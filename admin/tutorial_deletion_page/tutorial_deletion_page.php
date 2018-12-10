@@ -17,10 +17,7 @@ if ($_SESSION['user-type'] !== "admin")
 </head>
 <?php
 require'../../resources/general/logo_' . $_SESSION['user-type'] . '.html';
-if ($_SESSION['user-type'] === "admin")
-{
-  require '../../resources/general/navbar_admin.html';
-}
+require '../../resources/general/navbar_admin.html';
 require '../../resources/general/navbar_user.html';
 ?>
 

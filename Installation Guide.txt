@@ -1,7 +1,7 @@
 Installation Guide:
 NOTE: Must have Apache and MySQL to proceed.
 Please use the most up to date browser when viewing our website. The website is compatible with Internet Explorer, Chrome, Firefox, and Safari.
-1) Unzip the file into a folder. We will refer to that folder as the root directory for the remainder of this installation guide.
+1) Unzip the file into a folder or clone the repo into a folder. We will refer to that folder as the root directory for the remainder of this installation guide.
 2) Locate your httpd-vhosts.conf file for Apache and create a vhost with the "document root" and "directory" set to the file path for the root directory.
    You can set the server name to whatever you like.
 3) Go to your computer's host file and add 127.0.0.1 with your servername so your computer can recognize the virtual host you just added.

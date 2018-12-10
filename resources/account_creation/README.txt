@@ -1,0 +1,1 @@
+Here is the CSS and JavaScript for the registration page. The JavaScript is only used to check that the two passwords entered match.

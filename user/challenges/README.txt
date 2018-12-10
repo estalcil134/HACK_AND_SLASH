@@ -1,0 +1,16 @@
+This page is the landing page where any user can view all the challenges available for any user to attempt.
+
+The $err variable is used to denote whether the flag submitted for a challenge is incorrect.
+At the top of the PHP page, if the user just submitted a flag for a challenge -- where the flag is the answer to the challenge -- then the user's flag is compared with the flag -- stored as plain text since it's value does not warrant a need to be hashed for our group -- and if it is correct then the user's score and challenge bitstring are grabbed from the database where we increase their score by 100 and mark their challenge bit in the challenge bitstring for this challenge as completed -- set it to '1' -- only if the challenge bit is not marked as completed for this challenge already. If the flag was incorrect, then $err is set to true and a messagge saying that the flag was incorrect is outputted.
+
+The first div tag inside <div id="body"> is an overlay that will shadow out the background for the second div tag, <div class="pop"> to take emphasis. The <div class="pop"> tag contains a form that will be centered in the page and take a flag as input for a user specified challenge. It is a pop up form for when the user wants to submit a flag for a challenge where the form submits the required information -- the two hidden inputs for the challenge bit location and the challenge's file_path and the flag input that the user input -- the same page to handle.
+We use JavaScript to show a popup form containing a challenge's contents -- obtained through ajax -- when a user clicks a challenge button. We also use JavaScript to close the popup.
+
+If the user's challenge bitstring is not long enough, it means that new challenges were added so we continuously append '0' to the end of the user's challenge bitstring until the bitstring is as long as the number of challenges that exist. The bitstring is then sent to the database so it can be up to date for that user.
+Note that '0' denotes the challenge is incomplete and '1' denotes that the challenge has been successfully completed. 
+
+After that, the page grabs all the challenge informations and each admin's image from the database and outputs each challenge as a button with the background set to the admin image of the admin that created that challenge. If there are no challenges, a message stating that challenges will come soon is outputted.
+
+NOTE: We are using an ajax call to get data from a text file on our server, located in /user/challenges/challenges/ folder. Because the url of the ajax call can be edited in INSPECTOR MODE, we DISABLED f12, the context menu, and key inputs on arriving at this page to prevent the possibility of changing the url, but in order to enter a flag we had to allow mouse input and key input only when the pop up form is open. It might have been better to use a curl or to reload the php page every time, but that would take away from the speed of just using an ajax call to edit a small part of the HTML page. There are still ways around our blockage, such as opening inspector mode before clicking onto this page.
+
+Visit /resources/challenge_home/ for the pop_up.js file and the CSS file.

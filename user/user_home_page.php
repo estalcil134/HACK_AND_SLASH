@@ -3,6 +3,7 @@ require "../resources/general/start.php";
 if ($_SESSION["user-type"] != "user")
 { // If it is an admin, redirect to the login page to determine what to do
   header("Location: http://" . $_SERVER["SERVER_NAME"]);
+  exit();
 }
 ?>
 <!DOCTYPE html>
@@ -15,8 +16,6 @@ if ($_SESSION["user-type"] != "user")
 	<title>HACK&amp;/ Homepage</title>
 	<link rel="stylesheet" type="text/css" href="../resources/general/general_content.css">
   <link rel="stylesheet" type="text/css" href="../resources/user_home/general_content.css">
-  <script type="text/javascript" src="../resources/general/footer.js"></script>
-  <script type="text/javascript" src="../resources/general/cookies_enabled.js"></script>
 </head>
 
 <?php 
@@ -40,7 +39,8 @@ if ($_SESSION["user-type"] != "user")
       </div>
     </div>
   </div>
-
+<script type="text/javascript" src="../resources/general/footer.js"></script>
+<script type="text/javascript" src="../resources/general/cookies_enabled.js"></script>
   <?php
     require "../resources/general/footer.html";
   ?>

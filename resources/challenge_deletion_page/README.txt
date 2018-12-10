@@ -1,0 +1,2 @@
+For the CSS for the challenge_deletion_page, please visit /resources/general/deletion_page.css since it is also used by the tutorial_deletion_page
+For the php that deals with deletion, please visit /resources/general/delete.php

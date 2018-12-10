@@ -1,0 +1,1 @@
+Here is the CSS and JavaScript file for the challenge_creation_page.

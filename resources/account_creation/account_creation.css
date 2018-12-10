@@ -15,35 +15,6 @@ form
   margin:0 auto;
 }
 
-/*
-fieldset
-{
-  text-align:center;
-}
-
-label, input, span{
-  float: left;
-}
-*/
-
-label, input, span
-{
-  /* Positioning */
-  /*
-  float:left;
-  clear:left;
-  text-align:left;
-  */
-  /* Set max width and heights */
-  /*min-width:25%;
-  max-width:30%;
-  min-height:6%;
-  max-height:7%;*/
-  /* PSEUDO Center TO BE FIXED!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
-  /*
-  margin-left:37%;
-  */
-}
 legend{
   text-align: center;
 }

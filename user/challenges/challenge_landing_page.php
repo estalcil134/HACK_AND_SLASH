@@ -13,10 +13,9 @@ if (isset($_POST['flag']) && isset($_POST['chall_num']) && isset($_POST['chall_p
     $request = $connected->prepare("SELECT chall_bitstring, score FROM `users` WHERE username = :user");
     $request->execute(array(":user"=>$_SESSION['username']));
     $result = $request->fetch();
-    // echo "<br/>" . $result[0][clean_input($_POST['chall_num'])] . "<br/>";
     if ($result[0][clean_input($_POST['chall_num'])] == '0')
     { // To prevent users from reenabling past challenges and resubmitting check that the challenge bit string for that
-      // challenge was not done yet akak the bit is 0
+      // challenge was not done yet aka the bit is 0
       $result[0][clean_input($_POST['chall_num'])] = '1'; // Mark that challenge as complete
       // Update the database
       $request = $connected->prepare("UPDATE `users` SET chall_bitstring = :new, score = :score WHERE username = :user");
@@ -40,7 +39,6 @@ if (isset($_POST['flag']) && isset($_POST['chall_num']) && isset($_POST['chall_p
   <link rel="stylesheet" type="text/css" href="../../resources/general/general_content.css">
   <link rel="stylesheet" type="text/css" href="../../resources/tutorial_home/tutorial_home.css">
   <link rel="stylesheet" href="../../resources/challenge_home/challenge_landing_page.css" type="text/css">
-  <script type="text/javascript" src="../../resources/general/footer.js"></script>
 </head>
 
 <?php
@@ -129,4 +127,5 @@ require '../../resources/general/navbar_user.html';
 <script type="text/javascript" src="../../resources/jquery/jquery-1.4.3.min.js"></script>
 <script type="text/javascript" src="../../resources/challenge_home/pop_up.js" aync></script>
 <script type="text/javascript" src="../../resources/general/cookies_enabled.js"></script>
+<script type="text/javascript" src="../../resources/general/footer.js"></script>
 <?php require "../../resources/general/footer.html"; ?>

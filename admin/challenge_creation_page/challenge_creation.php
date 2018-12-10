@@ -64,7 +64,6 @@
 <script type="text/javascript" src="../../resources/general/footer.js"></script>
 <script type="text/javascript" src="../../resources/general/cookies_enabled.js"></script>
 <?php
-require '../../resources/general/footer.html';
 if (isset($_SERVER['QUERY_STRING']))
 {
   $msg = substr($_SERVER['QUERY_STRING'], 1);
@@ -77,4 +76,5 @@ if (isset($_SERVER['QUERY_STRING']))
     echo "<script>alert('Challenge Successfully Created!');</script>";
   }
 }
+require '../../resources/general/footer.html';
 ?>

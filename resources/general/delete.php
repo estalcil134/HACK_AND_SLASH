@@ -2,7 +2,7 @@
 if ($_POST)
 {
   require "connect.php";
-  $num = clean_input(array_keys($_POST)[0]);
+  $num = clean_input(array_keys($_POST)[0]); // From the name of the input submit
   $row = 0;
   if (isset($_POST['type']) && ($_POST['type'] == 'challenge'))
   { // If we want to delete a challenge do this:
@@ -36,7 +36,8 @@ if ($_POST)
       }
     }
 
-    // Grab where the file always loaded in from ajax is first
+    // Grab where the file that is always loaded in from an ajax call is first
+    // aka the challenge content containing name, description, and filepath
     $request = $connected->prepare("SELECT name FROM challenges WHERE num = :num");
     $request->execute(array(':num'=>$num));
     $file_path = '../../user/challenges/challenges/' . $request->fetch()[0] . '.txt';
@@ -48,17 +49,17 @@ if ($_POST)
     $file = fopen($file_path, 'r');
     $challenge_file_location = fgets($file);
     if (strpos($challenge_file_location, '<a id="challenge_file" href="'))
-    {
+    { // If there is anothe file to delete referenced here, delete it
       $challenge_file_location = substr($challenge_file_location, strpos($challenge_file_location, '<a id="challenge_file" href="')+29);
       $challenge_file_location = substr($challenge_file_location, 0, strpos($challenge_file_location, '" target='));
       unlink($challenge_file_location);
     }
     fclose($file);
-    // Delete the files
+    // Delete the txt file
     unlink($file_path);
   }
   else if(isset($_POST['type']) && ($_POST['type'] == 'tutorial'))
-  { // If we are deletingn a tutorial, do this
+  { // If we are deleting a tutorial, do this
     // Find the row number of the tutorial to be deleted
     $numbers = $connected->query('SELECT num FROM tutorials ORDER BY num ASC');
     foreach($numbers->fetchAll() as $c)
@@ -70,9 +71,9 @@ if ($_POST)
       $row++;
     }
     // Update all tutorial bit strings here
-    $request = $connected->prepare("SELECT tut_bitstring, score, username FROM users");
+    $request = $connected->prepare("SELECT tut_bitstring, username FROM users");
     $request->execute();
-    $update = $connected->prepare("UPDATE `users` SET tut_bitstring = :new, score = :score WHERE username = :user");
+    $update = $connected->prepare("UPDATE `users` SET tut_bitstring = :new WHERE username = :user");
     foreach ($request->fetchAll() as $data)
     {
       if (strlen($data['tut_bitstring']) > $row)
@@ -84,17 +85,16 @@ if ($_POST)
           $data['tut_bitstring'][$i++] = $data['tut_bitstring'][$i];
         }
         $data['tut_bitstring'][$i] = '0';
-        // Update the bitstring and user score
-        $update->execute(array(':new'=>$data['tut_bitstring'], ':score'=>($data['score']-100 > 0 ? $data['score']-100:0), ':user'=>$data['username']));
+        // Update the bitstring
+        $update->execute(array(':new'=>$data['tut_bitstring'], ':user'=>$data['username']));
       }
     }
 
-    // Delete the tutorial
+    // Delete the tutorial commences here
     $request = $connected->prepare('SELECT file_path FROM tutorials WHERE num = :num');
     $request->execute(array(':num'=>$num));
     $t_file_path = $request->fetch()[0];
     $t_file_path = substr($t_file_path, 0, strpos($t_file_path, "0.html"));
-    echo $t_file_path;
     if (is_dir($t_file_path) && ($directory = opendir($t_file_path)))
     { // Successfilly opened directory, so read each file in and delete them
       readdir($directory);  // Ignore the . directory

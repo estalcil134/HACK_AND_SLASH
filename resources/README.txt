@@ -1,0 +1,2 @@
+Each folder contains CSS, JavaScript, or PHP files that are used for the pages pertaining to the folder names.
+The only exception is the Database.sql file which contains the backup of our website's database in its development stage.

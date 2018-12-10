@@ -20,22 +20,6 @@ span
 {
   background-color:white;
 }
-/* End of Centering Challenges section */
-
-/*.challenge
-{
-  width:75%;
-*//*  overflow:hidden;*/  /*Ensures div tag surrounds img*/
-  /*margin: 0 auto 1% auto;*/
-  /*For the animation/transition*/
-  /*position:relative;
-}
-
-img
-{
-  float:left;
-}
-*/
 button
 {
   /* To conform to the images */
@@ -143,15 +127,6 @@ label
   }
 }
 
-/*Image hover effect*/
-/*img
-{
-  width:50%;
-  height:auto;
-  animation?
-  transition:opacity 0.5s;
-}*/
-
 .curr:hover
 {
   /*Container for the image and the text to appear*/
@@ -166,33 +141,4 @@ a#challenge_file
   border:1px solid black;
   border-radius:4px;
   padding:3px 10px;
-}
-
-/*.topic
-{
-*/  /*Styling stuff*/
-/*  color:lightgrey;
-  background-color:darkred;
-  max-width:58px;
-  min-width:57px;
-  padding:0 2%;
-*/  /*Overlay thing*/
-/*  opacity:0;
-  position:absolute;
-  top:50%;
-  left:40%;
-  text-align:center;
-  transition:opacity 0.5s;
-}*/
-
-/*img.fade:hover
-{
-*/  /*Background image fade*/
-/*  opacity:0.3;*/
-  /*cursor:url('./Webp.net-resizeimage.cur'), default;*/
-/*}
-
-div.challenge:hover .topic
-{
-  opacity:1;
 }

@@ -1,0 +1,1 @@
+Here is the CSS file for scoreboard.php page.

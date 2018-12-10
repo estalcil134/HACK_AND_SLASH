@@ -1,0 +1,1 @@
+Here is the CSS file and JavaScript file for the tutorial_deletion_page.php page. The JavaScript file is no longer used and is deprecated.

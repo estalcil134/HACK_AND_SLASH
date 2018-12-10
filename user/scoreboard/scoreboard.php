@@ -9,8 +9,6 @@ require "../../resources/general/start.php";
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name = "description" content = "Scoreboard">
 	<title>HACK&amp;/ Scoreboard</title>
-  <script src="../../resources/general/cookies_enabled.js"></script>
-	<script src="../../resources/general/footer.js"></script>
 	<link href="../../resources/general/general_content.css" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" type="text/css" href="../../resources/scoreboard/general_content.css">
 </head>
@@ -64,4 +62,6 @@ require "../../resources/general/start.php";
   echo "<tr><td>Your Rank</td><td>$rank</td></tr><tr><td>Your Score</td><td>" . "$data[1]" . "</td></tr></tbody></table>";
   $connected = NULL;  // Terminate database connection
 ?>
+<script src="../../resources/general/cookies_enabled.js"></script>
+<script src="../../resources/general/footer.js"></script>
 <?php require "../../resources/general/footer.html"; ?>
