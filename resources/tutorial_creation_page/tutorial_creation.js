@@ -47,8 +47,12 @@ function question()
   show_question(event);
 }
 
-function show_question(event)
+function show_question(e)
 {
+  if (!window.event)
+  { // If firefox, set event to the passed event
+    event = e;
+  }
   var que = event.target;
   var outputting = document.getElementById("outputter");
   var el = document.getElementById("short");
@@ -136,8 +140,12 @@ function show_question(event)
 }
 
 
-function enter(event)
+function enter(e)
 {
+  if (!window.event)
+  { // If firefox, set event to the passed event
+    event = e;
+  }
   var el2 = event.target;
   var q_event = event.keyCode;
   if (q_event == 13)

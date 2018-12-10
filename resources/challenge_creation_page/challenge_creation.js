@@ -26,8 +26,12 @@ function getFocusText() {
   document.getElementById("tutorial").focus();
 }
 
-function show_question(event)
+function show_question(e)
 { // Function to show the preview
+  if (!window.event)
+  { // If firefox, set event to the passed event
+    event = e;
+  }
   var que = event.target;
   var outputting = document.getElementById("outputter");
   var q_event = event.keyCode;
@@ -51,8 +55,12 @@ function show_question(event)
   }
 }
 
-function enter(event)
+function enter(e)
 { // On this call, focus on the next input tag
+  if (!window.event)
+  { // If firefox, set event to the passed event
+    event = e;
+  }
   var el2 = event.target;
   var q_event = event.keyCode;
   if (q_event == 13)
