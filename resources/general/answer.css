@@ -33,7 +33,7 @@ span{
 	padding-top: 50px;
 	margin-right: 60px;
 }
-
+/*below is CSS to style the choices for multiple choices as a whole*/
 div .m_choice{
 	margin-top: 5px;
 	text-align: center;
@@ -63,6 +63,7 @@ div .m_choice{
 iframe {
   min-height: 400px;
 }
+/*CSS for buttons */
 .buttoff{
 	background-color: lightgray;
 	background-image: none;
@@ -72,7 +73,6 @@ iframe {
 	font-size: 1.13em;
 	border-radius: 3px;
 }
-
 .b_right{
 	margin-right: 94%;
 	margin-bottom: 2px;
