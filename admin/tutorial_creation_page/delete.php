@@ -52,21 +52,21 @@
               $challenge = fopen($_SERVER['DOCUMENT_ROOT']."/user/tutorials/".$fileString.'/'.$count.'.html', "w"); //create the new template html of the tutorial
               //add in the start of the generic template
               $output_big = '<!DOCTYPE HTML>
-              <html lang="en">
-              <head>
-                <meta charset="UTF-8">
-                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>Tutorial</title>
-                <link href="/resources/general/general_content.css" rel="stylesheet" type="text/css">
-                <link href="/resources/empty_div.css" rel="stylesheet" type="text/css">
-                <link href="/resources/general/general_content.css" rel="stylesheet" type="text/css">
-                <link href="/resources/general/answer.css" rel="stylesheet" type="text/css">
-              </head>
-              <body>
-                <header>
-                    <img id = "logo" src="/resources/general/LOGO.png" alt="HACK AND SLASH LOGO" onclick="location.href=\'/index.php\'">
-                  </header>
-                <div id="code">';
+                            <html lang="en">
+                            <head>
+                              <meta charset="UTF-8">
+                              <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                              <title>Tutorial</title>
+                              <link href="/resources/general/general_content.css" rel="stylesheet" type="text/css">
+                              <link href="/resources/empty_div.css" rel="stylesheet" type="text/css">
+                              <link href="/resources/general/general_content.css" rel="stylesheet" type="text/css">
+                              <link href="/resources/general/answer.css" rel="stylesheet" type="text/css">
+                            </head>
+                            <body>
+                              <header>
+                                  <img id = "logo" src="/resources/general/LOGO.png" alt="HACK AND SLASH LOGO" onclick="location.href=\'/index.php\'">
+                                </header>
+                              <div id="code">';
               
                 if($count != 0) //if the page being created is not the first created then link the back button to the previous number page of the tutorial
                 {
