@@ -2,16 +2,33 @@ html
 {
   color: #e21f1f;
 }
+
 form 
 {
   background-color:rgba(255, 255, 255, 0.7);
   margin-left: 10%;
   margin-right: 10%;
 }
-#title_name
-{
-  padding-top: 20px;
+
+input[type = "text"]{
+  height: 20px;
+  border-radius: 0%;
 }
+
+select {
+  width: 40px;
+  height: 24px;
+  font-size: 1.2em;
+  background-color: black;
+  color: red;
+}
+
+output 
+{
+  max-width: 50%;
+  text-align: left;
+}
+
 .title
 {
   font-size: 1.2em;
@@ -25,34 +42,77 @@ form
   margin-top: 10px;
   margin-right:10px;
 }
-#addForm
-{
-  margin-top: 50px;
-  text-align: center;
-  padding-bottom: 100px;
-}
-input[type = "text"]{
-  height: 20px;
-  border-radius: 0%;
-}
-#desc
-{
-  height: 20px;
-  border-radius: 0%;
-  min-width: 160px;
-  width: 50%;
-}
 
 .multi_input {
   min-width: 160px;
   width: 44%;
 }
-select {
-  width: 40px;
-  height: 24px;
-  font-size: 1.2em;
-  background-color: black;
-  color: red;
+
+.answer {
+  display: inline-block;
+  width: 15%;
+  padding: 0;
+  min-width: 130px;
+  height: 30px;
+  color: lightgrey;
+  border-width: 0px;
+  background-image: linear-gradient(#550606,#8B0B0B,#C90F0F,#8B0B0B,#550606);
+}
+
+/*generic CSS things*/
+.bold{
+    font-weight: bold;
+}
+.italic{
+    font-style: italic;
+}
+.underline{
+    text-decoration: underline;
+}
+.color{
+    color: red;
+}
+.tab {
+  margin-left: 20px;
+  display: block;
+}
+.space_top {
+  margin-top: 20px;
+}
+
+.set_left {
+  margin-left: 20%;
+  text-align: left;
+}
+
+.display_frame {
+  width: 400px;
+  height: 70px;
+  padding: 10px;
+  border: 10px solid black;
+}
+
+
+
+#title_name
+{
+  padding-top: 20px;
+}
+#addForm
+{
+  /*CSS for addForm id*/
+  margin-top: 50px;
+  text-align: center;
+  padding-bottom: 100px;
+}
+
+#desc
+{
+  /*CSS for description*/
+  height: 20px;
+  border-radius: 0%;
+  min-width: 160px;
+  width: 50%;
 }
 #buttonz
 {
@@ -70,6 +130,7 @@ select {
 }
 #save:active 
 {
+  /*causes the save id to have an active effect*/
   border-top: 2px solid #FA2E14;
   border-right: 2px solid #971100;
   border-bottom: 2px solid #971100;
@@ -77,28 +138,22 @@ select {
   background-color: darkred;
   color: white;
 }
-.answer {
-  display: inline-block;
-  width: 15%;
-  padding: 0;
-  min-width: 130px;
-  height: 30px;
-  color: lightgrey;
-  border-width: 0px;
-  background-image: linear-gradient(#550606,#8B0B0B,#C90F0F,#8B0B0B,#550606);
-}
+
 #spacer {
   margin-bottom: 70px;
 }
+
 #padding_extra
 {
   margin-bottom: 100px;
   height: 5px;
 }
+
 #bbutton
 {
   border-style: outset;
 }
+
 #edit_tutorial_text
 {
   min-width: 80%;
@@ -109,6 +164,7 @@ select {
   max-height: 60%;
   height: 400px;
 }
+
 #outer_div
 {
   background-color: white;
@@ -118,29 +174,10 @@ select {
   margin-left: auto;
   margin-right: auto;
 }
+
 #content
 {
   text-align: justify;
-}
-
-.bold{
-    font-weight: bold;
-}
-
-.italic{
-    font-style: italic;
-}
-.underline{
-    text-decoration: underline;
-}
-.color{
-    color: red;
-}
-
-output 
-{
-  max-width: 50%;
-  text-align: left;
 }
 
 #outputter {
@@ -164,26 +201,6 @@ output
   margin-left: 5%;
   margin-right: 5%;
   margin-top: 5px;
-}
-
-.tab {
-  margin-left: 20px;
-  display: block;
-}
-.space_top {
-  margin-top: 20px;
-}
-
-.set_left {
-  margin-left: 20%;
-  text-align: left;
-}
-
-.display_frame {
-  width: 400px;
-  height: 70px;
-  padding: 10px;
-  border: 10px solid black;
 }
 
 h3#display, .center

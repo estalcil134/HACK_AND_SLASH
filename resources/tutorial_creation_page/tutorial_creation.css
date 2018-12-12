@@ -1,13 +1,11 @@
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none){
     /*For IE*/
-  /*makes the div with id #new_over have a specified width and blackground color*/
-  div#new_over
-  {
-    min-width:100px;
-    max-width:1000px;
-    background-color:black;
-  }
-  /*the overlay div that shows a preview of the code uploaded*/
+    div#new_over
+    {
+      min-width:100px;
+      max-width:1000px;
+      background-color:black;
+    }
   #overlay {
     display:none;
     position:fixed;
@@ -18,7 +16,6 @@
     width: 100%;
     height: 100%;
   }
-  /*makes the preview code shown from the uploaded code in the tutorials look good*/
   #preview_look_good {
     /*css for the preview*/
     background-color: rgba(255,255,255,1); /* Black background with opacity */
@@ -27,7 +24,6 @@
     height: 100%;
     max-height:1000px;
   }
-  /*makes the title of preview over the preview iframe look like a large bright title of "PREVIEW"*/
   #para_preview {
     /*css for para_preview*/
     width: 100%;
@@ -42,7 +38,6 @@
 }
 @media screen and (-webkit-min-device-pixel-ratio:0){
   /*For Chrome*/
-  /*the overlay div that shows a preview of the code uploaded*/
   #overlay {
     display:none;
     position:fixed;
@@ -55,7 +50,6 @@
     width: 100%;
     height: 100%;
   }
-  /*makes the preview code shown from the uploaded code in the tutorials look good*/
   #preview_look_good {
     /*css for the preview*/
     background-color: rgba(255,255,255,1); /* Black background with opacity */
@@ -63,7 +57,6 @@
     margin-right: 10%;
     height: 100%;
   }
-  /*makes the title of preview over the preview iframe look like a large bright title of "PREVIEW"*/
   #para_preview {
     /*css for para_preview*/
     width: 100%;
@@ -78,14 +71,19 @@
 }
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none){
     /*For IE*/
-  /*makes the title submission div hidden*/
   #overlay2 {
     display:none;
+    /*margin-left:42.20%;
+    margin-top:15%;
+    max-width:300px;
+    background-color: rgba(0,0,0,0.5); *//* Black background with opacity */
+    /*width: 100%;
+    height: 100%;*/
   }
-  /*formats the title submission inner frame*/
   #preview_look_good2 {
     /*css for the title*/
     background-color: rgba(255,255,255,0.9); /* Black background with opacity */
+    
     min-height:100px;
     height: 40%;
     /*text-align: center;*/
@@ -93,21 +91,19 @@
     /*To vertial align the inner div tag*/
     overflow:hidden;
   }
-  /*Inner div for overlay2 used to center the label and input tag*/
   #inner
   {
+    /*Inner div for overlay2 used to center the label and input tag*/
     margin:auto;
     margin-top:20px;
     min-width:150px;
     max-width:650px;
   }
-  /*makes the title paragraph id text bold and big*/
   #title_para {
 
     font-weight: bolder;
     font-size: 2.5em;
   }
-  /*formats the final_title id*/
   #final_title {
     float:left;
     clear:none;
@@ -115,7 +111,6 @@
     height: 40px;
     font-size:2.2em;
   }
-  /*formats the iframes that are previewed when clicked upon*/
   .display_frame {
     /*css for display_frame*/
     width: 60%;
@@ -134,7 +129,6 @@
 }
 @media screen and (-webkit-min-device-pixel-ratio:0){
   /*For Chrome*/
-  /*the div to contain the title submission overlay*/
   #overlay2 {
     display:none;
     position:fixed;
@@ -147,7 +141,6 @@
     width: 100%;
     height: 100%;
   }
-  /*formats an inner div of the title submission*/
   #preview_look_good2 {
     /*css for the title*/
     background-color: rgba(255,255,255,0.9); /* Black background with opacity */
@@ -162,29 +155,27 @@
     /*To vertial align the inner div tag*/
     overflow:hidden;
   }
-  /*Inner div for overlay2 used to center the label and input tag*/
   #inner
   {
+    /*Inner div for overlay2 used to center the label and input tag*/
     margin:auto;
     margin-top:20px;
     min-width:150px;
     max-width:650px;
     overflow:hidden;
   }
-  /*makes the title paragraph id text bold and big*/
   #title_para {
 
     font-weight: bolder;
     font-size: 5em;
   }
-  /*formats the final_title id*/
   #final_title {
 
     height: 75px;
     font-size:3em;
   }
-  /*formats the iframes that are previewed when clicked upon*/
-  .display_frame {
+
+.display_frame {
     /*css for display_frame*/
     width: 60%;
     min-height: 50px;
@@ -197,18 +188,15 @@
     background-color: white;
   }
 }
-/*makes the color of the html text red*/
 html
 {
   color: #e21f1f;
 }
-/*formats input elements that are texts*/
 input[type = "text"]{
   /*some css for the text input*/
   height: 20px;
   border-radius: 0%;
 }
-/*formats the select element to have a slightly larger text and to have a arge enough size*/
 select {
   width: 40px;
   height: 24px;
@@ -216,7 +204,7 @@ select {
   background-color: black;
   color: red;
 }
-/*makes the title class that ensures any text in the element is conspicuous*/
+
 .title
 {
   font-size: 1.2em;
@@ -229,7 +217,7 @@ select {
   border-radius: 5%;
   margin-top: 10px;
 }
-/*makes the buttons of this class have a certain style*/
+
 .button_choice
 {
   /*css for button choice*/
@@ -246,7 +234,6 @@ select {
   border-left: 2px solid #971100;
   background-image: linear-gradient(#550606,#8B0B0B,#C90F0F,#8B0B0B,#550606);
 }
-/*makes an answer class that makes a red gradient background for certain buttons to stand out*/
 .answer {
   /*css for answer*/
   display: inline-block;
@@ -259,10 +246,8 @@ select {
   background-image: linear-gradient(#550606,#8B0B0B,#C90F0F,#8B0B0B,#550606);
   border-radius: 5px;
 }
-/*makes a delete class that makes a red gradient background for certain elements to stand out but 
-with a different sizing than the answer class*/
 .delete {
-  /*css for delete*/
+  /*css for answer*/
   display: inline-block;
   width: 60px;
   padding: 0;
@@ -272,13 +257,11 @@ with a different sizing than the answer class*/
   background-image: linear-gradient(#550606,#8B0B0B,#C90F0F,#8B0B0B,#550606);
   border-radius: 5px;
 }
-/*when the click class is active show the user the element is active*/
 .click:active {
   /*css for active click objects*/
   background-image: linear-gradient(#BB0303,#650404,#2E0303,#650404,#BB0303);
   color: white;
 }
-/*makes the buttons with this class have an inversion of color when hovered over*/
 .button_choice:hover 
 {
   /*css for hovering over any button_choice elements*/
@@ -289,20 +272,21 @@ with a different sizing than the answer class*/
   background-image: linear-gradient(#BB0303,#650404,#2E0303,#650404,#BB0303);
   color: white;
 }
-/*generic class to make elements bold*/
-.bold {
+.bold{
+    /*generic class to make stuff bold*/
     font-weight: bold;
 }
-/*generic class to make elements italic*/
+
 .italic{
+    /*generic class to make stuff italic*/
     font-style: italic;
 }
-/*generic class to make elements underlined*/
 .underline{
+    /*generic class to make stuff underlined*/
     text-decoration: underline;
 }
-/*makes elements red*/
 .color{
+    /*makes stuff red*/
     color: red;
 }
 .tab {
@@ -310,8 +294,9 @@ with a different sizing than the answer class*/
   margin-left: 20px;
   display: block;
 }
-/*formats specific divs within other divs*/
+
 .in_div {
+  /*css for within a div*/
   flex: 1;
   padding:5%;
   width:95%;
@@ -320,17 +305,17 @@ with a different sizing than the answer class*/
   margin-right: 2%;
   margin: 0;
 }
-/*adds margin to the top of certain elements to space them out*/
 .space_top {
+  /*some space for the top*/
   margin-top: 20px;
 }
-/*sets certain elements to a certain distance from their nearest left element*/
+
 .set_left {
   /*throw stuff to the left*/
   margin-left: 20%;
   text-align: left;
 }
-/*generic class to make text that is general information for the admin look more like the themee of the website*/
+
 .info {
   /*css for info objects*/
   background-color: black;
@@ -340,8 +325,6 @@ with a different sizing than the answer class*/
   margin-right: 10%;
   display: block;
 }
-/*makes those of the info class be a different style from the rest of the website, since it has a bright background and dark text
-allows for some php messages of mistakes by the admin easier to see*/
 .alertz {
   background-color: white;
   color: black;
@@ -352,32 +335,28 @@ allows for some php messages of mistakes by the admin easier to see*/
   margin-right: 10%;
   display: block;
 }
-/*formats the number class elements*/
 .number {
+  /*css for number objects*/
   display: inline-block;
   background-color: black;
   font-weight: bold;
   font-size: 1.2em;
   padding: 3px;
 }
-/*css for parental class elements*/
+
 .parental {
+  /*css for parental objects*/
   display: inline-block;
   width:30%; 
 }
-/*hides the iframes within each of the uploaded documents displayed to the admin*/
+
 .small_frame {
   display: none;
 }
-/*formats the input types of the multiple choice question maker*/
-.multi_input {
-  /*css for multiple inputs*/
-  min-width: 160px;
-  width: 44%;
-}
-/*css for addForm*/
+
 #addForm
 {
+  /*css for addForm*/
   background-color:rgba(255, 255, 255, 0.7);;
   margin-top: 50px;
   text-align: center;
@@ -385,12 +364,12 @@ allows for some php messages of mistakes by the admin easier to see*/
   margin-left: 10%;
   margin-right: 10%;
 }
-/*sets height for tutorial id*/
 #tutorial
 {
+  /*height for tutorial*/
   height: 20px;
 }
-/*styles the question input type*/
+
 #question_input
 {
   /*css for question input*/
@@ -399,19 +378,23 @@ allows for some php messages of mistakes by the admin easier to see*/
   min-width: 160px;
   width: 50%;
 }
-/*formats the short answer input*/
 #answer_input_short {
   /*css for short answers*/
   min-width: 120px;
   width: 52%;
 }
-/*css for buttonz id*/
+.multi_input {
+  /*css for multiple inputs*/
+  min-width: 160px;
+  width: 44%;
+}
+
 #buttonz
 {
+  /*css for buttonz*/
   display: block;
   margin-top: 50px;
 }
-/*css for the submissionn of the tutorials button*/
 #save
 {
   /*css for saving the tutorial*/
@@ -427,7 +410,6 @@ allows for some php messages of mistakes by the admin easier to see*/
   font-size: 3em;
   border-radius: 30%;
 }
-/*formats the submission of the entire tutorial button when in active event*/
 #save:active
 {
   /*css for when save is active*/
@@ -440,9 +422,10 @@ allows for some php messages of mistakes by the admin easier to see*/
   background-image: linear-gradient(#BB0303,#650404,#2E0303,#650404,#BB0303);
   color: white;
 }
-/*css for tutorial creation id*/
+
 #tutorial_creator
 {
+  /*css for tutorial creation*/
   min-height: 260px;
   border: thick double black;
   margin-bottom: 30px;
@@ -451,32 +434,32 @@ allows for some php messages of mistakes by the admin easier to see*/
   padding: 0;
   margin-top: 0px;
 }
-/*css for a generic spacer at the bottom of the element*/
 #spacer {
+  /*css for a generic spacer*/
   margin-bottom: 70px;
 }
-/*css for the tutorial page id*/
 #tutorial_page
 {
+  /*css for the tutorial page*/
   min-width: 80%;
   min-height: 10px;;
   max-width: 95%;
   color: black;  
 }
-/*adds extra padding to the bottom of the webpage to counter div format*/
 #padding_extra
 {
+  /*extra padding*/
   margin-bottom: 100px;
   height: 5px;
 }
-/*css for bbutton*/
 #bbutton
 {
+  /*css for bbutton*/
   border-style: outset;
 }
-/*css for when edit_tutorial_text id*/
 #edit_tutorial_text
 {
+  /*css for when editing the tutorial*/
   min-width: 80%;
   min-height: 50%;
   max-width: 95%;
@@ -485,7 +468,6 @@ allows for some php messages of mistakes by the admin easier to see*/
   max-height: 60%;
   height: 400px;
 }
- /*css for a specific outer div*/
 #outer_div
 {
   /*css for outer div*/
@@ -496,12 +478,12 @@ allows for some php messages of mistakes by the admin easier to see*/
   margin-left: auto;
   margin-right: auto;
 }
-/*justify content*/
 #content
 {
+  /*justify content*/
   text-align: justify;
 }
-/*css to style the output that shows the admin what their question looks like and acts like*/
+
 #outputter {
   /*css for output*/
   word-wrap: break-word;
@@ -512,8 +494,9 @@ allows for some php messages of mistakes by the admin easier to see*/
   margin-right: 5%;
   
 }
-/*css for outer div id*/
+
 #out_div {
+  /*css for outer div*/
   margin-top: 20px;
   background-color:rgba(255, 255, 255, 0.8);
   display: block;
@@ -524,18 +507,20 @@ allows for some php messages of mistakes by the admin easier to see*/
   text-align: left;
   margin-bottom: 10px;
 }
-/*css for put_div id*/
+
 #put_div {
+  /*css for put_div*/
   margin-left: 5%;
   margin-right: 5%;
   margin-top: 5px;
 }
-/*styles the file submission text*/
+
 #file {
+  /*change font for file*/
   font-weight: bolder;
   font-size: 1.1em
 }
-/*css for final words id*/
+
 #final_words {
   /*css for final words*/
   background-color: none;
@@ -550,8 +535,9 @@ allows for some php messages of mistakes by the admin easier to see*/
   padding-left: 20px;
   padding-right: 20px;
 }
-/*css for tutor_out id*/
+
 #tutor_out {
+  /*css for tutor_out*/
   min-height: 200px;
   border: thick double black;
   margin-bottom: 30px;
@@ -560,26 +546,29 @@ allows for some php messages of mistakes by the admin easier to see*/
   padding: 0;
   margin-top: 0px;
 }
-/*css for showing the short answer*/
+
 #showanswer {
+  /*css for showing the answer*/
   display: none;
   width: 100%;
   min-height: 20px;
 }
-/*css for showing the multiple choice answer*/
+
 #showanswer1 {
+  /*css for showing the first answer*/
   display: none;
   width: 100%;
   min-height: 20px;
 }
-/*padding for create_ques id*/
+
 #create_ques {
   /*padding when creating questions*/
   padding-top: 5px;
   padding-bottom: 20px;
 }
-/*css for submitting questions*/
+
 #ques_submit {
+  /*css for submitting questions*/
   display: block;
   margin-left: auto; 
   margin-right: 5%;
@@ -587,17 +576,18 @@ allows for some php messages of mistakes by the admin easier to see*/
   height: 50px;
   border-radius: 5px;
 }
-/*css for the answer text to be shown to the admin when demoing their own question*/
 #answer_text {
+  /*css for the answer text*/
   margin-bottom:  0;
   display: block;
   margin-left: 13%;
   text-align: center;
   width: 115px;
 }
-/*css for title_name id*/
+
 #title_name
 {
+  /*css for title_name*/
   background-color:rgba(128, 128, 128, 0.7);
   padding-top: 20px;
   padding-bottom: 20px;

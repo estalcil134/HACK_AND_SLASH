@@ -1,4 +1,18 @@
 
+div{
+	/*Editing this will edit the question, answers, and hidden answer*/
+	text-align: center;
+	font-size: 1.1em;
+	font-weight: bold;
+	padding-top: 13px;
+}
+
+span{
+	/*css of answers including hidden answer*/
+	font-weight: normal;
+
+}
+
 #showanswer, #showanswer1 {
 	/*css for hidden short answer and hidden mult choice answre*/
 	display: none;
@@ -8,19 +22,6 @@
 #showanswer1 {
 	/*css for hidden mult choice answer*/
 	display: none;
-}
-
-div{
-	/*Editing this will edit the question, answers, and hidden answer*/
-	text-align: center;
-	font-size: 1.1em;
-	font-weight: bold;
-	padding-top: 13px;
-}
-span{
-	/*css of answers including hidden answer*/
-	font-weight: normal;
-
 }
 
 #answer, #showanswer, #showanswer1{
@@ -74,17 +75,22 @@ iframe {
 	border-radius: 3px;
 }
 .b_right{
+	/*CSS for back button in tutorials or questions*/
 	margin-right: 94%;
 	margin-bottom: 2px;
 }
 .b_left{
+	/*CSS for next and end buttons in tutorials or questions*/
 	margin-left: 92%;
 }
 @media screen and (max-width: 800px){
+	/*CSS for the left button when the screen is smaller than 800px*/
+	/*Otherwise the button becomes cut off*/
 	.b_left{
 		margin-left: 84%;
 	}
 }
+/*some CSS for the return button*/
 #return{
 	margin-top: 1px;
 	width: 90px;

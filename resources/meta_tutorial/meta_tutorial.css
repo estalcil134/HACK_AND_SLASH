@@ -1,5 +1,11 @@
 body {
+    /*make the body background color black*/
     background-color: black;
+}
+
+h2, h3 {
+    /*make both h2 and h3's text red*/
+    color: red;
 }
 #content {
     background-color: #ffffff;
@@ -12,7 +18,4 @@ body {
 #title {
     color: red;
     text-align: center;
-}
-h2, h3 {
-    color: red;
 }

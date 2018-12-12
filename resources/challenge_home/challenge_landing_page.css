@@ -65,11 +65,6 @@ p.name, .done
   }
 }
 
-#chall_info
-{
-  text-align:center;
-}
-
 form
 {
   max-width:250px;
@@ -131,6 +126,11 @@ label
 {
   /*Container for the image and the text to appear*/
   cursor:url('./Webp.net-resizeimage.cur'), default;
+}
+
+#chall_info
+{
+  text-align:center;
 }
 
 a#challenge_file

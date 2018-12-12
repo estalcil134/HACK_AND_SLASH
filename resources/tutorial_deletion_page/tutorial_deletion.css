@@ -1,22 +1,12 @@
-#content {
-    background-color: #ffffff;
-    opacity: 0.8;
-    color: black;
-    max-width: 600px;
-    margin: 10px auto;
-    padding: 10px;
-}
-#title {
-    color: red;
-    text-align: center;
-}
 h2, h3 {
+    /*float h2 and h3 left and make their text red*/
     color: red;
     padding-left: 10px;
     float: left;
 }
 
 .tutorial {
+    /*CSS for tutorial objects*/
     display: inline-block;
     overflow: hidden;
     width: 100%;
@@ -25,11 +15,13 @@ h2, h3 {
 }
 
 .tutorial:hover {
+    /*add a shadow upon hovering*/
     border: 1px solid black;
     box-shadow: 5px 10px 8px #888888;
 }
 
 .delete-button {
+    /*CSS for delete button*/
     background-color: red;
     border: none;
     color: white;
@@ -41,5 +33,21 @@ h2, h3 {
     float: right;
     margin-top: 3%;
     margin-right: 5px;
+    /*makes the cursor a pointer upon hovering over it*/
     cursor: pointer;
 }
+
+#content {
+    background-color: #ffffff;
+    opacity: 0.8;
+    color: black;
+    max-width: 600px;
+    margin: 10px auto;
+    padding: 10px;
+}
+
+#title {
+    color: red;
+    text-align: center;
+}
+

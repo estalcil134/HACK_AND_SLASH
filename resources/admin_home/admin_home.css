@@ -5,14 +5,16 @@ h1{
 	font-weight: bold;
 	text-decoration: underline;
 }
-
+/*all w_ objects are substitutions for a table*/
 .w_container{
+	/*general container*/
 	width: 60%;
 	margin-left: 20%;
 	margin-right: 20%;
 	height: 400px;
 }
 .w_left{
+	/*specific CSS for left side of container*/
 	border: solid black 1px;
 	width: 49.56%;
 	height: 100%;
@@ -20,6 +22,7 @@ h1{
 	
 }
 .w_right{
+	/*specific CSS for right side of container*/
 	border: solid black 1px;
 	width: 49.56%;
 	height: 100%;
@@ -27,6 +30,7 @@ h1{
 	
 }
 .w_left p, .w_right p{
+	/*general CSS for the text on both sides of the container*/
 	font-size: 1.5em;
 	line-height: 450%;
 	height: 25%;
@@ -37,10 +41,16 @@ h1{
 	margin: 0;
 	background-image: radial-gradient(white, red 75%, darkred);
 }
+
+/*CSS for the button links*/
 a:link, a:visited{
+	/*this keeps the links black and not the usual respective blue or purple*/
+	/*blue and purple do not go well with our color scheme*/
 	color: black;
 }
 p:hover{
+	/*when hovering over a button link, reverses the background color scheme*/
+	/*and makes the text white to make it easier to read against the new background*/
 	color: white;
 	background-image: radial-gradient(darkred, red 25%, white);
 }
