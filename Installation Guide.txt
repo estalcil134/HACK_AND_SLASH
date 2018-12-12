@@ -1,7 +1,7 @@
 Installation Guide:
 NOTE: Must have Apache and MySQL to proceed.
 Please use the most up to date browser when viewing our website. The website is compatible with Internet Explorer, Chrome, Firefox, and Safari.
-1) Unzip the file into a folder or clone the repo into a folder. We will refer to that folder as the root directory for the remainder of this installation guide.
+1) Unzip the file into a folder or clone the repo into a folder. We will refer to that unzipped or cloned folder as the root directory for the remainder of this installation guide.
 2) Locate your httpd-vhosts.conf file for Apache and create a vhost with the "document root" and "directory" set to the file path for the root directory.
    You can set the server name to whatever you like.
 3) Go to your computer's host file and add 127.0.0.1 with your servername so your computer can recognize the virtual host you just added.
@@ -9,13 +9,13 @@ Please use the most up to date browser when viewing our website. The website is 
 5) From the root directory, go to the "resources" folder and locate the "Database.sql" file.
    Import that sql file into your MySQL either through the GUI or command line.
    It will create the database and tables required for this project.
-6) From the root directory located "connect.php" in the "resources/general/" folder. Update the credentials in that file
+6) From the root directory locate "connect.php" in the "resources/general/" folder. Update the credentials in that file
    to match your MySQL superuser credentials -- for the root user -- and to match your servername.
 6) Now go to your browser, enter your servername and enjoy the website!
    e.g. servername = hack.and.slash/    enter http://hack.and.slash/    into the browser
 
 In order to create admin users, first make a normal user account. Then go to localhost/phpmyadmin and insert the admin's userid and the filepath to any
-image they want their challenges to be associated with.
+image they want their challenges to be associated with in the `admins` table
 
 NOTE:
 Three users already exist

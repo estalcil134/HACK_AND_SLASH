@@ -7,3 +7,4 @@ NOTE: When one of the input submit tags are clicked, the form executes a confirm
 Once again, the admin user can only delete tutorials that he/she has made and cannot delete another admin's tutorials.
 
 Visit /resources/general/ for the CSS file called deletion_page.css, an external CSS that is also used by the challenge_deletion_page.php page.
+Note that the delete.php this page uses is located in /resources/general/ folder.

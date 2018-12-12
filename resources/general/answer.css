@@ -99,22 +99,3 @@ iframe {
 #return:hover{
 	background-image: linear-gradient(to right bottom, lightgray 70%, red);
 }
-/*
-<div id="code">
-	<div>QUESTION: generic question<br>
-		<div class="m_choice">
-		<div class="tab" id="A"><input type="radio" name="mult" value="A" onclick="show_ans1();"><span onclick="selectRadio1();">A: Blue</span></div>
-		<div class="tab" id="B"><input type="radio" name="mult" value="B" onclick="show_ans1();"><span onclick="selectRadio1();">B: Red</span></div>
-		</div>
-		<br><br>
-		<div id="showanswer1">ANSWER: <span id="answer"></span></div>
-	</div>
-</div>
-<footer>
-	<a id="about" href="&lt;?php echo 'http://' . $_SERVER['SERVER_NAME'] . '/about/about.html'?&gt;">About Page</a>
-</footer>
-<script src="/resources/general/cookies_enabled.js"></script>
-<script src="/resources/jquery/jquery-1.4.3.min.js"></script>
-<script src="/resources/general/answer.js"></script></body>"
-*/
-

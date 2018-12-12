@@ -1,7 +1,7 @@
 This is the folder for generalized CSS, javascript, and php for most of our pages.
 They are here because they are used at least twice in two different pages.
 
-This also contains code and JavaScript files for our footer, navbar, logo, etc. This allows us to copy and paste what till be common in all pages and concentrate more on back end. 
+This also contains code and JavaScript files for our footer, navbar, logo, etc. This allows us to copy and paste what will be common in all pages and concentrate more on back end. 
 
 connect.php is used for connecting to the database using a PDO object called $connected
 
