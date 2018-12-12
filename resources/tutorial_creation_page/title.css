@@ -1,43 +1,43 @@
-form{
+/*creates a white text form that takes up many pixels*/
+form {
 	color: white;
 	min-width:1000px;
 	max-width:1001px;
 	margin:auto;
 }
-h1{
+/*makes the h1 element text white and centered*/
+h1 {
 	color: white;
 	text-align: center;
 }
+/*gives inputs a slight margin*/
 input{
 	margin: 1px;
 }
-#submit
-{
-  padding:3px 5px;
-}
-.title{
+/*creates the size for the title*/
+.title {
 	width: 85%;
 	height:30%;
 }
+/*sets the fieldset element's size and adds padding*/
 fieldset{
 	padding-top:24px;
 	min-width:1000px;
 	max-width:1001px;
 	height:75px;
 }
-.buttoff{
-	/*
-	background-image: radial-gradient(red, darkred 75%, black);
-	font-weight: bold;
-	color: white;
-	*/
+/*gives the submit id a slight padding*/
+#submit
+{
+  padding:3px 5px;
 }
-
+/*the return id has a set margin left, is bold and is a silver to red color*/
 #return{
 	margin-left: 47.5%;
 	font-weight: bold;
 	background-image: linear-gradient(to right bottom, silver 70%, red);
 }
-#logo{
+/*makes the logo look clickable*/
+#logo {
 	cursor: pointer;
 }

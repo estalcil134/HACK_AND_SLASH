@@ -1,11 +1,14 @@
+/*creates a bold inline block element*/
 .bold {
   font-weight: bold;
   display: inline-block;
 }
+/*creates an italicized inline block element*/
 .italicize {
   font-style: italic;
   display: inline-block;
 }
+/*creates a normal inline block element*/
 .normal {
   display: inline-block;
 }
