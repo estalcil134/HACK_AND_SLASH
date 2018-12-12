@@ -1,4 +1,7 @@
 <?php
+  //this php either deletes the tutorial file thatthe admin wants to delete, or creates the new tutorial which in the 
+  //end will delete those tutorial html pages from the current folder and move them elsewhere to be displayed as a new tutorial
+
   //start the session in order to get the username of the admin
   session_start();
   
